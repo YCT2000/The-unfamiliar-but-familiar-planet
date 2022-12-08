@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>基地</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500&family=Open+Sans:wght@500&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <link href="./css/slick.css" rel="stylesheet">
+    <link href="./css/styles.css" rel="stylesheet"> 
+
+</head>
+<body style="background: #339599; overflow: hidden scroll; height: 100%; margin: 0;" >
+
+ 
+    <div class="nav-div" style="display: flex; width: 100%;">
+        <img src="./img/logo.png"
+         style="width: 150px;margin-top: 3%;margin-left: 5%; z-index: 5;" id="LOGO">
+      
+     
+        <div class="navContainer hide" >
+        <nav> 
+            <ul class="navLinks ">
+              
+                <li><a href="base.html">基地</a></li>
+                <li><a href="main.html">行星</a></li>
+                <li><a href="explore.html">探索</a></li>
+                <li><a href="tower.html">塔台</a></li>
+            </ul>
+        </nav>
+    
+        </div>
+        <button class="hamburger">
+            <div class="burger"></div>
+            <div class="burger"></div>
+            <div class="burger"></div>
+        </button>
+    
+        <button class="closeNav hide" >
+            <div class="burger1"></div>
+            <div class="burger2"></div>
+            
+        </button>
+    </div>
+
+
+
+    
+    <div class="slideshow" style="background-image: url('./img/SparkleStar.png'); background-size: 1000px 800px; ">
+    <div class="space" style="height: 5vh; margin: 0%;"></div>
+    <div class="slider-container">
+    <div class="slider">
+        <div class="slide">
+          <h1></h1>
+          <img src="./img/Base/1.jpg" style="width: 95%;" alt="" class="img-responsive" >
+          
+        </div>
+        <div class="slide">
+          <h1></h1>
+          <img src="./img/Base/2.jpg" style="width: 95%;"  alt="" class="img-responsive" >
+          
+        </div>
+        <div class="slide">
+          <h1></h1>
+          <img src="./img/Base/3.jpg" style="width: 95%;" alt="" class="img-responsive" >
+          
+        </div>
+        <div class="slide">
+          <h1></h1>
+          <img src="./img/Base/4.jpg"style="width: 95%;" alt="" class="img-responsive" >
+          
+        </div>
+      
+    </div>
+    </div>
+  
+    <br>
+
+    
+</div>
+
+    <div class="container" 
+        style=" background-color: #DEAD25; width: 100%; height: 600px; margin: 0; top: O; display: flex;">
+            
+                <div id="BaseLOGO" style=" margin: 10%; justify-content: center; align-items: center;">
+                    <img src="./img/logo.png"style=" width: 400px" >
+                </div>
+
+
+                <div id="words" style="
+                font-family: 'Open Sans', sans-serif;
+                font-size: 20px;
+                font-weight: bold;
+                color: #f2f2f2;
+                line-height: 13px;
+                text-align: left;
+                margin: 10%">
+                    
+                    <p>透過與失智長輩個案的交流、互動與訪問，</p>
+                    <p>蒐集失智長輩所分享的人、事、物，</p>
+                    <p>將其資訊整合，</p>
+                    <p>和有長輩的家庭產生連結、對話與分享，</p>
+                    <p>使沒接觸過失智症的人們能認識失智症外，</p>
+                    <p>也能了解它所帶來的影響，</p>
+                    <p>並更珍惜與家人相處的時光。</p>
+                    <p>希望達到以「對待失智長輩，就如同對待新生兒一樣」，</p>
+                    <p>讓人感到溫暖、有愛的。</p>
+                    
+                </div>       
+                 
+            </div>
+ 
+        
+            <footer style="margin: 0; overflow: hidden; display: flex; font-family: 'Noto Sans TC', sans-serif;">
+                <div style="margin-top: 3%;margin-left: 10%; ">
+                <p><i class="fa-solid fa-house"></i>  新竹</p>
+                </div>
+        
+                <div style="margin-top: 3%;margin-left: 25%; text-align: center; line-height: 6px;">
+                <p><i class="fa-solid fa-phone"></i>  03</p>
+                <br>
+                <p>Since 2022年5月31日起，共 00002人拜訪</p>
+                <p>版權所有© 2022 失天人</p>
+                </div>
+        
+                <div style="margin-top: 3%;margin-left: 25%; margin-right: 10%;">
+                <p><i class="fa-solid fa-envelope"></i>  gmail.com</p>
+                </div>
+                
+            </footer>
+
+            <script src="./JavaEvent/nav.js"></script>
+            <script src="./extraScript/slick.js"></script>
+            <script src="https://kit.fontawesome.com/27aba58a5d.js" crossorigin="anonymous"></script>
+            <script>
+            var $st = $('.pagination');
+            var $slickEl = $('.center');
+            
+            $slickEl.on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
+              var i = (currentSlide ? currentSlide : 0) + 1;
+              $st.text(i + ' of ' + slick.slideCount);
+            });
+            
+            window.onload=function(){
+            
+            $('.slider').slick({
+              centerMode: true,
+              centerPadding: '0px',
+              slidesToShow: 3,
+              autoplay:true,
+              autoplaySpeed:1500,
+              arrows: false,
+              dots:true,
+            
+              
+              responsive: [
+                {
+                  breakpoint: 768,
+                  settings: {
+                    arrows: false,
+                    centerMode: true,
+                    centerPadding: '10px',
+                    slidesToShow: 3
+                  }
+                },
+                {
+                  breakpoint: 480,
+                  settings: {
+                    arrows: false,
+                    centerMode: true,
+                    centerPadding: '10px',
+                    slidesToShow: 1
+                  }
+                }
+              ]
+            });
+            }
+            </script>
+</body>
+
+
+
+
+</html>
+

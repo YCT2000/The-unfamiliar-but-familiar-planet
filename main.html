@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500&family=Open+Sans:wght@500&display=swap" rel="stylesheet">
+    <link href="./css/styles.css" rel="stylesheet"> 
+    <title>最熟悉的陌生星球</title>
+</head>
+<body class="">
+
+
+    <div id="startMain"></div>
+        
+        <div id="startContainer" style="display: flex; position: absolute; bottom: 8%; left: 5%; z-index: 10;" >
+
+        <div class="ellipse " style="width: 150px; height: 150px; background-color:brown; border-radius: 50%; overflow: hidden;">
+            <img id='mascot_1 ' class="mascotAni" src="./img/mascot/mascot1.png" style="height: 200px; transform: translate(-25%, 20%); ">
+        </div>
+
+        <div class="mascotSpeech" style="position:relative; margin-top: 4%; margin-left: 2%; margin-bottom: 2%;">
+            <div style="display: flex; position: absolute;left: 80px; margin-top: 5px;">
+            <div class="dialogueMain" >
+                
+                <p>偌大的宇宙裡有很多行星，你是否也發現自己身</p>
+                <p >旁的那顆可愛的行星，不妨和我們一起走近他們...</p>
+                
+            </div>
+            <div id="guideMainBTN" >GO</div>
+            
+        </div>
+        <img id='mascot_bubble' src="./img/mascot/speechBubbling.png" style="height: 96px;">
+        </div>
+      
+        </div>
+       
+        
+        
+    </div>
+</div >
+      
+    <div class="nav-div" style="display: flex; width: 100%;">
+        <img src="./img/logo.png"
+         style="width: 200px;margin-top: 3%;margin-left: 5%; z-index: 5;" id="LOGO">
+      
+     
+        <div class="navContainer hide" >
+        <nav> 
+            <ul class="navLinks ">
+              
+                <li><a href="base.html">基地</a></li>
+                <li><a href="main.html">行星</a></li>
+                <li><a href="explore.html">探索</a></li>
+                <li><a href="#">塔台</a></li>
+            </ul>
+        </nav>
+    
+        </div>
+        <button class="hamburger">
+            <div class="burger"></div>
+            <div class="burger"></div>
+            <div class="burger"></div>
+        </button>
+    
+        <button class="closeNav hide" >
+            <div class="burger1"></div>
+            <div class="burger2"></div>
+            
+        </button>
+    </div>
+
+    
+
+    <div class="SparkleStar"><img src="./img/SparkleStar.png" style=" width: 100%; position: fixed; top: 0; opacity: 0.7; animation: Sparkling 4s infinite;"></div>
+    <canvas class="webgl"></canvas>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.122.0/build/three.min.js"></script>
+    <script src="./extraScript/three_mmi.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
+    <script src="https://unpkg.com/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.122.0/examples/js/controls/OrbitControls.min.js"></script>
+    <script src="./JavaEvent/3DScene.js"></script>
+    <script src="./JavaEvent/nav.js"></script>
+    <script src="./JavaEvent/mascotSpeech.js"></script>
+    <script>
+        
+//Canvas
+const canvas = document.querySelector('.webgl')
+
+//Scene
+const scene = new THREE.Scene()
+scene.fog = THREE.Fog(0xffffff, 1, 2)
+
+const renderer = new THREE.WebGLRenderer({
+    canvas,
+    antialias: true,
+    alpha: true,
+})
+
+const sizes={
+    width: window.innerWidth,
+    height: window.innerHeight
+}
+
+
+//camera
+const camera = new THREE.PerspectiveCamera( 45, sizes.width/ sizes.height, 1, 1000)
+scene.add(camera)
+camera.position.z = 30
+
+const cameraGroup = new THREE.Group()
+cameraGroup.add(camera)
+scene.add(cameraGroup)
+
+
+//增加滾輪時差效果
+
+const mouse = new THREE.Vector2()
+
+window.addEventListener('mousemove', (event) =>{
+    mouse.x = (event.clientX / sizes.width) * 2 - 1
+    mouse.y = (event.clientY / sizes.height) * 2 - 1
+})
+
+window.addEventListener('touchmove', (event) => {
+    const { clientX, clientY } = event.touches[0]
+    mouse.x = (clientX / sizes.width) * 2 - 1
+    mouse.y = -(clientY / sizes.height) * 2 + 1
+  })
+
+
+//renderer setting
+renderer.setSize(sizes.width, sizes.height)
+renderer.setPixelRatio(window.devicePixelRatio)
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+document.body.appendChild(renderer.domElement)
+
+//window resize handling
+function onWindowResize(){
+    
+    camera.aspect = sizes.width / window.height
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+    camera.updateProjectionMatrix()
+   
+}
+window.addEventListener('resize', onWindowResize)
+
+
+
+//Fog
+
+scene.fog = new THREE.Fog(0xfff1bd, 1, 50)
+scene.fog.intensity = 0.02
+
+//Adding lights
+const spotLight = new THREE.SpotLight(0xe6bd85);
+spotLight.position.set( 20, 20, 20);
+
+spotLight.castShadow = true;
+spotLight.intensity = 0.4
+spotLight.shadow.mapSize.width = 1024;
+spotLight.shadow.mapSize.height = 1024;
+
+
+spotLight.shadow.camera.near = 500;
+spotLight.shadow.camera.far = 4000;
+spotLight.shadow.camera.fov = 30;
+
+scene.add( spotLight );
+
+
+
+const ambientLight = new THREE.AmbientLight(0xffffff);
+
+scene.add(ambientLight);
+
+const mmi = new MouseMeshInteraction(scene, camera)
+
+
+//Material
+const CharacterMap = new THREE.TextureLoader().load('./3Dmodels/texture/PlanetA_BaseColor.png')
+CharacterMap.flipY = false;
+CharacterMap_Mat = new THREE.MeshStandardMaterial({
+    map : CharacterMap,
+    roughness : 0.7,
+})
+//Planet A material
+const PlanetAMap = new THREE.TextureLoader().load('./3Dmodels/texture/PlanetA_BaseColor.png')
+PlanetAMap.flipY = false;
+planetA_Mat = new THREE.MeshStandardMaterial({
+    map : PlanetAMap,
+    roughness : 0.7,
+})
+
+//Planet B material
+const PlanetBMap = new THREE.TextureLoader().load('./3Dmodels/texture/PlanetB_BaseColor.png')
+PlanetBMap.flipY = false;
+planetB_Mat = new THREE.MeshStandardMaterial({
+    map : PlanetBMap,  
+    roughness: 0.8,
+})
+
+//Planet C material
+const PlanetCMap = new THREE.TextureLoader().load('./3Dmodels/texture/PlanetC_BaseColor.png')
+PlanetCMap.flipY = false;
+planetC_Mat = new THREE.MeshStandardMaterial({
+    map : PlanetCMap,
+    roughness : 0.7,
+})
+
+//Planet D material
+const PlanetDMap = new THREE.TextureLoader().load('./3Dmodels/texture/PlanetD_BaseColor.png')
+PlanetDMap.flipY = false;
+planetD_Mat = new THREE.MeshStandardMaterial({
+    map : PlanetDMap,
+    roughness : 0.7,
+})
+
+//Planet E material
+const PlanetEMap = new THREE.TextureLoader().load('./3Dmodels/texture/PlanetE_BaseColor.png')
+PlanetEMap.flipY = false;
+planetE_Mat = new THREE.MeshStandardMaterial({
+    map : PlanetEMap,
+    roughness : 0.7,
+})
+
+//Planet F material
+const PlanetFMap = new THREE.TextureLoader().load('./3Dmodels/texture/PlanetF_BaseColor.png')
+PlanetFMap.flipY = false;
+planetF_Mat = new THREE.MeshStandardMaterial({
+    map : PlanetFMap,
+    roughness : 0.7,
+})
+
+//Planet G material
+const PlanetGMap = new THREE.TextureLoader().load('./3Dmodels/texture/PlanetG_BaseColor.png')
+PlanetGMap.flipY = false;
+planetG_Mat = new THREE.MeshStandardMaterial({
+    map : PlanetGMap,
+    roughness : 0.4,
+    emissiveMap : PlanetGMap
+})
+
+//Planet H material
+const PlanetHMap = new THREE.TextureLoader().load('./3Dmodels/texture/PlanetH_BaseColor.png')
+PlanetHMap.flipY = false;
+planetH_Mat = new THREE.MeshStandardMaterial({
+    map : PlanetHMap,
+    roughness : 0.7,
+})
+
+//PlanetI material
+const PlanetIMap = new THREE.TextureLoader().load('./3Dmodels/texture/PlanetI_BaseColor.png')
+PlanetIMap.flipY = false;
+planetI_Mat = new THREE.MeshStandardMaterial({
+    map : PlanetIMap,
+    roughness : 0.7,
+    side : THREE.DoubleSide,
+})
+
+//Planet J material
+const PlanetJMap = new THREE.TextureLoader().load('./3Dmodels/texture/PlanetJ_BaseColor.png')
+PlanetJMap.flipY = false;
+planetJ_Mat = new THREE.MeshStandardMaterial({
+    map : PlanetJMap,
+    roughness : 0.7,
+    side : THREE.DoubleSide,
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+//loading Models
+//Character
+
+//PlanetA
+var loader1 = new THREE.GLTFLoader();
+loader1.load('./3Dmodels/planetA.gltf', function ( gltf1 ) {
+	
+gltf1.scene.material = planetA_Mat
+gltf1.scene.traverse(function (child) {
+
+
+    if (child.isMesh) {
+        child.name = 'planet_A'
+        scene.add(gltf1.scene);
+        child.material = planetA_Mat;
+    }
+  });
+  /*gsap.to(gltf1.scene.rotation , {
+    duration: 3,
+    ease:Linear.easeNone,
+    y: Math.PI * 2,
+    x: Math.PI * 2,
+    repeat: -1,
+    //ease: "sine.inOut",
+    
+})*/
+  mmi.addHandler('planet_A', 'click', function(){
+    window.location.href = "intro_planetA.html"
+    console.log("planet_A is Clicked")
+    })
+
+    mmi.addHandler('planet_A', 'mouseenter', function(){
+
+        gsap.to(gltf1.scene.rotation , {
+            duration: 1.5,
+            ease: 'power2.inOut',
+            x: '+=6',
+            y:'+=3',
+            z:'+=3'
+        })
+    
+        
+        console.log("on planet_A")
+    })
+
+
+    mmi.addHandler('planet_A', 'mouseleave', function(){
+    
+        console.log("out of planet_A")
+      
+    })
+
+gltf1.scene.position.z = 20
+gltf1.scene.position.x = 4
+gltf1.scene.position.y = -2
+});
+
+//PlanetB Import
+var loader2 = new THREE.GLTFLoader();
+loader2.load('./3Dmodels/planetB.gltf', function ( gltf2 ) {
+	
+
+ 
+gltf2.scene.traverse(function (child) {
+
+
+if (child.isMesh) {
+    child.name = 'planet_B';
+    child.receiveShadow = true;
+    child.material = planetB_Mat 
+    scene.add(gltf2.scene);
+}
+});
+
+mmi.addHandler('planet_B', 'click', function(){
+    window.location.href = "intro_planetB.html"
+    
+})
+
+mmi.addHandler('planet_B', 'mouseenter', function(){
+
+    gsap.to(gltf2.scene.rotation , {
+        duration: 1.5,
+        ease: 'power2.inOut',
+        x: '+=6',
+        y:'+=3',
+        z:'+=3'
+       })
+        
+    console.log("on planet_B")
+    })
+
+
+mmi.addHandler('planet_B', 'mouseleave', function(){
+    
+    console.log("out of planet_B")
+   })
+
+gltf2.scene.position.z = 15
+gltf2.scene.position.x = -2
+gltf2.scene.position.y = -2
+
+});
+
+//PlanetC Import
+var loader3 = new THREE.GLTFLoader();
+loader3.load('./3Dmodels/planetC.gltf', function ( gltf3 ) {
+	
+
+gltf3.scene.traverse(function (child) {
+
+
+if (child.isMesh) {
+    child.name = 'planet_C'
+    child.material = planetC_Mat 
+    scene.add(gltf3.scene);
+}
+});
+
+mmi.addHandler('planet_C', 'click', function(){
+    window.location.href = "intro_planetC.html"
+    console.log("planet_C is Clicked")
+})
+
+mmi.addHandler('planet_C', 'mouseenter', function(){
+
+    gsap.to(gltf3.scene.rotation , {
+        duration: 1.5,
+        ease: 'power2.inOut',
+        x: '+=6',
+        y:'+=3',
+        z:'+=3'
+       })
+        
+    console.log("on planet_C")
+    })
+
+
+mmi.addHandler('planet_C', 'mouseleave', function(){
+    
+    console.log("out of planet_C")
+   })
+
+gltf3.scene.position.z = 15
+gltf3.scene.position.x = -4
+gltf3.scene.position.y = 2
+
+});
+
+//PlanetD Import
+var loader4 = new THREE.GLTFLoader();
+loader4.load('./3Dmodels/planetD.gltf', function ( gltf4 ) {
+	
+
+gltf4.scene.traverse(function (child) {
+
+
+if (child.isMesh) {
+    child.material = planetD_Mat 
+    child.name = 'planet_D'
+    scene.add(gltf4.scene);
+}
+});
+
+mmi.addHandler('planet_D', 'click', function(){
+    window.location.href = "intro_planetD.html"
+    console.log("planet_D is Clicked")
+})
+
+mmi.addHandler('planet_D', 'mouseenter', function(){
+
+    gsap.to(gltf4.scene.rotation , {
+        duration: 1.5,
+        ease: 'power2.inOut',
+        x: '+=6',
+        y:'+=3',
+        z:'+=3'
+       })
+        
+    console.log("on planet_D")
+    })
+
+
+mmi.addHandler('planet_D', 'mouseleave', function(){
+    
+    console.log("out of planet_D")
+   })
+
+gltf4.scene.position.z = 10
+gltf4.scene.position.x = -9
+gltf4.scene.position.y = -5
+
+});
+
+//PlanetE Import
+var loader5 = new THREE.GLTFLoader();
+loader5.load('./3Dmodels/planetE.gltf', function ( gltf5 ) {
+	
+
+gltf5.scene.traverse(function (child) {
+
+
+if (child.isMesh) {
+    child.material = planetE_Mat;
+    child.name = 'planet_E'
+    scene.add(gltf5.scene);
+}
+});
+
+mmi.addHandler('planet_E', 'click', function(){
+    window.location.href = "intro_planetE.html"
+    console.log("planet_E is Clicked")
+})
+
+mmi.addHandler('planet_E', 'mouseenter', function(){
+
+    gsap.to(gltf5.scene.rotation , {
+        duration: 1.5,
+        ease: 'power2.inOut',
+        x: '+=6',
+        y:'+=3',
+        z:'+=3'
+       })
+        
+    console.log("on planet_E")
+    })
+
+
+mmi.addHandler('planet_E', 'mouseleave', function(){
+    
+    console.log("out of planet_E")
+   })
+
+gltf5.scene.position.z = 12
+gltf5.scene.position.x = 10
+gltf5.scene.position.y = 2
+
+});
+
+
+//PlanetF Import
+var loader6 = new THREE.GLTFLoader();
+loader6.load('./3Dmodels/planetF.gltf', function ( gltf6 ) {
+	
+gltf6.scene.traverse(function (child) {
+
+
+if (child.isMesh) {
+    child.material = planetF_Mat;
+    child.name = 'planet_F'
+    scene.add(gltf6.scene);
+}
+});
+
+mmi.addHandler('planet_F', 'click', function(){
+    window.location.href = "intro_planetF.html"
+    console.log("planet_F is Clicked")
+})
+
+mmi.addHandler('planet_F', 'mouseenter', function(){
+
+    gsap.to(gltf6.scene.rotation , {
+        duration: 1.5,
+        ease: 'power2.inOut',
+        x: '+=6',
+        y:'+=3',
+        z:'+=3'
+       })
+        
+    console.log("on planet_F")
+    })
+
+
+mmi.addHandler('planet_F', 'mouseleave', function(){
+    
+    console.log("out of planet_F")
+   })
+
+gltf6.scene.position.z = 5
+gltf6.scene.position.x = -0
+gltf6.scene.position.y = 1
+
+});
+
+//PlanetG Import
+var loader7 = new THREE.GLTFLoader();
+loader7.load('./3Dmodels/planetG.gltf', function ( gltf7 ) {
+	
+
+gltf7.scene.traverse(function (child) {
+
+
+if (child.isMesh) {
+    child.name = 'planet_G'
+    child.material = planetG_Mat 
+    scene.add(gltf7.scene);
+}
+});
+
+mmi.addHandler('planet_G', 'click', function(){
+    window.location.href = "intro_planetG.html"
+    console.log("planet_G is Clicked")
+})
+
+mmi.addHandler('planet_G', 'mouseenter', function(){
+
+    gsap.to(gltf7.scene.rotation , {
+        duration: 1.5,
+        ease: 'power2.inOut',
+        x: '+=6',
+        y:'+=3',
+        z:'+=3'
+       })
+        
+    console.log("on planet_G")
+    })
+
+
+mmi.addHandler('planet_G', 'mouseleave', function(){
+    
+    console.log("out of planet_G")
+   })
+
+gltf7.scene.position.z = 20
+gltf7.scene.position.x = 8
+gltf7.scene.position.y = -1
+
+});
+
+
+//PlanetH Import
+var loader8 = new THREE.GLTFLoader();
+loader8.load('./3Dmodels/planetH.gltf', function ( gltf8 ) {
+	
+gltf8.scene.traverse(function (child) {
+
+
+if (child.isMesh) {
+    child.material = planetH_Mat;
+    child.name = 'planet_H'
+    scene.add(gltf8.scene);
+}
+});
+
+mmi.addHandler('planet_H', 'click', function(){
+    window.location.href = "intro-lin-chun.html"
+    console.log("planet_H is Clicked")
+})
+
+mmi.addHandler('planet_H', 'mouseenter', function(){
+
+    gsap.to(gltf8.scene.rotation , {
+        duration: 1.5,
+        ease: 'power2.inOut',
+        x: '+=6',
+        y:'+=3',
+        z:'+=3'
+       })
+        
+    console.log("on planet_H")
+    })
+
+
+mmi.addHandler('planet_H', 'mouseleave', function(){
+    
+    console.log("out of planet_H")
+   })
+
+gltf8.scene.position.z = 4
+gltf8.scene.position.x = -12
+gltf8.scene.position.y = 6
+
+});
+
+
+//PlanetI Import
+var loader9 = new THREE.GLTFLoader();
+loader9.load('./3Dmodels/planetI.gltf', function ( gltf9 ) {
+	
+  
+gltf9.scene.traverse(function (child) {
+
+
+if (child.isMesh) {
+    child.material = planetI_Mat;
+    child.name = 'planet_I'
+    scene.add(gltf9.scene);
+}
+});
+
+mmi.addHandler('planet_I', 'click', function(){
+    window.location.href = "intro_planetI.html"
+    console.log("planet_I is Clicked")
+})
+
+mmi.addHandler('planet_I', 'mouseenter', function(){
+
+    gsap.to(gltf9.scene.rotation , {
+        duration: 1.5,
+        ease: 'power2.inOut',
+        x: '+=6',
+        y:'+=3',
+        z:'+=3'
+       })
+        
+    console.log("on planet_I")
+    })
+
+
+mmi.addHandler('planet_I', 'mouseleave', function(){
+    
+    console.log("out of planet_I")
+   })
+
+gltf9.scene.position.z = 25
+gltf9.scene.position.x = -4
+gltf9.scene.position.y = -0
+
+});
+
+
+//PlanetJ Import
+var loader10 = new THREE.GLTFLoader();
+loader10.load('./3Dmodels/planetJ.gltf', function ( gltf10 ) {
+	
+
+gltf10.scene.traverse(function (child) {
+
+
+if (child.isMesh) {
+    child.material = planetJ_Mat;
+    child.name = 'planet_J'
+    scene.add(gltf10.scene);
+}
+});
+
+mmi.addHandler('planet_J', 'click', function(){
+    window.location.href = "intro_planetJ.html"
+    console.log("planet_J is Clicked")
+})
+
+mmi.addHandler('planet_J', 'mouseenter', function(){
+
+    gsap.to(gltf10.scene.rotation , {
+        duration: 1.5,
+        ease: 'power2.inOut',
+        x: '+=6',
+        y:'+=3',
+        z:'+=3'
+       })
+        
+    console.log("on planet_J")
+    })
+
+
+mmi.addHandler('planet_J', 'mouseleave', function(){
+    
+    console.log("out of planet_J")
+   })
+
+gltf10.scene.position.z = 17
+gltf10.scene.position.x = 4
+gltf10.scene.position.y = 3
+
+});
+
+
+//Character Import
+var loader11 = new THREE.GLTFLoader();
+loader11.load('./3Dmodels/Character.gltf', function ( gltf11 ) {
+	
+
+gltf11.scene.traverse(function (child) {
+
+
+if (child.isMesh) {
+
+    scene.add(gltf11.scene);
+}
+});
+
+
+
+gltf11.scene.position.z = 4
+gltf11.scene.position.x = -12
+gltf11.scene.position.y = 7
+
+});
+
+//Character Import
+var loader12 = new THREE.GLTFLoader();
+loader12.load('./3Dmodels/ShuZhen.gltf', function ( gltf12 ) {
+	
+
+gltf12.scene.traverse(function (child) {
+
+
+if (child.isMesh) {
+
+    scene.add(gltf12.scene);
+}
+});
+
+
+gltf12.scene.position.z = 20
+gltf12.scene.position.x = 8
+gltf12.scene.position.y = 0.2
+});
+
+//Character Import
+var loader13 = new THREE.GLTFLoader();
+loader13.load('./3Dmodels/YuLian.gltf', function ( gltf13 ) {
+	
+
+gltf13.scene.traverse(function (child) {
+
+
+if (child.isMesh) {
+
+    scene.add(gltf13.scene);
+}
+});
+
+
+gltf13.scene.position.z = 15
+gltf13.scene.position.x = -4
+gltf13.scene.position.y = 3
+});
+
+
+
+
+
+//rendering progress
+function animate(){
+
+   const objectDistance = 8
+    camera.position.setY((-scrollY / sizes.height) * objectDistance)
+    if(mouse.x && mouse.y){
+        cameraGroup.position.setX(mouse.x)
+        cameraGroup.position.setY(mouse.y)
+    }
+   
+   
+   
+
+    requestAnimationFrame(animate)
+    mmi.update()
+    renderer.render(scene, camera)
+
+}
+animate()
+    </script>
+</body>
+</html>

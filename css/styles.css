@@ -1,0 +1,527 @@
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: rgb(255, 255, 255);
+    background: linear-gradient( rgba(158, 11, 24, 0.8) 0%, rgba(0, 0, 0, 0.7) 60%);
+    min-height: 120vh;
+    min-width: 60vh;
+    overflow: hidden;
+}
+
+.clearfix::after {clear: both; content: ''; display: block;}
+
+#introBackground{ 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 30%;
+    
+}
+
+
+.btn{
+
+    width: 100px;
+    height: 30px;
+    background-color:#DE6A18;
+	border-radius:42px;
+    text-align: center;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:'Noto Sans TC', sans-serif;
+	font-size:15px;
+    font-weight: bold;
+    letter-spacing: 3px;
+	padding: 10px 10px 5px 10px;
+	text-decoration:none;
+    animation: fadeIn 3s;
+    margin-top: 50px;
+
+}
+
+
+
+
+#logo{
+    top: 45%;
+    left: 600px;
+    position: absolute;
+    object-fit: scale-down;
+    max-width: 100%;
+    animation: fadeIn 3s;
+  
+     
+}
+
+#start {
+    height: 800px;
+     grid-row-start: 1;
+    grid-column-start: 1;
+    background:rgba(255, 255, 255, 0.679);
+    background-blend-mode: multiply;
+    background-size: cover;
+    z-index: 3;
+    background-position: center center;
+    display: flex;
+    
+}
+
+.hide{
+    display: none;
+}
+
+.hover{
+    cursor: pointer;
+}
+
+
+
+/* Main.html CSS */
+
+.main body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: rgb(255, 255, 255);
+    background: linear-gradient( rgba(53,144,147,1) 0%, rgba(214,169,45,1) 100%);
+    min-height: 120vh;
+    min-width: 60vh;
+    overflow: hidden;
+    
+}
+
+#startMain{
+    height: 100%;
+    position: absolute;
+    background:rgba(255, 255, 255, 0.679);
+    background-blend-mode: multiply;
+    background-size: cover;
+    z-index: 5;
+    background-position: center center;
+    width: 100%
+}
+
+.SparkleStar{
+    width: 100%; 
+    z-index: -2;
+    position: fixed; 
+    top: 0; opacity: 0.7; 
+    animation: Sparkling 4s infinite;
+    -webkit-user-select: none; 
+    -ms-user-select: none; 
+    user-select: none;
+}
+
+
+.webgl{
+    top: 0;
+    left: 0;
+    width: 100%;
+    outline: none;
+    position: fixed;
+    z-index: 2;
+}
+
+@media screen and (max-width:800px) {
+    .webgl {
+        width: 200px;
+    }
+  }
+
+ul, li{
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 20px;
+    font-weight: 550;
+    z-index: 2;
+    text-align: center;
+    
+}
+.navContainer{
+    padding: 0;
+    top: 0;
+    right: 15%;
+    left: 15%;
+    margin: 50px;
+    border-radius: 90px;
+    position: absolute;
+    background: rgba(255, 255, 255, 0.712);
+    filter:drop-shadow(16px 16px 10px rgba(0, 0, 0, 0.299));
+    justify-content: center;
+    align-items: center;
+    z-index: 9;
+   
+} 
+.navLinks{
+
+    list-style: none;
+    z-index: 2;
+    display: flex;
+    justify-content:space-evenly;
+    align-items: center;
+    height: 5vh;
+    text-decoration: none;
+    
+    
+}
+
+
+.navLinks li a{
+    transition: all 0.3s ease 0s;
+    text-decoration: none;
+    color: rgb(117, 113, 109);
+    letter-spacing: 20px;
+
+}
+.navLinks li a:hover{
+    cursor: pointer;
+}
+
+
+.NAV button{
+    padding: 9px 25px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    z-index: 9;
+}
+
+
+
+.hamburger {
+    background-color:transparent;
+    border:0px;
+    outline:0px;
+    width:50px;
+    height:50px;
+    height:auto;
+    position:absolute;
+    top:10%;
+    right:9%;
+    cursor:pointer;
+    z-index:9;
+    
+}
+
+
+
+.burger {
+background-color:#FFF;
+border-radius:5px;
+height: 5px;
+margin-bottom: 5px;
+width: 40px;
+display:flex;
+
+}
+ 
+.closeNav{
+    background-color:transparent;
+    border:0px;
+    outline:0px;
+    width:50px;
+    height:50px;
+    height:auto;
+    position:absolute;
+    top:11%;
+    right:9%;
+    cursor:pointer;
+    z-index:10;
+}
+
+.burger1{
+    background-color:#FFF;
+    border-radius:5px;
+    height: 5px;
+    margin-top: 0%;
+    position: absolute;
+    width: 40px;
+    rotate: 45deg;
+    
+}
+.burger2{
+    background-color:#FFF;
+    border-radius:5px;
+    height: 5px;
+    position: center;
+    width: 40px;
+    rotate: -45deg;
+}
+
+#LOGO:hover{
+    cursor: pointer;
+}
+
+
+.dialogueMain {
+ 
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 20px;
+    line-height: 10px;
+    font-weight: medium;
+    color: #000000;
+    text-align: left;
+    opacity: 70%;
+    z-index: 6;
+    animation: fadeIn 5s;
+   
+}
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+
+
+
+.mascotAni{
+    animation: jumpOut 1s ease-out forwards;
+}
+
+@keyframes jumpOut {
+    from{
+        transform: translate(-30%, 40%)
+    }
+}
+
+
+
+.mascot_bubbleFaded{
+    animation: MainBubbleFaded 1s ease-in-out forwards;
+}
+
+@keyframes MainBubbleFaded {
+    to{
+        opacity: 0;
+        
+    }
+}
+
+#guideMainBTN{
+   
+    background-color:#DEAD25;
+	border-radius:50%;
+	display:inline-block;
+	cursor:pointer;
+	color:rgb(255, 255, 255);
+	font-family:'Noto Sans TC', sans-serif;
+	font-size: 20px;
+    font-weight: bold;
+	text-decoration:none;
+    animation: fadeIn 3s;
+    text-align: center;
+    margin-top: 12px;
+    margin-left: 10px;
+    margin-bottom: 12px;
+    padding: 12px 13px;
+
+    
+}
+
+
+#introDialogue:hover {
+    animation: smoky 2s linear forwards;
+}
+.dialogueMain:hover{
+        animation: smoky 2s linear forwards;
+    }
+@keyframes smoky {
+    to {
+        opacity: 0;
+        filter: blur(40px);
+        transform: translate(60px, -200px) rotate(25deg);
+    }
+  }
+
+#navLOGO{
+    cursor: pointer;
+}
+
+
+@keyframes Sparkling {
+    0%{
+        opacity: 0;
+    }
+
+    50%{
+        opacity: 0.7;
+    }
+
+    100%{
+        opacity: 0;
+    }
+}
+
+/* 基地 */
+h1,h2,h3,h4{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: #f2f2f2;
+}
+
+
+.slick-dots {
+	display: flex;
+	justify-content: center;
+	margin-top: 20px;
+	padding: 1rem 0;
+	
+	list-style-type: none;
+}
+	
+		.slick-dots li {
+			margin: 0 0.25rem;
+		}
+	
+		.slick-dots button {
+			display: block;
+			width: 1rem;
+			height: 1rem;
+			padding: 0;
+			position: relative;
+			border: none;
+			border-radius: 100%;
+			background-color: #fff;
+			cursor: pointer;
+			text-indent: -9999px;
+		}
+	
+		li.slick-active button {
+            
+			background-color: #DEAD25;
+		}
+	
+
+
+.slick-slide {
+    height: auto; 
+}
+
+
+
+.fade{
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from{opacity: .4}
+    to{opacity: 1}
+}
+
+.slideshow{
+    width: 100%;
+    height: 700px;
+    background-color: #339599;
+  
+}
+
+footer{
+    background-color: #DE6A18;
+    height: 176px;
+}
+
+/*探索*/
+
+.surveyPage span{
+    font-size: 40px;
+    color:rgb(255, 255, 255);
+	font-family:'Noto Sans TC', sans-serif;
+    font-weight: medium;
+    line-height: 120px;
+    
+}
+
+
+input[type="checkbox" i] {
+    border-radius: 100px;
+}
+
+.mascot2Ani{
+    animation: Mascot2Run 3s ease-in-out forwards
+    
+}
+
+@keyframes Mascot2Run {
+    from{
+        transform: translate(40%, -70%);
+        opacity: 0;
+    }
+}
+
+.mascot3Ani{
+    animation: Mascot3Run 3.5s ease-in-out forwards;
+}
+
+@keyframes Mascot3Run {
+    from{
+        right: 10%;
+        transform: translateY(300%);
+        opacity: 0;
+    }
+}
+
+.mascot4Ani{
+    animation: Mascot4Run 2.5s ease-in-out forwards;
+}
+
+@keyframes Mascot4Run {
+    from{
+        right: -20%;
+        opacity: 0;
+    }
+}
+
+.The-Cautions{
+    border-radius: 100%;
+    position: absolute;
+    filter: drop-shadow(0 0 0.40rem rgb(70, 70, 70));
+    overflow: hidden;
+}
+
+.dialogue {
+    
+    z-index: 10;
+    position: fixed;
+    left: 30%;
+    bottom: 2%;
+    -webkit-user-select: none; 
+    -ms-user-select: none; 
+    user-select: none;
+}
+.dialogue__img{width: 50%;}
+
+#content {
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 1vw;
+    line-height: 10px;
+    font-weight: medium;
+    color: #ffffff;
+    text-align: left;
+    position: absolute;
+    top: 48%;
+    left: 5%;
+}
+#content-second{
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 1vw;
+    line-height: 10px;
+    font-weight: medium;
+    color: #ffffff;
+    text-align: left;
+    position: absolute;
+    top: 60%;
+    left: 5%;
+}
+.buttons{ width: 70%; margin:25% 0% 0% 10%;} 
+.buttons img{
+    position: absolute;
+    z-index: 11;
+    height: 15%;
+   
+}
+.next{float: right;}

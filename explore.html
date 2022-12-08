@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>探索</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500&family=Open+Sans:wght@500&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link href="./css/slick.css" rel="stylesheet">
+    <link href="./css/styles.css" rel="stylesheet"> 
+
+</head>
+<body style="background: #DEAD25; overflow: hidden scroll; height: 100%; margin: 0;" >
+
+ 
+    <div class="nav-div" style="display: flex; width: 100%;">
+        <img src="./img/logo.png"
+         style="width: 150px;margin-top: 3%;margin-left: 5%; z-index: 5;" id="LOGO">
+      
+     
+        <div class="navContainer hide" >
+        <nav> 
+            <ul class="navLinks ">
+              
+                <li><a href="base.html">基地</a></li>
+                <li><a href="main.html">行星</a></li>
+                <li><a href="explore.html">探索</a></li>
+                <li><a href="tower.html">塔台</a></li>
+            </ul>
+        </nav>
+    
+        </div>
+        <button class="hamburger">
+            <div class="burger"></div>
+            <div class="burger"></div>
+            <div class="burger"></div>
+        </button>
+    
+        <button class="closeNav hide" >
+            <div class="burger1"></div>
+            <div class="burger2"></div>
+            
+        </button>
+    </div>
+
+    <div class="surveyPage" style="width: 100%; height: 2048px; margin-left: 5%; overflow: hidden;">
+        
+        <div class="mascot2 "
+        style="position: absolute; z-index: -1; margin:0; transform: translate(120%, 20%);opacity: 1;">
+        <img src="./img/mascot/mascot2.png" style="width: 700px;">
+        </div>
+
+        <div class="mascot3 "
+        style="position: absolute; z-index: -1; right: 40%; transform: translateY(390%); opacity: 1;">
+        <img src="./img/mascot/mascot3.png" style="width: 400px;">
+        </div>
+
+        <div class="mascot4 "
+        style="position: absolute; z-index: -1; right: -5%; transform: translateY(200%); opacity: 1;">
+        <img src="./img/mascot/mascot4.png" style="width: 500px;">
+        </div>
+
+
+
+        <div style="display: grid;">
+            <h1 
+            style="
+            color:#ffffff;
+            font-family:'Noto Sans TC', sans-serif;
+            font-size:128px;
+            font-weight: bold; "> 何謂失智症？</h1>
+                
+                <p 
+                style=" font-size: 40px;
+                color:rgb(255, 255, 255);
+                font-family:'Noto Sans TC', sans-serif;
+                font-weight: medium;
+                line-height: 120px;">請勾選以下您認為是失智症的症狀</p>
+                <label>
+                    <input type="checkbox" class="selection">
+                    <span>記憶力減退到影響生活</span>
+                </label>
+                <label>
+                    <input type="checkbox" class="selection">
+                    <span>計畫事情或解決問題有困難</span>
+                </label>
+                <label>
+                    <input type="checkbox" class="selection">
+                    <span>無法勝任原本熟悉的事務</span>
+                </label>
+                <label>
+                    <input type="checkbox" class="selection">
+                    <span>對時間地點感到混淆</span>
+                </label>
+                <label>
+                    <input type="checkbox" class="selection">
+                    <span>有困難理解視覺影像和空間之關係</span>
+                </label>
+                <label>
+                    <input type="checkbox" class="selection"">
+                    <span>言語表達或書寫出現困難</span>
+                </label>
+                <label>
+                    <input type="checkbox" class="selection">
+                    <span>東西擺放錯亂且失去回頭尋找的能力</span>
+                </label>
+                <label>
+                    <input type="checkbox"class="selection">
+                    <span>判斷力變差或減弱</span>
+                </label>
+                <label>
+                    <input type="checkbox" class="selection">
+                    <span>從職場或社交活動中退出</span>
+                </label>
+                <label>
+                    <input type="checkbox" class="selection">
+                    <span>情緒和個性的改變</span>
+                </label>
+             
+            <div class="btn">Next</div>
+        </div>
+    
+    
+    </div>
+
+
+
+
+
+
+
+    </div>
+    
+   
+ 
+        
+    <footer style="margin: 0; overflow: hidden; display: flex; font-family: 'Noto Sans TC', sans-serif;width: 100%;">
+        <div style="margin-top: 3%;margin-left: 10%; ">
+        <p><i class="fa-solid fa-house"></i>  新竹</p>
+        </div>
+
+        <div style="margin-top: 3%;margin-left: 25%; text-align: center; line-height: 6px;">
+        <p><i class="fa-solid fa-phone"></i>  03</p>
+        <br>
+        <p>Since 2022年5月31日起，共 00002人拜訪</p>
+        <p>版權所有© 2022 失天人</p>
+        </div>
+
+        <div style="margin-top: 3%;margin-left: 25%; margin-right: 10%;">
+        <p><i class="fa-solid fa-envelope"></i>  gmail.com</p>
+        </div>
+        
+    </footer>        
+
+    <script src="./JavaEvent/nav.js"></script>
+    <script src="https://kit.fontawesome.com/27aba58a5d.js" crossorigin="anonymous"></script>
+    <script>
+        const AnsPageNext = document.querySelector('.btn')
+        const SurveyPage = document.querySelector('.surveyPage')
+        const AnsPage = document.querySelector('.AnsPage')
+
+        AnsPageNext.addEventListener('click', ()=>{
+           window.location.href = "explore2.html"
+        })
+
+    </script>
+
+    <script>
+        /*mascot2*/
+        const Mascot2RUN = document.getElementsByClassName('mascot2') 
+        let options={
+            rootMargin:'-20%',
+            threshold:0.6
+        }
+
+        const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry =>{
+        if(entry.isIntersecting){
+            entry.target.classList.add('mascot2Ani')
+        
+            }
+
+        else{
+            entry.target.classList.remove('mascot2Ani')
+            }
+    
+        })
+        })
+
+        for(i =0; i<Mascot2RUN.length;i++){
+        observer.observe(Mascot2RUN[i])
+        }
+
+        /*mascot2*/
+        const Mascot3RUN = document.getElementsByClassName('mascot3') 
+        let options2={
+            rootMargin:'-20%',
+            threshold:0.6
+        }
+
+        const observer2 = new IntersectionObserver(entries => {
+        entries.forEach(entry =>{
+        if(entry.isIntersecting){
+            entry.target.classList.add('mascot3Ani')
+            }
+
+        else{
+            entry.target.classList.remove('mascot3Ani')
+            }
+    
+        })
+        })
+
+        for(i =0; i<Mascot3RUN.length;i++){
+        observer2.observe(Mascot3RUN[i])
+        }
+
+        /*mascot4*/
+        const Mascot4RUN = document.getElementsByClassName('mascot4') 
+        let options3={
+            rootMargin:'-20%',
+            threshold:0.6
+        }
+
+        const observer3 = new IntersectionObserver(entries => {
+        entries.forEach(entry =>{
+        if(entry.isIntersecting){
+            entry.target.classList.add('mascot4Ani')
+            }
+
+        else{
+            entry.target.classList.remove('mascot4Ani')
+            }
+    
+        })
+        })
+
+        for(i =0; i<Mascot4RUN.length;i++){
+        observer3.observe(Mascot4RUN[i])
+        }
+
+    </script>
+</body>
+
+</html>
+
+
+
+
+
+

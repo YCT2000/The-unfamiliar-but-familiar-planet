@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./css/styles.css" rel="stylesheet"> 
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500&family=Open+Sans:wght@500&display=swap" rel="stylesheet">
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    
+    <title>最熟悉的陌生星球</title>
+</head>
+<body>
+     <div class="loader-wrapper ">
+        <img width="100%" src="./Video/LoadingMP4.gif"></img>
+     </div>
+    
+    
+    <div class="startPage hide" 
+        style="width:100%;
+            height:2000px; 
+            overflow: hidden;">
+        <div class="SparkleStar"><img src="./img/SparkleStar.png" style="z-index: -2; width: 100%; position: fixed; top: 0; opacity: 0.7; animation: Sparkling 4s infinite;"></div>
+      
+        
+            <div id="introDialogue"
+            style="
+            margin-top: 20%;
+            font-weight: 400;
+            color: #ffffff;
+            font-family: 'Noto Sans TC', sans-serif;
+            text-align: center;
+            max-width: 100%;
+            animation: fadeIn 2s;" >
+            
+                <p>偌大的宇宙裡有很多行星，</p>
+                <p>您是否也發現自己身旁的那顆可愛的行星，</p>
+                <p> 不妨和我們一起走近他們</p>
+
+                <a href="main.html" 
+                style="
+                background-color:#DEAD25;
+                border-radius:50%;
+                display:inline-block;
+                cursor:pointer;
+                color:rgb(255, 255, 255);
+                font-family:'Noto Sans TC', sans-serif;
+                font-size: 20px;
+                font-weight: bold;
+                text-decoration:none;
+                animation: fadeIn 3s;
+                text-align: center;
+                margin-top: 10px;
+                padding: 20px 21px;">GO</a>
+             </div>
+             
+    </div>
+       
+
+    
+        
+
+    <script>
+
+         const Loader = document.querySelector('.loader-wrapper')
+         const StartPage = document.querySelector('.startPage')
+
+         function Loading(){
+            Loader.classList.add('hide')
+            StartPage.classList.remove('hide')
+         }
+
+         setTimeout(Loading, 3000)
+
+    </script>
+
+
+    <script src="./JavaEvent/Entry.js"></script>
+</body>
+</html>
