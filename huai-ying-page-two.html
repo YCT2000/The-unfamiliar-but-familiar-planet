@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500&family=Open+Sans:wght@500&display=swap" rel="stylesheet">
+    <link href="./css/styles.css" rel="stylesheet"> 
+    <title>最熟悉的陌生星球</title>
+</head>
+<body>
+
+
+
+    <div class="nav-div" style="display: flex; width: 100%;">
+        <img src="./img/logo.png"
+         style="width: 200px;margin-top: 3%;margin-left: 5%; z-index: 5;" id="LOGO">
+      
+     
+        <div class="navContainer hide" >
+        <nav> 
+            <ul class="navLinks ">
+              
+                <li><a href="base.html">基地</a></li>
+                <li><a href="main.html">行星</a></li>
+                <li><a href="explore.html">探索</a></li>
+                <li><a href="#">塔台</a></li>
+            </ul>
+        </nav>
+    
+        </div>
+        <button class="hamburger">
+            <div class="burger"></div>
+            <div class="burger"></div>
+            <div class="burger"></div>
+        </button>
+    
+        <button class="closeNav hide" >
+            <div class="burger1"></div>
+            <div class="burger2"></div>
+            
+        </button>
+    </div>
+    <div>
+    
+    <div class="buttons">
+        <a href="lin-chun-page-one.html" title="pervious" class="pervious"><img src="./img/previous.png"></a>
+        <a href="lin-chun-page-three.html" title="next" class="next"><img src="./img/next.png"></a>
+    </div>
+    <div class="dialogue hide">
+        <img src="./img/dialogue.png" class="dialogue__img">
+        <p id="content">0</p>
+        <p id="content-second">0</p>
+    </div>
+
+    <div class="SparkleStar"><img src="./img/SparkleStar.png"></div>
+    <canvas class="webgl"></canvas>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.122.0/build/three.min.js"></script>
+    <script src="./extraScript/three_mmi.js"></script>
+    <script src="https://unpkg.com/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.122.0/examples/js/controls/OrbitControls.min.js"></script>
+    <script src="./JavaEvent/nav.js"></script>
+
+    <script>
+        //Canvas
+        const canvas = document.querySelector('.webgl')
+
+        //Scene
+        const scene = new THREE.Scene;
+        scene.fog = THREE.Fog(0xffffff, 1, 6)
+
+        const renderer = new THREE.WebGLRenderer({
+            canvas,
+            antialias: true,
+            alpha: true,
+        })
+        const sizes = {
+            width: window.innerWidth,
+            height: window.innerHeight
+        }
+
+        //camera
+        const camera = new THREE.PerspectiveCamera(50, sizes.width/ sizes.height, 1 ,1000)
+        camera.position.z = 40
+        camera.rotation.y= 0
+        scene.add(camera)
+
+        //renderer setting
+        renderer.setSize(sizes.width, sizes.height)
+        renderer.setPixelRatio(window.devicePixelRatio)
+        renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+        document.body.appendChild(renderer.domElement)
+
+        //window resize handling
+        function onWindowResize(){
+            camera.aspect = sizes.width / window.height
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+            camera.updateProjectionMatrix()
+        }
+        window.addEventListener('resize', onWindowResize)
+        //Adding lights
+        const spotLight = new THREE.SpotLight(0xe6bd85);
+        spotLight.position.set( 20, 20, 20);
+
+        spotLight.castShadow = true;
+        spotLight.intensity = 0.4
+        spotLight.shadow.mapSize.width = 1024;
+        spotLight.shadow.mapSize.height = 1024;
+
+
+        spotLight.shadow.camera.near = 500;
+        spotLight.shadow.camera.far = 4000;
+        spotLight.shadow.camera.fov = 30;
+
+        scene.add( spotLight );
+        const ambientLight = new THREE.AmbientLight(0xffffff);
+        ambientLight.intensity = 0.9
+        scene.add(ambientLight);
+
+        const mmi = new MouseMeshInteraction(scene, camera)
+        const clock = new THREE.Clock()
+        let mixer
+
+        let action
+        let action2
+        let action3
+        const dialogue = document.querySelector('.dialogue')
+        const content = document.getElementById("content")
+        const content2 = document.getElementById("content-second")
+        const buttons = document.querySelector('.buttons')
+        //LinChun material
+        const LinChunMap = new THREE.TextureLoader().load('./3Dmodels/PlanetH_Ani/LinChun_BaseColor.png')
+        LinChunMap.flipY = false;
+        LinChun_Mat = new THREE.MeshStandardMaterial({
+            map : LinChunMap,
+            skinning: true,
+            roughness : 0.7,
+        })
+        const SceneMap = new THREE.TextureLoader().load('./3Dmodels/PlanetH_Ani/planetH_BaseColor.png')
+        SceneMap.flipY = false;
+        Scene_Mat = new THREE.MeshStandardMaterial({
+            map : SceneMap,
+            roughness : 0.7,
+        })
+        const RoseMap = new THREE.TextureLoader().load('./3Dmodels/PlanetH_Ani/Rose_BaseColor.png')
+        RoseMap.flipY = false;
+        Rose_Mat = new THREE.MeshStandardMaterial({
+            map : RoseMap,
+            side : THREE.DoubleSide,
+            skinning : true,
+            roughness : 0.7,
+        })
+        const SatelliteMap = new THREE.TextureLoader().load('./3Dmodels/PlanetH_Ani/Rose_BaseColor.png')
+        SatelliteMap.flipY = false;
+        Satellite_Mat = new THREE.MeshStandardMaterial({
+            map : SatelliteMap,
+            roughness : 0.7,
+            side : THREE.DoubleSide,
+        })
+        const BaseColorMap = new THREE.TextureLoader().load('./3Dmodels/PlanetH_Ani/color.png')
+        BaseColorMap.flipY = false;
+        BaseColor_Mat = new THREE.MeshStandardMaterial({
+            map : BaseColorMap,
+            roughness : 0.7,
+        })
+
+      
+
+        //import Mesh
+        /*const loader1 = new THREE.GLTFLoader()
+        loader1.load('../3Dmodels/test.gltf', function (gltf1){
+            gltf1.scene.position.y= -10
+            gltf1.scene.scale.set(5,5,5)
+            mmi.addHandler('Cube', 'click', function(){
+                console.log('hey')
+            })
+            
+            scene.add(gltf1.scene)
+            mixer = new THREE.AnimationMixer(gltf1.scene)
+            action = mixer.clipAction(gltf1.animations[0])
+            action2 = mixer.clipAction(gltf1.animations[1])
+            action.play()
+            action2.play()
+        })*/
+        const loader2 = new THREE.GLTFLoader()
+        loader2.load('./3Dmodels/PlanetH_Ani/planetScene2.gltf', function(gltf2){
+            gltf2.scene.position.y= -10
+            gltf2.scene.position.z= -4
+            gltf2.scene.position.x= -4
+            gltf2.scene.rotation.y=1
+     
+         
+           
+            
+            gltf2.scene.traverse(function(child){
+             
+                if(child.name == 'LinChun'){
+                    child.material = LinChun_Mat 
+                    child.skinning = true
+                }
+                if(child.name == 'LinChun2'){
+                    child.material = LinChun_Mat 
+                    child.skinning = true
+                }
+                if(child.name == 'LinChun3'){
+                    child.material = LinChun_Mat 
+                    child.skinning = true
+                }
+                if(child.name == 'LinChun4'){
+                    child.material = LinChun_Mat 
+                    child.skinning = true
+                }
+              
+                if(child.name == 'Star'){
+                    child.material = BaseColor_Mat
+                }
+                if(child.name == 'Star1'){
+                    child.material = BaseColor_Mat
+                }
+                if(child.name == 'Star2'){
+                    child.material = BaseColor_Mat
+                }
+                if(child.name == 'Star3'){
+                    child.material = BaseColor_Mat
+                }
+                if(child.name == 'flower'){
+                    child.material = BaseColor_Mat
+                }
+                if(child.name == 'gun'){
+                    child.material = BaseColor_Mat
+                }
+                if(child.name == 'PlanetScene'){
+                    child.material = Scene_Mat 
+                }
+                if(child.name == 'rose'){
+                    child.material = Rose_Mat   
+                }
+                if(child.name == 'rose4'){
+                    child.material = Rose_Mat   
+                }
+                if(child.name == 'rose3'){
+                    child.material = Rose_Mat   
+                }
+                if(child.name == 'Satellite'){
+                    child.material =  Satellite_Mat
+                }
+                if(child.name == 'Satellite2'){
+                    child.material =  Satellite_Mat
+                }
+                if(child.name == 'Satellite3'){
+                    child.material =  Satellite_Mat
+                }
+                if(child.name == 'Satellite4'){
+                    child.material =  Satellite_Mat
+                }
+                if(child.name == 'petals'){
+                    child.material =  Satellite_Mat
+                }
+                if(child.name == 'Astounant'){
+                    child.material = Astounant_Mat 
+                }
+                
+
+
+
+
+                scene.add(gltf2.scene)
+
+                mmi.addHandler('Star','click',function(){
+                camera.position.z = 25
+                camera.position.x= 20
+                camera.position.y=0
+                content.innerHTML = "給我分開！";
+                content2.innerHTML = ""
+                buttons.classList.add('hide')
+                dialogue.classList.remove('hide')
+                })
+
+                mmi.addHandler('Star','dblclick',function(){
+                camera.position.z = 40
+                camera.position.x=-0
+                camera.position.y=0
+                dialogue.classList.add('hide')
+                buttons.classList.remove('hide')
+                })
+
+                mmi.addHandler('Star2','click',function(){
+                camera.position.z = -20
+                camera.position.y = 20
+                camera.position.x=-20
+                dialogue.classList.remove('hide')
+                buttons.classList.add('hide')
+                content.innerHTML = "在哪裡？？";
+                content2.innerHTML = ""
+                })
+
+                mmi.addHandler('Star2','dblclick',function(){
+                camera.position.z = 40
+                camera.position.y = 0
+                camera.position.x=-0
+                dialogue.classList.add('hide')
+                buttons.classList.add('hide')
+                buttons.classList.remove('hide')
+                })
+
+                
+
+                mmi.addHandler('Star3','click',function(){
+                camera.position.z = -15
+                camera.position.x=8
+                camera.position.y= 13
+                content.innerHTML = "不見了！！！";
+                content2.innerHTML = ""
+                dialogue.classList.remove('hide')
+                buttons.classList.add('hide')
+                })
+
+                mmi.addHandler('Star3','dblclick',function(){
+                camera.position.z = 40
+                camera.position.x=-0
+                camera.position.y=0
+                dialogue.classList.add('hide')
+                buttons.classList.remove('hide')
+                })
+
+                mmi.addHandler('Star1','click',function(){
+                camera.position.z = 5
+                camera.position.x=-32
+                camera.position.y= 0
+                content.innerHTML = "喔不！怎麼回事？";
+                content2.innerHTML = ""
+                dialogue.classList.remove('hide')
+                buttons.classList.add('hide')
+                })
+
+                mmi.addHandler('Star1','dblclick',function(){
+                camera.position.z = 40
+                camera.position.x=-0
+                camera.position.y=0
+                dialogue.classList.add('hide')
+                buttons.classList.remove('hide')
+                })
+
+
+                
+            })
+           
+            
+        })
+       
+        //rendering progress
+        function animate(){
+            var delta = clock.getDelta()
+            if(mixer)mixer.update(delta)
+
+            requestAnimationFrame(animate)
+            mmi.update()
+            renderer.render(scene, camera)
+        }
+        animate()
+    
+    </script>
+    <!--Kevin MacLeod的《Doh De Oh》，取得「Creative Commons 姓名標示 4.0」授權。 https://creativecommons.org/licenses/by/4.0/
+
+來源： http://incompetech.com/music/royalty-free/index.html?isrc=USUAN1100255
+
+歌手： http://incompetech.com/-->
+    
+</body>
+</html>
