@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
-    <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500&family=Open+Sans:wght@500&display=swap" rel="stylesheet">
     <link href="./css/styles.css" rel="stylesheet"> 
@@ -335,9 +334,7 @@ gltf1.scene.traverse(function (child) {
       
     })
 
-    gltf1.scene.position.z = 20
-    gltf1.scene.position.x = 4
-    gltf1.scene.position.y = -2
+
 
 function planetA_ReSize() {
     if ($(window).width() < 768) {
@@ -346,7 +343,9 @@ function planetA_ReSize() {
         
     } else {
         gltf1.scene.scale.set(1,1,1)
-        
+        gltf1.scene.position.z = 20
+        gltf1.scene.position.x = 4
+        gltf1.scene.position.y = -2
     
        
     }
