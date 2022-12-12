@@ -335,7 +335,9 @@ gltf1.scene.traverse(function (child) {
       
     })
 
-
+    gltf1.scene.position.z = 20
+    gltf1.scene.position.x = 4
+    gltf1.scene.position.y = -2
 
 function planetA_ReSize() {
     if ($(window).width() < 768) {
@@ -344,9 +346,7 @@ function planetA_ReSize() {
         
     } else {
         gltf1.scene.scale.set(1,1,1)
-        gltf1.scene.position.z = 20
-        gltf1.scene.position.x = 4
-        gltf1.scene.position.y = -2
+        
     
        
     }
