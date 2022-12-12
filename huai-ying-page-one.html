@@ -47,7 +47,7 @@
     <div>
     
     <div class="buttons">
-        <a href="intro-lin-chun.html" title="pervious" class="pervious"><img src="./img/previous.png"></a>
+        <a href="intro-huai-ying.html" title="pervious" class="pervious"><img src="./img/previous.png"></a>
         <a href="huai-ying-page-two.html" title="next" class="next"><img src="./img/next.png"></a>
     </div>
     <div class="dialogue hide">
@@ -70,7 +70,7 @@
 
         //Scene
         const scene = new THREE.Scene;
-        scene.fog = THREE.Fog(0xffffff, 1, 2)
+        scene.fog = THREE.Fog(0xffffff, 1, 50)
 
         const renderer = new THREE.WebGLRenderer({
             canvas,
@@ -83,9 +83,8 @@
         }
 
         //camera
-        const camera = new THREE.PerspectiveCamera(45, sizes.width/ sizes.height, 1 ,1000)
+        const camera = new THREE.PerspectiveCamera(45, sizes.width/ sizes.height, 0.1 ,2000)
         camera.position.z = 40
-        camera.rotation.y=0
         scene.add(camera)
 
         //renderer setting
@@ -110,10 +109,6 @@
         spotLight.shadow.mapSize.width = 2048;
         spotLight.shadow.mapSize.height = 2048;
 
-
-        spotLight.shadow.camera.near = 5000;
-        spotLight.shadow.camera.far = 5000;
-        spotLight.shadow.camera.fov = 100;
 
         scene.add( spotLight );
         const ambientLight = new THREE.AmbientLight(0xffffff);
@@ -157,6 +152,7 @@
             map : ETMap,
             skinning: true,
             roughness : 0.7,
+            side : THREE.DoubleSide,
         })
         const BaseColorMap = new THREE.TextureLoader().load('./3Dmodels/PlanetH_Ani/color.png')
         BaseColorMap.flipY = false;
@@ -235,6 +231,11 @@
                 }
                 if(child.name == 'ET'){
                     child.material = ET_Mat
+                    
+                    
+                mmi.addHandler('ET','click',function(){
+                    console.log(child)
+                })
                 }
                 
 
