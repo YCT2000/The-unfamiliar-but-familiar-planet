@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500&family=Open+Sans:wght@500&display=swap" rel="stylesheet">
+    <link href="./css/styles.css" rel="stylesheet"> 
+    <title>最熟悉的陌生星球</title>
+</head>
+<body>
+
+
+
+    <div class="nav-div" style="display: flex; width: 100%;">
+        <img src="./img/logo.png"
+         style="width: 200px;margin-top: 3%;margin-left: 5%; z-index: 5;" id="LOGO">
+      
+     
+        <div class="navContainer hide" >
+        <nav> 
+            <ul class="navLinks ">
+              
+                <li><a href="base.html">基地</a></li>
+                <li><a href="main.html">行星</a></li>
+                <li><a href="explore.html">探索</a></li>
+                <li><a href="#">塔台</a></li>
+            </ul>
+        </nav>
+    
+        </div>
+        <button class="hamburger">
+            <div class="burger"></div>
+            <div class="burger"></div>
+            <div class="burger"></div>
+        </button>
+    
+        <button class="closeNav hide" >
+            <div class="burger1"></div>
+            <div class="burger2"></div>
+            
+        </button>
+    </div>
+    <div>
+    
+    <div class="buttons">
+        <a href="intro-huai-ying.html" title="pervious" class="pervious"><img src="./img/previous.png"></a>
+        <a href="huai-ying-page-two.html" title="next" class="next"><img src="./img/next.png"></a>
+    </div>
+    <div class="dialogue hide">
+        <img src="./img/dialogue.png" class="dialogue__img">
+        <p id="content">0</p>
+        <p id="content-second">0</p>
+    </div>
+
+    <div class="SparkleStar"><img src="./img/SparkleStar.png"></div>
+    <canvas class="webgl"></canvas>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.122.0/build/three.min.js"></script>
+    <script src="./extraScript/three_mmi.js"></script>
+    <script src="https://unpkg.com/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.122.0/examples/js/controls/OrbitControls.min.js"></script>
+    <script src="./JavaEvent/nav.js"></script>
+
+    <script>
+        //Canvas
+        const canvas = document.querySelector('.webgl')
+
+        //Scene
+        const scene = new THREE.Scene;
+        scene.fog = THREE.Fog(0xffffff, 1, 50)
+
+        const renderer = new THREE.WebGLRenderer({
+            canvas,
+            antialias: true,
+            alpha: true,
+        })
+        const sizes = {
+            width: window.innerWidth,
+            height: window.innerHeight
+        }
+
+        //camera
+        const camera = new THREE.PerspectiveCamera(55, sizes.width/ sizes.height, 0.1 ,2000)
+        camera.position.z = 40
+        scene.add(camera)
+
+        //renderer setting
+        renderer.setSize(sizes.width, sizes.height)
+        renderer.setPixelRatio(window.devicePixelRatio)
+        renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+        document.body.appendChild(renderer.domElement)
+
+        //window resize handling
+        function onWindowResize(){
+            camera.aspect = sizes.width / window.height
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+            camera.updateProjectionMatrix()
+        }
+        window.addEventListener('resize', onWindowResize)
+        //Adding lights
+        const spotLight = new THREE.SpotLight(0xe6bd85);
+        spotLight.position.set( 30, 30, 30);
+
+        spotLight.castShadow = true;
+        spotLight.intensity = 0.4
+        spotLight.shadow.mapSize.width = 2048;
+        spotLight.shadow.mapSize.height = 2048;
+
+
+        scene.add( spotLight );
+        const ambientLight = new THREE.AmbientLight(0xffffff);
+        ambientLight.intensity = 0.9
+        scene.add(ambientLight);
+
+        const mmi = new MouseMeshInteraction(scene, camera)
+        const clock = new THREE.Clock()
+        let mixer
+
+        let action
+        let action2
+        let action3
+        const dialogue = document.querySelector('.dialogue')
+        const content = document.getElementById("content")
+        const content2 = document.getElementById("content-second")
+        const buttons = document.querySelector('.buttons')
+        //LinChun material
+        const YuLianMap = new THREE.TextureLoader().load('./3Dmodels/PlanetC_Ani/YuLian_BaseColor.png')
+        YuLianMap.flipY = false;
+        YuLian_Mat = new THREE.MeshStandardMaterial({
+            map : YuLianMap,
+            skinning: true,
+            roughness : 0.7,
+        })
+        const SceneMap = new THREE.TextureLoader().load('./3Dmodels/PlanetC_Ani/PlanetC_BaseColor.png')
+        SceneMap.flipY = false;
+        Scene_Mat = new THREE.MeshStandardMaterial({
+            map : SceneMap,
+            roughness : 0.7,
+        })
+        const RoseMap = new THREE.TextureLoader().load('./3Dmodels/PlanetC_Ani/Rose_BaseColor.png')
+        RoseMap.flipY = false;
+        Rose_Mat = new THREE.MeshStandardMaterial({
+            map : RoseMap,
+            roughness : 0.7,
+        })
+        const ETMap = new THREE.TextureLoader().load('./3Dmodels/PlanetC_Ani/ET_BaseColor.png')
+        ETMap.flipY = false;
+        ET_Mat = new THREE.MeshStandardMaterial({
+            map : ETMap,
+            skinning: true,
+            roughness : 0.7,
+            side : THREE.DoubleSide,
+        })
+        const BaseColorMap = new THREE.TextureLoader().load('./3Dmodels/PlanetC_Ani/color.png')
+        BaseColorMap.flipY = false;
+        BaseColor_Mat = new THREE.MeshStandardMaterial({
+            map : BaseColorMap,
+            side : THREE.DoubleSide,
+            roughness : 0.7,
+        })
+        const flowerMap = new THREE.TextureLoader().load('./3Dmodels/PlanetC_Ani/color.png')
+        flowerMap.flipY = false;
+        flower_Mat = new THREE.MeshStandardMaterial({
+            map : flowerMap,
+            roughness : 0.7,
+            skinning: true,
+        })
+
+      
+
+        //import Mesh
+        /*const loader1 = new THREE.GLTFLoader()
+        loader1.load('../3Dmodels/test.gltf', function (gltf1){
+            gltf1.scene.position.y= -10
+            gltf1.scene.scale.set(5,5,5)
+            mmi.addHandler('Cube', 'click', function(){
+                console.log('hey')
+            })
+            
+            scene.add(gltf1.scene)
+            mixer = new THREE.AnimationMixer(gltf1.scene)
+            action = mixer.clipAction(gltf1.animations[0])
+            action2 = mixer.clipAction(gltf1.animations[1])
+            action.play()
+            action2.play()
+        })*/
+        const loader2 = new THREE.GLTFLoader()
+        loader2.load('./3Dmodels/PlanetC_Ani/planetScene1.gltf', function(gltf2){
+            gltf2.scene.position.y= -10
+            gltf2.scene.position.z= -4
+            gltf2.scene.rotation.y=1
+         
+           
+            
+            gltf2.scene.traverse(function(child){
+                if(child.isMesh){
+                    child.skinning = true
+                }
+                if(child.name == 'YuLian'){
+                    child.material = YuLian_Mat 
+                }
+              
+                if(child.name == 'Cylinder'){
+                    child.material = BaseColor_Mat
+                }
+                if(child.name == 'Star'){
+                    child.material = BaseColor_Mat
+                }
+                if(child.name == 'Star1'){
+                    child.material = BaseColor_Mat
+                }
+                if(child.name == 'Star2'){
+                    child.material = BaseColor_Mat
+                }
+                if(child.name == 'Star3'){
+                    child.material = BaseColor_Mat
+                }
+                if(child.name == 'cake_house'){
+                    child.material = BaseColor_Mat
+                }
+                if(child.name == 'PlanetScene'){
+                    child.material = Scene_Mat 
+                }
+                if(child.name == 'rose'){
+                    child.material = Rose_Mat 
+                }
+                if(child.name == 'cake'){
+                    child.material = BaseColor_Mat 
+                }
+                if(child.name == 'ET'){
+                    child.material = ET_Mat
+                    
+                    
+                mmi.addHandler('ET','click',function(){
+                    console.log(child)
+                })
+                }
+                
+
+
+
+
+                scene.add(gltf2.scene)
+
+                mmi.addHandler('Star2','click',function(){
+                camera.position.z = 20
+                camera.position.x=-20
+                dialogue.classList.remove('hide')
+                buttons.classList.add('hide')
+                content.innerHTML = "這個星球的掌管者，她是一名水槍狙擊手，個性有如老虎般兇狠，";
+                content2.innerHTML = "只不過大多時候她是懶惰的，唯有老公出現時，就會提起戒備心"
+                })
+
+                mmi.addHandler('Star2','dblclick',function(){
+                camera.position.z = 40
+                camera.position.x=-0
+                dialogue.classList.add('hide')
+                buttons.classList.add('hide')
+                buttons.classList.remove('hide')
+                })
+
+                mmi.addHandler('Star','click',function(){
+                camera.position.z = 30
+                camera.position.x= 0
+                camera.position.y=-7
+                content.innerHTML = "大多數時，她會一邊稱讚我們做的很棒，一邊把事情推給我們做，";
+                content2.innerHTML = "真是懶洋洋"
+                buttons.classList.add('hide')
+                dialogue.classList.remove('hide')
+                })
+
+                mmi.addHandler('Star','dblclick',function(){
+                camera.position.z = 40
+                camera.position.x=-0
+                camera.position.y=0
+                dialogue.classList.add('hide')
+                buttons.classList.remove('hide')
+                })
+
+                mmi.addHandler('Star3','click',function(){
+                camera.position.z = 10
+                camera.position.x=-0
+                camera.position.y= 5
+                content.innerHTML = "星球上空有一顆衛星，上面住了一位耀眼的老公，";
+                content2.innerHTML = "這位星人每天都癡癡地看著他"
+                dialogue.classList.remove('hide')
+                buttons.classList.add('hide')
+                })
+
+                mmi.addHandler('Star3','dblclick',function(){
+                camera.position.z = 40
+                camera.position.x=-0
+                camera.position.y=0
+                dialogue.classList.add('hide')
+                buttons.classList.remove('hide')
+                })
+
+                mmi.addHandler('Star1','click',function(){
+                camera.position.z = 20
+                camera.position.x=13
+                camera.position.y= -5
+                content.innerHTML = "星球上長滿這種植物，可是我們無法得知他的名字";
+                content2.innerHTML = "因為連主人也忘記他的名字了，可是它使得這顆星球看起來生生不息"
+                dialogue.classList.remove('hide')
+                buttons.classList.add('hide')
+                })
+
+                mmi.addHandler('Star1','dblclick',function(){
+                camera.position.z = 40
+                camera.position.x=-0
+                camera.position.y=0
+                dialogue.classList.add('hide')
+                buttons.classList.remove('hide')
+                })
+
+
+                
+            })
+           
+            
+        })
+       
+        //rendering progress
+        function animate(){
+            var delta = clock.getDelta()
+            if(mixer)mixer.update(delta)
+
+            requestAnimationFrame(animate)
+            mmi.update()
+            renderer.render(scene, camera)
+        }
+        animate()
+    
+    </script>
+    <!--Kevin MacLeod的《Doh De Oh》，取得「Creative Commons 姓名標示 4.0」授權。 https://creativecommons.org/licenses/by/4.0/
+
+來源： http://incompetech.com/music/royalty-free/index.html?isrc=USUAN1100255
+
+歌手： http://incompetech.com/-->
+    
+</body>
+</html>

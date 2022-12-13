@@ -175,11 +175,7 @@
             })
             
             scene.add(gltf1.scene)
-            mixer = new THREE.AnimationMixer(gltf1.scene)
-            action = mixer.clipAction(gltf1.animations[0])
-            action2 = mixer.clipAction(gltf1.animations[1])
-            action.play()
-            action2.play()
+           
         })*/
         const loader2 = new THREE.GLTFLoader()
         loader2.load('./3Dmodels/PlanetA_Ani/planetScene3.gltf', function(gltf2){
@@ -187,7 +183,7 @@
             gltf2.scene.position.z= -4
             gltf2.scene.rotation.y=1
          
-           
+            
             
             gltf2.scene.traverse(function(child){
                 if(child.isMesh){
@@ -214,7 +210,11 @@
                 }
         
              
-
+                mixer = new THREE.AnimationMixer(gltf2.scene)
+                action = mixer.clipAction(gltf2.animations[0])
+                action2 = mixer.clipAction(gltf2.animations[1])
+                action.play()
+                action2.play()
 
 
                 scene.add(gltf2.scene)
