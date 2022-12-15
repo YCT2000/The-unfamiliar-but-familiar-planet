@@ -47,8 +47,8 @@
     <div>
     
     <div class="buttons">
-        <a href="intro-huai-ying.html" title="pervious" class="pervious"><img src="./img/previous.png"></a>
-        <a href="huai-ying-page-two.html" title="next" class="next"><img src="./img/next.png"></a>
+        <a href="main.html" title="pervious" class="pervious"><img src="./img/previous.png"></a>
+        <a href="yu-lian-page-two.html" title="next" class="next"><img src="./img/next.png"></a>
     </div>
     <div class="dialogue hide">
         <img src="./img/dialogue.png" class="dialogue__img">
@@ -83,7 +83,7 @@
         }
 
         //camera
-        const camera = new THREE.PerspectiveCamera(55, sizes.width/ sizes.height, 0.1 ,2000)
+        const camera = new THREE.PerspectiveCamera(45, sizes.width/ sizes.height, 0.1 ,2000)
         camera.position.z = 40
         scene.add(camera)
 
@@ -181,11 +181,7 @@
             })
             
             scene.add(gltf1.scene)
-            mixer = new THREE.AnimationMixer(gltf1.scene)
-            action = mixer.clipAction(gltf1.animations[0])
-            action2 = mixer.clipAction(gltf1.animations[1])
-            action.play()
-            action2.play()
+           
         })*/
         const loader2 = new THREE.GLTFLoader()
         loader2.load('./3Dmodels/PlanetC_Ani/planetScene1.gltf', function(gltf2){
@@ -200,6 +196,9 @@
                     child.skinning = true
                 }
                 if(child.name == 'YuLian'){
+                    child.material = YuLian_Mat 
+                }
+                if(child.name == 'YuLian2'){
                     child.material = YuLian_Mat 
                 }
               
@@ -241,7 +240,10 @@
                 
 
 
-
+                mixer = new THREE.AnimationMixer(gltf2.scene)
+                action = mixer.clipAction(gltf2.animations[0])
+                action.play()
+   
 
                 scene.add(gltf2.scene)
 
