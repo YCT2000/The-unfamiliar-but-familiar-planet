@@ -47,7 +47,7 @@
     <div>
     
     <div class="buttons">
-        <a href="yu-lian-page-one.html" title="pervious" class="pervious"><img src="./img/previous.png"></a>
+        <a href="yu-lian-page-two.html" title="pervious" class="pervious"><img src="./img/previous.png"></a>
         <a href="yu-lian-page-three.html" title="next" class="next"><img src="./img/next.png"></a>
     </div>
     <div class="dialogue hide">
@@ -83,7 +83,7 @@
         }
 
         //camera
-        const camera = new THREE.PerspectiveCamera(30, sizes.width/ sizes.height, 0.1 ,2000)
+        const camera = new THREE.PerspectiveCamera(35, sizes.width/ sizes.height, 0.1 ,2000)
         camera.position.y = 15
         camera.position.z = 40
         camera.rotation.x = -0.4
@@ -126,6 +126,9 @@
         let action3
         let action4
         let action5
+        let action6
+        let action7
+
 
 
 
@@ -162,7 +165,7 @@
             roughness : 0.7,
             side : THREE.DoubleSide,
         })
-        const BaseColorMap = new THREE.TextureLoader().load('./3Dmodels/PlanetC_Ani/color.png')
+        const BaseColorMap = new THREE.TextureLoader().load('./3Dmodels/planetC_Ani/color.png')
         BaseColorMap.flipY = false;
         BaseColor_Mat = new THREE.MeshStandardMaterial({
             map : BaseColorMap,
@@ -182,7 +185,7 @@
 
      
         const loader2 = new THREE.GLTFLoader()
-        loader2.load('./3Dmodels/PlanetC_Ani/planetScene2.gltf', function(gltf2){
+        loader2.load('./3Dmodels/PlanetC_Ani/planetScene3.gltf', function(gltf2){
             gltf2.scene.position.y= -3
             gltf2.scene.position.z= -4
             gltf2.scene.rotation.y=1
@@ -212,9 +215,31 @@
                 if(child.name == 'Star3'){
                     child.material = BaseColor_Mat
                 }
-                if(child.name == 'cake_house'){
+                if(child.name == 'cake'){
                     child.material = BaseColor_Mat
                 }
+                if(child.name == 'cake1'){
+                    child.material = BaseColor_Mat 
+                }
+                if(child.name == 'cake2'){
+                    child.material = BaseColor_Mat 
+                }
+                if(child.name == 'cake3'){
+                    child.material = BaseColor_Mat 
+                }
+                if(child.name == 'cake4'){
+                    child.material = BaseColor_Mat 
+                }
+                if(child.name == 'cake5'){
+                    child.material = BaseColor_Mat 
+                }
+                if(child.name == 'cake6'){
+                    child.material = BaseColor_Mat 
+                }
+                if(child.name == 'Cube'){
+                    child.material = BaseColor_Mat 
+                }
+
                 if(child.name == 'PlanetScene'){
                     child.material = Scene_Mat 
                 }
@@ -222,9 +247,7 @@
                     child.material = BaseColor_Mat 
                     console.log(child)
                 }
-                if(child.name == 'cake'){
-                    child.material = BaseColor_Mat 
-                }
+             
                 if(child.name == 'astronant'){
                     child.material = Astounant_Mat
                 }
@@ -238,11 +261,16 @@
                 action2 = mixer.clipAction(gltf2.animations[1])
                 action3= mixer.clipAction(gltf2.animations[2])
                 action4 = mixer.clipAction(gltf2.animations[3])
+                action5= mixer.clipAction(gltf2.animations[4])
+                action6 = mixer.clipAction(gltf2.animations[5])
+                action7 = mixer.clipAction(gltf2.animations[6])
                 action.play()
                 action2.play()
                 action3.play()
                 action4.play()
-
+                action5.play()
+                action6.play()
+                action7.play()
         
                 
                 scene.add(gltf2.scene)
