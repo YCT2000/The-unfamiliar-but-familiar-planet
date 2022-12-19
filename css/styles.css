@@ -105,10 +105,11 @@ body {
 }
 
 .SparkleStar{
-    width: 100%; 
+    width: auto;
+    object-fit: cover; 
     z-index: -2;
     position: fixed; 
-    top: 0; opacity: 0.7; 
+    top: 0; opacity: 0.4; 
     animation: Sparkling 4s infinite;
     -webkit-user-select: none; 
     -ms-user-select: none; 
