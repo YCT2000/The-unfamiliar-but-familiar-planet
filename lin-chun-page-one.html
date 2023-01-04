@@ -62,6 +62,7 @@
     <script src="https://cdn.jsdelivr.net/npm/three@0.122.0/build/three.min.js"></script>
     <script src="./extraScript/three_mmi.js"></script>
     <script src="https://unpkg.com/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="https://unpkg.com/browse/three@0.128.0/src/loaders/LoadingManager.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.122.0/examples/js/controls/OrbitControls.min.js"></script>
     <script src="./JavaEvent/nav.js"></script>
 
@@ -139,10 +140,32 @@
         let action
         let action2
         let action3
+        let action4
+        let action5
+        let action6
+        let action7
         const dialogue = document.querySelector('.dialogue')
         const content = document.getElementById("content")
         const content2 = document.getElementById("content-second")
         const buttons = document.querySelector('.buttons')
+
+        var manager = new THREE.LoadingManager(); 
+manager.onStart = function ( url, itemsLoaded, itemsTotal ) { 
+  console.log( 'Started loading file: ' + url + '.Loaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.' ); 
+}; 
+
+manager.onLoad = function ( ) { 
+  console.log( 'Loading complete!'); 
+}; 
+
+manager.onProgress = function ( url, itemsLoaded, itemsTotal ) { 
+  console.log( 'Loading file: ' + url + '.Loaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.' ); 
+}; 
+
+manager.onError = function ( url ) { 
+  console.log( 'There was an error loading ' + url ); 
+}; 
+
         //LinChun material
         const LinChunMap = new THREE.TextureLoader().load('./3Dmodels/PlanetH_Ani/LinChun_BaseColor.png')
         LinChunMap.flipY = false;
@@ -179,29 +202,25 @@
 
       
 
+    
+        // loading the scene //
+        const loadingManager = new THREE.LoadingManager
+
+        loadingManager.onStart = function ( url, itemsLoaded, itemsTotal ) { 
+        console.log( 'Started loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.' ); 
+        }; 
+        loadingManager.onLoad = function () { 
+        alert("finished")
+        }; 
+
         //import Mesh
-        /*const loader1 = new THREE.GLTFLoader()
-        loader1.load('../3Dmodels/test.gltf', function (gltf1){
-            gltf1.scene.position.y= -10
-            gltf1.scene.scale.set(5,5,5)
-            mmi.addHandler('Cube', 'click', function(){
-                console.log('hey')
-            })
-            
-            scene.add(gltf1.scene)
-            mixer = new THREE.AnimationMixer(gltf1.scene)
-            action = mixer.clipAction(gltf1.animations[0])
-            action2 = mixer.clipAction(gltf1.animations[1])
-            action.play()
-            action2.play()
-        })*/
-        const loader2 = new THREE.GLTFLoader()
+        const loader2 = new THREE.GLTFLoader(loadingManager)
         loader2.load('./3Dmodels/PlanetH_Ani/planetScene1.gltf', function(gltf2){
             gltf2.scene.position.y= -10
             gltf2.scene.position.z= -4
             gltf2.scene.rotation.y=1
          
-           
+        
             
             gltf2.scene.traverse(function(child){
                 if(child.isMesh){
@@ -244,9 +263,21 @@
                     child.material = Astounant_Mat 
                 }
                 
-
-
-
+                mixer = new THREE.AnimationMixer(gltf2.scene)
+                action = mixer.clipAction(gltf2.animations[0])
+                action2 = mixer.clipAction(gltf2.animations[1])
+                action3 = mixer.clipAction(gltf2.animations[2])
+                action4 = mixer.clipAction(gltf2.animations[3])
+                action5 = mixer.clipAction(gltf2.animations[4])
+                action6 = mixer.clipAction(gltf2.animations[5])
+                action.play()
+                action2.play()
+                action3.play()
+                action4.play()
+                action5.play()
+                action6.play()
+                
+               
 
                 scene.add(gltf2.scene)
 
@@ -325,7 +356,8 @@
                 
             })
            
-            
+          
+
         })
        
         //rendering progress
@@ -338,6 +370,10 @@
             renderer.render(scene, camera)
         }
         animate()
+  
+
+
+
     
     </script>
     <!--Kevin MacLeod的《Doh De Oh》，取得「Creative Commons 姓名標示 4.0」授權。 https://creativecommons.org/licenses/by/4.0/
