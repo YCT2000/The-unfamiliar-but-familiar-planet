@@ -107,13 +107,6 @@
         renderer.shadowMap.type = THREE.PCFSoftShadowMap;
         document.body.appendChild(renderer.domElement)
 
-        //window resize handling
-        function onWindowResize(){
-            camera.aspect = sizes.width / window.height
-            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
-            camera.updateProjectionMatrix()
-        }
-        window.addEventListener('resize', onWindowResize)
         //Adding lights
         const spotLight = new THREE.SpotLight(0xe6bd85);
         spotLight.position.set( 20, 20, 20);
