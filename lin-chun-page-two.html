@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500&family=Open+Sans:wght@500&display=swap" rel="stylesheet">
     <link href="./css/styles.css" rel="stylesheet"> 
+    <link href="./css/rwd.css" rel="stylesheet"> 
     <title>最熟悉的陌生星球</title>
 </head>
 <body>
@@ -58,7 +59,9 @@
     </div>
 
     <div class="SparkleStar"><img src="./img/SparkleStar.png"></div>
-    <canvas class="webgl"></canvas>
+    <div class="webgl-div">
+        <canvas class="webgl"></canvas>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/three@0.122.0/build/three.min.js"></script>
     <script src="./extraScript/three_mmi.js"></script>
     <script src="https://unpkg.com/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
@@ -270,6 +273,9 @@
                 if(child.name == 'petals'){
                     child.material =  Satellite_Mat
                 }
+                if(child.name == 'petalsB'){
+                    child.material =  Satellite_Mat
+                }
                 if(child.name == 'Astounant'){
                     child.material = Astounant_Mat 
                 }
@@ -281,13 +287,19 @@
                 action3 = mixer.clipAction(gltf2.animations[2])
                 action4 = mixer.clipAction(gltf2.animations[3])
                 action5 = mixer.clipAction(gltf2.animations[4])
-                /*action6 = mixer.clipAction(gltf2.animations[5])*/
+                action6 = mixer.clipAction(gltf2.animations[5])
+                action7 = mixer.clipAction(gltf2.animations[6])
+                action8 = mixer.clipAction(gltf2.animations[7])
+                action9 = mixer.clipAction(gltf2.animations[8])
                 action.play()
                 action2.play()
                 action3.play()
                 action4.play()
                 action5.play()
-                /*action6.play()*/
+                action6.play()
+                action7.play()
+                action8.play()
+                action9.play()
 
 
                 scene.add(gltf2.scene)

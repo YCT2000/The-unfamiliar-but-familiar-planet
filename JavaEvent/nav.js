@@ -18,7 +18,7 @@ closeBTN.addEventListener('click',()=>{
 
 })
 
-const LogoIntro = document.getElementById('LOGO')
+const LogoIntro = document.querySelector('.nav__logo')
 
 LogoIntro.addEventListener('click', ()=>{
     console.log('logo')

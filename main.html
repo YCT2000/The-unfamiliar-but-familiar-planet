@@ -10,22 +10,23 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500&family=Open+Sans:wght@500&display=swap" rel="stylesheet">
     <link href="./css/styles.css" rel="stylesheet"> 
+    <link href="./css/rwd.css" rel="stylesheet"> 
     <title>最熟悉的陌生星球</title>
 </head>
-<body class="">
+<body style="overflow: hidden;">
 
 
     <div id="startMain"></div>
         
-        <div id="startContainer" style="display: flex; position: absolute; bottom: 8%; left: 5%; z-index: 10;" >
+        <div id="startContainer" >
 
-        <div class="ellipse " style="width: 150px; height: 150px; background-color:brown; border-radius: 50%; overflow: hidden;">
-            <img id='mascot_1 ' class="mascotAni" src="./img/mascot/mascot1.png" style="height: 200px; transform: translate(-25%, 20%); ">
+        <div id="ellipse">
+            <img id='mascot_1' class="mascotAni" src="./img/mascot/mascot1.png">
         </div>
 
-        <div class="mascotSpeech" style="position:relative; margin-top: 4%; margin-left: 2%; margin-bottom: 2%;">
-            <div style="display: flex; position: absolute; left: 80px; margin-top: 5px;">
-            <div class="dialogueMain" >
+        <div class="mascotSpeech">
+            <div class="mascotSpeech__div">
+            <div class="dialogueMain">
                 
                 <p>偌大的宇宙裡有很多行星，你是否也發現自己身</p>
                 <p >旁的那顆可愛的行星，不妨和我們一起走近他們...</p>
@@ -34,7 +35,7 @@
             <div id="guideMainBTN" >GO</div>
             
         </div>
-        <img id='mascot_bubble' src="./img/mascot/speechBubbling.png" style="height: 96px;">
+        <img id='mascot_bubble' src="./img/mascot/speechBubbling.png">
         </div>
       
         </div>
@@ -44,9 +45,8 @@
     </div>
 </div >
       
-    <div class="nav-div" style="display: flex; width: 100%;">
-        <img src="./img/logo.png"
-         style="width: 200px;margin-top: 3%;margin-left: 5%; z-index: 5;" id="LOGO">
+    <div class="nav-div">
+        <img src="./img/logo.png" class="nav__logo">
       
      
         <div class="navContainer hide" >
@@ -77,7 +77,9 @@
     
 
     <div class="SparkleStar"><img src="./img/SparkleStar.png" style=" width: 100%; position: fixed; top: 0; opacity: 0.7; animation: Sparkling 4s infinite;"></div>
+    <div class="webgl-div">
     <canvas class="webgl"></canvas>
+    </div>  
     <script src="https://cdn.jsdelivr.net/npm/three@0.122.0/build/three.min.js"></script>
     <script src="./extraScript/three_mmi.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
@@ -85,8 +87,38 @@
     <script src="https://cdn.jsdelivr.net/npm/three@0.122.0/examples/js/controls/OrbitControls.min.js"></script>
     <script src="./JavaEvent/nav.js"></script>
     <script src="./JavaEvent/mascotSpeech.js"></script>
-    <script>
-        
+
+<script>
+      
+const startMP = document.querySelector('#startMain')
+const mascotMain = document.querySelector('#ellipse')
+const mascotSpeechDiv = document.querySelector('.mascotSpeech')
+const dialogueMain = document.querySelector('#dialogueMain')
+const guideMainBTN = document.querySelector('#guideMainBTN')
+
+
+
+
+guideMainBTN.addEventListener('click', ()=>{
+    mascotMain.classList.add('mascot_bubbleFaded')
+    mascotSpeechDiv.classList.add('mascot_bubbleFaded')
+    startMP.style.opacity = ('0')
+
+    
+})
+
+mascotMain.addEventListener('mouseover',()=>{
+    mascotMain.style.cursor=('pointer')
+})
+
+mascotMain.addEventListener('click',()=>{
+
+    mascotSpeechDiv.classList.remove('mascot_bubbleFaded')
+    startMP.style.opacity = ('1')
+   
+
+})
+
 //Canvas
 const canvas = document.querySelector('.webgl')
 
@@ -133,7 +165,7 @@ window.addEventListener('touchmove', (event) => {
 
 
 //renderer setting
-renderer.setSize(sizes.width, sizes.height)
+renderer.setSize(window.innerWidth, window.innerHeight)
 renderer.setPixelRatio(window.devicePixelRatio)
 renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 document.body.appendChild(renderer.domElement)
@@ -338,7 +370,8 @@ gltf1.scene.traverse(function (child) {
 
 function planetA_ReSize() {
     if ($(window).width() < 768) {
-        gltf1.scene.scale.set(0.8,0.8,0.8)
+        gltf1.scene.scale.set(0.5,0.5,0.5)
+        gltf1.scene.position.set(3, -3, 3)
      
         
     } else {
@@ -395,16 +428,18 @@ mmi.addHandler('planet_B', 'mouseleave', function(){
     console.log("out of planet_B")
    })
 
-gltf2.scene.position.z = 15
-gltf2.scene.position.x = -2
-gltf2.scene.position.y = -2
+
 
 function planetB_ReSize() {
     if ($(window).width() < 768) {
         gltf2.scene.scale.set(0.5,0.5,0.5)
-        
+        gltf2.scene.position.set(-2,-2, 0)
+
     } else {
         gltf2.scene.scale.set(1,1,1)
+        gltf2.scene.position.z = 15
+        gltf2.scene.position.x = -2
+        gltf2.scene.position.y = -2
     
     }
 };
@@ -452,15 +487,18 @@ mmi.addHandler('planet_C', 'mouseleave', function(){
     console.log("out of planet_C")
    })
 
-gltf3.scene.position.z = 15
-gltf3.scene.position.x = -4
-gltf3.scene.position.y = 2
+
 
 function planetC_ReSize() {
     if ($(window).width() < 768) {
         gltf3.scene.scale.set(0.5,0.5,0.5)
+        gltf3.scene.position.set(-2, 3, 9 )
+
     } else {
         gltf3.scene.scale.set(1,1,1)
+        gltf3.scene.position.z = 15
+        gltf3.scene.position.x = -4
+        gltf3.scene.position.y = 2
     }
 };
 planetC_ReSize();
@@ -506,16 +544,17 @@ mmi.addHandler('planet_D', 'mouseleave', function(){
     console.log("out of planet_D")
    })
 
-gltf4.scene.position.z = 10
-gltf4.scene.position.x = -9
-gltf4.scene.position.y = -5
 
 function planetD_ReSize() {
     if ($(window).width() < 768) {
         gltf4.scene.scale.set(0.5,0.5,0.5)
+        gltf4.scene.position.set(-3,-4,9)
         
     } else {
         gltf4.scene.scale.set(1,1,1)
+        gltf4.scene.position.z = 10
+        gltf4.scene.position.x = -9
+        gltf4.scene.position.y = -5
     
     }
 };
@@ -562,16 +601,17 @@ mmi.addHandler('planet_E', 'mouseleave', function(){
     console.log("out of planet_E")
    })
 
-gltf5.scene.position.z = 12
-gltf5.scene.position.x = 10
-gltf5.scene.position.y = 2
+
 
 function planetE_ReSize() {
     if ($(window).width() < 768) {
         gltf5.scene.scale.set(0.5,0.5,0.5)
-        
+        gltf5.scene.position.set(3,5,0.5)
     } else {
         gltf5.scene.scale.set(1,1,1)
+        gltf5.scene.position.z = 12
+        gltf5.scene.position.x = 10
+        gltf5.scene.position.y = 2      
     
     }
 };
@@ -617,11 +657,24 @@ mmi.addHandler('planet_F', 'mouseleave', function(){
     console.log("out of planet_F")
    })
 
-gltf6.scene.position.z = 5
-gltf6.scene.position.x = -0
-gltf6.scene.position.y = 1
 
+
+function planetF_ReSize() {
+    if ($(window).width() < 768) {
+        gltf6.scene.scale.set(0.6,0.6,0.6)
+        gltf6.scene.position.set(0,0,0)
+    } else {
+        gltf6.scene.scale.set(1,1,1)
+        gltf6.scene.position.z = 5
+        gltf6.scene.position.x = 0
+        gltf6.scene.position.y = 1    
+    
+    }
+};
+planetF_ReSize();
 });
+
+
 
 //PlanetG Import
 var loader7 = new THREE.GLTFLoader();
@@ -666,6 +719,20 @@ gltf7.scene.position.z = 20
 gltf7.scene.position.x = 8
 gltf7.scene.position.y = -1
 
+function planetG_ReSize() {
+    if ($(window).width() < 768) {
+        gltf7.scene.scale.set(0.5,0.5,0.5)
+        gltf7.scene.position.set(3,1,3)
+    } else {
+        gltf7.scene.scale.set(1,1,1)
+        gltf7.scene.position.z = 12
+        gltf7.scene.position.x = 10
+        gltf7.scene.position.y = 2      
+    
+    }
+};
+planetG_ReSize();
+
 });
 
 
@@ -707,9 +774,20 @@ mmi.addHandler('planet_H', 'mouseleave', function(){
     console.log("out of planet_H")
    })
 
-gltf8.scene.position.z = 4
-gltf8.scene.position.x = -12
-gltf8.scene.position.y = 6
+
+
+function planetH_ReSize() {
+    if ($(window).width() < 768) {
+        gltf8.scene.scale.set(0.5,0.5,0.5)
+        gltf8.scene.position.set(2,-6,3)
+    } else {
+        gltf8.scene.scale.set(1,1,1)
+        gltf8.scene.position.z = 4
+        gltf8.scene.position.x = -12
+        gltf8.scene.position.y = 6
+    }
+};
+planetH_ReSize();
 
 });
 
@@ -753,16 +831,18 @@ mmi.addHandler('planet_I', 'mouseleave', function(){
     console.log("out of planet_I")
    })
 
-gltf9.scene.position.z = 25
-gltf9.scene.position.x = -4
-gltf9.scene.position.y = -0
+
 
 function planetI_ReSize() {
     if ($(window).width() < 768) {
-        gltf9.scene.scale.set(0.5,0.5,0.5)
+        gltf9.scene.scale.set(0.7,0.7,0.7)
+        gltf9.scene.position.set(-4,0.5,0.5)
         
     } else {
         gltf9.scene.scale.set(1,1,1)
+        gltf9.scene.position.z = 25
+        gltf9.scene.position.x = -4
+        gltf9.scene.position.y = -0     
     
     }
 };
@@ -810,37 +890,24 @@ mmi.addHandler('planet_J', 'mouseleave', function(){
     console.log("out of planet_J")
    })
 
-gltf10.scene.position.z = 17
-gltf10.scene.position.x = 4
-gltf10.scene.position.y = 3
+
+
+function planetJ_ReSize() {
+    if ($(window).width() < 768) {
+        gltf10.scene.scale.set(0.7,0.7,0.7)
+        gltf10.scene.position.set(0,6,0.5)
+        
+    } else {
+        gltf10.scene.scale.set(1,1,1)
+        gltf10.scene.position.z = 17
+        gltf10.scene.position.x = 4
+        gltf10.scene.position.y = 3   
+    
+    }
+};
+planetJ_ReSize();
 
 });
-
-
-//Character Import
-var loader11 = new THREE.GLTFLoader();
-loader11.load('./3Dmodels/Character.gltf', function ( gltf11 ) {
-	
-
-gltf11.scene.traverse(function (child) {
-
-
-if (child.isMesh) {
-
-    scene.add(gltf11.scene);
-}
-});
-
-
-
-gltf11.scene.position.z = 4
-gltf11.scene.position.x = -12
-gltf11.scene.position.y = 7
-
-});
-
-
-
 
 
 //rendering progress
@@ -852,7 +919,6 @@ function animate(){
         cameraGroup.position.setX(mouse.x)
         cameraGroup.position.setY(mouse.y)
     }
-   
    
    
 

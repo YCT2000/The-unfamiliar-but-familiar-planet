@@ -10,9 +10,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500&family=Open+Sans:wght@500&display=swap" rel="stylesheet">
     <link href="./css/styles.css" rel="stylesheet"> 
+    <link href="./css/rwd.css" rel="stylesheet"> 
     <title>最熟悉的陌生星球</title>
 </head>
-<body>
+<body style="overflow: hidden;">
 
 
 
@@ -58,7 +59,9 @@
     </div>
 
     <div class="SparkleStar"><img src="./img/SparkleStar.png"></div>
+    <div class="webgl-div">
     <canvas class="webgl"></canvas>
+    </div> 
     <script src="https://cdn.jsdelivr.net/npm/three@0.122.0/build/three.min.js"></script>
     <script src="./extraScript/three_mmi.js"></script>
     <script src="https://unpkg.com/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>

@@ -1,3 +1,60 @@
+
 @media (max-width: 769px) {
+
+    .nav__logo{
+        width: 30%;
+        margin-top: 10%;
+    }
+
+
+
+
+    #ellipse{
+        height: 50px;
+        width: 80px;
+        background-color:brown; 
+        border-radius: 100%; 
+        overflow: hidden;
+    }
+    #mascot_1{
+        height: 80px; 
+        transform: translate(-35%, 15%); 
+    }
+    .dialogueMain {
+        font-size: 2vw;
+        margin: -2% 0%;
     
+    }
+
+    #mascot_bubble{
+        height: 100%;
+        width: 90%;
+    }
+    .mascotSpeech {
+        position: relative;
+        margin-top: 3%;
+    }
+    
+    .mascotSpeech__div {
+        left: 30px;
+        width: 80vw;
+    }
+
+    #guideMainBTN {
+        font-size: 3vw;
+        margin: 2% 0 2% 4%;
+        padding: 6px;
+    }
+
+    
+    .planet{width: 90%; margin: 30px 20px;}
+    .introduction-planet{width: 90%; float: left; padding: 30px 20px ;}
+    .description{color:#ffffff; font-family:'Noto Sans TC', sans-serif;
+                font-size: 12px; width: 90%;}
+    .FirstHeading{color:#ffffff; font-family:'Noto Sans TC', sans-serif;
+              font-size: 30px; font-weight: bold;}
+    .intro-next{width: 15%; float: right;}
+
+    .buttons{ margin:80% 10% 0% 10%; }
+
 }

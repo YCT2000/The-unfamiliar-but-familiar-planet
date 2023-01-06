@@ -14,70 +14,57 @@
     <title>最熟悉的陌生星球</title>
 </head>
 <body>
-     <div class="loader-wrapper ">
+    <div class="loader-wrapper ">
         <img width="100%" src="./Video/LoadingMP4.gif"></img>
-     </div>
+    </div>
     
     
-    <div class="startPage hide" 
-        style="width:100%;
-            height:2000px; 
-            overflow: hidden;">
-        <div class="SparkleStar"><img src="./img/SparkleStar.png" style="z-index: -2; width: 100%; position: fixed; top: 0; opacity: 0.7; animation: Sparkling 4s infinite;"></div>
-      
-        
-            <div id="introDialogue"
-            style="
-            margin-top: 20%;
-            font-weight: 400;
-            color: #ffffff;
-            font-family: 'Noto Sans TC', sans-serif;
-            text-align: center;
-            max-width: 100%;
-            animation: fadeIn 2s;" >
-            
+    <div class="startPage hide" >
+        <div class="SparkleStar"><img src="./img/SparkleStar.png" id="sparkleStar-img"></div>
+            <div id="introDialogue">
                 <p>偌大的宇宙裡有很多行星，</p>
                 <p>您是否也發現自己身旁的那顆可愛的行星，</p>
                 <p> 不妨和我們一起走近他們</p>
-
-                <a href="main.html" 
-                style="
-                background-color:#DEAD25;
-                border-radius:50%;
-                display:inline-block;
-                cursor:pointer;
-                color:rgb(255, 255, 255);
-                font-family:'Noto Sans TC', sans-serif;
-                font-size: 20px;
-                font-weight: bold;
-                text-decoration:none;
-                animation: fadeIn 3s;
-                text-align: center;
-                margin-top: 10px;
-                padding: 20px 21px;">GO</a>
-             </div>
-             
+            </div>
+            <a href="main.html" id="startPage__btn">GO</a>
     </div>
        
 
     
         
 
-    <script>
+<script>
 
-         const Loader = document.querySelector('.loader-wrapper')
-         const StartPage = document.querySelector('.startPage')
+    const Loader = document.querySelector('.loader-wrapper')
+    const StartPage = document.querySelector('.startPage')
 
-         function Loading(){
-            Loader.classList.add('hide')
-            StartPage.classList.remove('hide')
-         }
+    function Loading(){
+        Loader.classList.add('hide')
+        StartPage.classList.remove('hide')
+    }
 
-         setTimeout(Loading, 3000)
+    setTimeout(Loading, 3000)
 
-    </script>
+    const startBtn = document.querySelector("#startBTN")
+    const WhiteBG = document.querySelector("#start")
+    const Logo = document.querySelector("#logo")
+    const BgImg = document.querySelector("#introBackground")
+    const nextBtn = document.querySelector('#nextBTN')
 
 
-    <script src="./JavaEvent/Entry.js"></script>
+
+    startBtn.addEventListener('click', ()=>{
+        console.log('btn click')
+        startBtn.classList.add('hide')
+        nextBtn.classList.remove('hide')
+
+    })
+
+
+
+</script>
+
+
+<script src="./JavaEvent/Entry.js"></script>
 </body>
 </html>

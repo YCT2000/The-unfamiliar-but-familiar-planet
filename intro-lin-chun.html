@@ -9,14 +9,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500&family=Open+Sans:wght@500&display=swap" rel="stylesheet">
     <link href="./css/slick.css" rel="stylesheet">
-    <link href="./css/PlanetOnePage.css" rel="stylesheet"> 
+    <link href="./css/styles.css" rel="stylesheet"> 
+    <link href="./css/rwd.css" rel="stylesheet"> 
     <title>PlanetA</title>
 </head>
 <body>
         
-    <div class="Start-Page" style="width: 100%; height: 3000px; background-color: #DEAD25;">
-        <div class="nav-div" style="display: flex; width: 100%;">
-            <img src="./img/logo.png" style="width: 150px;margin-top: 3%;margin-left: 5%; z-index: 4;" id="LOGO">
+
+        <div class="nav-div">
+            <img src="./img/logo.png" class="nav__logo">
           
          
             <div class="navContainer hide" >
@@ -26,7 +27,7 @@
                     <li><a href="base.html">基地</a></li>
                     <li><a href="main.html">行星</a></li>
                     <li><a href="explore.html">探索</a></li>
-                    <li><a href="tower.html">塔台</a></li>
+                    <li><a href="#">塔台</a></li>
                 </ul>
             </nav>
         
@@ -44,31 +45,28 @@
             </button>
         </div>
 
-        <div><img src="3Dmodels/PlanetH_Ani/0001.png"  style="position: absolute; width: 60%; left: -13%; filter: drop-shadow(0 0 0.75rem crimson);">
-        </div>
 
-        <div style="width: 50%; float: right; margin-right: 4%;">
+            <img class="planet" src="3Dmodels/PlanetH_Ani/0001.png">
 
-            <h1 class="FirstHeading" 
-            style="color:#ffffff;
-            font-family:'Noto Sans TC', sans-serif;
-            font-size: 100px;
-            font-weight: bold;">
+
+        <div class="introduction-planet">
+
+            <h1 class="FirstHeading">
                 很愛老公的阿嬷
             </h1>
 
             <p class="description">擁有一顆炙熱的心，散發出屬於自己的魅力，如同煙火釋放時的樣貌，美麗卻不能輕</p>
             <p class="description">易靠近，務必小心對待、呵護。星球上有許多關於她的小秘密，請細細觀察，就能看</p>
             <p class="description">見她的美麗。</p>
-            <div class="Next-btn" style=" float: right; margin-right: 13%;">Next</div>
+            <a href="lin-chun-page-one.html" ><img src="./img/next.png" class="intro-next"></a>
+
         </div>
-        
       
 
 
 
 
-    </div>
+
 
 
     <script src="./extraScript/slick.js"></script>
