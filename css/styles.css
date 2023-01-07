@@ -2,7 +2,7 @@ body {
     width: 100%;
     margin: 0;
     padding: 0;
-    background: linear-gradient( rgba(158, 11, 24, 0.8) 0%, rgba(0, 0, 0, 0.7) 60%);
+    background: linear-gradient( rgba(118, 22, 27, 0.8) 0%, rgba(0, 46, 50, 0.7) 60%);
     background-repeat: no-repeat;
     
 }
@@ -83,7 +83,7 @@ body {
 .nav__logo{
     width: 10rem;
     margin-top: 3%;
-    margin-left: 5%; 
+    margin-left: 100px; 
     z-index: 5;
 }
 
@@ -506,22 +506,29 @@ h1,h2,h3,h4{
   
 }
 
-footer{
-    background-color: #DE6A18;
-    height: 176px;
-}
-
+footer{background-color: #DEAD25; }
+.footer__content{padding: 72px 100px 62px; color: #FFF; font-family:'Noto Sans TC', sans-serif; }
+.footer__right{float: right; line-height: 25px; margin-top: 20px;}
+.footer__left{float: left; line-height: 35px;}
+.footer__logo{width: 100%}
 /*探索*/
+.explore__body{}
+.survey{margin: 123px 123px 111px; width: 45%;}
+.survey h1{ color:#ffffff; font-family:'Noto Sans TC', sans-serif; font-size: 3rem; font-weight: bold;}
+.survey__first{ display: inline-block;  color:rgb(255, 255, 255); font-family:'Noto Sans TC', sans-serif; line-height: 50px;}
+.survey__first span{font-size: 1rem;}
+.survey__first p{font-size: 1.25rem;}
+.survey__second {display: block; float:right; font-size: 1rem; color:rgb(255, 255, 255); font-family:'Noto Sans TC', sans-serif;
+                 margin-top: 90px;line-height: 50px;}
+.survey__next{width: 5%; float: right; margin: -100px 100px 0px;}
+.survey__mascot{width: 40%; position: absolute; right: 100px; top: -15px; z-index: -3;}
 
-.surveyPage span{
-    font-size: 40px;
-    color:rgb(255, 255, 255);
-	font-family:'Noto Sans TC', sans-serif;
-    font-weight: medium;
-    line-height: 120px;
-    
-}
-
+.explore__description{color:#ffffff; font-family:'Noto Sans TC', sans-serif; font-size: 1.25vw; margin: 72px 100px}
+.carousel{background-color: #FFF; padding: 20px;}
+.slider{margin-bottom: 55px;}
+.slick-slide img {max-width: 100%; transition: transform 0.5s;}
+.slick-slide.slick-center img{ transform: scale(1.2);}
+.slide p{ color:#fff; font-family:'Noto Sans TC', sans-serif;font-weight: 100; text-align: center;}
 
 input[type="checkbox" i] {
     border-radius: 100px;

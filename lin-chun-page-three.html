@@ -13,7 +13,7 @@
     <link href="./css/rwd.css" rel="stylesheet"> 
     <title>最熟悉的陌生星球</title>
 </head>
-<body>
+<body style="overflow: hidden;">
 
 
 
@@ -91,8 +91,8 @@
         scene.add(camera)
         function camera_ReSize() {
             if ($(window).width() < 768) {
-                camera.position.z = 60
-                camera.position.x = -10
+                camera.position.z = 120
+                camera.position.x = -0
            
             } else {
                 camera.position.z = 40

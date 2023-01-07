@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>探索</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500&family=Open+Sans:wght@500&display=swap" rel="stylesheet">
+    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+    <link href="./css/slick.css" rel="stylesheet">
+    <link href="./css/styles.css" rel="stylesheet"> 
+
+</head>
+<body>
+
+ 
+    <div class="nav-div">
+        <img src="./img/logo.png" class="nav__logo">
+      
+     
+        <div class="navContainer hide" >
+        <nav> 
+            <ul class="navLinks ">
+              
+                <li><a href="base.html">基地</a></li>
+                <li><a href="main.html">行星</a></li>
+                <li><a href="explore.html">探索</a></li>
+                <li><a href="#">塔台</a></li>
+            </ul>
+        </nav>
+    
+        </div>
+        <button class="hamburger">
+            <div class="burger"></div>
+            <div class="burger"></div>
+            <div class="burger"></div>
+        </button>
+    
+        <button class="closeNav hide" >
+            <div class="burger1"></div>
+            <div class="burger2"></div>
+            
+        </button>
+    </div>
+
+    <p class="explore__description">這十項都是失智的症狀，伴隨每個不同的個體，所產生的症狀也會不一樣</p>
+
+        <div class="slider center">  
+        <div class="slide">
+            <div class="carousel">
+            <img src="./img/TheCautions/caution1.png">
+            </div>
+            <p>記憶力減退到影響生活<br>如忘記周遭的人、事、物</p>
+        </div>
+        <div class="slide">
+            <div class="carousel">
+                <img src="./img/TheCautions/caution2.png">
+            </div>
+            <p>記憶力減退到影響生活<br>如忘記周遭的人、事、物</p>
+        </div>
+        <div class="slide">
+            <div class="carousel">
+                <img src="./img/TheCautions/caution3.png">
+            </div>
+            <p>記憶力減退到影響生活<br>如忘記周遭的人、事、物</p>  
+        </div>
+        <div class="slide">
+            <div class="carousel">
+                <img src="./img/TheCautions/caution4.png">
+            </div>
+            <p>記憶力減退到影響生活<br>如忘記周遭的人、事、物</p>
+        </div>
+        <div class="slide">
+            <div class="carousel">
+                <img src="./img/TheCautions/caution5.png">
+            </div>
+            <p>記憶力減退到影響生活<br>如忘記周遭的人、事、物</p>
+        </div>
+        <div class="slide">
+            <div class="carousel">
+                <img src="./img/TheCautions/caution6.png">
+            </div>
+            <p>記憶力減退到影響生活<br>如忘記周遭的人、事、物</p>
+        </div>
+        <div class="slide">
+            <div class="carousel">
+                <img src="./img/TheCautions/caution7.png">
+            </div>
+            <p>記憶力減退到影響生活<br>如忘記周遭的人、事、物</p>
+        </div>
+        <div class="slide">
+            <div class="carousel">
+                <img src="./img/TheCautions/caution8.png">
+            </div>
+            <p>記憶力減退到影響生活<br>如忘記周遭的人、事、物</p>
+        </div>
+        <div class="slide">
+            <div class="carousel">
+                <img src="./img/TheCautions/caution9.png">
+            </div>
+            <p>記憶力減退到影響生活<br>如忘記周遭的人、事、物</p>
+        </div>
+        <div class="slide">
+            <div class="carousel">
+                <img src="./img/TheCautions/caution10.png">
+            </div>
+            <p>記憶力減退到影響生活<br>如忘記周遭的人、事、物</p>
+        </div>
+    
+      </div>
+ 
+
+
+
+
+
+
+   
+ 
+        
+    <footer>
+      <div class="footer__content clearfix">
+        <div class="footer__left">
+            <p><i class="fa-solid fa-house"></i>&emsp;新竹</p>
+            <p><i class="fa-solid fa-phone"></i>&emsp;03-4567890</p>
+            <p><i class="fa-solid fa-envelope"></i>&emsp;gmail.com</p>
+        </div>
+
+        <div class="footer__right">
+            <img src="./img/logo.png" class="footer__logo">
+            <p>Since 2022年5月31日起，共 00002人拜訪</p>
+            <p>版權所有© 2022 失天人</p>
+        </div>
+
+    
+       
+    </div>
+    </footer>        
+
+    <script src="./JavaEvent/nav.js"></script>
+    <script src="./extraScript/slick.js"></script>
+    <script src="https://kit.fontawesome.com/27aba58a5d.js" crossorigin="anonymous"></script>
+    <script>
+       
+        $('.center').slick({
+            centerMode: true,
+            centerPadding: '60px',
+            slidesToShow: 3,
+            autoplay: true,
+            dots: false,
+            infinite: true,
+            slidesToShow: 3,
+            prevArrow: false,
+            nextArrow: false,
+            responsive: [
+                
+        {
+            breakpoint: 768,
+            settings: {
+                arrows: false,
+                centerMode: true,
+                centerPadding: '40px',
+                slidesToShow: 3,
+                autoplay: true,
+            }
+        },
+        {
+            breakpoint: 480,
+            settings: {
+            arrows: false,
+            centerMode: true,
+            centerPadding: '40px',
+            slidesToShow: 1,
+            autoplay: true,
+            }
+        }
+    ]
+    });
+		
+    </script>
+</body>
+
+</html>
+
+
+
+
+
+
