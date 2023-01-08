@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>塔台</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500&family=Open+Sans:wght@500&display=swap" rel="stylesheet">
+    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+    <link href="./css/slick.css" rel="stylesheet">
+    <link href="./css/styles.css" rel="stylesheet">
+    <link href="./css/rwd.css" rel="stylesheet"> 
+
+</head>
+<body class="explore__body">
+
+ 
+    <div class="nav-div">
+        <img src="./img/logo.png" class="nav__logo">
+      
+     
+        <div class="navContainer hide" >
+        <nav> 
+            <ul class="navLinks ">
+              
+                <li><a href="base.html">基地</a></li>
+                <li><a href="main.html">行星</a></li>
+                <li><a href="explore.html">探索</a></li>
+                <li><a href="#">塔台</a></li>
+            </ul>
+        </nav>
+    
+        </div>
+        <button class="hamburger">
+            <div class="burger"></div>
+            <div class="burger"></div>
+            <div class="burger"></div>
+        </button>
+    
+        <button class="closeNav hide" >
+            <div class="burger1"></div>
+            <div class="burger2"></div>
+            
+        </button>
+    </div>
+
+    <section class="clearfix">
+
+
+        <div class="slider-container">
+            <div class="slider slider-single">
+                <div><img src="./img/speechToMyself/1.jpg"></div>
+                <div><img src="./img/speechToMyself/2.jpg"></div>
+                <div><img src="./img/speechToMyself/3.jpg"></div>
+          </div>
+         
+            <div class="slider slider-nav">
+                <div><img src="./img/speechToMyself/1.jpg"></div>
+                <div><img src="./img/speechToMyself/2.jpg"></div>
+                <div><img src="./img/speechToMyself/3.jpg"></div>
+            </div>
+            <div class="btn-casual">
+                <button class="prev-arrow"><img src="./img/mascot/pervious_casual.png"></button>
+                <button class="next-arrow"><img src="./img/mascot/next_casual.png"></button>
+              </div>
+        </div>
+
+
+        <div class="content-introduction">
+            <img src="./img/mascot/first_lesson.png">
+            <h1>自我的對白——現在的自己</h1>
+            <p>透過「認為自己是什麼樣的存在?」來重新認識自己,是像鳥嗎?還是像貓呢?
+                為什麼?思考自己希望成為什麼樣的大人,跌跌撞撞,一路成長,最後形成了現在星人們的模樣</p>
+        </div>
+
+       
+  
+    </section>
+
+    <section class="video clearfix">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/0JoJGg5BLCQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </section>
+        
+    <footer>
+      <div class="footer__content clearfix">
+        <div class="footer__left">
+            <p><i class="fa-solid fa-house"></i>&emsp;新竹</p>
+            <p><i class="fa-solid fa-phone"></i>&emsp;03-4567890</p>
+            <p><i class="fa-solid fa-envelope"></i>&emsp;gmail.com</p>
+        </div>
+
+        <div class="footer__right">
+            <img src="./img/logo.png" class="footer__logo">
+            <p>Since 2022年5月31日起，共 00002人拜訪</p>
+            <p>版權所有© 2022 失天人</p>
+        </div>
+
+    
+       
+    </div>
+    </footer>        
+
+    <script src="./JavaEvent/nav.js"></script>
+    <script src="https://kit.fontawesome.com/27aba58a5d.js" crossorigin="anonymous"></script>
+    <script src="./extraScript/slick.js"></script>
+    <script>
+         $('.slider-single').slick({
+ 	slidesToShow: 1,
+ 	slidesToScroll: 1,
+ 	arrows: true,
+    prevArrow: $('.prev-arrow'),
+    nextArrow: $('.next-arrow'),
+ 	fade: false,
+ 	adaptiveHeight: true,
+ 	infinite: false,
+	useTransform: true,
+ 	speed: 400,
+ 	cssEase: 'cubic-bezier(0.77, 0, 0.18, 1)',
+ });
+
+ $('.slider-nav')
+ 	.on('init', function(event, slick) {
+ 		$('.slider-nav .slick-slide.slick-current').addClass('is-active');
+ 	})
+ 	.slick({
+       
+ 		slidesToShow: 7,
+ 		slidesToScroll: 7,
+ 		dots: false,
+ 		focusOnSelect: false,
+ 		infinite: false,
+        prevArrow: false,
+        nextArrow: false,
+ 		responsive: [{
+ 			breakpoint: 1024,
+ 			settings: {
+ 				slidesToShow: 5,
+ 				slidesToScroll: 5,
+ 			}
+ 		}, {
+ 			breakpoint: 640,
+ 			settings: {
+ 				slidesToShow: 4,
+ 				slidesToScroll: 4,
+			}
+ 		}, {
+ 			breakpoint: 420,
+ 			settings: {
+ 				slidesToShow: 3,
+ 				slidesToScroll: 3,
+		}
+ 		}]
+ 	});
+
+ $('.slider-single').on('afterChange', function(event, slick, currentSlide) {
+ 	$('.slider-nav').slick('slickGoTo', currentSlide);
+ 	var currrentNavSlideElem = '.slider-nav .slick-slide[data-slick-index="' + currentSlide + '"]';
+ 	$('.slider-nav .slick-slide.is-active').removeClass('is-active');
+ 	$(currrentNavSlideElem).addClass('is-active');
+ });
+
+ $('.slider-nav').on('click', '.slick-slide', function(event) {
+ 	event.preventDefault();
+ 	var goToSingleSlide = $(this).data('slick-index');
+
+ 	$('.slider-single').slick('slickGoTo', goToSingleSlide);
+ });
+
+ $('.carousel-content').slick({
+      prevArrow:"<img class='a-left control-c prev slick-prev' src='./img/mascot/pervious_casual.png'>",
+      nextArrow:"<img class='a-right control-c next slick-next' src='../images/shoe_story/arrow-right.png'>"
+  });
+    </script>
+
+
+</body>
+
+</html>
+
+
+
+
+
+

@@ -9,7 +9,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500&family=Open+Sans:wght@500&display=swap" rel="stylesheet">
     <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
-    <link href="./css/slick.css" rel="stylesheet">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
     <link href="./css/styles.css" rel="stylesheet">
     <link href="./css/rwd.css" rel="stylesheet"> 
 
@@ -45,35 +47,33 @@
             
         </button>
     </div>
-
-    <img src="./img/mascot/mascot_tower.png" id="mascot_tower">
-    <div class="selection">
-        <div class="selection__first">
-            <a href="speech-to-myself.html">
-                <img src="./img/mascot/first_lesson.png">
-                <p>自我的對白——現在的自己</p>
-            </a>
-            
-            <a href="">
-                <img src="./img/mascot/second_lesson.png">
-                <p>日常的習慣——這樣的我</p>
-            </a>
-           
-        </div>
-        <div class="selection__second">
-            <a href="">
-                <img src="./img/mascot/third_lesson.png">
-                <p>天堂的樣貌——理想與死亡</p>
-            </a>
-            
-            <a href="">
-                <img src="./img/mascot/fourth_lesson.png">
-                <p>超越理想與死亡的現實</p>
-            </a>
-            
-        </div>
+    <section class="brand">
+    <div class="brand__section">
+    <img class="brand__logo" src="./img/Logo-Large.png">
+    <p class="brand__description">透過與失智長輩個案的交流、互動與訪問，蒐集失智長輩所分享的人、事、物，
+        建立快樂的回憶。並且和年輕人產生連結、對話與分享，使沒接觸過失智症的人
+        們能認識失智症外，也能了解它所帶來的影響，讓人感到溫暖、有愛的，並更珍
+        惜與家人相處的時光。</p>
     </div>
+
+    <p class="imglist">
+        <a href="./img/branding/1.jpg" data-fancybox="group" data-caption="This image has a caption 1">
+          <img src="./img/branding/fancybox_1.jpg" />
+        </a>
         
+        <a href="./img/branding/1.jpg" data-fancybox="group" data-caption="This image has a caption 1">
+            <img src="./img/branding/fancybox_1.jpg" />
+          </a>
+        
+          <a href="./img/branding/1.jpg" data-fancybox="group" data-caption="This image has a caption 1">
+            <img src="./img/branding/fancybox_1.jpg" />
+          </a>
+        
+          <a href="./img/branding/1.jpg" data-fancybox="group" data-caption="This image has a caption 1">
+            <img src="./img/branding/fancybox_1.jpg" />
+          </a>
+      </p>
+    </section>
     <footer>
       <div class="footer__content clearfix">
         <div class="footer__left">
@@ -95,8 +95,24 @@
 
     <script src="./JavaEvent/nav.js"></script>
     <script src="https://kit.fontawesome.com/27aba58a5d.js" crossorigin="anonymous"></script>
-   
-
+    <script type="text/javascript">
+		$('fancybox').fancybox({
+  // Options will go here
+  buttons : [
+    'close'
+  ],
+  wheel : false,
+  transitionEffect: "slide",
+   // thumbs          : false,
+  // hash            : false,
+  loop            : true,
+  // keyboard        : true,
+  toolbar         : false,
+  // animationEffect : false,
+  // arrows          : true,
+  clickContent    : false
+});
+	</script>
 
 </body>
 

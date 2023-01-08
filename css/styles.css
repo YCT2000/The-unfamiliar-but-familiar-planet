@@ -14,6 +14,7 @@ body {
     position: fixed;
     z-index: 2;
     text-align: center;
+ 
 }
 
 .webgl-div{
@@ -21,6 +22,7 @@ body {
     margin: 0;
     padding: 0;
     opacity: 0;
+    overflow: hidden;
 }
 
 .clearfix::after {clear: both; content: ''; display: block;}
@@ -98,12 +100,12 @@ ul, li{
 .navContainer{
     padding: 0;
     top: 0;
-    right: 15%;
-    left: 15%;
+    right: 20%;
+    left: 20%;
     margin: 50px;
     border-radius: 90px;
     position: absolute;
-    background: rgba(255, 255, 255, 0.712);
+    background: rgba(255, 255, 255);
     filter:drop-shadow(16px 16px 10px rgba(0, 0, 0, 0.299));
     justify-content: center;
     align-items: center;
@@ -119,6 +121,8 @@ ul, li{
     align-items: center;
     height: 5vh;
     text-decoration: none;
+    padding: 0;
+    position: relative;
     
     
 }
@@ -129,11 +133,19 @@ ul, li{
     text-decoration: none;
     color: rgb(117, 113, 109);
     letter-spacing: 20px;
+    box-sizing: border-box;
+    padding: 10px 0px 10px 20px;
+    border-radius: 10px;
+    
 
 }
 .navLinks li a:hover{
     cursor: pointer;
+    background-color: #DEAD25;
+    color: white;
+   
 }
+
 
 
 .NAV button{
@@ -145,6 +157,27 @@ ul, li{
     z-index: 9;
 }
 
+.galaxy__container {
+    
+    background-color: #FFF;
+    position: absolute;
+    left: 30%;
+    display: none;
+    
+}
+
+
+.galaxy:hover .galaxy__container{display: block;}
+
+
+.galaxy__container ul,li,a{
+    text-decoration: none;
+    list-style: none;
+    text-align: center;
+    padding: 8px;
+    margin: 0;
+}
+
 
 
 .hamburger {
@@ -153,9 +186,8 @@ ul, li{
     outline:0px;
     width:50px;
     height:50px;
-    height:auto;
     position:absolute;
-    top:10%;
+    top:10.5%;
     right:9%;
     cursor:pointer;
     z-index:9;
@@ -182,7 +214,7 @@ display:flex;
     height:50px;
     height:auto;
     position:absolute;
-    top:11%;
+    top:12%;
     right:9%;
     cursor:pointer;
     z-index:10;
@@ -441,13 +473,7 @@ display:flex;
 .FirstHeading{color:#ffffff; font-family:'Noto Sans TC', sans-serif;
               font-size: 5rem; font-weight: bold;}
 .intro-next{width: 15%; float: right;}
-/* 基地 */
-h1,h2,h3,h4{
-    font-family: 'Open Sans', sans-serif;
-    font-size: 20px;
-    font-weight: bold;
-    color: #f2f2f2;
-}
+
 
 
 .slick-dots {
@@ -506,14 +532,37 @@ h1,h2,h3,h4{
   
 }
 
-footer{background-color: #DEAD25; }
+
+
+
+/* 塔台*/
+#mascot_tower{width: 40%; position: absolute; left: -20px; bottom: -125px;}
+.selection{margin: 10% 10% 10% 50%;}
+.selection img{width: 70%;}
+.selection p {color: white; font-family:'Noto Sans TC', sans-serif;}
+.selection__first{display: flex; justify-content:space-evenly;}
+.selection__second{display: flex; justify-content:space-evenly;}
+
+.prev-arrow{background-color: transparent; border: none;float: left; z-index: 10; margin-right: 23vw;}
+.next-arrow{background-color: transparent; border: none; float: right; z-index: 10; margin-left: 23vw;}
+.btn-casual{position: absolute; display: flex; justify-content:space-evenly; top: 35%; left:-7%;}
+.slider-container{position: relative; text-align: center; width: 45%; float: right; margin-top: 100px; padding-right: 123px;}
+.content-introduction{margin: 123px 0px 123px 15%; padding-right: 92px; float: left; width: 20%;
+                      color: #FFF; font-family:'Noto Sans TC', sans-serif;}
+
+.slider-nav img{width: 100%;}
+.content-introduction img,h1{margin-bottom: 78px;}
+.content-introduction p{font-size: 16px;} 
+.video{text-align: center;height: auto; margin-bottom: 123px;}
+
+footer{background-color: #DEAD25; z-index: 100;}
 .footer__content{padding: 72px 100px 62px; color: #FFF; font-family:'Noto Sans TC', sans-serif; }
 .footer__right{float: right; line-height: 25px; margin-top: 20px;}
 .footer__left{float: left; line-height: 35px;}
 .footer__logo{width: 100%}
 /*探索*/
 .explore__body{}
-.survey{margin: 123px 123px 111px; width: 45%;}
+.survey{margin: 15% 15% 111px; width: 45%;}
 .survey h1{ color:#ffffff; font-family:'Noto Sans TC', sans-serif; font-size: 3rem; font-weight: bold;}
 .survey__first{ display: inline-block;  color:rgb(255, 255, 255); font-family:'Noto Sans TC', sans-serif; line-height: 50px;}
 .survey__first span{font-size: 1rem;}
@@ -618,3 +667,17 @@ input[type="checkbox" i] {
    
 }
 .next{float: right;}
+
+/* base */
+.brand{margin: 123px; text-align: center;}
+.brand__description{text-align: left; width: 40%; padding-left: 30%; font-family: 'Noto Sans TC', sans-serif; color: white; margin-bottom: 99px;
+                    line-height: 2em;}
+.brand__logo{margin: 72px 0px; width: 40%;}
+
+.cooperative__logo{width: 100%;}
+.cooperative{text-align: center;}
+.img-container{display: inline-block; float: left; padding-left: 150px;}
+.cooperative__section{margin: 123px;box-sizing: border-box;}
+.cooperative__description{width: 45%; float: left; text-align: left; 
+                          font-family: 'Noto Sans TC', sans-serif; color: white; padding-left: 137px; line-height: 190%;}
+.cooperative__imglist{margin-bottom: 172px;}
