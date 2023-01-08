@@ -503,13 +503,13 @@ display:flex;
 }
 	
 		.slick-dots li {
-			margin: 0 0.25rem;
+			margin: 0 0.01rem;
 		}
 	
 		.slick-dots button {
 			display: block;
-			width: 1rem;
-			height: 1rem;
+			width: 0.5rem;
+			height: 0.5rem;
 			padding: 0;
 			position: relative;
 			border: none;
@@ -698,3 +698,7 @@ input[type="checkbox" i] {
 .cooperative__description{width: 45%; float: left; text-align: left; 
                           font-family: 'Noto Sans TC', sans-serif; color: white; padding-left: 137px; line-height: 190%;}
 .cooperative__imglist{margin-bottom: 172px;}
+
+/*頁面介紹*/
+.single-item{margin: 123px; width: 50%; float: left;}
+.elderly-introduction{width: 30%;  float: left; margin-top: 123px;}

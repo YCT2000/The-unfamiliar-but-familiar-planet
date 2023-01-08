@@ -46,8 +46,60 @@
         </button>
     </div>
 
-    
-        
+        <section class="clearfix">
+
+        <div class="single-item" style="width:627px;">
+            <div>
+                <img style="width:627px;height:418px" src="./img/LinChun/IMG_0905.jpg" />
+            </div>
+            <div>
+                <img style="width:627px;height:418px" src="./img/LinChun/IMG_2555.jpg" />
+            </div>
+            <div>
+                <img style="width:627px;height:418px" src="./img/LinChun/IMG_2707.jpg" />
+            </div>
+            <div>
+                <img style="width:627px;height:418px" src="./img/LinChun/IMG_2735.jpg" />
+            </div>
+            <div>
+                <img style="width:627px;height:418px" src="https://www.androidpolice.com/wp-content/uploads/2020/12/15/Wallpaper-of-the-Week-2020-4-scaled.jpg" />
+            </div>
+            <div>
+                <img style="width:627px;height:418px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfhrqVBL-0hEtWOj5N9Da6Nh23igvGt_1kKA&usqp=CAU" />
+            </div>
+        </div>
+    </div>
+
+    <div class="elderly-introduction">
+        <div>
+        <span>#依賴老公</span>
+        <span>#懶洋洋</span>
+        <span>#愛吃醋</span>
+        </div>
+        <img src="./img/LinChun/signature_linchun.png">
+        <p>屬於輕度失智症。</p><br>
+        <p> 症狀：重複問同樣的問題、找不到廁所、去過的地方會忘記。</p>
+    </div>
+</section>
+
+
+<section>
+    <img src="./img/LinChun/linchun_mascot.png">
+    <img src="./img/speech_box.png">
+</section>
+
+
+<section>
+    <img src="./img/LinChun/LinChun_Doodle4.png">
+    <img src="./img/LinChun/LinChun_Doodle3.png">
+    <img src="./img/LinChun/LinChun_Doodle2.png">
+    <img src="./img/LinChun/LinChun_Doodle1.png">
+</section>
+
+<section>
+    <img src="./img/LinChun/linchu_rose.png">
+</section>
+
     <footer>
       <div class="footer__content clearfix">
         <div class="footer__left">
@@ -69,7 +121,41 @@
 
     <script src="./JavaEvent/nav.js"></script>
     <script src="https://kit.fontawesome.com/27aba58a5d.js" crossorigin="anonymous"></script>
-   
+    <script src="./extraScript/slick.js"></script>
+    <script>
+       $('.single-item').slick({
+        
+            slidesToShow: 1,
+            autoplay: true,
+            dots: true,
+            infinite: true,
+            prevArrow: false,
+            nextArrow: false,
+            responsive: [
+                
+        {
+            breakpoint: 768,
+            settings: {
+                arrows: false,
+                centerMode: true,
+                centerPadding: '40px',
+                slidesToShow: 1,
+                autoplay: true,
+            }
+        },
+        {
+            breakpoint: 480,
+            settings: {
+            arrows: false,
+            centerMode: true,
+            centerPadding: '40px',
+            slidesToShow: 1,
+            autoplay: true,
+            }
+        }
+    ]
+    });
+    </script>
 
 
 </body>
