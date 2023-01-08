@@ -573,12 +573,12 @@ display:flex;
 .video{text-align: center;height: auto; margin-bottom: 123px;}
 
 footer{background-color: #DEAD25; z-index: 100;}
-.footer__content{padding: 72px 100px 62px; color: #FFF; font-family:'Noto Sans TC', sans-serif; }
+.footer__content{padding: 35px 100px 40px; color: #FFF; font-family:'Noto Sans TC', sans-serif; }
 .footer__right{float: right; line-height: 25px; margin-top: 20px;}
 .footer__left{float: left; line-height: 35px;}
 .footer__logo{width: 100%}
 /*探索*/
-.explore__body{}
+.explore__body{background: linear-gradient(-120deg,rgba(118, 22, 27) , rgba(0, 46, 50));}
 .survey{margin: 15% 15% 111px; width: 45%;}
 .survey h1{ color:#ffffff; font-family:'Noto Sans TC', sans-serif; font-size: 3rem; font-weight: bold;}
 .survey__first{ display: inline-block;  color:rgb(255, 255, 255); font-family:'Noto Sans TC', sans-serif; line-height: 50px;}
