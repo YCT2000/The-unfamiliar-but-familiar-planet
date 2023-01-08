@@ -99,15 +99,24 @@ ul, li{
 }
 
 .galaxy__container {
-    
+    display: none;
     background-color: #FFF;
     position: absolute;
-    left: 33%;
-    top: 60%;
+    left: 30%;
+    top: 165%;
     padding-left: 0;
     display: block;
     z-index: 1;
     
+}
+.galaxy__container a {
+	letter-spacing: 0 !important;
+    padding: 0 !important;
+}
+
+.galaxy__container a:hover {
+	background-color: #DEAD25!important;
+	border-radius: 0 !important;
 }
 
 .explore__container{
@@ -167,7 +176,7 @@ ul, li{
 .navLinks li a{
     transition: all 0.3s ease 0s;
     text-decoration: none;
-    color: rgb(117, 113, 109);
+    color: #3b2511;
     letter-spacing: 20px;
     box-sizing: border-box;
     padding: 10px 0px 10px 20px;
