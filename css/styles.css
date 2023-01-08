@@ -2,7 +2,7 @@ body {
     width: 100%;
     margin: 0;
     padding: 0;
-    background: linear-gradient( rgba(118, 22, 27, 0.8) 0%, rgba(0, 46, 50, 0.7) 60%);
+    background: linear-gradient(rgba(118, 22, 27) , rgba(0, 46, 50));
     background-repeat: no-repeat;
     
 }
@@ -106,7 +106,7 @@ ul, li{
     background-color: #FFF;
     position: absolute;
     left: 30%;
-    top: 165%;
+    top: 72%;
     padding-left: 0;
     display: block;
     z-index: 1;
@@ -115,24 +115,42 @@ ul, li{
 .galaxy__container a {
 	letter-spacing: 0 !important;
     padding: 0 !important;
+	color: #3b2511;
+}
+
+.galaxy__container li:hover {
+	background-color: #DEAD25!important;
+	border-radius: 0 !important;
+	color: #fff;
 }
 
 .galaxy__container a:hover {
-	background-color: #DEAD25!important;
-	border-radius: 0 !important;
+	color: #fff;
 }
 
 .explore__container{
     background-color: #FFF;
     position: absolute;
     left: 10%;
-    top: 60%;
+    top: 72%;
     padding-left: 0;
     display: block;
     z-index: 1;
 }
+.explore__container a {
+	letter-spacing: 0 !important;
+    padding: 0 !important;
+	color: #3b2511;
+}
 
+.explore__container li:hover {
+	background-color: #DEAD25!important;
+	border-radius: 0 !important;
+}
 
+.explore__container a:hover {
+	color: #fff;
+}
 
 .galaxy__container ul,li,a{
     text-decoration: none;
@@ -140,6 +158,7 @@ ul, li{
     text-align: center;
     padding: 8px;
     margin: 0;
+	color: #3b2511;
 }
 
 #galaxy a:hover .galaxy__container {display: none;}
