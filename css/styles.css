@@ -710,4 +710,24 @@ input[type="checkbox" i] {
 
 /*頁面介紹*/
 .single-item{margin: 123px; width: 50%; float: left;}
-.elderly-introduction{width: 30%;  float: left; margin-top: 123px;}
+.elderly-introduction{width: 30%;  float: left; margin-top: 123px; font-family: 'Noto Sans TC', sans-serif; color: white; }
+.elderly-tag{ margin: 60px 0; }
+.elderly-introduction p {margin-top: 47px;}
+.linchun-mascot{position: absolute; left: -7%; width: 70%;}
+.speech-box-first{position: absolute; right: 8%; width: 60%;}
+.speech-line {position: absolute; right: 4vw; top: 9vh; font-size: 1.7vw;  font-family: 'Noto Sans TC', sans-serif; color: white; }
+.speech-line p{margin-block-end: 0;margin-block-start: 0.8em;}
+.linchun_mascot_section{position: relative; height: 120vh;}
+.doodle_section{position: relative;height: 120vh;} 
+#linchunDoodle_1{position: absolute;  left: 5%; top:15vh; width: 28%;}
+#linchunDoodle_2{position: absolute; right: 5%; top:15vh; width: 41%;}
+#linchunDoodle_3{position: absolute; right: 35%; bottom: -3vh; width: 25%;}
+.doodle{ font-size: 1.7vw;  font-family: 'Noto Sans TC', sans-serif; color: white;}
+.speech-line-first{position: absolute; left: 15%; top: 0; z-index: 2;}
+.speech-line-second{position: absolute; left: 30%; bottom: 7vh;}
+.speech-line-third{position: absolute; right: 25%; bottom: 28vh;}
+.speech-box-second{position: absolute; left: 15%; top:10%; width: 50%;}
+#rose{position: absolute; right: 5%; width: 30%; bottom: 0vh;}
+.speech-line-fourth{position: absolute; left: 4vw; top: 5vh; font-size: 1.7vw;  font-family: 'Noto Sans TC', sans-serif; color: white; }
+.speech-line-fourth p{margin-block-end: 2em; margin-block-start: 2em;}
+.youtube-link{margin: 123px; text-align: center;}
