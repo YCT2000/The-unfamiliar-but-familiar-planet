@@ -45,6 +45,9 @@ body {
     animation: Sparkling 4s infinite;
 }
 
+.entry{position: absolute; display: flex; top: 30%; left: 15%;}
+.entry span{ color: #ffffff; font-family: 'Noto Sans TC', sans-serif; align-items: center; padding-left: 230px;}
+.entry__btn :nth-child(0){padding-left: 0;}
 #introDialogue{
     margin-top: 20%;
     font-weight: 400;

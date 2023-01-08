@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./css/styles.css" rel="stylesheet"> 
+    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500&family=Open+Sans:wght@500&display=swap" rel="stylesheet">
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    
+    <title>最熟悉的陌生星球</title>
+</head>
+<body style="overflow: hidden;">
+    <!--<div class="loader-wrapper ">
+        <img width="100%" src="./Video/LoadingMP4.gif"></img>
+    </div>-->
+    
+    <div class="entry">
+        <span class="entry__btn">All</span>
+        <span class="entry__btn">熱情rapper系</span>
+        <span class="entry__btn">cool的酷系</span>
+    </div>
+
+    <div class="SparkleStar"><img src="./img/SparkleStar.png" style=" width: 100%; position: fixed; top: 0; opacity: 0.7; animation: Sparkling 4s infinite;"></div>
+    <div class="webgl-div">
+    <canvas class="webgl"></canvas>
+    </div>  
+    <script src="https://cdn.jsdelivr.net/npm/three@0.122.0/build/three.min.js"></script>
+    <script src="./extraScript/three_mmi.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
+    <script src="https://unpkg.com/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.122.0/examples/js/controls/OrbitControls.min.js"></script>
+
+
+    
+        
+
+<script>
+
+    /*const Loader = document.querySelector('.loader-wrapper')
+    const StartPage = document.querySelector('.startPage')
+
+    function Loading(){
+        Loader.classList.add('hide')
+        StartPage.classList.remove('hide')
+    }
+
+    setTimeout(Loading, 3000)*/
+
+  
+
+
+
+//Canvas
+const canvas = document.querySelector('.webgl')
+
+//Scene
+const scene = new THREE.Scene()
+scene.fog = THREE.Fog(0xffffff, 1, 2)
+
+const renderer = new THREE.WebGLRenderer({
+    canvas,
+    antialias: true,
+    alpha: true,
+})
+
+const sizes={
+    width: window.innerWidth,
+    height: window.innerHeight
+}
+
+
+//camera
+const camera = new THREE.PerspectiveCamera( 45, sizes.width/ sizes.height, 1, 1000)
+scene.add(camera)
+camera.position.z = 30
+
+const cameraGroup = new THREE.Group()
+cameraGroup.add(camera)
+scene.add(cameraGroup)
+
+
+//增加滾輪時差效果
+
+const mouse = new THREE.Vector2()
+
+window.addEventListener('mousemove', (event) =>{
+    mouse.x = (event.clientX / sizes.width) * 2 - 1
+    mouse.y = (event.clientY / sizes.height) * 2 - 1
+})
+
+window.addEventListener('touchmove', (event) => {
+    const { clientX, clientY } = event.touches[0]
+    mouse.x = (clientX / sizes.width) * 2 - 1
+    mouse.y = -(clientY / sizes.height) * 2 + 1
+  })
+
+
+//renderer setting
+renderer.setSize(window.innerWidth, window.innerHeight)
+renderer.setPixelRatio(window.devicePixelRatio)
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+document.body.appendChild(renderer.domElement)
+
+//window resize handling
+/*function onWindowResize(){
+    
+    camera.aspect = sizes.width / window.height
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+    camera.updateProjectionMatrix()
+   
+}
+window.addEventListener('resize', onWindowResize)*/
+
+
+
+//Fog
+
+//Adding lights
+const spotLight = new THREE.SpotLight(0xe6bd85);
+spotLight.position.set( 20, 20, 20);
+
+spotLight.castShadow = true;
+spotLight.intensity = 0.4
+spotLight.shadow.mapSize.width = 1024;
+spotLight.shadow.mapSize.height = 1024;
+
+
+spotLight.shadow.camera.near = 500;
+spotLight.shadow.camera.far = 4000;
+spotLight.shadow.camera.fov = 30;
+
+scene.add( spotLight );
+
+
+
+const ambientLight = new THREE.AmbientLight(0xffffff);
+
+scene.add(ambientLight);
+
+const mmi = new MouseMeshInteraction(scene, camera)
+
+
+//Material
+
+//Planet A material
+const StarMap = new THREE.TextureLoader().load('./3Dmodels/texture/color.png')
+StarMap.flipY = false;
+Star_Mat = new THREE.MeshStandardMaterial({
+    map : StarMap,
+    roughness : 0.7,
+})
+
+
+//loading Models
+
+var loader1 = new THREE.GLTFLoader();
+loader1.load('./3Dmodels/star_set.gltf', function ( gltf1 ) {
+
+gltf1.scene.scale.set(10,10,10)
+gltf1.scene.rotation.y = 165
+gltf1.scene.position.y = -3
+gltf1.scene.traverse(function (child) {
+
+
+    if (child.name = 'Star') {
+        
+        child.material = Star_Mat;
+
+    }
+
+    if (child.name = 'Star2') {
+        
+      
+        child.material = Star_Mat;
+    }
+
+    if (child.name = 'Star3') {
+        
+
+        child.material = Star_Mat;
+    }
+  });
+
+  scene.add(gltf1.scene);
+
+  mmi.addHandler('Star', 'click', function(){
+    window.location.href = "intro-huai-ying.html"
+    console.log("planet_A is Clicked")
+    })
+
+    mmi.addHandler('Star', 'mouseenter', function(){
+
+        gsap.to(gltf1.scene.rotation , {
+            duration: 1.5,
+            ease: 'power2.inOut',
+            x: '+=6',
+            y:'+=3',
+            z:'+=3'
+        })
+    
+        
+        console.log("on planet_A")
+    })
+
+
+    mmi.addHandler('Star', 'mouseleave', function(){
+    
+        console.log("out of planet_A")
+      
+    })
+
+
+
+
+});
+
+
+
+
+
+//rendering progress
+function animate(){
+
+
+   
+
+    requestAnimationFrame(animate)
+    mmi.update()
+    renderer.render(scene, camera)
+
+}
+animate()
+
+
+
+</script>
+</body>
+</html>
