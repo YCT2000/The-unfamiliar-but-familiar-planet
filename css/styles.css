@@ -97,6 +97,42 @@ ul, li{
     text-align: center;
     
 }
+
+.galaxy__container {
+    
+    background-color: #FFF;
+    position: absolute;
+    left: 33%;
+    top: 60%;
+    padding-left: 0;
+    display: block;
+    z-index: 1;
+    
+}
+
+.explore__container{
+    background-color: #FFF;
+    position: absolute;
+    left: 10%;
+    top: 60%;
+    padding-left: 0;
+    display: block;
+    z-index: 1;
+}
+
+
+
+.galaxy__container ul,li,a{
+    text-decoration: none;
+    list-style: none;
+    text-align: center;
+    padding: 8px;
+    margin: 0;
+}
+
+#galaxy a:hover .galaxy__container {display: none;}
+
+
 .navContainer{
     padding: 0;
     top: 0;
@@ -139,6 +175,8 @@ ul, li{
     
 
 }
+
+
 .navLinks li a:hover{
     cursor: pointer;
     background-color: #DEAD25;
@@ -155,27 +193,6 @@ ul, li{
     cursor: pointer;
     transition: all 0.3s ease 0s;
     z-index: 9;
-}
-
-.galaxy__container {
-    
-    background-color: #FFF;
-    position: absolute;
-    left: 30%;
-    display: none;
-    
-}
-
-
-.galaxy:hover .galaxy__container{display: block;}
-
-
-.galaxy__container ul,li,a{
-    text-decoration: none;
-    list-style: none;
-    text-align: center;
-    padding: 8px;
-    margin: 0;
 }
 
 
