@@ -15,7 +15,9 @@
 </head>
 <body style="overflow: hidden;">
 
-
+    <div class="loader-wrapper ">
+        <img width="100%" src="./Video/LoadingMP4.gif"></img>
+     </div>
 
     <div class="nav-div" style="display: flex; width: 100%;">
         <img src="./img/logo.png"
@@ -211,10 +213,18 @@ manager.onError = function ( url ) {
         const loadingManager = new THREE.LoadingManager
 
         loadingManager.onStart = function ( url, itemsLoaded, itemsTotal ) { 
-        console.log( 'Started loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.' ); 
+        
         }; 
         loadingManager.onLoad = function () { 
-        alert("finished")
+         const Loader = document.querySelector('.loader-wrapper')
+         const StartPage = document.querySelector('.startPage')
+
+         function Loading(){
+            Loader.classList.add('hide')
+            StartPage.classList.remove('hide')
+         }
+
+         Loading()
         }; 
 
         //import Mesh
