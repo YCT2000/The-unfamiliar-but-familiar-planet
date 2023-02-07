@@ -121,7 +121,7 @@
 
         //Adding lights
         const spotLight = new THREE.SpotLight(0xe6bd85);
-        spotLight.position.set( 20, 20, 20);
+        spotLight.position.set( 30, 30, 30);
 
         spotLight.castShadow = true;
         spotLight.intensity = 0.4
@@ -180,6 +180,7 @@
         BaseColor_Mat = new THREE.MeshStandardMaterial({
             map : BaseColorMap,
             roughness : 0.7,
+            side : THREE.DoubleSide,
         })
 
         
@@ -225,12 +226,7 @@
                 if(child.name == 'CaiYun2'){
                     child.material = CaiYun_Mat 
                 }
-                if(child.name == 'CaiYun3'){
-                    child.material = CaiYun_Mat 
-                }
-                if(child.name == 'CaiYun4'){
-                    child.material = CaiYun_Mat 
-                }
+      
                 if(child.name == 'Star'){
                     child.material = BaseColor_Mat
                 }
@@ -259,10 +255,11 @@
                     child.material = BaseColor_Mat 
                 }
            
-                if(child.name == 'Astounant'){
-                    child.material = Astounant_Mat 
+                if(child.name == 'fruits'){
+                    child.material = BaseColor_Mat 
+                   
                 }
-                if(child.name == 'questionMark'){
+                if(child.name == 'flower'){
                     child.material = BaseColor_Mat 
                 }
                 if(child.name == 'ET'){
@@ -272,15 +269,14 @@
                mixer = new THREE.AnimationMixer(gltf2.scene)
                 action = mixer.clipAction(gltf2.animations[0])
                 action2 = mixer.clipAction(gltf2.animations[1])
-                 /*action3 = mixer.clipAction(gltf2.animations[2])
-                action4 = mixer.clipAction(gltf2.animations[3])
+                action3 = mixer.clipAction(gltf2.animations[2])
+                 /*action4 = mixer.clipAction(gltf2.animations[3])
                 action5 = mixer.clipAction(gltf2.animations[4])
                 action6 = mixer.clipAction(gltf2.animations[5])
                 action7 = mixer.clipAction(gltf2.animations[6])
                 action8 = mixer.clipAction(gltf2.animations[7])
               
                 
-                action3.play()
                 action4.play()
                 action5.play()
                 action6.play()
@@ -288,6 +284,7 @@
                 action8.play()*/
                 action.play()
                 action2.play()
+                action3.play()
                 
                
 
