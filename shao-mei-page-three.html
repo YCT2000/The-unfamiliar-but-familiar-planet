@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500&family=Open+Sans:wght@500&display=swap" rel="stylesheet">
+    <link href="./css/styles.css" rel="stylesheet"> 
+    <title>最熟悉的陌生星球</title>
+</head>
+<body>
+
+
+
+    <div class="nav-div" style="display: flex; width: 100%;">
+        <img src="./img/logo.png"
+         style="width: 200px;margin-top: 3%;margin-left: 5%; z-index: 5;" id="LOGO">
+      
+     
+        <div class="navContainer hide" >
+        <nav> 
+            <ul class="navLinks ">
+              
+                <li><a href="base.html">基地</a></li>
+                <li><a href="main.html">行星</a></li>
+                <li><a href="explore.html">探索</a></li>
+                <li><a href="#">塔台</a></li>
+            </ul>
+        </nav>
+    
+        </div>
+        <button class="hamburger">
+            <div class="burger"></div>
+            <div class="burger"></div>
+            <div class="burger"></div>
+        </button>
+    
+        <button class="closeNav hide" >
+            <div class="burger1"></div>
+            <div class="burger2"></div>
+            
+        </button>
+    </div>
+    <div>
+    
+    <div class="buttons">
+        <a href="shao-mei-page-two.html" title="pervious" class="pervious"><img src="./img/previous.png"></a>
+        <a href="" title="next" class="next"><img src="./img/next.png"></a>
+    </div>
+    <div class="dialogue hide">
+        <img src="./img/dialogue.png" class="dialogue__img">
+        <p id="content">0</p>
+        <p id="content-second">0</p>
+    </div>
+
+    <div class="SparkleStar"><img src="./img/SparkleStar.png"></div>
+    <canvas class="webgl"></canvas>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.122.0/build/three.min.js"></script>
+    <script src="./extraScript/three_mmi.js"></script>
+    <script src="https://unpkg.com/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.122.0/examples/js/controls/OrbitControls.min.js"></script>
+    <script src="./JavaEvent/nav.js"></script>
+
+    <script>
+        //Canvas
+        const canvas = document.querySelector('.webgl')
+
+        //Scene
+        const scene = new THREE.Scene;
+        scene.fog = THREE.Fog(0xffffff, 1, 50)
+
+        const renderer = new THREE.WebGLRenderer({
+            canvas,
+            antialias: true,
+            alpha: true,
+        })
+        const sizes = {
+            width: window.innerWidth,
+            height: window.innerHeight
+        }
+
+        //camera
+        const camera = new THREE.PerspectiveCamera(45, sizes.width/ sizes.height, 0.1 ,2000)
+        camera.position.z = 40
+        camera.position.y = -8
+   
+        scene.add(camera)
+
+        //renderer setting
+        renderer.setSize(sizes.width, sizes.height)
+        renderer.setPixelRatio(window.devicePixelRatio)
+        renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+        document.body.appendChild(renderer.domElement)
+
+        //window resize handling
+        function onWindowResize(){
+            camera.aspect = sizes.width / window.height
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+            camera.updateProjectionMatrix()
+        }
+        window.addEventListener('resize', onWindowResize)
+        //Adding lights
+        const spotLight = new THREE.SpotLight(0xe6bd85);
+        spotLight.position.set( 30, 30, 30);
+
+        spotLight.castShadow = true;
+        spotLight.intensity = 0.4
+        spotLight.shadow.mapSize.width = 2048;
+        spotLight.shadow.mapSize.height = 2048;
+
+
+        scene.add( spotLight );
+        const ambientLight = new THREE.AmbientLight(0xffffff);
+        ambientLight.intensity = 0.9
+        scene.add(ambientLight);
+
+        const mmi = new MouseMeshInteraction(scene, camera)
+        const clock = new THREE.Clock()
+        let mixer
+
+        let action
+        let action2
+        let action3
+        const dialogue = document.querySelector('.dialogue')
+        const content = document.getElementById("content")
+        const content2 = document.getElementById("content-second")
+        const buttons = document.querySelector('.buttons')
+        //ShaoMei material
+        const ShaoMeiMap = new THREE.TextureLoader().load('./3Dmodels/PlanetF_Ani/ShaoMei_BaseColor.png')
+        ShaoMeiMap.flipY = false;
+        ShaoMei_Mat = new THREE.MeshStandardMaterial({
+            map : ShaoMeiMap,
+            skinning: true,
+            roughness : 0.7,
+        })
+        const SceneMap = new THREE.TextureLoader().load('./3Dmodels/PlanetF_Ani/planetF_BaseColor.png')
+        SceneMap.flipY = false;
+        Scene_Mat = new THREE.MeshStandardMaterial({
+            map : SceneMap,
+            roughness : 0.7,
+        })
+   
+        const BaseColorMap = new THREE.TextureLoader().load('./3Dmodels/PlanetF_Ani/color.png')
+        BaseColorMap.flipY = false;
+        BaseColor_Mat = new THREE.MeshStandardMaterial({
+            map : BaseColorMap,
+            side : THREE.DoubleSide,
+            roughness : 0.7,
+        })
+        const beeMap = new THREE.TextureLoader().load('./3Dmodels/PlanetF_Ani/bee.png')
+        beeMap.flipY = false;
+        bee_Mat = new THREE.MeshStandardMaterial({
+            map : beeMap,
+            roughness : 0.7,
+            skinning: true,
+        })
+        const AstronantMap = new THREE.TextureLoader().load('./3Dmodels/PlanetF_Ani/astronantBaseColor.png')
+        AstronantMap.flipY = false;
+        Astounant_Mat = new THREE.MeshStandardMaterial({
+            map : AstronantMap,
+            skinning: true,
+            roughness : 0.7,
+        })
+
+      
+
+        //import Mesh
+        /*const loader1 = new THREE.GLTFLoader()
+        loader1.load('../3Dmodels/test.gltf', function (gltf1){
+            gltf1.scene.position.y= -10
+            gltf1.scene.scale.set(5,5,5)
+            mmi.addHandler('Cube', 'click', function(){
+                console.log('hey')
+            })
+            
+            scene.add(gltf1.scene)
+           
+        })*/
+        const loader2 = new THREE.GLTFLoader()
+        loader2.load('./3Dmodels/PlanetF_Ani/planetScene3.gltf', function(gltf2){
+            gltf2.scene.position.x= -2
+            gltf2.scene.position.y= -10
+            gltf2.scene.position.z= -4
+           
+         
+           
+            
+            gltf2.scene.traverse(function(child){
+                if(child.isMesh){
+                    child.skinning = true
+                }
+                if(child.name == 'ShaoMei'){
+                    child.material = ShaoMei_Mat
+                }
+         
+                if(child.name == 'Star'){
+                    child.material = BaseColor_Mat
+                }
+
+                if(child.name == 'PlanetScene'){
+                    child.material = Scene_Mat 
+                }             
+                if(child.name == 'plants'){
+                    child.material = BaseColor_Mat 
+                }
+                if(child.name == 'plants1'){
+                    child.material = BaseColor_Mat 
+                }
+                 if(child.name == 'rocket'){
+                    child.material = BaseColor_Mat 
+                }
+                if(child.name == 'bee'){
+                    child.material = bee_Mat
+                }
+                if(child.name == 'leader'){
+                    child.material = Astounant_Mat
+                }
+                
+          
+
+
+                scene.add(gltf2.scene)
+
+       
+
+                
+            })
+           
+            
+        })
+       
+        //rendering progress
+        function animate(){
+            var delta = clock.getDelta()
+            if(mixer)mixer.update(delta)
+
+            requestAnimationFrame(animate)
+            mmi.update()
+            renderer.render(scene, camera)
+        }
+        animate()
+    
+    </script>
+    <!--Kevin MacLeod的《Doh De Oh》，取得「Creative Commons 姓名標示 4.0」授權。 https://creativecommons.org/licenses/by/4.0/
+
+來源： http://incompetech.com/music/royalty-free/index.html?isrc=USUAN1100255
+
+歌手： http://incompetech.com/-->
+    
+</body>
+</html>
