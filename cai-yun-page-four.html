@@ -104,7 +104,7 @@
                 camera.position.x = -8
                 camera.rotation.x= -0.4
             } else {
-                camera.position.z = 10
+                camera.position.z = 15
                 camera.position.y = 25
                 camera.rotation.x = -0.7
               
@@ -212,27 +212,7 @@
                 if(child.name == 'CaiYun'){
                     child.material = CaiYun_Mat 
                 }
-                if(child.name == 'CaiYun2'){
-                    child.material = CaiYun_Mat 
-                }
-                if(child.name == 'CaiYun3'){
-                    child.material = CaiYun_Mat 
-                }
-                if(child.name == 'CaiYun4'){
-                    child.material = CaiYun_Mat 
-                }
-                if(child.name == 'Star'){
-                    child.material = BaseColor_Mat
-                }
-                if(child.name == 'Star1'){
-                    child.material = BaseColor_Mat
-                }
-                if(child.name == 'Star2'){
-                    child.material = BaseColor_Mat
-                }
-                if(child.name == 'Star3'){
-                    child.material = BaseColor_Mat
-                }
+             
                 if(child.name == 'PlanetScene'){
                     child.material = Scene_Mat 
                 }
@@ -242,17 +222,9 @@
                 if(child.name == 'Cloud2'){
                     child.material = Scene_Mat 
                 }
-                if(child.name == 'rose'){
-                    child.material = Rose_Mat 
-                }
-                if(child.name == 'heartA'){
-                    child.material = Rose_Mat 
-                }
-                if(child.name == 'plant'){
-                    child.material = Rose_Mat 
-                }
-                if(child.name == 'Astounant'){
-                    child.material = Astounant_Mat 
+        
+                if(child.name == 'rocket'){
+                    child.material = BaseColor_Mat 
                 }
                 if(child.name == 'mud'){
                     child.material = mud1_Mat
@@ -261,10 +233,10 @@
                     child.material = ET_Mat 
                 }
                 
-                /*mixer = new THREE.AnimationMixer(gltf2.scene)
+                mixer = new THREE.AnimationMixer(gltf2.scene)
                 action = mixer.clipAction(gltf2.animations[0])
                 action2 = mixer.clipAction(gltf2.animations[1])
-                action3 = mixer.clipAction(gltf2.animations[2])
+                /*action3 = mixer.clipAction(gltf2.animations[2])
                 action4 = mixer.clipAction(gltf2.animations[3])
                 action5 = mixer.clipAction(gltf2.animations[4])
                 action6 = mixer.clipAction(gltf2.animations[5])
@@ -277,84 +249,13 @@
                 action5.play()
                 action6.play()
                 action7.play()
-                action8.play()
+                action8.play()*/
+             
+                action2.play()
                 action.play()
-                action2.play()*/
-                
                
 
                 scene.add(gltf2.scene)
-
-                mmi.addHandler('Star2','click',function(){
-                camera.position.z = 20
-                camera.position.x=-20
-                dialogue.classList.remove('hide')
-                buttons.classList.add('hide')
-                content.innerHTML = "這個星球的掌管者，她是一名水槍狙擊手，個性有如老虎般兇狠，";
-                content2.innerHTML = "只不過大多時候她是懶惰的，唯有老公出現時，就會提起戒備心"
-                })
-
-                mmi.addHandler('Star2','dblclick',function(){
-                camera.position.z = 40
-                camera.position.x=-0
-                dialogue.classList.add('hide')
-                buttons.classList.add('hide')
-                buttons.classList.remove('hide')
-                })
-
-                mmi.addHandler('Star','click',function(){
-                camera.position.z = 30
-                camera.position.x= 0
-                camera.position.y=-7
-                content.innerHTML = "大多數時，她會一邊稱讚我們做的很棒，一邊把事情推給我們做，";
-                content2.innerHTML = "真是懶洋洋"
-                buttons.classList.add('hide')
-                dialogue.classList.remove('hide')
-                })
-
-                mmi.addHandler('Star','dblclick',function(){
-                camera.position.z = 40
-                camera.position.x=-0
-                camera.position.y=0
-                dialogue.classList.add('hide')
-                buttons.classList.remove('hide')
-                })
-
-                mmi.addHandler('Star3','click',function(){
-                camera.position.z = 10
-                camera.position.x=-0
-                camera.position.y= 5
-                content.innerHTML = "星球上空有一顆衛星，上面住了一位耀眼的老公，";
-                content2.innerHTML = "這位星人每天都癡癡地看著他"
-                dialogue.classList.remove('hide')
-                buttons.classList.add('hide')
-                })
-
-                mmi.addHandler('Star3','dblclick',function(){
-                camera.position.z = 40
-                camera.position.x=-0
-                camera.position.y=0
-                dialogue.classList.add('hide')
-                buttons.classList.remove('hide')
-                })
-
-                mmi.addHandler('Star1','click',function(){
-                camera.position.z = 20
-                camera.position.x=13
-                camera.position.y= -5
-                content.innerHTML = "星球上長滿這種植物，可是我們無法得知他的名字";
-                content2.innerHTML = "因為連主人也忘記他的名字了，可是它使得這顆星球看起來生生不息"
-                dialogue.classList.remove('hide')
-                buttons.classList.add('hide')
-                })
-
-                mmi.addHandler('Star1','dblclick',function(){
-                camera.position.z = 40
-                camera.position.x=-0
-                camera.position.y=0
-                dialogue.classList.add('hide')
-                buttons.classList.remove('hide')
-                })
 
 
                 
