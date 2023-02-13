@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500&family=Open+Sans:wght@500&display=swap" rel="stylesheet">
     <link href="./css/styles.css" rel="stylesheet"> 
     <link href="./css/rwd.css" rel="stylesheet"> 
-    <title>最熟悉的陌生星球</title>
+    <title>熱情rapper系</title>
 </head>
 <body style="overflow: hidden;">
 
@@ -220,12 +220,7 @@ const mmi = new MouseMeshInteraction(scene, camera)
 
 
 //Material
-const CharacterMap = new THREE.TextureLoader().load('./3Dmodels/texture/PlanetA_BaseColor.png')
-CharacterMap.flipY = false;
-CharacterMap_Mat = new THREE.MeshStandardMaterial({
-    map : CharacterMap,
-    roughness : 0.7,
-})
+
 //Planet A material
 const PlanetAMap = new THREE.TextureLoader().load('./3Dmodels/texture/PlanetA_BaseColor.png')
 PlanetAMap.flipY = false;
@@ -234,13 +229,7 @@ planetA_Mat = new THREE.MeshStandardMaterial({
     roughness : 0.7,
 })
 
-//Planet B material
-const PlanetBMap = new THREE.TextureLoader().load('./3Dmodels/texture/PlanetB_BaseColor.png')
-PlanetBMap.flipY = false;
-planetB_Mat = new THREE.MeshStandardMaterial({
-    map : PlanetBMap,  
-    roughness: 0.8,
-})
+
 
 //Planet C material
 const PlanetCMap = new THREE.TextureLoader().load('./3Dmodels/texture/PlanetC_BaseColor.png')
@@ -250,21 +239,6 @@ planetC_Mat = new THREE.MeshStandardMaterial({
     roughness : 0.7,
 })
 
-//Planet D material
-const PlanetDMap = new THREE.TextureLoader().load('./3Dmodels/texture/PlanetD_BaseColor.png')
-PlanetDMap.flipY = false;
-planetD_Mat = new THREE.MeshStandardMaterial({
-    map : PlanetDMap,
-    roughness : 0.7,
-})
-
-//Planet E material
-const PlanetEMap = new THREE.TextureLoader().load('./3Dmodels/texture/PlanetE_BaseColor.png')
-PlanetEMap.flipY = false;
-planetE_Mat = new THREE.MeshStandardMaterial({
-    map : PlanetEMap,
-    roughness : 0.7,
-})
 
 //Planet F material
 const PlanetFMap = new THREE.TextureLoader().load('./3Dmodels/texture/PlanetF_BaseColor.png')
@@ -274,14 +248,7 @@ planetF_Mat = new THREE.MeshStandardMaterial({
     roughness : 0.7,
 })
 
-//Planet G material
-const PlanetGMap = new THREE.TextureLoader().load('./3Dmodels/texture/PlanetG_BaseColor.png')
-PlanetGMap.flipY = false;
-planetG_Mat = new THREE.MeshStandardMaterial({
-    map : PlanetGMap,
-    roughness : 0.4,
-    emissiveMap : PlanetGMap
-})
+
 
 //Planet H material
 const PlanetHMap = new THREE.TextureLoader().load('./3Dmodels/texture/PlanetH_BaseColor.png')
@@ -291,14 +258,7 @@ planetH_Mat = new THREE.MeshStandardMaterial({
     roughness : 0.7,
 })
 
-//PlanetI material
-const PlanetIMap = new THREE.TextureLoader().load('./3Dmodels/texture/PlanetI_BaseColor.png')
-PlanetIMap.flipY = false;
-planetI_Mat = new THREE.MeshStandardMaterial({
-    map : PlanetIMap,
-    roughness : 0.7,
-    side : THREE.DoubleSide,
-})
+
 
 //Planet J material
 const PlanetJMap = new THREE.TextureLoader().load('./3Dmodels/texture/PlanetJ_BaseColor.png')
@@ -393,65 +353,6 @@ function planetA_ReSize() {
 planetA_ReSize();
 });
 
-//PlanetB Import
-var loader2 = new THREE.GLTFLoader();
-loader2.load('./3Dmodels/planetB.gltf', function ( gltf2 ) {
-	
-
- 
-gltf2.scene.traverse(function (child) {
-
-
-if (child.isMesh) {
-    child.name = 'planet_B';
-    child.receiveShadow = true;
-    child.material = planetB_Mat 
-    scene.add(gltf2.scene);
-}
-});
-
-
-mmi.addHandler('planet_B', 'click', function(){
-    window.location.href = "intro_planetB.html"
-    
-})
-
-mmi.addHandler('planet_B', 'mouseenter', function(){
-
-    gsap.to(gltf2.scene.rotation , {
-        duration: 1.5,
-        ease: 'power2.inOut',
-        x: '+=6',
-        y:'+=3',
-        z:'+=3'
-       })
-        
-    console.log("on planet_B")
-    })
-
-
-mmi.addHandler('planet_B', 'mouseleave', function(){
-    
-    console.log("out of planet_B")
-   })
-
-
-
-function planetB_ReSize() {
-    if ($(window).width() < 768) {
-        gltf2.scene.scale.set(0.5,0.5,0.5)
-        gltf2.scene.position.set(-2,-2, 0)
-
-    } else {
-        gltf2.scene.scale.set(1,1,1)
-        gltf2.scene.position.z = 15
-        gltf2.scene.position.x = -2
-        gltf2.scene.position.y = -2
-    
-    }
-};
-planetB_ReSize();
-});
 
 
 
@@ -512,118 +413,7 @@ planetC_ReSize();
 
 });
 
-//PlanetD Import
-var loader4 = new THREE.GLTFLoader();
-loader4.load('./3Dmodels/planetD.gltf', function ( gltf4 ) {
-	
 
-gltf4.scene.traverse(function (child) {
-
-
-if (child.isMesh) {
-    child.material = planetD_Mat 
-    child.name = 'planet_D'
-    scene.add(gltf4.scene);
-}
-});
-
-mmi.addHandler('planet_D', 'click', function(){
-    window.location.href = "intro_planetD.html"
-    console.log("planet_D is Clicked")
-})
-
-mmi.addHandler('planet_D', 'mouseenter', function(){
-
-    gsap.to(gltf4.scene.rotation , {
-        duration: 1.5,
-        ease: 'power2.inOut',
-        x: '+=6',
-        y:'+=3',
-        z:'+=3'
-       })
-        
-    console.log("on planet_D")
-    })
-
-
-mmi.addHandler('planet_D', 'mouseleave', function(){
-    
-    console.log("out of planet_D")
-   })
-
-
-function planetD_ReSize() {
-    if ($(window).width() < 768) {
-        gltf4.scene.scale.set(0.5,0.5,0.5)
-        gltf4.scene.position.set(-3,-4,9)
-        
-    } else {
-        gltf4.scene.scale.set(1,1,1)
-        gltf4.scene.position.z = 10
-        gltf4.scene.position.x = -9
-        gltf4.scene.position.y = -5
-    
-    }
-};
-planetD_ReSize();
-
-});
-
-//PlanetE Import
-var loader5 = new THREE.GLTFLoader();
-loader5.load('./3Dmodels/planetE.gltf', function ( gltf5 ) {
-	
-
-gltf5.scene.traverse(function (child) {
-
-
-if (child.isMesh) {
-    child.material = planetE_Mat;
-    child.name = 'planet_E'
-    scene.add(gltf5.scene);
-}
-});
-
-mmi.addHandler('planet_E', 'click', function(){
-    window.location.href = "intro_planetE.html"
-    console.log("planet_E is Clicked")
-})
-
-mmi.addHandler('planet_E', 'mouseenter', function(){
-
-    gsap.to(gltf5.scene.rotation , {
-        duration: 1.5,
-        ease: 'power2.inOut',
-        x: '+=6',
-        y:'+=3',
-        z:'+=3'
-       })
-        
-    console.log("on planet_E")
-    })
-
-
-mmi.addHandler('planet_E', 'mouseleave', function(){
-    
-    console.log("out of planet_E")
-   })
-
-
-
-function planetE_ReSize() {
-    if ($(window).width() < 768) {
-        gltf5.scene.scale.set(0.5,0.5,0.5)
-        gltf5.scene.position.set(3,5,0.5)
-    } else {
-        gltf5.scene.scale.set(1,1,1)
-        gltf5.scene.position.z = 12
-        gltf5.scene.position.x = 10
-        gltf5.scene.position.y = -2     
-    
-    }
-};
-planetE_ReSize();
-});
 
 
 //PlanetF Import
@@ -683,64 +473,7 @@ planetF_ReSize();
 
 
 
-//PlanetG Import
-var loader7 = new THREE.GLTFLoader();
-loader7.load('./3Dmodels/planetG.gltf', function ( gltf7 ) {
-	
 
-gltf7.scene.traverse(function (child) {
-
-
-if (child.isMesh) {
-    child.name = 'planet_G'
-    child.material = planetG_Mat 
-    scene.add(gltf7.scene);
-}
-});
-
-mmi.addHandler('planet_G', 'click', function(){
-    window.location.href = "intro_planetG.html"
-    console.log("planet_G is Clicked")
-})
-
-mmi.addHandler('planet_G', 'mouseenter', function(){
-
-    gsap.to(gltf7.scene.rotation , {
-        duration: 1.5,
-        ease: 'power2.inOut',
-        x: '+=6',
-        y:'+=3',
-        z:'+=3'
-       })
-        
-    console.log("on planet_G")
-    })
-
-
-mmi.addHandler('planet_G', 'mouseleave', function(){
-    
-    console.log("out of planet_G")
-   })
-
-gltf7.scene.position.z = 20
-gltf7.scene.position.x = 8
-gltf7.scene.position.y = -1
-
-function planetG_ReSize() {
-    if ($(window).width() < 768) {
-        gltf7.scene.scale.set(0.5,0.5,0.5)
-        gltf7.scene.position.set(3,1,3)
-    } else {
-        gltf7.scene.scale.set(1,1,1)
-        gltf7.scene.position.z = 12
-        gltf7.scene.position.x = 10
-        gltf7.scene.position.y = 2      
-    
-    }
-};
-planetG_ReSize();
-
-});
 
 
 //PlanetH Import
@@ -799,63 +532,6 @@ planetH_ReSize();
 });
 
 
-//PlanetI Import
-var loader9 = new THREE.GLTFLoader();
-loader9.load('./3Dmodels/planetI.gltf', function ( gltf9 ) {
-	
-  
-gltf9.scene.traverse(function (child) {
-
-
-if (child.isMesh) {
-    child.material = planetI_Mat;
-    child.name = 'planet_I'
-    scene.add(gltf9.scene);
-}
-});
-
-mmi.addHandler('planet_I', 'click', function(){
-    window.location.href = "intro_planetI.html"
-    console.log("planet_I is Clicked")
-})
-
-mmi.addHandler('planet_I', 'mouseenter', function(){
-
-    gsap.to(gltf9.scene.rotation , {
-        duration: 1.5,
-        ease: 'power2.inOut',
-        x: '+=6',
-        y:'+=3',
-        z:'+=3'
-       })
-        
-    console.log("on planet_I")
-    })
-
-
-mmi.addHandler('planet_I', 'mouseleave', function(){
-    
-    console.log("out of planet_I")
-   })
-
-
-
-function planetI_ReSize() {
-    if ($(window).width() < 768) {
-        gltf9.scene.scale.set(0.7,0.7,0.7)
-        gltf9.scene.position.set(-4,0.5,0.5)
-        
-    } else {
-        gltf9.scene.scale.set(1,1,1)
-        gltf9.scene.position.z = 25
-        gltf9.scene.position.x = -4
-        gltf9.scene.position.y = -0     
-    
-    }
-};
-planetI_ReSize();
-
-});
 
 
 //PlanetJ Import

@@ -18,12 +18,7 @@
         <img width="100%" src="./Video/LoadingMP4.gif"></img>
     </div>-->
     
-    <div class="entry">
-        <span class="entry__btn">All</span>
-        <span class="entry__btn">熱情rapper系</span>
-        <span class="entry__btn">cool的酷系</span>
-    </div>
-
+   
     <div class="SparkleStar"><img src="./img/SparkleStar.png" style=" width: 100%; position: fixed; top: 0; opacity: 0.7; animation: Sparkling 4s infinite;"></div>
     <div class="webgl-div">
     <canvas class="webgl"></canvas>
@@ -145,8 +140,17 @@ const mmi = new MouseMeshInteraction(scene, camera)
 
 
 //Material
-
-//Planet A material
+const textMap = new THREE.TextureLoader().load('./3Dmodels/index/arrow.png')
+const text_alpha = new THREE.TextureLoader().load('./3Dmodels/index/arrow_alpha.png')
+textMap.flipY = false;
+text_alpha.flipY = false;
+text_Mat = new THREE.MeshStandardMaterial({
+    map : textMap,
+    roughness : 0.7,
+    alphaMap: text_alpha,
+    transparent : true,
+    side : THREE.DoubleSide,
+})
 const StarMap = new THREE.TextureLoader().load('./3Dmodels/texture/color.png')
 StarMap.flipY = false;
 Star_Mat = new THREE.MeshStandardMaterial({
@@ -155,34 +159,39 @@ Star_Mat = new THREE.MeshStandardMaterial({
 })
 
 
+
 //loading Models
 
 var loader1 = new THREE.GLTFLoader();
-loader1.load('./3Dmodels/star_set.gltf', function ( gltf1 ) {
+loader1.load('./3Dmodels/index/star_set.gltf', function ( gltf1 ) {
 
 gltf1.scene.scale.set(10,10,10)
 gltf1.scene.rotation.y = 165
 gltf1.scene.position.y = -3
 gltf1.scene.traverse(function (child) {
+    if (child.name == 'Plane') {
+        
+        child.material = text_Mat;
+   }
 
-
-    if (child.name = 'Star') {
+    if (child.name == 'Star') {
         
         child.material = Star_Mat;
 
     }
 
-    if (child.name = 'Star2') {
+    if (child.name == 'Star2') {
         
       
         child.material = Star_Mat;
     }
 
-    if (child.name = 'Star3') {
+    if (child.name == 'Star3') {
         
 
         child.material = Star_Mat;
     }
+    
   });
 
   scene.add(gltf1.scene);
