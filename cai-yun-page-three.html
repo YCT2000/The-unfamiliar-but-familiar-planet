@@ -209,30 +209,12 @@
                 if(child.isMesh){
                     child.skinning = true
                 }
-                if(child.name == 'CaiYun'){
-                    child.material = CaiYun_Mat 
-                }
+          
                 if(child.name == 'CaiYun2'){
                     child.material = CaiYun_Mat 
                 }
-                if(child.name == 'CaiYun3'){
-                    child.material = CaiYun_Mat 
-                }
-                if(child.name == 'CaiYun4'){
-                    child.material = CaiYun_Mat 
-                }
-                if(child.name == 'Star'){
-                    child.material = BaseColor_Mat
-                }
-                if(child.name == 'Star1'){
-                    child.material = BaseColor_Mat
-                }
-                if(child.name == 'Star2'){
-                    child.material = BaseColor_Mat
-                }
-                if(child.name == 'Star3'){
-                    child.material = BaseColor_Mat
-                }
+        
+    
                 if(child.name == 'PlanetScene'){
                     child.material = Scene_Mat 
                 }
@@ -242,25 +224,14 @@
                 if(child.name == 'Cloud2'){
                     child.material = Scene_Mat 
                 }
-                if(child.name == 'rose'){
-                    child.material = Rose_Mat 
+                if(child.name == 'rocket'){
+                    child.material = BaseColor_Mat 
                 }
-                if(child.name == 'heartA'){
-                    child.material = Rose_Mat 
-                }
-                if(child.name == 'plant'){
-                    child.material = Rose_Mat 
-                }
-                if(child.name == 'Astounant'){
-                    child.material = Astounant_Mat 
-                }
+              
                 if(child.name == 'mud'){
                     child.material = mud1_Mat
                 }
-                if(child.name == 'ET'){
-                    child.material = ET_Mat 
-                }
-                
+              
                mixer = new THREE.AnimationMixer(gltf2.scene)
                 action = mixer.clipAction(gltf2.animations[0])
                 action2 = mixer.clipAction(gltf2.animations[1])

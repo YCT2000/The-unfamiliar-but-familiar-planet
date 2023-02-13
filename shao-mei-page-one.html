@@ -140,20 +140,7 @@
             map : SceneMap,
             roughness : 0.7,
         })
-        const RoseMap = new THREE.TextureLoader().load('./3Dmodels/PlanetC_Ani/Rose_BaseColor.png')
-        RoseMap.flipY = false;
-        Rose_Mat = new THREE.MeshStandardMaterial({
-            map : RoseMap,
-            roughness : 0.7,
-        })
-        const ETMap = new THREE.TextureLoader().load('./3Dmodels/PlanetC_Ani/ET_BaseColor.png')
-        ETMap.flipY = false;
-        ET_Mat = new THREE.MeshStandardMaterial({
-            map : ETMap,
-            skinning: true,
-            roughness : 0.7,
-            side : THREE.DoubleSide,
-        })
+   
         const BaseColorMap = new THREE.TextureLoader().load('./3Dmodels/PlanetF_Ani/color.png')
         BaseColorMap.flipY = false;
         BaseColor_Mat = new THREE.MeshStandardMaterial({
@@ -161,14 +148,13 @@
             side : THREE.DoubleSide,
             roughness : 0.7,
         })
-        const flowerMap = new THREE.TextureLoader().load('./3Dmodels/PlanetC_Ani/color.png')
-        flowerMap.flipY = false;
-        flower_Mat = new THREE.MeshStandardMaterial({
-            map : flowerMap,
+        const beeMap = new THREE.TextureLoader().load('./3Dmodels/PlanetF_Ani/bee.png')
+        beeMap.flipY = false;
+        bee_Mat = new THREE.MeshStandardMaterial({
+            map : beeMap,
             roughness : 0.7,
             skinning: true,
         })
-
       
 
         //import Mesh
@@ -199,9 +185,11 @@
                 if(child.name == 'ShaoMei'){
                     child.material = ShaoMei_Mat
                 }
-               
-                if(child.name == 'Cylinder'){
-                    child.material = BaseColor_Mat
+                if(child.name == 'ShaoMei2'){
+                    child.material = ShaoMei_Mat
+                }
+                if(child.name == 'ShaoMei3'){
+                    child.material = ShaoMei_Mat
                 }
                 if(child.name == 'Star'){
                     child.material = BaseColor_Mat
@@ -215,25 +203,30 @@
                 if(child.name == 'Star3'){
                     child.material = BaseColor_Mat
                 }
-                if(child.name == 'cake_house'){
+                if(child.name == 'chair1'){
                     child.material = BaseColor_Mat
                 }
                 if(child.name == 'PlanetScene'){
                     child.material = Scene_Mat 
                 }
-                if(child.name == 'rose'){
-                    child.material = Rose_Mat 
+                if(child.name == 'chair2'){
+                    child.material = BaseColor_Mat
                 }
-                if(child.name == 'cake'){
-                    child.material = BaseColor_Mat 
+                if(child.name == 'chair3'){
+                    child.material = BaseColor_Mat
+                }
+                if(child.name == 'chair4'){
+                    child.material = BaseColor_Mat
+                }
+                if(child.name == 'Cube'){
+                    child.material = BaseColor_Mat
+                }
+                if(child.name == 'Star_lay'){
+                    child.material = BaseColor_Mat
                 }
                 if(child.name == 'bee'){
                     child.material = BaseColor_Mat
-                    
-                    
-                mmi.addHandler('ET','click',function(){
-                    console.log(child)
-                })
+                
                 }
                 
 

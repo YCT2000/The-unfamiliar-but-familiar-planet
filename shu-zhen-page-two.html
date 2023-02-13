@@ -68,7 +68,7 @@
         <p id="content-second">0</p>
     </div>
 
-    <div class="SparkleStar"><img src="./img/SparkleStar.png"></div>
+    <div class="SparkleAstounant"><img src="./img/SparkleAstounant.png"></div>
     <div class="webgl-div">
     <canvas class="webgl"></canvas>
     </div> 
@@ -157,8 +157,8 @@
         const buttons = document.querySelector('.buttons')
 
         var manager = new THREE.LoadingManager(); 
-manager.onStart = function ( url, itemsLoaded, itemsTotal ) { 
-  console.log( 'Started loading file: ' + url + '.Loaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.' ); 
+manager.onAstounantt = function ( url, itemsLoaded, itemsTotal ) { 
+  console.log( 'Astounantted loading file: ' + url + '.Loaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.' ); 
 }; 
 
 manager.onLoad = function ( ) { 
@@ -173,56 +173,58 @@ manager.onError = function ( url ) {
   console.log( 'There was an error loading ' + url ); 
 }; 
 
-        //LinChun material
-        const LinChunMap = new THREE.TextureLoader().load('./3Dmodels/PlanetH_Ani/LinChun_BaseColor.png')
-        LinChunMap.flipY = false;
-        LinChun_Mat = new THREE.MeshStandardMaterial({
-            map : LinChunMap,
+        //ShuZhen material
+        const ShuZhenMap = new THREE.TextureLoader().load('./3Dmodels/PlanetG_Ani/ShuZhen_BaseColor.png')
+        ShuZhenMap.flipY = false;
+        ShuZhen_Mat = new THREE.MeshStandardMaterial({
+            map : ShuZhenMap,
             skinning: true,
             roughness : 0.7,
         })
-        const SceneMap = new THREE.TextureLoader().load('./3Dmodels/PlanetH_Ani/planetH_BaseColor.png')
+        const SceneMap = new THREE.TextureLoader().load('./3Dmodels/PlanetG_Ani/PlanetG_BaseColor.png')
         SceneMap.flipY = false;
         Scene_Mat = new THREE.MeshStandardMaterial({
             map : SceneMap,
             roughness : 0.7,
         })
-        const RoseMap = new THREE.TextureLoader().load('./3Dmodels/PlanetH_Ani/Rose_BaseColor.png')
-        RoseMap.flipY = false;
-        Rose_Mat = new THREE.MeshStandardMaterial({
-            map : RoseMap,
-            roughness : 0.7,
-        })
-        const AstronantMap = new THREE.TextureLoader().load('./3Dmodels/PlanetH_Ani/astronant_sit.png')
+    
+        const AstronantMap = new THREE.TextureLoader().load('./3Dmodels/PlanetG_Ani/astronant_BaseColor.png')
         AstronantMap.flipY = false;
         Astounant_Mat = new THREE.MeshStandardMaterial({
             map : AstronantMap,
             skinning: true,
             roughness : 0.7,
         })
-        const BaseColorMap = new THREE.TextureLoader().load('./3Dmodels/PlanetH_Ani/color.png')
+        const BaseColorMap = new THREE.TextureLoader().load('./3Dmodels/PlanetG_Ani/color.png')
         BaseColorMap.flipY = false;
         BaseColor_Mat = new THREE.MeshStandardMaterial({
             map : BaseColorMap,
             roughness : 0.7,
         })
-
+        const BaseColor2Map = new THREE.TextureLoader().load('./3Dmodels/PlanetG_Ani/color2.png')
+        BaseColor2Map.flipY = false;
+        BaseColor2_Mat = new THREE.MeshStandardMaterial({
+            map : BaseColor2Map,
+            roughness : 0.7,
+        })
+     
       
+
 
     
         // loading the scene //
         const loadingManager = new THREE.LoadingManager
 
-        loadingManager.onStart = function ( url, itemsLoaded, itemsTotal ) { 
+        loadingManager.onAstounantt = function ( url, itemsLoaded, itemsTotal ) { 
         
         }; 
         loadingManager.onLoad = function () { 
          const Loader = document.querySelector('.loader-wrapper')
-         const StartPage = document.querySelector('.startPage')
+         const AstounanttPage = document.querySelector('.AstounanttPage')
 
          function Loading(){
             Loader.classList.add('hide')
-            StartPage.classList.remove('hide')
+            AstounanttPage.classList.remove('hide')
          }
 
          Loading()
@@ -241,47 +243,53 @@ manager.onError = function ( url ) {
                 if(child.isMesh){
                     child.skinning = true
                 }
-                if(child.name == 'LinChun'){
-                    child.material = LinChun_Mat 
+                if(child.name == 'ShuZhen1'){
+                    child.material = ShuZhen_Mat 
                 }
-                if(child.name == 'LinChun2'){
-                    child.material = LinChun_Mat 
+                if(child.name == 'ShuZhen2'){
+                    child.material = ShuZhen_Mat 
                 }
-                if(child.name == 'LinChun3'){
-                    child.material = LinChun_Mat 
+                if(child.name == 'ShuZhen3'){
+                    child.material = ShuZhen_Mat 
                 }
-                if(child.name == 'LinChun4'){
-                    child.material = LinChun_Mat 
+             
+                if(child.name == 'Astounant'){
+                    child.material = Astounant_Mat
                 }
-                if(child.name == 'Star'){
-                    child.material = BaseColor_Mat
+
+                if(child.name == 'Astounant2'){
+                    child.material = Astounant_Mat
                 }
-                if(child.name == 'Star1'){
-                    child.material = BaseColor_Mat
+                if(child.name == 'Astounant3'){
+                    child.material = Astounant_Mat
                 }
-                if(child.name == 'Star2'){
-                    child.material = BaseColor_Mat
+                if(child.name == 'Astounant4'){
+                    child.material = Astounant_Mat
                 }
-                if(child.name == 'Star3'){
-                    child.material = BaseColor_Mat
+                if(child.name == 'Astounant5'){
+                    child.material = Astounant_Mat
+                }
+                if(child.name == 'Astounant6'){
+                    child.material = Astounant_Mat
+                }
+                if(child.name == 'Astounant7'){
+                    child.material = Astounant_Mat
                 }
                 if(child.name == 'PlanetScene'){
                     child.material = Scene_Mat 
                 }
-                if(child.name == 'rose'){
-                    child.material = Rose_Mat 
+                if(child.name == 'PlanetScene2'){
+                    child.material = Scene_Mat 
                 }
-                if(child.name == 'heartA'){
-                    child.material = Rose_Mat 
+                if(child.name == 'PlanetScene3'){
+                    child.material = Scene_Mat 
                 }
-                if(child.name == 'plant'){
-                    child.material = Rose_Mat 
+        
+                if(child.name == 'fire'){
+                    child.material = BaseColor2_Mat 
                 }
-                if(child.name == 'Astounant'){
-                    child.material = Astounant_Mat 
-                }
-                if(child.name == 'questionMark'){
-                    child.material = BaseColor_Mat 
+                if(child.name == 'fire2'){
+                    child.material = BaseColor2_Mat 
                 }
                 
                 /*mixer = new THREE.AnimationMixer(gltf2.scene)
@@ -308,7 +316,7 @@ manager.onError = function ( url ) {
 
                 scene.add(gltf2.scene)
 
-                mmi.addHandler('Star2','click',function(){
+                mmi.addHandler('Astounant2','click',function(){
                 camera.position.z = 20
                 camera.position.x=-20
                 dialogue.classList.remove('hide')
@@ -317,7 +325,7 @@ manager.onError = function ( url ) {
                 content2.innerHTML = "只不過大多時候她是懶惰的，唯有老公出現時，就會提起戒備心"
                 })
 
-                mmi.addHandler('Star2','dblclick',function(){
+                mmi.addHandler('Astounant2','dblclick',function(){
                 camera.position.z = 40
                 camera.position.x=-0
                 dialogue.classList.add('hide')
@@ -325,7 +333,7 @@ manager.onError = function ( url ) {
                 buttons.classList.remove('hide')
                 })
 
-                mmi.addHandler('Star','click',function(){
+                mmi.addHandler('Astounant','click',function(){
                 camera.position.z = 30
                 camera.position.x= 0
                 camera.position.y=-7
@@ -335,7 +343,7 @@ manager.onError = function ( url ) {
                 dialogue.classList.remove('hide')
                 })
 
-                mmi.addHandler('Star','dblclick',function(){
+                mmi.addHandler('Astounant','dblclick',function(){
                 camera.position.z = 40
                 camera.position.x=-0
                 camera.position.y=0
@@ -343,7 +351,7 @@ manager.onError = function ( url ) {
                 buttons.classList.remove('hide')
                 })
 
-                mmi.addHandler('Star3','click',function(){
+                mmi.addHandler('Astounant3','click',function(){
                 camera.position.z = 10
                 camera.position.x=-0
                 camera.position.y= 5
@@ -353,7 +361,7 @@ manager.onError = function ( url ) {
                 buttons.classList.add('hide')
                 })
 
-                mmi.addHandler('Star3','dblclick',function(){
+                mmi.addHandler('Astounant3','dblclick',function(){
                 camera.position.z = 40
                 camera.position.x=-0
                 camera.position.y=0
@@ -361,7 +369,7 @@ manager.onError = function ( url ) {
                 buttons.classList.remove('hide')
                 })
 
-                mmi.addHandler('Star1','click',function(){
+                mmi.addHandler('Astounant1','click',function(){
                 camera.position.z = 20
                 camera.position.x=13
                 camera.position.y= -5
@@ -371,7 +379,7 @@ manager.onError = function ( url ) {
                 buttons.classList.add('hide')
                 })
 
-                mmi.addHandler('Star1','dblclick',function(){
+                mmi.addHandler('Astounant1','dblclick',function(){
                 camera.position.z = 40
                 camera.position.x=-0
                 camera.position.y=0

@@ -172,41 +172,54 @@ manager.onError = function ( url ) {
   console.log( 'There was an error loading ' + url ); 
 }; 
 
-        //LinChun material
-        const LinChunMap = new THREE.TextureLoader().load('./3Dmodels/PlanetH_Ani/LinChun_BaseColor.png')
-        LinChunMap.flipY = false;
-        LinChun_Mat = new THREE.MeshStandardMaterial({
-            map : LinChunMap,
+        //DongBro material
+        const DongBroMap = new THREE.TextureLoader().load('./3Dmodels/PlanetE_Ani/DongBro_BaseColor.png')
+        DongBroMap.flipY = false;
+        DongBro_Mat = new THREE.MeshStandardMaterial({
+            map : DongBroMap,
             skinning: true,
             roughness : 0.7,
         })
-        const SceneMap = new THREE.TextureLoader().load('./3Dmodels/PlanetH_Ani/planetH_BaseColor.png')
+        const SceneMap = new THREE.TextureLoader().load('./3Dmodels/PlanetE_Ani/planetE_BaseColor.png')
         SceneMap.flipY = false;
         Scene_Mat = new THREE.MeshStandardMaterial({
             map : SceneMap,
             roughness : 0.7,
         })
-        const RoseMap = new THREE.TextureLoader().load('./3Dmodels/PlanetH_Ani/Rose_BaseColor.png')
-        RoseMap.flipY = false;
-        Rose_Mat = new THREE.MeshStandardMaterial({
-            map : RoseMap,
+        const ETMap = new THREE.TextureLoader().load('./3Dmodels/PlanetE_Ani/ET_BaseColor.png')
+        ETMap.flipY = false;
+        ET_Mat = new THREE.MeshStandardMaterial({
+            map : ETMap,
+            skinning: true,
             roughness : 0.7,
         })
-        const AstronantMap = new THREE.TextureLoader().load('./3Dmodels/PlanetH_Ani/astronant_sit.png')
+        const AstronantMap = new THREE.TextureLoader().load('./3Dmodels/PlanetE_Ani/astronant_BaseColor.png')
         AstronantMap.flipY = false;
         Astounant_Mat = new THREE.MeshStandardMaterial({
             map : AstronantMap,
             skinning: true,
             roughness : 0.7,
         })
-        const BaseColorMap = new THREE.TextureLoader().load('./3Dmodels/PlanetH_Ani/color.png')
+        const BaseColorMap = new THREE.TextureLoader().load('./3Dmodels/PlanetE_Ani/color.png')
         BaseColorMap.flipY = false;
         BaseColor_Mat = new THREE.MeshStandardMaterial({
             map : BaseColorMap,
             roughness : 0.7,
         })
+        const NurseMap = new THREE.TextureLoader().load('./3Dmodels/PlanetE_Ani/color2.png')
+        NurseMap.flipY = false;
+        Nurse_Mat = new THREE.MeshStandardMaterial({
+            map : NurseMap,
+            skinning: true,
+            roughness : 0.7,
+        })
+        const EarthMap = new THREE.TextureLoader().load('./3Dmodels/PlanetE_Ani/earth_BaseColor.png')
+        EarthMap.flipY = false;
+        Earth_Mat = new THREE.MeshStandardMaterial({
+            map : EarthMap,
+            roughness : 0.7,
+        })
 
-      
 
     
         // loading the scene //
@@ -239,48 +252,38 @@ manager.onError = function ( url ) {
                 if(child.isMesh){
                     child.skinning = true
                 }
-                if(child.name == 'LinChun'){
-                    child.material = LinChun_Mat 
+                if(child.name == 'DongBro'){
+                    child.material = DongBro_Mat 
                 }
-                if(child.name == 'LinChun2'){
-                    child.material = LinChun_Mat 
-                }
-                if(child.name == 'LinChun3'){
-                    child.material = LinChun_Mat 
-                }
-                if(child.name == 'LinChun4'){
-                    child.material = LinChun_Mat 
-                }
-                if(child.name == 'Star'){
-                    child.material = BaseColor_Mat
-                }
-                if(child.name == 'Star1'){
-                    child.material = BaseColor_Mat
-                }
-                if(child.name == 'Star2'){
-                    child.material = BaseColor_Mat
-                }
-                if(child.name == 'Star3'){
-                    child.material = BaseColor_Mat
-                }
+             
+          
                 if(child.name == 'PlanetScene'){
                     child.material = Scene_Mat 
                 }
-                if(child.name == 'rose'){
-                    child.material = Rose_Mat 
-                }
-                if(child.name == 'heartA'){
-                    child.material = Rose_Mat 
-                }
-                if(child.name == 'plant'){
-                    child.material = Rose_Mat 
-                }
-                if(child.name == 'Astounant'){
-                    child.material = Astounant_Mat 
-                }
-                if(child.name == 'questionMark'){
+                if(child.name == 'wheelChairMesh'){
                     child.material = BaseColor_Mat 
                 }
+             
+                if(child.name == 'rocket'){
+                    child.material = BaseColor_Mat 
+                }
+                if(child.name == 'earth'){
+                    child.material = Earth_Mat 
+                }
+
+                if(child.name == 'ET'){
+                    child.material = ET_Mat 
+                }
+             
+          
+                if(child.name == 'nurse'){
+                    child.material = Nurse_Mat 
+                }
+
+                if(child.name == 'leader'){
+                    child.material = Astounant_Mat 
+                }
+             
                 
                 /*mixer = new THREE.AnimationMixer(gltf2.scene)
                 action = mixer.clipAction(gltf2.animations[0])

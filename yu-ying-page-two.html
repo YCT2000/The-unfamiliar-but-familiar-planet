@@ -172,40 +172,51 @@ manager.onError = function ( url ) {
   console.log( 'There was an error loading ' + url ); 
 }; 
 
-        //LinChun material
-        const LinChunMap = new THREE.TextureLoader().load('./3Dmodels/PlanetH_Ani/LinChun_BaseColor.png')
-        LinChunMap.flipY = false;
-        LinChun_Mat = new THREE.MeshStandardMaterial({
-            map : LinChunMap,
+       
+        //YuYing material
+        const YuYingMap = new THREE.TextureLoader().load('./3Dmodels/PlanetD_Ani/YuYing_BaseColor.png')
+        YuYingMap.flipY = false;
+        YuYing_Mat = new THREE.MeshStandardMaterial({
+            map : YuYingMap,
             skinning: true,
             roughness : 0.7,
         })
-        const SceneMap = new THREE.TextureLoader().load('./3Dmodels/PlanetH_Ani/planetH_BaseColor.png')
+        const SceneMap = new THREE.TextureLoader().load('./3Dmodels/PlanetD_Ani/planetD_BaseColor.png')
         SceneMap.flipY = false;
         Scene_Mat = new THREE.MeshStandardMaterial({
             map : SceneMap,
             roughness : 0.7,
         })
-        const RoseMap = new THREE.TextureLoader().load('./3Dmodels/PlanetH_Ani/Rose_BaseColor.png')
-        RoseMap.flipY = false;
-        Rose_Mat = new THREE.MeshStandardMaterial({
-            map : RoseMap,
-            roughness : 0.7,
-        })
-        const AstronantMap = new THREE.TextureLoader().load('./3Dmodels/PlanetH_Ani/astronant_sit.png')
-        AstronantMap.flipY = false;
-        Astounant_Mat = new THREE.MeshStandardMaterial({
-            map : AstronantMap,
+       
+        const ChildMap = new THREE.TextureLoader().load('./3Dmodels/PlanetD_Ani/Child_BaseColor.png')
+        ChildMap.flipY = false;
+        Child_Mat = new THREE.MeshStandardMaterial({
+            map : ChildMap,
             skinning: true,
             roughness : 0.7,
         })
-        const BaseColorMap = new THREE.TextureLoader().load('./3Dmodels/PlanetH_Ani/color.png')
+
+        const BaseColorMap = new THREE.TextureLoader().load('./3Dmodels/PlanetD_Ani/color.png')
         BaseColorMap.flipY = false;
         BaseColor_Mat = new THREE.MeshStandardMaterial({
             map : BaseColorMap,
             roughness : 0.7,
         })
+        const BaseColor2Map = new THREE.TextureLoader().load('./3Dmodels/PlanetD_Ani/color2.png')
+        BaseColor2Map.flipY = false;
+        BaseColor2_Mat = new THREE.MeshStandardMaterial({
+            map : BaseColor2Map,
+            roughness : 0.7,
+        })
+        const ETMap = new THREE.TextureLoader().load('./3Dmodels/PlanetD_Ani/ET_BaseColor.png')
+        ETMap.flipY = false;
+        ET_Mat = new THREE.MeshStandardMaterial({
+            map : ETMap,
+            skinning: true,
+            roughness : 0.7,
+        })
 
+      
       
 
     
@@ -240,48 +251,29 @@ manager.onError = function ( url ) {
                 if(child.isMesh){
                     child.skinning = true
                 }
-                if(child.name == 'LinChun'){
-                    child.material = LinChun_Mat 
+                if(child.name == 'YuYing'){
+                    child.material = YuYing_Mat 
                 }
-                if(child.name == 'LinChun2'){
-                    child.material = LinChun_Mat 
+                if(child.name == 'Child'){
+                    child.material = Child_Mat 
                 }
-                if(child.name == 'LinChun3'){
-                    child.material = LinChun_Mat 
+                if(child.name == 'ET'){
+                    child.material = ET_Mat 
                 }
-                if(child.name == 'LinChun4'){
-                    child.material = LinChun_Mat 
+                if(child.name == 'Sun'){
+                    child.material = Scene_Mat 
                 }
-                if(child.name == 'Star'){
-                    child.material = BaseColor_Mat
+                if(child.name == 'Cloud'){
+                    child.material = Scene_Mat 
                 }
-                if(child.name == 'Star1'){
-                    child.material = BaseColor_Mat
+                if(child.name == 'Cloud2'){
+                    child.material = Scene_Mat 
                 }
-                if(child.name == 'Star2'){
-                    child.material = BaseColor_Mat
-                }
-                if(child.name == 'Star3'){
-                    child.material = BaseColor_Mat
-                }
+             
                 if(child.name == 'PlanetScene'){
                     child.material = Scene_Mat 
                 }
-                if(child.name == 'rose'){
-                    child.material = Rose_Mat 
-                }
-                if(child.name == 'heartA'){
-                    child.material = Rose_Mat 
-                }
-                if(child.name == 'plant'){
-                    child.material = Rose_Mat 
-                }
-                if(child.name == 'Astounant'){
-                    child.material = Astounant_Mat 
-                }
-                if(child.name == 'questionMark'){
-                    child.material = BaseColor_Mat 
-                }
+                
                 
                 /*mixer = new THREE.AnimationMixer(gltf2.scene)
                 action = mixer.clipAction(gltf2.animations[0])
@@ -307,76 +299,7 @@ manager.onError = function ( url ) {
 
                 scene.add(gltf2.scene)
 
-                mmi.addHandler('Star2','click',function(){
-                camera.position.z = 20
-                camera.position.x=-20
-                dialogue.classList.remove('hide')
-                buttons.classList.add('hide')
-                content.innerHTML = "這個星球的掌管者，她是一名水槍狙擊手，個性有如老虎般兇狠，";
-                content2.innerHTML = "只不過大多時候她是懶惰的，唯有老公出現時，就會提起戒備心"
-                })
-
-                mmi.addHandler('Star2','dblclick',function(){
-                camera.position.z = 40
-                camera.position.x=-0
-                dialogue.classList.add('hide')
-                buttons.classList.add('hide')
-                buttons.classList.remove('hide')
-                })
-
-                mmi.addHandler('Star','click',function(){
-                camera.position.z = 30
-                camera.position.x= 0
-                camera.position.y=-7
-                content.innerHTML = "大多數時，她會一邊稱讚我們做的很棒，一邊把事情推給我們做，";
-                content2.innerHTML = "真是懶洋洋"
-                buttons.classList.add('hide')
-                dialogue.classList.remove('hide')
-                })
-
-                mmi.addHandler('Star','dblclick',function(){
-                camera.position.z = 40
-                camera.position.x=-0
-                camera.position.y=0
-                dialogue.classList.add('hide')
-                buttons.classList.remove('hide')
-                })
-
-                mmi.addHandler('Star3','click',function(){
-                camera.position.z = 10
-                camera.position.x=-0
-                camera.position.y= 5
-                content.innerHTML = "星球上空有一顆衛星，上面住了一位耀眼的老公，";
-                content2.innerHTML = "這位星人每天都癡癡地看著他"
-                dialogue.classList.remove('hide')
-                buttons.classList.add('hide')
-                })
-
-                mmi.addHandler('Star3','dblclick',function(){
-                camera.position.z = 40
-                camera.position.x=-0
-                camera.position.y=0
-                dialogue.classList.add('hide')
-                buttons.classList.remove('hide')
-                })
-
-                mmi.addHandler('Star1','click',function(){
-                camera.position.z = 20
-                camera.position.x=13
-                camera.position.y= -5
-                content.innerHTML = "星球上長滿這種植物，可是我們無法得知他的名字";
-                content2.innerHTML = "因為連主人也忘記他的名字了，可是它使得這顆星球看起來生生不息"
-                dialogue.classList.remove('hide')
-                buttons.classList.add('hide')
-                })
-
-                mmi.addHandler('Star1','dblclick',function(){
-                camera.position.z = 40
-                camera.position.x=-0
-                camera.position.y=0
-                dialogue.classList.add('hide')
-                buttons.classList.remove('hide')
-                })
+                
 
 
                 
