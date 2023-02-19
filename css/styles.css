@@ -128,7 +128,7 @@ ul, li{
 	color: #fff;
 }
 
-.galaxy__container a:hover {
+.galaxy__container li,a:hover {
 	color: #fff;
 }
 .galaxy__container ul,li,a{
@@ -770,17 +770,35 @@ input[type="checkbox" i] {
 .speech-box-first{position: absolute; right: 8%; width: 60%;}
 .speech-line {position: absolute; right: 4vw; top: 9vh; font-size: 1.7vw;  font-family: 'Noto Sans TC', sans-serif; color: white; }
 .speech-line p{margin-block-end: 0;margin-block-start: 0.8em;}
-.linchun_mascot_section{position: relative; height: 120vh;}
-.doodle_section{position: relative;height: 120vh;} 
-#linchunDoodle_1{position: absolute;  left: 5%; top:15vh; width: 28%;}
-#linchunDoodle_2{position: absolute; right: 5%; top:15vh; width: 41%;}
-#linchunDoodle_3{position: absolute; right: 35%; bottom: -3vh; width: 25%;}
+.linchun_mascot_section{position: relative; height: 120vh; margin-top: 100px}
+.doodle_section{position: relative;height: 120vh; overflow: hidden; background-image: url('../img/paper.png');} 
+.doodle_section2{position: relative;height: 120vh; overflow: hidden;} 
+
 .doodle{ font-size: 1.7vw;  font-family: 'Noto Sans TC', sans-serif; color: white;}
-.speech-line-first{position: absolute; left: 15%; top: 0; z-index: 2;}
-.speech-line-second{position: absolute; left: 30%; bottom: 7vh;}
-.speech-line-third{position: absolute; right: 25%; bottom: 28vh;}
+
 .speech-box-second{position: absolute; left: 15%; top:10%; width: 50%;}
 #rose{position: absolute; right: 5%; width: 30%; bottom: 0vh;}
 .speech-line-fourth{position: absolute; left: 4vw; top: 5vh; font-size: 1.7vw;  font-family: 'Noto Sans TC', sans-serif; color: white; }
 .speech-line-fourth p{margin-block-end: 2em; margin-block-start: 2em;}
 .youtube-link{margin: 123px; text-align: center;}
+
+/* lin chun doodles */
+.linchun-line-first{position: absolute; left: 15%; top: 0; z-index: 2; }
+.linchun-line-second{position: absolute; left: 30%; bottom: 7vh;}
+.linchun-line-third{position: absolute; right: 25%; bottom: 28vh;}
+.linchunDoodle_1{position: absolute;  left: -5%; top:15vh; width: 28%; filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
+.linchunDoodle_2{position: absolute; right: -10%; top:15vh; width: 41%; filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
+.linchunDoodle_3{position: absolute; right: 45%; bottom: -5vh; width: 25%; filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
+.linchunDoodle_1:hover{cursor: pointer;}
+
+.doodle-left-ani{ transform: translateX(20%) ; opacity: 1; transition: 1s ease-in-out;}
+.doodle-right-ani{ transform: translateX(-30%); opacity: 1; transition: 1s ease-out;}
+.doodle-bottom-ani{ transform: translateY(-30%); opacity: 1; transition: 1s ease-out;}
+ @keyframes idel {
+    from{
+        transfrom: translateY(-5%);
+    }
+    to{
+        transfrom: translateY(0%);
+    }
+ }

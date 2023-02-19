@@ -122,7 +122,7 @@
 
         //Adding lights
         const spotLight = new THREE.SpotLight(0xe6bd85);
-        spotLight.position.set( 20, 20, 20);
+        spotLight.position.set( 20, 20, 30);
 
         spotLight.castShadow = true;
         spotLight.intensity = 0.4
@@ -172,37 +172,43 @@ manager.onError = function ( url ) {
   console.log( 'There was an error loading ' + url ); 
 }; 
 
-        //LinChun material
-        const LinChunMap = new THREE.TextureLoader().load('./3Dmodels/PlanetH_Ani/LinChun_BaseColor.png')
-        LinChunMap.flipY = false;
-        LinChun_Mat = new THREE.MeshStandardMaterial({
-            map : LinChunMap,
+        //LingFang material
+        const LingFangMap = new THREE.TextureLoader().load('./3Dmodels/PlanetJ_Ani/LingFang_BaseColor.png')
+        LingFangMap.flipY = false;
+        LingFang_Mat = new THREE.MeshStandardMaterial({
+            map : LingFangMap,
             skinning: true,
             roughness : 0.7,
         })
-        const SceneMap = new THREE.TextureLoader().load('./3Dmodels/PlanetH_Ani/planetH_BaseColor.png')
+        const SceneMap = new THREE.TextureLoader().load('./3Dmodels/PlanetJ_Ani/PlanetJ_BaseColor.png')
         SceneMap.flipY = false;
         Scene_Mat = new THREE.MeshStandardMaterial({
             map : SceneMap,
             roughness : 0.7,
         })
-        const RoseMap = new THREE.TextureLoader().load('./3Dmodels/PlanetH_Ani/Rose_BaseColor.png')
+        const RoseMap = new THREE.TextureLoader().load('./3Dmodels/PlanetJ_Ani/Rose_BaseColor.png')
         RoseMap.flipY = false;
         Rose_Mat = new THREE.MeshStandardMaterial({
             map : RoseMap,
             roughness : 0.7,
         })
-        const AstronantMap = new THREE.TextureLoader().load('./3Dmodels/PlanetH_Ani/astronant_sit.png')
+        const AstronantMap = new THREE.TextureLoader().load('./3Dmodels/PlanetJ_Ani/astronant_BaseColor.png')
         AstronantMap.flipY = false;
         Astounant_Mat = new THREE.MeshStandardMaterial({
             map : AstronantMap,
             skinning: true,
             roughness : 0.7,
         })
-        const BaseColorMap = new THREE.TextureLoader().load('./3Dmodels/PlanetH_Ani/color.png')
+        const BaseColorMap = new THREE.TextureLoader().load('./3Dmodels/PlanetJ_Ani/color.png')
         BaseColorMap.flipY = false;
         BaseColor_Mat = new THREE.MeshStandardMaterial({
             map : BaseColorMap,
+            roughness : 0.7,
+        })
+        const BaseColor2Map = new THREE.TextureLoader().load('./3Dmodels/PlanetJ_Ani/color2.png')
+        BaseColor2Map.flipY = false;
+        BaseColor2_Mat = new THREE.MeshStandardMaterial({
+            map : BaseColor2Map,
             roughness : 0.7,
         })
 
@@ -239,17 +245,17 @@ manager.onError = function ( url ) {
                 if(child.isMesh){
                     child.skinning = true
                 }
-                if(child.name == 'LinChun'){
-                    child.material = LinChun_Mat 
+                if(child.name == 'LingFang'){
+                    child.material = LingFang_Mat 
                 }
-                if(child.name == 'LinChun2'){
-                    child.material = LinChun_Mat 
+                if(child.name == 'LingFang2'){
+                    child.material = LingFang_Mat 
                 }
-                if(child.name == 'LinChun3'){
-                    child.material = LinChun_Mat 
+                if(child.name == 'LingFang3'){
+                    child.material = LingFang_Mat 
                 }
-                if(child.name == 'LinChun4'){
-                    child.material = LinChun_Mat 
+                if(child.name == 'LingFang4'){
+                    child.material = LingFang_Mat 
                 }
                 if(child.name == 'Star'){
                     child.material = BaseColor_Mat
@@ -275,32 +281,43 @@ manager.onError = function ( url ) {
                 if(child.name == 'plant'){
                     child.material = Rose_Mat 
                 }
-                if(child.name == 'Astounant'){
+                if(child.name == 'leader'){
                     child.material = Astounant_Mat 
                 }
-                if(child.name == 'questionMark'){
+                if(child.name == 'astronant'){
+                    child.material = Astounant_Mat 
+                }
+                if(child.name == 'well'){
                     child.material = BaseColor_Mat 
                 }
+                if(child.name == 'flowers'){
+                    child.material = BaseColor_Mat 
+                }
+                if(child.name == 'foods'){
+                    child.material = BaseColor2_Mat 
+                }
                 
-                /*mixer = new THREE.AnimationMixer(gltf2.scene)
+                
+                
+                mixer = new THREE.AnimationMixer(gltf2.scene)
                 action = mixer.clipAction(gltf2.animations[0])
                 action2 = mixer.clipAction(gltf2.animations[1])
-                action3 = mixer.clipAction(gltf2.animations[2])
+                /*action3 = mixer.clipAction(gltf2.animations[2])
                 action4 = mixer.clipAction(gltf2.animations[3])
                 action5 = mixer.clipAction(gltf2.animations[4])
                 action6 = mixer.clipAction(gltf2.animations[5])
                 action7 = mixer.clipAction(gltf2.animations[6])
                 action8 = mixer.clipAction(gltf2.animations[7])
-              
-                action.play()
-                action2.play()
+             
                 action3.play()
                 action4.play()
                 action5.play()
                 action6.play()
                 action7.play()
                 action8.play()*/
-             
+              
+                action.play()
+                action2.play()
                 
                
 

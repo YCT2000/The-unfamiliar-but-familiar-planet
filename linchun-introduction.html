@@ -54,42 +54,7 @@
         </button>
     </div>
 
-        <section class="clearfix">
-
-        <div class="single-item" style="width:627px;">
-            <div>
-                <img style="width:627px;height:418px" src="./img/LinChun/IMG_0905.jpg" />
-            </div>
-            <div>
-                <img style="width:627px;height:418px" src="./img/LinChun/IMG_2555.jpg" />
-            </div>
-            <div>
-                <img style="width:627px;height:418px" src="./img/LinChun/IMG_2707.jpg" />
-            </div>
-            <div>
-                <img style="width:627px;height:418px" src="./img/LinChun/IMG_2735.jpg" />
-            </div>
-            <div>
-                <img style="width:627px;height:418px" src="https://www.androidpolice.com/wp-content/uploads/2020/12/15/Wallpaper-of-the-Week-2020-4-scaled.jpg" />
-            </div>
-            <div>
-                <img style="width:627px;height:418px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfhrqVBL-0hEtWOj5N9Da6Nh23igvGt_1kKA&usqp=CAU" />
-            </div>
-        </div>
-    </div>
-
-    <div class="elderly-introduction">
-        <div class="elderly-tag">
-        <span>#依賴老公</span>
-        <span>#懶洋洋</span>
-        <span>#愛吃醋</span>
-        </div>
-        <img src="./img/LinChun/signature_linchun.png">
-        <p>屬於輕度失智症。<br><br>
-            症狀：重複問同樣的問題、找不到廁所、去過的地方會忘記。</p>
-  
-    </div>
-</section>
+       
 
 
 <section class="linchun_mascot_section">
@@ -106,15 +71,17 @@
 
 
 <section class="doodle_section">
-    <p class="doodle speech-line-first">我平常在家<br>很喜歡看電視</p>
-    <p class="doodle speech-line-second">我身上有戴手錶</p>
-    <p class="doodle speech-line-third">我認為我是一隻母老虎<br>時常會對老公生氣！</p>
-    <img src="./img/LinChun/LinChun_Doodle3.png" id="linchunDoodle_1">
-    <img src="./img/LinChun/LinChun_Doodle2.png" id="linchunDoodle_2">
-    <img src="./img/LinChun/LinChun_Doodle1.png" id="linchunDoodle_3">
+    <p class="doodle linchun-line-first">我平常在家<br>很喜歡看電視</p>
+    <p class="doodle linchun-line-second">我身上有戴手錶</p>
+    <p class="doodle linchun-line-third">我認為我是一隻母老虎<br>時常會對老公生氣！</p>
+
+
+    <img class="linchunDoodle_1" src="./img/LinChun/LinChun_Doodle3.png"> 
+    <img class="linchunDoodle_2" src="./img/LinChun/LinChun_Doodle2.png"> 
+    <img class="linchunDoodle_3" src="./img/LinChun/LinChun_Doodle1.png"> 
 </section>
 
-<section class="doodle_section">
+<section class="doodle_section2">
     <div class="speech-box-second">
     <div class="speech-line-fourth clearfix">
         <p>最後、最後</p>
@@ -131,11 +98,44 @@
     <img src="./img/LinChun/linchu_rose.png" id="rose">
 </section>
 
+<section class="clearfix">
+
+    <div class="single-item" style="width:627px;">
+        <div>
+            <img style="width:627px;height:418px" src="./img/LinChun/IMG_0905.jpg" />
+        </div>
+        <div>
+            <img style="width:627px;height:418px" src="./img/LinChun/IMG_2555.jpg" />
+        </div>
+        <div>
+            <img style="width:627px;height:418px" src="./img/LinChun/IMG_2707.jpg" />
+        </div>
+        <div>
+            <img style="width:627px;height:418px" src="./img/LinChun/IMG_2735.jpg" />
+        </div>
+      
+    </div>
+</div>
+
+<div class="elderly-introduction">
+    <div class="elderly-tag">
+    <span>#依賴老公</span>
+    <span>#懶洋洋</span>
+    <span>#愛吃醋</span>
+    </div>
+    <img src="./img/LinChun/signature_linchun.png">
+    <p>屬於輕度失智症。<br><br>
+        症狀：重複問同樣的問題、找不到廁所、去過的地方會忘記。</p>
+
+</div>
+</section>
+
 <section>
     <div class="youtube-link">
     <iframe width="100%" height="627" src="https://www.youtube.com/embed/uGC29G8TTB0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen ></iframe>
     </div>
 </section>
+
 
     <footer>
       <div class="footer__content clearfix">
@@ -192,6 +192,81 @@
         }
     ]
     });
+
+
+
+        const Doodle1= document.getElementsByClassName('linchunDoodle_1') 
+        let options={
+            rootMargin:'-20%',
+            threshold:0.6
+        }
+
+        const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry =>{
+        if(entry.isIntersecting){
+            entry.target.classList.add('doodle-left-ani')
+        
+            }
+
+        else{
+            entry.target.classList.remove('doodle-left-ani')
+            }
+    
+        })
+        })
+
+        for(i =0; i< Doodle1.length;i++){
+        observer.observe( Doodle1[i])
+        }
+
+        /*mascot2*/
+        const  Doodle2 = document.getElementsByClassName('linchunDoodle_2') 
+        let options2={
+            rootMargin:'-20%',
+            threshold:0.6
+        }
+
+        const observer2 = new IntersectionObserver(entries => {
+        entries.forEach(entry =>{
+        if(entry.isIntersecting){
+            entry.target.classList.add('doodle-right-ani')
+            }
+
+        else{
+            entry.target.classList.remove('doodle-right-ani')
+            }
+    
+        })
+        })
+
+        for(i =0; i<Doodle2.length;i++){
+        observer2.observe(Doodle2[i])
+        }
+
+        /*mascot4*/
+        const  Doodle3 = document.getElementsByClassName('linchunDoodle_3') 
+        let options3={
+            rootMargin:'-20%',
+            threshold:0.6
+        }
+
+        const observer3 = new IntersectionObserver(entries => {
+        entries.forEach(entry =>{
+        if(entry.isIntersecting){
+            entry.target.classList.add('doodle-bottom-ani')
+            }
+
+        else{
+            entry.target.classList.remove('doodle-bottom-ani')
+            }
+    
+        })
+        })
+
+        for(i =0; i<Doodle3.length;i++){
+        observer3.observe(Doodle3[i])
+        }
+
     </script>
 
 

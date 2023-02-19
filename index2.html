@@ -14,9 +14,9 @@
     <title>最熟悉的陌生星球</title>
 </head>
 <body style="overflow: hidden;">
-    <!--<div class="loader-wrapper ">
+   <div class="loader-wrapper ">
         <img width="100%" src="./Video/LoadingMP4.gif"></img>
-    </div>-->
+    </div>
     
    
     <div class="SparkleStar"><img src="./img/SparkleStar.png" style=" width: 100%; position: fixed; top: 0; opacity: 0.7; animation: Sparkling 4s infinite;"></div>
@@ -35,7 +35,7 @@
 
 <script>
 
-    /*const Loader = document.querySelector('.loader-wrapper')
+    const Loader = document.querySelector('.loader-wrapper')
     const StartPage = document.querySelector('.startPage')
 
     function Loading(){
@@ -43,7 +43,7 @@
         StartPage.classList.remove('hide')
     }
 
-    setTimeout(Loading, 3000)*/
+    setTimeout(Loading, 3000)
 
   
 
@@ -197,31 +197,21 @@ gltf1.scene.traverse(function (child) {
   scene.add(gltf1.scene);
 
   mmi.addHandler('Star', 'click', function(){
-    window.location.href = "intro-huai-ying.html"
+    window.location.href = "coolest-cool.html"
     console.log("planet_A is Clicked")
     })
 
-    mmi.addHandler('Star', 'mouseenter', function(){
-
-        gsap.to(gltf1.scene.rotation , {
-            duration: 1.5,
-            ease: 'power2.inOut',
-            x: '+=6',
-            y:'+=3',
-            z:'+=3'
-        })
-    
-        
-        console.log("on planet_A")
+    mmi.addHandler('Star2', 'click', function(){
+    window.location.href = "passional-rapper.html"
+    console.log("planet_A is Clicked")
     })
 
-
-    mmi.addHandler('Star', 'mouseleave', function(){
-    
-        console.log("out of planet_A")
-      
+  mmi.addHandler('Star3', 'click', function(){
+    window.location.href = "main.html"
+    console.log("planet_A is Clicked")
     })
 
+  
 
 
 

@@ -172,34 +172,34 @@ manager.onError = function ( url ) {
   console.log( 'There was an error loading ' + url ); 
 }; 
 
-        //LinChun material
-        const LinChunMap = new THREE.TextureLoader().load('./3Dmodels/PlanetH_Ani/LinChun_BaseColor.png')
-        LinChunMap.flipY = false;
-        LinChun_Mat = new THREE.MeshStandardMaterial({
-            map : LinChunMap,
+        //LingFang material
+        const LingFangMap = new THREE.TextureLoader().load('./3Dmodels/PlanetJ_Ani/LingFang_BaseColor.png')
+        LingFangMap.flipY = false;
+        LingFang_Mat = new THREE.MeshStandardMaterial({
+            map : LingFangMap,
             skinning: true,
             roughness : 0.7,
         })
-        const SceneMap = new THREE.TextureLoader().load('./3Dmodels/PlanetH_Ani/planetH_BaseColor.png')
+        const SceneMap = new THREE.TextureLoader().load('./3Dmodels/PlanetJ_Ani/PlanetJ_BaseColor.png')
         SceneMap.flipY = false;
         Scene_Mat = new THREE.MeshStandardMaterial({
             map : SceneMap,
             roughness : 0.7,
         })
-        const RoseMap = new THREE.TextureLoader().load('./3Dmodels/PlanetH_Ani/Rose_BaseColor.png')
+        const RoseMap = new THREE.TextureLoader().load('./3Dmodels/PlanetJ_Ani/Rose_BaseColor.png')
         RoseMap.flipY = false;
         Rose_Mat = new THREE.MeshStandardMaterial({
             map : RoseMap,
             roughness : 0.7,
         })
-        const AstronantMap = new THREE.TextureLoader().load('./3Dmodels/PlanetH_Ani/astronant_sit.png')
+        const AstronantMap = new THREE.TextureLoader().load('./3Dmodels/PlanetJ_Ani/astronant_sit.png')
         AstronantMap.flipY = false;
         Astounant_Mat = new THREE.MeshStandardMaterial({
             map : AstronantMap,
             skinning: true,
             roughness : 0.7,
         })
-        const BaseColorMap = new THREE.TextureLoader().load('./3Dmodels/PlanetH_Ani/color.png')
+        const BaseColorMap = new THREE.TextureLoader().load('./3Dmodels/PlanetJ_Ani/color.png')
         BaseColorMap.flipY = false;
         BaseColor_Mat = new THREE.MeshStandardMaterial({
             map : BaseColorMap,
@@ -239,17 +239,17 @@ manager.onError = function ( url ) {
                 if(child.isMesh){
                     child.skinning = true
                 }
-                if(child.name == 'LinChun'){
-                    child.material = LinChun_Mat 
+                if(child.name == 'LingFang'){
+                    child.material = LingFang_Mat 
                 }
-                if(child.name == 'LinChun2'){
-                    child.material = LinChun_Mat 
+                if(child.name == 'LingFang2'){
+                    child.material = LingFang_Mat 
                 }
-                if(child.name == 'LinChun3'){
-                    child.material = LinChun_Mat 
+                if(child.name == 'LingFang3'){
+                    child.material = LingFang_Mat 
                 }
-                if(child.name == 'LinChun4'){
-                    child.material = LinChun_Mat 
+                if(child.name == 'LingFang4'){
+                    child.material = LingFang_Mat 
                 }
                 if(child.name == 'Star'){
                     child.material = BaseColor_Mat
