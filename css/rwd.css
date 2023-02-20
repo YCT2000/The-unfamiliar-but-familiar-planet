@@ -66,8 +66,8 @@
         background-color:transparent;
         border:0px;
         outline:0px;
-        width:50px;
-        height:50px;
+        width:12%;
+        height:15%;
         position:absolute;
         top:3%;
         right:3%;
@@ -81,9 +81,9 @@
     .burger-mobile {
     background-color:#FFF;
     border-radius:5px;
-    height: 5px;
+    height: 2.5px;
     margin-bottom: 5px;
-    width: 35px;
+ 
     display:flex;
     
     }
@@ -92,8 +92,8 @@
     .navContainer_mobile ul{padding: 0;}
     .navContainer_mobile li{font-size: 1rem}
     .navContainer_mobile li:hover{ background-color: #D4AA29;}
-    .base__container-mobile{display: none; background-color: #d4a9298c;}
-    .galaxy__container-mobile{display: none; background-color: #d4a9298c;}
+    .base__container-mobile{background-color: #d4a9298c;}
+    .galaxy__container-mobile{background-color: #d4a9298c;}
 
 
 
@@ -104,9 +104,26 @@
     .FirstHeading{color:#ffffff; font-family:'Noto Sans TC', sans-serif; font-size: 35px; font-weight: bold;
                   margin-bottom: 25px;}
     .intro-next{width: 15%; float: right;}
-
+    .speech-line-fourth p{top: 0vh;}
     .buttons{margin: 0 10px; margin-top: 150%;}
     .buttons img{height: 10%;}
+    .single-item{width: 90%; margin: 60px 20px 30px;}
+    .elderly-introduction{width: 100%; text-align: center; margin: 0 20px 40px; font-size: 0.8rem;}
+    .elderly-tag {margin: 20px 20px;}
+    .elderly-introduction img{width: 80%;}
 
 
+    /*One-Page*/
+    .linchun_mascot_section{height: 50vh; }
+    .speech-line{top: 3vh;}
+    .doodle_section{height: 60vh;}
+    .doodle_section2{height: 40vh;}
+    .youtube-link{margin: 20px; text-align: center;}
+
+
+    footer{display: none;}
+    .footer_mobile{display: block;}
+    .footer__content{padding: 20px;}
+    .footer__logo{width: 60%;}
+    .footer__right{width:100%; float: left;}
 }
