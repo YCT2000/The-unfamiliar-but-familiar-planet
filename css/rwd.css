@@ -1,13 +1,28 @@
+
+@media (min-width: 1280px) {
+    .mobile__nav{display: none;}
+    
+}
 @media (max-width: 1280px) {
     /*探索*/
     .survey{margin: 15% 10% 111px; width: 50%;}
+    .nav__logo{
+        width: 50%;
+        margin-left: 20px;
+        margin-top:20px;
+    }
+    
 }
 
 @media (max-width: 769px) {
+    body{overflow-x: hidden;}
+    .show{display: block;}
+    .hamburger,.closeNav {display: none;}
 
     .nav__logo{
-        width: 30%;
-        margin-top: 10%;
+        width: 40%;
+        margin-left: 20px;
+        margin-top:20px;
     }
 
     #ellipse{
@@ -47,13 +62,47 @@
         padding: 6px;
     }
 
+    .hamburger-mobile {
+        background-color:transparent;
+        border:0px;
+        outline:0px;
+        width:50px;
+        height:50px;
+        position:absolute;
+        top:3%;
+        right:3%;
+        cursor:pointer;
+        z-index:9;
+        
+    }
     
+    
+    
+    .burger-mobile {
+    background-color:#FFF;
+    border-radius:5px;
+    height: 5px;
+    margin-bottom: 5px;
+    width: 35px;
+    display:flex;
+    
+    }
+    .mobile__nav+.webgl{ pointer-events: none;}
+    .navContainer_mobile{background-color: #FFF; z-index: 99; position: relative; margin-top: 25px;}
+    .navContainer_mobile ul{padding: 0;}
+    .navContainer_mobile li{font-size: 1rem}
+    .navContainer_mobile li:hover{ background-color: #D4AA29;}
+    .base__container-mobile{display: none; background-color: #d4a9298c;}
+    .galaxy__container-mobile{display: none; background-color: #d4a9298c;}
+
+
+
     .planet{width: 90%; margin: 30px 20px;}
-    .introduction-planet{width: 90%; float: left; padding: 30px 20px ;}
+    .introduction-planet{width: 90%; float: left; padding: 0px 20px ;}
     .description{color:#ffffff; font-family:'Noto Sans TC', sans-serif;
                 font-size: 12px; width: 90%;}
-    .FirstHeading{color:#ffffff; font-family:'Noto Sans TC', sans-serif;
-              font-size: 30px; font-weight: bold;}
+    .FirstHeading{color:#ffffff; font-family:'Noto Sans TC', sans-serif; font-size: 35px; font-weight: bold;
+                  margin-bottom: 25px;}
     .intro-next{width: 15%; float: right;}
 
     .buttons{margin: 0 10px; margin-top: 150%;}
