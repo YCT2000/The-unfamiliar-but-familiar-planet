@@ -638,7 +638,7 @@ footer{background-color: #DEAD25; z-index: 100;}
 .footer__content{padding: 35px 100px 40px; color: #FFF; font-family:'Noto Sans TC', sans-serif; }
 .footer__right{float: right; line-height: 25px; margin-top: 20px;}
 .footer__left{float: left; line-height: 35px;}
-.footer__logo{width: 100%}
+.footer__logo{width:20%; margin-top: 20px;}
 /*探索*/
 .explore__body{background: linear-gradient(-120deg,rgba(118, 22, 27) , rgba(0, 46, 50));}
 .survey{margin: 15% 15% 111px; width: 45%;}
@@ -748,7 +748,7 @@ input[type="checkbox" i] {
 .next{float: right;}
 
 /* base */
-.brand{margin: 123px; text-align: center;}
+.brand{margin: 110px; text-align: center;}
 .brand__description{text-align: left; width: 40%; padding-left: 30%; font-family: 'Noto Sans TC', sans-serif; color: white; margin-bottom: 99px;
                     line-height: 2em;}
 .brand__logo{margin: 72px 0px; width: 40%;}
@@ -783,7 +783,7 @@ input[type="checkbox" i] {
 .youtube-link{margin: 123px; text-align: center;}
 
 /* lin chun doodles */
-.linchun-line-first{position: absolute; left: 15%; top: 0; z-index: 2; }
+.linchun-line-first{position: absolute; left: 30%; top: 20%; z-index: 2; }
 .linchun-line-second{position: absolute; left: 30%; bottom: 7vh;}
 .linchun-line-third{position: absolute; right: 25%; bottom: 28vh;}
 .linchunDoodle_1{position: absolute;  left: -5%; top:15vh; width: 28%; filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
