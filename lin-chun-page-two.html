@@ -15,31 +15,31 @@
 </head>
 <body style="overflow: hidden;">
 
+    <div class="loader-wrapper ">
+        <img width="100%" src="./Video/LoadingMP4.gif"></img>
+     </div>
 
-
-    <div class="nav-div" style="display: flex; width: 100%;">
-        <img src="./img/logo.png"
-         style="width: 200px;margin-top: 3%;margin-left: 5%; z-index: 5;" id="LOGO">
+     <div class="nav-div">
+        <img src="./img/logo.png" class="nav__logo">
       
      
         <div class="navContainer hide" >
         <nav> 
             <ul class="navLinks ">
-                <li><a href="">基地</a></li>
+                <li id="base"><a href="">基地</a></li>
+                <ul class="base__container">
+                    <li><a href="branding.html">品牌介紹</a></li>
+                    <li><a href="cooperative-association.html">合作協會</a></li>
+                </ul>
                 <li id="galaxy"><a href="main.html">行星</a></li>
+                <ul class="galaxy__container">
+                    <li><a href="passional-rapper.html">熱情rapper系</a></li>
+                    <li><a href="coolest-cool.html">cool的酷系</a></li>
+                </ul>
                 <li><a href="tower.html">塔台</a></li>
                 <li><a href="explore.html">探索</a></li>
             </ul>
 
-            <ul class="galaxy__container">
-                <li><a href="">熱情rapper系</a></li>
-                <li><a href="">cool的酷系</a></li>
-            </ul>
-
-            <ul class="explore__container">
-                <li><a href="branding.html">品牌介紹</a></li>
-                <li><a href="cooperative-association.html">合作協會</a></li>
-            </ul>
         </nav>
         </div>
         <button class="hamburger">
@@ -53,9 +53,38 @@
             <div class="burger2"></div>
             
         </button>
+        
     </div>
-    <div>
+
+    <div class="mobile__nav">
+        <button class="hamburger-mobile">
+            <div class="burger-mobile"></div>
+            <div class="burger-mobile"></div>
+            <div class="burger-mobile"></div>
+        </button>
     
+
+
+        <div class="navContainer_mobile" >
+            <nav> 
+                <ul class="navLinks_mobile hide">
+                    <li id="base_mobile"><a href="">基地</a></li>
+                    <ul class="base__container-mobile hide">
+                        <li><a href="branding.html">品牌介紹</a></li>
+                        <li><a href="cooperative-association.html">合作協會</a></li>
+                    </ul>
+                    <li id="galaxy_mobile"><a href="main.html">行星</a></li>
+                    <ul class="galaxy__container-mobile hide">
+                        <li><a href="passional-rapper.html">熱情rapper系</a></li>
+                        <li><a href="coolest-cool.html">cool的酷系</a></li>
+                    </ul>
+                    <li><a href="tower.html">塔台</a></li>
+                    <li><a href="explore.html">探索</a></li>
+                </ul>
+    
+            </nav>
+            </div>
+    </div>
     <div class="buttons">
         <a href="lin-chun-page-one.html" title="pervious" class="pervious"><img src="./img/previous.png"></a>
         <a href="lin-chun-page-three.html" title="next" class="next"><img src="./img/next.png"></a>
@@ -187,23 +216,25 @@
 
       
 
-        //import Mesh
-        /*const loader1 = new THREE.GLTFLoader()
-        loader1.load('../3Dmodels/test.gltf', function (gltf1){
-            gltf1.scene.position.y= -10
-            gltf1.scene.scale.set(5,5,5)
-            mmi.addHandler('Cube', 'click', function(){
-                console.log('hey')
-            })
-            
-            scene.add(gltf1.scene)
-            mixer = new THREE.AnimationMixer(gltf1.scene)
-            action = mixer.clipAction(gltf1.animations[0])
-            action2 = mixer.clipAction(gltf1.animations[1])
-            action.play()
-            action2.play()
-        })*/
-        const loader2 = new THREE.GLTFLoader()
+        // loading the scene //
+        const loadingManager = new THREE.LoadingManager
+
+        loadingManager.onStart = function ( url, itemsLoaded, itemsTotal ) { 
+        
+        }; 
+        loadingManager.onLoad = function () { 
+         const Loader = document.querySelector('.loader-wrapper')
+         const StartPage = document.querySelector('.startPage')
+
+         function Loading(){
+            Loader.classList.add('hide')
+            StartPage.classList.remove('hide')
+         }
+
+         Loading()
+        }; 
+
+        const loader2 = new THREE.GLTFLoader(loadingManager)
         loader2.load('./3Dmodels/PlanetH_Ani/planetScene2.gltf', function(gltf2){
             gltf2.scene.position.y= -10
             gltf2.scene.position.z= -4

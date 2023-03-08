@@ -15,33 +15,31 @@
 </head>
 <body style="overflow: hidden;">
 
-    <div class="loader-wrapper ">
+    <!--<div class="loader-wrapper ">
         <img width="100%" src="./Video/LoadingMP4.gif"></img>
-     </div>
+     </div>-->
 
-    <div class="nav-div" style="display: flex; width: 100%;">
-        <img src="./img/logo.png"
-         style="width: 200px;margin-top: 3%;margin-left: 5%; z-index: 5;" id="LOGO">
+     <div class="nav-div">
+        <img src="./img/logo.png" class="nav__logo">
       
      
-       <div class="navContainer hide" >
+        <div class="navContainer hide" >
         <nav> 
             <ul class="navLinks ">
-                <li><a href="">基地</a></li>
+                <li id="base"><a href="">基地</a></li>
+                <ul class="base__container">
+                    <li><a href="branding.html">品牌介紹</a></li>
+                    <li><a href="cooperative-association.html">合作協會</a></li>
+                </ul>
                 <li id="galaxy"><a href="main.html">行星</a></li>
+                <ul class="galaxy__container">
+                    <li><a href="passional-rapper.html">熱情rapper系</a></li>
+                    <li><a href="coolest-cool.html">cool的酷系</a></li>
+                </ul>
                 <li><a href="tower.html">塔台</a></li>
                 <li><a href="explore.html">探索</a></li>
             </ul>
 
-            <ul class="galaxy__container">
-                <li><a href="">熱情rapper系</a></li>
-                <li><a href="">cool的酷系</a></li>
-            </ul>
-
-            <ul class="explore__container">
-                <li><a href="branding.html">品牌介紹</a></li>
-                <li><a href="cooperative-association.html">合作協會</a></li>
-            </ul>
         </nav>
         </div>
         <button class="hamburger">
@@ -55,12 +53,43 @@
             <div class="burger2"></div>
             
         </button>
+        
     </div>
-    <div>
+
+    <div class="mobile__nav">
+        <button class="hamburger-mobile">
+            <div class="burger-mobile"></div>
+            <div class="burger-mobile"></div>
+            <div class="burger-mobile"></div>
+        </button>
+    
+
+
+        <div class="navContainer_mobile" >
+            <nav> 
+                <ul class="navLinks_mobile hide">
+                    <li id="base_mobile"><a href="">基地</a></li>
+                    <ul class="base__container-mobile hide">
+                        <li><a href="branding.html">品牌介紹</a></li>
+                        <li><a href="cooperative-association.html">合作協會</a></li>
+                    </ul>
+                    <li id="galaxy_mobile"><a href="main.html">行星</a></li>
+                    <ul class="galaxy__container-mobile hide">
+                        <li><a href="passional-rapper.html">熱情rapper系</a></li>
+                        <li><a href="coolest-cool.html">cool的酷系</a></li>
+                    </ul>
+                    <li><a href="tower.html">塔台</a></li>
+                    <li><a href="explore.html">探索</a></li>
+                </ul>
+    
+            </nav>
+            </div>
+    </div>
+
     
     <div class="buttons">
-        <a href="intro-lin-chun.html" title="pervious" class="pervious"><img src="./img/previous.png"></a>
-        <a href="lin-chun-page-two.html" title="next" class="next"><img src="./img/next.png"></a>
+        <a href="ling-fang-page-two.html" title="pervious" class="pervious"><img src="./img/previous.png"></a>
+        <a href="ling-fang-page-one.html" title="next" class="next"><img src="./img/next.png"></a>
     </div>
     <div class="dialogue hide">
         <img src="./img/dialogue.png" class="dialogue__img">
@@ -155,22 +184,7 @@
         const content2 = document.getElementById("content-second")
         const buttons = document.querySelector('.buttons')
 
-        var manager = new THREE.LoadingManager(); 
-manager.onStart = function ( url, itemsLoaded, itemsTotal ) { 
-  console.log( 'Started loading file: ' + url + '.Loaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.' ); 
-}; 
 
-manager.onLoad = function ( ) { 
-  console.log( 'Loading complete!'); 
-}; 
-
-manager.onProgress = function ( url, itemsLoaded, itemsTotal ) { 
-  console.log( 'Loading file: ' + url + '.Loaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.' ); 
-}; 
-
-manager.onError = function ( url ) { 
-  console.log( 'There was an error loading ' + url ); 
-}; 
 
         //LingFang material
         const LingFangMap = new THREE.TextureLoader().load('./3Dmodels/PlanetJ_Ani/LingFang_BaseColor.png')
@@ -180,19 +194,19 @@ manager.onError = function ( url ) {
             skinning: true,
             roughness : 0.7,
         })
-        const SceneMap = new THREE.TextureLoader().load('./3Dmodels/PlanetJ_Ani/PlanetJ_BaseColor.png')
+        const SceneMap = new THREE.TextureLoader().load('./3Dmodels/PlanetJ_Ani/planetJ_BaseColor.png')
         SceneMap.flipY = false;
         Scene_Mat = new THREE.MeshStandardMaterial({
             map : SceneMap,
             roughness : 0.7,
         })
-        const RoseMap = new THREE.TextureLoader().load('./3Dmodels/PlanetJ_Ani/Rose_BaseColor.png')
-        RoseMap.flipY = false;
-        Rose_Mat = new THREE.MeshStandardMaterial({
-            map : RoseMap,
+        const CaveMap = new THREE.TextureLoader().load('./3Dmodels/PlanetJ_Ani/Cave_BaseColor.png')
+        CaveMap.flipY = false;
+        Cave_Mat = new THREE.MeshStandardMaterial({
+            map : CaveMap,
             roughness : 0.7,
         })
-        const AstronantMap = new THREE.TextureLoader().load('./3Dmodels/PlanetJ_Ani/astronant_sit.png')
+        const AstronantMap = new THREE.TextureLoader().load('./3Dmodels/PlanetJ_Ani/astronant_BaseColor.png')
         AstronantMap.flipY = false;
         Astounant_Mat = new THREE.MeshStandardMaterial({
             map : AstronantMap,
@@ -205,27 +219,32 @@ manager.onError = function ( url ) {
             map : BaseColorMap,
             roughness : 0.7,
         })
-
+        const BaseColor2Map = new THREE.TextureLoader().load('./3Dmodels/PlanetJ_Ani/color2.png')
+        BaseColor2Map.flipY = false;
+        BaseColor2_Mat = new THREE.MeshStandardMaterial({
+            map : BaseColor2Map,
+            roughness : 0.7,
+        })
+      
       
 
-    
-        // loading the scene //
-        const loadingManager = new THREE.LoadingManager
+            // loading the scene //
+            const loadingManager = new THREE.LoadingManager
 
-        loadingManager.onStart = function ( url, itemsLoaded, itemsTotal ) { 
-        
-        }; 
-        loadingManager.onLoad = function () { 
-         const Loader = document.querySelector('.loader-wrapper')
-         const StartPage = document.querySelector('.startPage')
+loadingManager.onStart = function ( url, itemsLoaded, itemsTotal ) { 
 
-         function Loading(){
-            Loader.classList.add('hide')
-            StartPage.classList.remove('hide')
-         }
+}; 
+loadingManager.onLoad = function () { 
+ const Loader = document.querySelector('.loader-wrapper')
+ const StartPage = document.querySelector('.startPage')
 
-         Loading()
-        }; 
+ function Loading(){
+    Loader.classList.add('hide')
+    StartPage.classList.remove('hide')
+ }
+
+ Loading()
+}; 
 
         //import Mesh
         const loader2 = new THREE.GLTFLoader(loadingManager)
@@ -239,29 +258,21 @@ manager.onError = function ( url ) {
                 if(child.isMesh){
                     child.skinning = true
                 }
-                if(child.name == 'LingFang'){
+                if(child.name == 'LingFang_Dress'){
                     child.material = LingFang_Mat 
                 }
-                if(child.name == 'LingFang2'){
-                    child.material = LingFang_Mat 
-                }
-                if(child.name == 'LingFang3'){
-                    child.material = LingFang_Mat 
-                }
-                if(child.name == 'LingFang4'){
-                    child.material = LingFang_Mat 
-                }
-                if(child.name == 'Star'){
+           
+                if(child.name == 'flowers'){
                     child.material = BaseColor_Mat
                 }
-                if(child.name == 'Star1'){
-                    child.material = BaseColor_Mat
+                if(child.name == 'tree'){
+                    child.material = BaseColor2_Mat
                 }
-                if(child.name == 'Star2'){
-                    child.material = BaseColor_Mat
+                if(child.name == 'gift'){
+                    child.material = BaseColor2_Mat
                 }
-                if(child.name == 'Star3'){
-                    child.material = BaseColor_Mat
+                if(child.name == 'cave'){
+                    child.material = Cave_Mat
                 }
                 if(child.name == 'PlanetScene'){
                     child.material = Scene_Mat 
@@ -272,10 +283,10 @@ manager.onError = function ( url ) {
                 if(child.name == 'heartA'){
                     child.material = Rose_Mat 
                 }
-                if(child.name == 'plant'){
+                if(child.name == 'flowers'){
                     child.material = Rose_Mat 
                 }
-                if(child.name == 'Astounant'){
+                if(child.name == 'leader'){
                     child.material = Astounant_Mat 
                 }
                 if(child.name == 'questionMark'){

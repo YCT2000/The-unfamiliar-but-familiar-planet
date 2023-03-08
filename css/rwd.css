@@ -4,25 +4,35 @@
     
 }
 @media (max-width: 1280px) {
+    .mobile__nav{display: none;}
     /*探索*/
     .survey{margin: 15% 10% 111px; width: 50%;}
-    .nav__logo{
-        width: 50%;
-        margin-left: 20px;
-        margin-top:20px;
-    }
+    .planet{padding-top: 40px;}
+    .FirstHeading{font-size: 4rem;}
     
+}
+
+@media (max-width: 1024px) {
+    .mobile__nav{display: none;}
+    .nav__logo{ width: 10rem; margin-top: 5%; margin-left: 5vh;  z-index: 5;}
+    ul, li{font-size: 0.6rem;}
+    /* One Page */
+    .mascot_section{height: 45vh;}
+    .doodle_section{height: 100vh;}
 }
 
 @media (max-width: 769px) {
     body{overflow-x: hidden;}
     .show{display: block;}
-    .hamburger,.closeNav {display: none;}
+    .mobile__nav{display: block;}
+    .hamburger{display: none;}
+    .closeNav {display: none;}
 
     .nav__logo{
         width: 40%;
         margin-left: 20px;
-        margin-top:20px;
+        margin-top:3.5vh;
+        
     }
 
     #ellipse{
@@ -66,11 +76,11 @@
         background-color:transparent;
         border:0px;
         outline:0px;
-        width:12%;
-        height:15%;
+        width:10%;
+       
         position:absolute;
-        top:3%;
-        right:3%;
+        top:4vh;
+        right:5%;
         cursor:pointer;
         z-index:9;
         
@@ -114,8 +124,8 @@
 
 
     /*One-Page*/
-    .linchun_mascot_section{height: 50vh; }
-    .speech-line{top: 3vh;}
+    .mascot_section{height: 30vh; }
+    .speech-line{top: 2vh;}
     .doodle_section{height: 60vh;}
     .doodle_section2{height: 40vh;}
     .youtube-link{margin: 20px; text-align: center;}
@@ -126,4 +136,17 @@
     .footer__content{padding: 20px;}
     .footer__logo{width: 60%;}
     .footer__right{width:100%; float: left;}
+
+    /* branding */
+    .brand{margin: 0;}
+    .brand__logo{width: 80%;}
+    .brand__description {
+        width: 80%;
+        padding-left: 25px;
+        font-family: 'Noto Sans TC', sans-serif;
+        color: white;
+        margin-bottom: 99px;
+        line-height: 2em;
+    }
+
 }

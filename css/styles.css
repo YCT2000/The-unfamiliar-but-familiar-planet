@@ -6,6 +6,8 @@ body {
     background-repeat: no-repeat;
     
 }
+
+div{box-sizing: border-box;}
 .webgl{
     top: 0;
     left: 0;
@@ -98,7 +100,7 @@ body {
 
 ul, li{
     font-family: 'Noto Sans TC', sans-serif;
-    font-size: 20px;
+    font-size: 1.25rem;
     font-weight: 550;
     z-index: 2;
     text-align: center;
@@ -545,12 +547,12 @@ display:flex;
 
 
 
-.planet{width: 50%; filter: drop-shadow(0 0 0.75rem crimson); margin-bottom: 0;}
-.introduction-planet{width: 40%; float: right; padding-right: 4%; padding-top: 8%;}
-.description{color:#ffffff; font-family:'Noto Sans TC', sans-serif;
+.planet{width: 50%; filter: drop-shadow(0 0 0.75rem rgb(99, 87, 90)); margin-bottom: 0;}
+.introduction-planet{width: 45%; float: right; padding-right: 4%; padding-top: 8%; box-sizing: border-box;}
+.description{color:#ffffff; font-family:'Noto Sans TC', sans-serif; box-sizing: border-box;
             font-size: 1rem; }
 .FirstHeading{color:#ffffff; font-family:'Noto Sans TC', sans-serif;
-              font-size: 5rem; font-weight: bold;}
+              font-size: 9vh; font-weight: bold;}
 .intro-next{width: 15%; float: right;}
 
 
@@ -748,14 +750,14 @@ input[type="checkbox" i] {
 .next{float: right;}
 
 /* base */
-.brand{margin: 110px; text-align: center;}
+.brand{margin: 4vh; text-align: center;}
 .brand__description{text-align: left; width: 40%; padding-left: 30%; font-family: 'Noto Sans TC', sans-serif; color: white; margin-bottom: 99px;
                     line-height: 2em;}
 .brand__logo{margin: 72px 0px; width: 40%;}
 
 .cooperative__logo{width: 100%;}
 .cooperative{text-align: center;}
-.img-container{display: inline-block; float: left; padding-left: 150px;}
+.img-container{display: inline-block;  padding-left: 150px;}
 .cooperative__section{margin: 123px;box-sizing: border-box;}
 .cooperative__description{width: 45%; float: left; text-align: left; 
                           font-family: 'Noto Sans TC', sans-serif; color: white; padding-left: 137px; line-height: 190%;}
@@ -766,14 +768,13 @@ input[type="checkbox" i] {
 .elderly-introduction{width: 30%;  float: left; margin-top: 123px; font-family: 'Noto Sans TC', sans-serif; color: white; }
 .elderly-tag{ margin: 60px 0; }
 .elderly-introduction p {margin-top: 47px;}
-.linchun-mascot{position: absolute; left: -7%; width: 70%;}
+.character{position: absolute; left: -7%; width: 70%;}
 .speech-box-first{position: absolute; right: 8%; width: 60%;}
-.speech-line {position: absolute; right: 4vw; top: 9vh; font-size: 1.7vw;  font-family: 'Noto Sans TC', sans-serif; color: white; }
+.speech-line {position: absolute; right: 4vw; top: 6vh; font-size: 1.7vw;  font-family: 'Noto Sans TC', sans-serif; color: white; }
 .speech-line p{margin-block-end: 0;margin-block-start: 0.8em;}
-.linchun_mascot_section{position: relative; height: 120vh; margin-top: 100px}
+.mascot_section{position: relative; height: 120vh; margin-top: 100px}
 .doodle_section{position: relative;height: 120vh; overflow: hidden; background-image: url('../img/paper.png');} 
 .doodle_section2{position: relative;height: 120vh; overflow: hidden;} 
-
 .doodle{ font-size: 1.7vw;  font-family: 'Noto Sans TC', sans-serif; color: white;}
 
 .speech-box-second{position: absolute; left: 15%; top:10%; width: 50%;}
@@ -790,6 +791,20 @@ input[type="checkbox" i] {
 .linchunDoodle_2{position: absolute; right: -10%; top:15vh; width: 41%; filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
 .linchunDoodle_3{position: absolute; right: 45%; bottom: -5vh; width: 25%; filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
 .linchunDoodle_1:hover{cursor: pointer;}
+
+/*ling fang doodles */
+.lingfangDoodle_1{position: absolute; width: 20%; right: 10%; top: 5%;}
+.lingfangDoodle_2{position: absolute; width: 35%; right: 20%; bottom: 5%;}
+.lingfangDoodle_3{position: absolute; width: 20%; left: 25%; bottom: 45%;}
+.lingfangDoodle_4{position: absolute; width: 100%; bottom: 0;}
+
+.lingfangDoodle_5{position: absolute; width: 20%;}
+.lingfangDoodle_6{position: absolute; width: 20%;}
+.lingfangDoodle_7{position: absolute; width: 20%;}
+.lingfangDoodle_8{position: absolute; width: 20%;}
+.lingfangDoodle_9{position: absolute; width: 20%;}
+.lingfangDoodle_10{position: absolute; width: 20%;}
+.lingfangDoodle_11{position: absolute; width: 20%;}
 
 .doodle-left-ani{ transform: translateX(20%) ; opacity: 1; transition: 1s ease-in-out;}
 .doodle-right-ani{ transform: translateX(-30%); opacity: 1; transition: 1s ease-out;}

@@ -19,29 +19,27 @@
         <img width="100%" src="./Video/LoadingMP4.gif"></img>
      </div>
 
-    <div class="nav-div" style="display: flex; width: 100%;">
-        <img src="./img/logo.png"
-         style="width: 200px;margin-top: 3%;margin-left: 5%; z-index: 5;" id="LOGO">
+     <div class="nav-div">
+        <img src="./img/logo.png" class="nav__logo">
       
      
-       <div class="navContainer hide" >
+        <div class="navContainer hide" >
         <nav> 
             <ul class="navLinks ">
-                <li><a href="">基地</a></li>
+                <li id="base"><a href="">基地</a></li>
+                <ul class="base__container">
+                    <li><a href="branding.html">品牌介紹</a></li>
+                    <li><a href="cooperative-association.html">合作協會</a></li>
+                </ul>
                 <li id="galaxy"><a href="main.html">行星</a></li>
+                <ul class="galaxy__container">
+                    <li><a href="passional-rapper.html">熱情rapper系</a></li>
+                    <li><a href="coolest-cool.html">cool的酷系</a></li>
+                </ul>
                 <li><a href="tower.html">塔台</a></li>
                 <li><a href="explore.html">探索</a></li>
             </ul>
 
-            <ul class="galaxy__container">
-                <li><a href="">熱情rapper系</a></li>
-                <li><a href="">cool的酷系</a></li>
-            </ul>
-
-            <ul class="explore__container">
-                <li><a href="branding.html">品牌介紹</a></li>
-                <li><a href="cooperative-association.html">合作協會</a></li>
-            </ul>
         </nav>
         </div>
         <button class="hamburger">
@@ -55,12 +53,43 @@
             <div class="burger2"></div>
             
         </button>
+        
     </div>
-    <div>
+
+    <div class="mobile__nav">
+        <button class="hamburger-mobile">
+            <div class="burger-mobile"></div>
+            <div class="burger-mobile"></div>
+            <div class="burger-mobile"></div>
+        </button>
+    
+
+
+        <div class="navContainer_mobile" >
+            <nav> 
+                <ul class="navLinks_mobile hide">
+                    <li id="base_mobile"><a href="">基地</a></li>
+                    <ul class="base__container-mobile hide">
+                        <li><a href="branding.html">品牌介紹</a></li>
+                        <li><a href="cooperative-association.html">合作協會</a></li>
+                    </ul>
+                    <li id="galaxy_mobile"><a href="main.html">行星</a></li>
+                    <ul class="galaxy__container-mobile hide">
+                        <li><a href="passional-rapper.html">熱情rapper系</a></li>
+                        <li><a href="coolest-cool.html">cool的酷系</a></li>
+                    </ul>
+                    <li><a href="tower.html">塔台</a></li>
+                    <li><a href="explore.html">探索</a></li>
+                </ul>
+    
+            </nav>
+            </div>
+    </div>
+
     
     <div class="buttons">
-        <a href="intro-lin-chun.html" title="pervious" class="pervious"><img src="./img/previous.png"></a>
-        <a href="lin-chun-page-two.html" title="next" class="next"><img src="./img/next.png"></a>
+        <a href="intro-ling-fang.html" title="pervious" class="pervious"><img src="./img/previous.png"></a>
+        <a href="ling-fang-page-two.html" title="next" class="next"><img src="./img/next.png"></a>
     </div>
     <div class="dialogue hide">
         <img src="./img/dialogue.png" class="dialogue__img">
@@ -204,6 +233,7 @@ manager.onError = function ( url ) {
         BaseColor_Mat = new THREE.MeshStandardMaterial({
             map : BaseColorMap,
             roughness : 0.7,
+            side : THREE.DoubleSide,
         })
         const BaseColor2Map = new THREE.TextureLoader().load('./3Dmodels/PlanetJ_Ani/color2.png')
         BaseColor2Map.flipY = false;
@@ -272,11 +302,11 @@ manager.onError = function ( url ) {
                 if(child.name == 'PlanetScene'){
                     child.material = Scene_Mat 
                 }
-                if(child.name == 'rose'){
-                    child.material = Rose_Mat 
+                if(child.name == 'Plants'){
+                    child.material = BaseColor_Mat 
                 }
-                if(child.name == 'heartA'){
-                    child.material = Rose_Mat 
+                if(child.name == 'basket'){
+                    child.material = BaseColor_Mat 
                 }
                 if(child.name == 'plant'){
                     child.material = Rose_Mat 
@@ -294,6 +324,9 @@ manager.onError = function ( url ) {
                     child.material = BaseColor_Mat 
                 }
                 if(child.name == 'foods'){
+                    child.material = BaseColor2_Mat 
+                }
+                if(child.name == 'tree'){
                     child.material = BaseColor2_Mat 
                 }
                 
