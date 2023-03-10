@@ -9,12 +9,22 @@
     .survey{margin: 15% 10% 111px; width: 50%;}
     .planet{padding-top: 40px;}
     .FirstHeading{font-size: 4rem;}
+    /*app*/
+    .app__section{margin: 15vh 0;}
+.app__section p{font-family: 'Noto Sans TC', sans-serif; font-size: 1vw; line-height: 5vh;
+                font-weight: medium; color: #ffffff; text-align: left;}
+.app-left{width: 45%; float: left;}
+.app_img{width: 120%;}
+.app-right{width: 45%; float: right; padding: 2vh 10vh 0 15vh;}
+.app-rightBottom{display: flex; margin-top: 8vh; }
+.app-rightBottom p{padding-right: 2vw;}
+.QRplayStore{padding-right: 2vw;}
     
 }
 
 @media (max-width: 1024px) {
     .mobile__nav{display: none;}
-    .nav__logo{ width: 10rem; margin-top: 5%; margin-left: 5vh;  z-index: 5;}
+    .nav__logo{ width: 10rem; margin-top: 10vh; margin-left: 5vh;  z-index: 5;}
     ul, li{font-size: 0.6rem;}
     /* One Page */
     .mascot_section{height: 45vh;}
