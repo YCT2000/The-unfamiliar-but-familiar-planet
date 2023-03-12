@@ -11,14 +11,16 @@
     .FirstHeading{font-size: 4rem;}
     /*app*/
     .app__section{margin: 15vh 0;}
-.app__section p{font-family: 'Noto Sans TC', sans-serif; font-size: 1vw; line-height: 5vh;
+    .app__section p{font-family: 'Noto Sans TC', sans-serif; font-size: 1vw; line-height: 5vh;
                 font-weight: medium; color: #ffffff; text-align: left;}
-.app-left{width: 45%; float: left;}
-.app_img{width: 120%;}
-.app-right{width: 45%; float: right; padding: 2vh 10vh 0 15vh;}
-.app-rightBottom{display: flex; margin-top: 8vh; }
-.app-rightBottom p{padding-right: 2vw;}
-.QRplayStore{padding-right: 2vw;}
+    .app-left{width: 45%; float: left;}
+    .app_img{width: 120%;}
+    .app-right{width: 45%; float: right; padding: 2vh 10vh 0 15vh;}
+    .app-rightBottom{display: flex; margin-top: 8vh; }
+    .app-rightBottom p{padding-right: 2vw;}
+    .QRplayStore{padding-right: 2vw;}
+    /* tower */
+    #mascot_tower{top: 25vh;}
     
 }
 
@@ -145,7 +147,7 @@
     .footer_mobile{display: block;}
     .footer__content{padding: 20px;}
     .footer__logo{width: 60%;}
-    .footer__right{width:100%; float: left;}
+    .footer__right{width:100%; float: left; text-align: left;}
 
     /* branding */
     .brand{margin: 0;}
@@ -158,5 +160,24 @@
         margin-bottom: 99px;
         line-height: 2em;
     }
+
+    /* cooperative */
+    .img-container{display: inline-block;  padding: 5vw;}
+    .cooperative__imglist{margin 0; width: 100%;}
+    .cooperative__description{width: 100%; padding: 0; text-align: center;}
+    /* tower */
+    .selection{ margin: 0; margin-top: 30vh;}
+    #mascot_tower{}
+
+    /*app*/
+    .app__section{margin: 15vh 0;}
+    .app__section p{font-family: 'Noto Sans TC', sans-serif; font-size: 2.5vw; line-height: 3vh;
+                 font-weight: medium; color: #ffffff; text-align: left;}
+    .app-left{width: 80%; }
+    .app_img{width: 130%;}
+    .app-right{width: 100%; float: right; padding: 20px;}
+    .app-rightBottom{display: block; margin-top: 8vh; }
+    .app-rightBottom p{padding-right: 2vw;}
+    .QRplayStore{padding-right: 2vw;}
 
 }

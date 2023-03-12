@@ -1,12 +1,13 @@
 const navTable = document.querySelector('.navContainer')
 const navBTN = document.querySelector('.hamburger')
 const closeBTN = document.querySelector('.closeNav')
-
+const webglCanvas = document.querySelector('.webgl')
 navBTN.addEventListener('click',()=>{
     console.log('navBTN clicked')
     navTable.classList.remove('hide')
     closeBTN.classList.remove('hide')
     navBTN.classList.add('hide')
+    webglCanvas.classList.add('.clickEventNone')
    
 })
 
@@ -15,6 +16,7 @@ closeBTN.addEventListener('click',()=>{
     navTable.classList.add('hide')
     closeBTN.classList.add('hide')
     navBTN.classList.remove('hide')
+    webglCanvas.classList.remove('.clickEventNone')
 
 })
 
