@@ -560,16 +560,20 @@ display:flex;
 .selection__first{display: flex; justify-content:space-evenly;}
 .selection__second{display: flex; justify-content:space-evenly;}
 /*speech to myself*/
+.slider{padding-left: 3vw;}
+.prev-arrow-img{width: 100%;}
+.next-arrow-img{width: 100%;}
 .prev-arrow{background-color: transparent; border: none;float: left; z-index: 10; margin-right: 15.5vw; width: 100%;}
-.next-arrow{background-color: transparent; border: none; float: right; z-index: 10; margin-left: 17vw; width: 100%;}
-.btn-casual{position: absolute; display: flex; justify-content:space-evenly; top: 35%; left:-7%;}
+.next-arrow{background-color: transparent; border: none; float: right; z-index: 10; margin-left: 15vw; width: 100%;}
+.btn-casual{position: absolute; display: flex; justify-content:space-evenly; top: 30%; left: -1vw;}
 .slider-container{position: relative; text-align: center; width: 45%; float: right; margin-top: 11vw; padding-right: 13vw;}
 .content-introduction{margin: 8vw 0px 9vw 15vw;  float: left; width: 30%;
                       color: #FFF; font-family:'Noto Sans TC', sans-serif;}
 
 .slider-nav img{width: 100%;}
-.content-introduction img,h1{margin-bottom: 78px;}
-.content-introduction p{font-size: 16px;} 
+.content-introduction img{margin-bottom: 78px; width: 50%;}
+.content-introduction h1{margin-bottom: 78px; font-size: 1.25rem;}
+.content-introduction p{font-size: 1rem;} 
 .video{text-align: center;height: auto; margin-bottom: 123px;}
 
 footer{background-color: #DEAD25; z-index: 100;}
