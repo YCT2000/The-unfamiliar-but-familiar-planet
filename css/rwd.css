@@ -2,9 +2,13 @@
 @media (min-width: 1280px) {
     .mobile__nav{display: none;}
     
+    
 }
 @media (max-width: 1280px) {
     .mobile__nav{display: none;}
+    /* nav */
+   
+
     /*探索*/
     .survey{margin: 15% 10% 111px; width: 50%;}
     .planet{padding-top: 40px;}
@@ -23,7 +27,7 @@
     #mascot_tower{top: 25vh;}
     .prev-arrow-img{width: 80%;}
     .next-arrow-img{width: 80%;}
-    .btn-casual{left: -2vw; top: 16vh;}
+    .btn-casual{left: -1.5vw; top: 16vh;}
     .content-introduction img{margin-bottom: 3vh;}
     .content-introduction h1{margin-bottom: 4vh;}
     
@@ -32,10 +36,16 @@
 @media (max-width: 1024px) {
     .mobile__nav{display: none;}
     .nav__logo{ width: 10rem; margin-top: 10vh; margin-left: 5vh;  z-index: 5;}
-    ul, li{font-size: 0.6rem;}
+    ul, li{font-size: 1rem;}
+    /* intro planet */
+    .intro-next{margin-bottom: 6vh;}
+    .FirstHeading{font-size: 3rem;}
     /* One Page */
     .mascot_section{height: 45vh;}
     .doodle_section{height: 100vh;}
+    .btn-casual{left: -2.5vw; top: 13vh;}
+
+
 }
 
 @media (max-width: 769px) {
@@ -151,13 +161,15 @@
     .cooperative__imglist{margin: 0; width: 100%;}
     .cooperative__description{width: 100%; padding: 0; text-align: center;}
     /* tower */
-    .selection{ margin: 0; margin-top: 30vh; text-align: center; padding: 0;}
+    .selection{ margin: 0; margin-top: 10vh; text-align: center; padding: 0;}
     .selection__first{display: block; width: 80%;text-align: center; margin-left: 20px;}
     .selection__second{display: block;width: 80%;text-align: center; margin-left: 20px;}
     #mascot_tower{display: none;}
+    .tower__section-header{display: block; font-family: 'Noto Sans TC', sans-serif; color: white; text-align: center; 
+                           letter-spacing: 4px; font-size: 3rem; margin-top: 10vh;}
     /*course*/
     .slider-container{width: 80%; }
-    .btn-casual{top: 30%; left: -10vw;}
+    .btn-casual{top: 25%; left: -13vw;}
     .prev-arrow{margin-right: 0vw; width: 100%;}
     .next-arrow{margin-left: 71vw; width: 100%;}
     .slider{padding-left: 0vw;}
@@ -166,7 +178,7 @@
     /*app*/
     .app__section{margin: 15vh 0;}
     .app__section p{font-family: 'Noto Sans TC', sans-serif; font-size: 2.5vw; line-height: 3vh;
-                 font-weight: medium; color: #ffffff; text-align: left;}
+                    font-weight: medium; color: #ffffff; text-align: left;}
     .app-left{width: 80%; }
     .app_img{width: 130%;}
     .app-right{width: 100%; float: right; padding: 20px;}
@@ -174,4 +186,11 @@
     .app-rightBottom p{padding-right: 2vw;}
     .QRplayStore{padding-right: 2vw;}
 
+    /* explore */
+    .survey__mascot{display: none;}
+    .survey{margin: 15% 15% 111px; width: 100%;}
+    .survey__second{float: left; margin-top: 0;}
+    .survey__next{width: 15%; float: right; margin: 30px 20px;}
+    
+    .explore__description{font-size: 1rem; margin: 10vh 9vw; text-align: center;}
 }

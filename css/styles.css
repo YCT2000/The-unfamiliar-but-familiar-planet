@@ -559,6 +559,7 @@ display:flex;
 .selection p {color: white; font-family:'Noto Sans TC', sans-serif;}
 .selection__first{display: flex; justify-content:space-evenly;}
 .selection__second{display: flex; justify-content:space-evenly;}
+.tower__section-header{display: none;}
 /*speech to myself*/
 .slider{padding-left: 3vw;}
 .prev-arrow-img{width: 100%;}
@@ -591,7 +592,7 @@ footer{background-color: #DEAD25; z-index: 100;}
 .survey__second {display: block; float:right; font-size: 1rem; color:rgb(255, 255, 255); font-family:'Noto Sans TC', sans-serif;
                  margin-top: 90px;line-height: 50px;}
 .survey__next{width: 5%; float: right; margin: -100px 100px 0px;}
-.survey__mascot{width: 40%; position: absolute; right: 100px; top: -15px; z-index: -3;}
+.survey__mascot{width: 40%; position: absolute; right: 100px; top: -15px; z-index: -3; display: block;}
 
 .explore__description{color:#ffffff; font-family:'Noto Sans TC', sans-serif; font-size: 1.25vw; margin: 72px 100px}
 .carousel{background-color: #FFF; padding: 20px;}
