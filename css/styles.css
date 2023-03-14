@@ -584,14 +584,14 @@ footer{background-color: #DEAD25; z-index: 100;}
 .footer__logo{width:30%; margin-top: 20px;}
 /*探索*/
 .explore__body{background: linear-gradient(-120deg,rgba(118, 22, 27) , rgba(0, 46, 50));}
-.survey{margin: 15% 15% 111px; width: 45%;}
+.survey{margin: 15% 9vw 111px; width: 45%;}
 .survey h1{ color:#ffffff; font-family:'Noto Sans TC', sans-serif; font-size: 3rem; font-weight: bold;}
 .survey__first{ display: inline-block;  color:rgb(255, 255, 255); font-family:'Noto Sans TC', sans-serif; line-height: 50px;}
 .survey__first span{font-size: 1rem;}
 .survey__first p{font-size: 1.25rem;}
 .survey__second {display: block; float:right; font-size: 1rem; color:rgb(255, 255, 255); font-family:'Noto Sans TC', sans-serif;
                  margin-top: 90px;line-height: 50px;}
-.survey__next{width: 5%; float: right; margin: -100px 100px 0px;}
+.survey__next{width: 5%; float: right; margin: -100px 9vw 0px;}
 .survey__mascot{width: 40%; position: absolute; right: 100px; top: -15px; z-index: -3; display: block;}
 
 .explore__description{color:#ffffff; font-family:'Noto Sans TC', sans-serif; font-size: 1.25vw; margin: 72px 100px}

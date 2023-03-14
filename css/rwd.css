@@ -45,7 +45,12 @@
     .doodle_section{height: 100vh;}
     .btn-casual{left: -2.5vw; top: 13vh;}
 
-
+    /* explore */
+    .survey__mascot{display: block; top: 50vh;}
+    .survey__second{float: left; margin-top: 0;}
+    .survey__next{width: 10%; float: right; margin: 30px 9vw;}
+    .survey{margin-bottom: 0;}
+    .explore__description{font-size: 1rem; margin: 10vh 9vw; text-align: center;}
 }
 
 @media (max-width: 769px) {
@@ -55,7 +60,7 @@
     .mobile__nav{display: block;}
     .hamburger{display: none;}
     .closeNav {display: none;}
-     .nav__logo{width: 40%; margin-left: 20px; margin-top:3.5vh;}
+    .nav__logo{width: 40%; margin-left: 20px; margin-top:3.5vh;}
 
     #ellipse{ height: 50px; width: 80px; background-color:brown; border-radius: 100%; overflow: hidden;}
     #mascot_1{ height: 80px; transform: translate(-35%, 15%); }
@@ -188,7 +193,7 @@
 
     /* explore */
     .survey__mascot{display: none;}
-    .survey{margin: 15% 15% 111px; width: 100%;}
+    .survey{margin: 15vw 9vw ; width: 100%;}
     .survey__second{float: left; margin-top: 0;}
     .survey__next{width: 15%; float: right; margin: 30px 20px;}
     
