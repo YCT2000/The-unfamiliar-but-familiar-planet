@@ -484,7 +484,7 @@ display:flex;
 
 .planet{width: 50%; filter: drop-shadow(0 0 0.75rem rgb(99, 87, 90)); margin-bottom: 0;}
 .introduction-planet{width: 45%; float: right; padding-right: 9vw; padding-top: 8%; box-sizing: border-box;}
-.description{color:#ffffff; font-family:'Noto Sans TC', sans-serif; box-sizing: border-box;
+.description{color:#ffffff; font-family:'Noto Sans TC', sans-serif; box-sizing: border-box; padding-right: 8vw;
             font-size: 1rem; }
 .FirstHeading{color:#ffffff; font-family:'Noto Sans TC', sans-serif;
               font-size: 9vh; font-weight: bold;}

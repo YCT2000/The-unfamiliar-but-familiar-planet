@@ -4,44 +4,41 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500&family=Open+Sans:wght@500&display=swap" rel="stylesheet">
+    <link href="./css/slick.css" rel="stylesheet">
     <link href="./css/styles.css" rel="stylesheet"> 
     <link href="./css/rwd.css" rel="stylesheet"> 
-    <title>最熟悉的陌生星球</title>
+    <title>PlanetA</title>
 </head>
 <body style="overflow: hidden;">
-
     <div class="loader-wrapper ">
         <img width="100%" src="./Video/LoadingMP4.gif"></img>
      </div>
-
-    <div class="nav-div" style="display: flex; width: 100%;">
-        <img src="./img/logo.png"
-         style="width: 200px;margin-top: 3%;margin-left: 5%; z-index: 5;" id="LOGO">
+    <div class="nav-div">
+        <img src="./img/logo.png" class="nav__logo">
       
      
-       <div class="navContainer hide" >
+        <div class="navContainer hide" >
         <nav> 
             <ul class="navLinks ">
-                <li><a href="">基地</a></li>
+                <li id="base"><a href="">基地</a></li>
+                <ul class="base__container">
+                    <li><a href="branding.html">品牌介紹</a></li>
+                    <li><a href="cooperative-association.html">合作協會</a></li>
+                    <li><a href="app.html">應用程式</a></li>
+                </ul>
                 <li id="galaxy"><a href="main.html">行星</a></li>
+                <ul class="galaxy__container">
+                    <li><a href="passional-rapper.html">熱情rapper系</a></li>
+                    <li><a href="coolest-cool.html">cool的酷系</a></li>
+                </ul>
                 <li><a href="tower.html">塔台</a></li>
                 <li><a href="explore.html">探索</a></li>
             </ul>
 
-            <ul class="galaxy__container">
-                <li><a href="">熱情rapper系</a></li>
-                <li><a href="">cool的酷系</a></li>
-            </ul>
-
-            <ul class="explore__container">
-                <li><a href="branding.html">品牌介紹</a></li>
-                <li><a href="cooperative-association.html">合作協會</a></li>
-            </ul>
         </nav>
         </div>
         <button class="hamburger">
@@ -55,12 +52,43 @@
             <div class="burger2"></div>
             
         </button>
+        
     </div>
-    <div>
+
+    <div class="mobile__nav">
+        <button class="hamburger-mobile">
+            <div class="burger-mobile"></div>
+            <div class="burger-mobile"></div>
+            <div class="burger-mobile"></div>
+        </button>
     
+
+
+        <div class="navContainer_mobile" >
+            <nav> 
+                <ul class="navLinks_mobile hide">
+                    <li id="base_mobile"><a href="">基地</a></li>
+                    <ul class="base__container-mobile hide">
+                        <li><a href="branding.html">品牌介紹</a></li>
+                        <li><a href="cooperative-association.html">合作協會</a></li>
+                        <li><a href="app.html">應用程式</a></li>
+                    </ul>
+                    <li id="galaxy_mobile"><a href="main.html">行星</a></li>
+                    <ul class="galaxy__container-mobile hide">
+                        <li><a href="main.html">ALL</a></li>
+                        <li><a href="passional-rapper.html">熱情rapper系</a></li>
+                        <li><a href="coolest-cool.html">cool的酷系</a></li>
+                    </ul>
+                    <li><a href="tower.html">塔台</a></li>
+                    <li><a href="explore.html">探索</a></li>
+                </ul>
+    
+            </nav>
+            </div>
+    </div>
     <div class="buttons">
-        <a href="intro-lin-chun.html" title="pervious" class="pervious"><img src="./img/previous.png"></a>
-        <a href="lin-chun-page-two.html" title="next" class="next"><img src="./img/next.png"></a>
+        <a href="intro-yu-ying.html" title="pervious" class="pervious"><img src="./img/previous.png"></a>
+        <a href="yu-ying-page-two.html" title="next" class="next"><img src="./img/next.png"></a>
     </div>
     <div class="dialogue hide">
         <img src="./img/dialogue.png" class="dialogue__img">
@@ -161,22 +189,7 @@
         const content2 = document.getElementById("content-second")
         const buttons = document.querySelector('.buttons')
 
-        var manager = new THREE.LoadingManager(); 
-manager.onStart = function ( url, itemsLoaded, itemsTotal ) { 
-  console.log( 'Started loading file: ' + url + '.Loaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.' ); 
-}; 
 
-manager.onLoad = function ( ) { 
-  console.log( 'Loading complete!'); 
-}; 
-
-manager.onProgress = function ( url, itemsLoaded, itemsTotal ) { 
-  console.log( 'Loading file: ' + url + '.Loaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.' ); 
-}; 
-
-manager.onError = function ( url ) { 
-  console.log( 'There was an error loading ' + url ); 
-}; 
 
         //YuYing material
         const YuYingMap = new THREE.TextureLoader().load('./3Dmodels/PlanetD_Ani/YuYing_BaseColor.png')
@@ -326,7 +339,7 @@ manager.onError = function ( url ) {
                 }
                 
                 
-                mixer = new THREE.AnimationMixer(gltf2.scene)
+                /*mixer = new THREE.AnimationMixer(gltf2.scene)
                 action = mixer.clipAction(gltf2.animations[0])
                 action2 = mixer.clipAction(gltf2.animations[1])
                 action3 = mixer.clipAction(gltf2.animations[2])
@@ -348,7 +361,7 @@ manager.onError = function ( url ) {
                 action8.play()
                 action9.play()
                 action10.play()
-                action11.play()
+                action11.play()*/
 
              
                 

@@ -15,10 +15,9 @@
 </head>
 <body style="overflow: hidden;">
 
-    <!--<div class="loader-wrapper ">
+    <div class="loader-wrapper ">
         <img width="100%" src="./Video/LoadingMP4.gif"></img>
-     </div>-->
-
+     </div>
      <div class="nav-div">
         <img src="./img/logo.png" class="nav__logo">
       
@@ -30,6 +29,7 @@
                 <ul class="base__container">
                     <li><a href="branding.html">品牌介紹</a></li>
                     <li><a href="cooperative-association.html">合作協會</a></li>
+                    <li><a href="app.html">應用程式</a></li>
                 </ul>
                 <li id="galaxy"><a href="main.html">行星</a></li>
                 <ul class="galaxy__container">
@@ -72,9 +72,11 @@
                     <ul class="base__container-mobile hide">
                         <li><a href="branding.html">品牌介紹</a></li>
                         <li><a href="cooperative-association.html">合作協會</a></li>
+                        <li><a href="app.html">應用程式</a></li>
                     </ul>
                     <li id="galaxy_mobile"><a href="main.html">行星</a></li>
                     <ul class="galaxy__container-mobile hide">
+                        <li><a href="main.html">ALL</a></li>
                         <li><a href="passional-rapper.html">熱情rapper系</a></li>
                         <li><a href="coolest-cool.html">cool的酷系</a></li>
                     </ul>
@@ -86,10 +88,11 @@
             </div>
     </div>
 
+
     
     <div class="buttons">
         <a href="ling-fang-page-two.html" title="pervious" class="pervious"><img src="./img/previous.png"></a>
-        <a href="ling-fang-page-one.html" title="next" class="next"><img src="./img/next.png"></a>
+        <a href="lingfang-introduction.html" title="next" class="next"><img src="./img/next.png"></a>
     </div>
     <div class="dialogue hide">
         <img src="./img/dialogue.png" class="dialogue__img">
@@ -226,35 +229,29 @@
             roughness : 0.7,
         })
       
-      
-
-            // loading the scene //
-            const loadingManager = new THREE.LoadingManager
+        const loadingManager = new THREE.LoadingManager
 
 loadingManager.onStart = function ( url, itemsLoaded, itemsTotal ) { 
 
 }; 
 loadingManager.onLoad = function () { 
- const Loader = document.querySelector('.loader-wrapper')
- const StartPage = document.querySelector('.startPage')
+const Loader = document.querySelector('.loader-wrapper')
+const StartPage = document.querySelector('.startPage')
 
- function Loading(){
+function Loading(){
     Loader.classList.add('hide')
     StartPage.classList.remove('hide')
- }
+}
 
- Loading()
+Loading()
 }; 
+
 
         //import Mesh
         const loader2 = new THREE.GLTFLoader(loadingManager)
         loader2.load('./3Dmodels/PlanetJ_Ani/planetScene3.gltf', function(gltf2){
             
-         
-         
-        
-            
-            gltf2.scene.traverse(function(child){
+         gltf2.scene.traverse(function(child){
                 if(child.isMesh){
                     child.skinning = true
                 }
@@ -277,21 +274,11 @@ loadingManager.onLoad = function () {
                 if(child.name == 'PlanetScene'){
                     child.material = Scene_Mat 
                 }
-                if(child.name == 'rose'){
-                    child.material = Rose_Mat 
-                }
-                if(child.name == 'heartA'){
-                    child.material = Rose_Mat 
-                }
-                if(child.name == 'flowers'){
-                    child.material = Rose_Mat 
-                }
+           
                 if(child.name == 'leader'){
                     child.material = Astounant_Mat 
                 }
-                if(child.name == 'questionMark'){
-                    child.material = BaseColor_Mat 
-                }
+              
                 
                 /*mixer = new THREE.AnimationMixer(gltf2.scene)
                 action = mixer.clipAction(gltf2.animations[0])

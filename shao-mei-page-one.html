@@ -4,33 +4,43 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500&family=Open+Sans:wght@500&display=swap" rel="stylesheet">
     <link href="./css/styles.css" rel="stylesheet"> 
+    <link href="./css/rwd.css" rel="stylesheet"> 
     <title>最熟悉的陌生星球</title>
 </head>
-<body>
+<body style="overflow: hidden;">
 
+    <div class="loader-wrapper ">
+        <img width="100%" src="./Video/LoadingMP4.gif"></img>
+     </div>
 
-
-    <div class="nav-div" style="display: flex; width: 100%;">
-        <img src="./img/logo.png"
-         style="width: 200px;margin-top: 3%;margin-left: 5%; z-index: 5;" id="LOGO">
+     <div class="nav-div">
+        <img src="./img/logo.png" class="nav__logo">
       
      
         <div class="navContainer hide" >
         <nav> 
             <ul class="navLinks ">
-              
-                <li><a href="base.html">基地</a></li>
-                <li><a href="main.html">行星</a></li>
+                <li id="base"><a href="">基地</a></li>
+                <ul class="base__container">
+                    <li><a href="branding.html">品牌介紹</a></li>
+                    <li><a href="cooperative-association.html">合作協會</a></li>
+                </ul>
+                <li id="galaxy"><a href="main.html">行星</a></li>
+                <ul class="galaxy__container">
+                    <li><a href="passional-rapper.html">熱情rapper系</a></li>
+                    <li><a href="coolest-cool.html">cool的酷系</a></li>
+                </ul>
+                <li><a href="tower.html">塔台</a></li>
                 <li><a href="explore.html">探索</a></li>
-                <li><a href="#">塔台</a></li>
             </ul>
+
         </nav>
-    
         </div>
         <button class="hamburger">
             <div class="burger"></div>
@@ -43,11 +53,42 @@
             <div class="burger2"></div>
             
         </button>
+        
     </div>
-    <div>
+
+    <div class="mobile__nav">
+        <button class="hamburger-mobile">
+            <div class="burger-mobile"></div>
+            <div class="burger-mobile"></div>
+            <div class="burger-mobile"></div>
+        </button>
+    
+
+
+        <div class="navContainer_mobile" >
+            <nav> 
+                <ul class="navLinks_mobile hide">
+                    <li id="base_mobile"><a href="">基地</a></li>
+                    <ul class="base__container-mobile hide">
+                        <li><a href="branding.html">品牌介紹</a></li>
+                        <li><a href="cooperative-association.html">合作協會</a></li>
+                    </ul>
+                    <li id="galaxy_mobile"><a href="main.html">行星</a></li>
+                    <ul class="galaxy__container-mobile hide">
+                        <li><a href="passional-rapper.html">熱情rapper系</a></li>
+                        <li><a href="coolest-cool.html">cool的酷系</a></li>
+                    </ul>
+                    <li><a href="tower.html">塔台</a></li>
+                    <li><a href="explore.html">探索</a></li>
+                </ul>
+    
+            </nav>
+            </div>
+    </div>
+
     
     <div class="buttons">
-        <a href="main.html" title="pervious" class="pervious"><img src="./img/previous.png"></a>
+        <a href="intro-shao-mei.html" title="pervious" class="pervious"><img src="./img/previous.png"></a>
         <a href="shao-mei-page-two.html" title="next" class="next"><img src="./img/next.png"></a>
     </div>
     <div class="dialogue hide">
@@ -57,13 +98,15 @@
     </div>
 
     <div class="SparkleStar"><img src="./img/SparkleStar.png"></div>
+    <div class="webgl-div">
     <canvas class="webgl"></canvas>
+    </div> 
     <script src="https://cdn.jsdelivr.net/npm/three@0.122.0/build/three.min.js"></script>
     <script src="./extraScript/three_mmi.js"></script>
     <script src="https://unpkg.com/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="https://unpkg.com/browse/three@0.128.0/src/loaders/LoadingManager.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.122.0/examples/js/controls/OrbitControls.min.js"></script>
     <script src="./JavaEvent/nav.js"></script>
-
     <script>
         //Canvas
         const canvas = document.querySelector('.webgl')
@@ -157,19 +200,25 @@
         })
       
 
-        //import Mesh
-        /*const loader1 = new THREE.GLTFLoader()
-        loader1.load('../3Dmodels/test.gltf', function (gltf1){
-            gltf1.scene.position.y= -10
-            gltf1.scene.scale.set(5,5,5)
-            mmi.addHandler('Cube', 'click', function(){
-                console.log('hey')
-            })
-            
-            scene.add(gltf1.scene)
-           
-        })*/
-        const loader2 = new THREE.GLTFLoader()
+        // loading the scene //
+        const loadingManager = new THREE.LoadingManager
+
+        loadingManager.onStart = function ( url, itemsLoaded, itemsTotal ) { 
+        
+        }; 
+        loadingManager.onLoad = function () { 
+         const Loader = document.querySelector('.loader-wrapper')
+         const StartPage = document.querySelector('.startPage')
+
+         function Loading(){
+            Loader.classList.add('hide')
+            StartPage.classList.remove('hide')
+         }
+
+         Loading()
+        }; 
+
+        const loader2 = new THREE.GLTFLoader(loadingManager)
         loader2.load('./3Dmodels/PlanetF_Ani/planetScene1.gltf', function(gltf2){
             gltf2.scene.position.x= -2
             gltf2.scene.position.y= -10

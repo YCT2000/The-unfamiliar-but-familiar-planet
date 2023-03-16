@@ -41,9 +41,10 @@
     .intro-next{margin-bottom: 6vh;}
     .FirstHeading{font-size: 3rem;}
     /* One Page */
-    .mascot_section{height: 45vh;}
+   
     .doodle_section{height: 100vh;}
     .btn-casual{left: -2.5vw; top: 13vh;}
+    
 
     /* explore */
     .survey__mascot{display: block; top: 50vh;}
@@ -114,8 +115,8 @@
     .base__container-mobile{background-color: #d4a9298c;}
     .galaxy__container-mobile{background-color: #d4a9298c;}
 
-
-
+    #planetA{content: url('../img/HuaiYing/PlanetA_mobile.png'); width: 100%; display: inline; margin: 0; padding: 0;}
+    #planetJ{content: url('../img/LingFang/PlanetJ_mobile.png'); width: 100%; display: inline; margin: 0; padding: 0;}
     .planet{width: 90%; padding: 30px 20px;}
     .introduction-planet{width: 100%; float: left; padding: 0px 20px ;}
     .description{color:#ffffff; font-family:'Noto Sans TC', sans-serif;
@@ -136,12 +137,13 @@
     .mascot_section{height: 30vh; }
     .speech-line{top: 2vh;}
     .doodle_section{height: 60vh;}
-    .doodle_section2{height: 40vh;}
+    .doodle_section2{height: 25vh;}
     .youtube-link{margin: 20px; text-align: center; width: 90%;}
     .linchunDoodle_1{left: -5%; top:8vh; width: 30%; filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
     .linchunDoodle_2{right: -18%; top:15vh; width: 50%; filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
     .linchunDoodle_3{right: 35%; bottom: -5vh; width: 35%; filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
-    
+    .speech-line-fourth{top: 0;}
+    #rose{top: 5vh;}
 
     footer{display: none;}
     .footer_mobile{display: block;}
@@ -190,7 +192,7 @@
     .app-rightBottom{display: block; margin-top: 8vh; }
     .app-rightBottom p{padding-right: 2vw;}
     .QRplayStore{padding-right: 2vw;}
-
+    
     /* explore */
     .survey__mascot{display: none;}
     .survey{margin: 15vw 9vw ; width: 100%;}
