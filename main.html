@@ -115,7 +115,9 @@
     </div>
 
     
-
+    <div class="planet_name hide">
+        <p id="Planet_names">0</p>
+    </div>
     <div class="SparkleStar"><img src="./img/SparkleStar.png" style=" width: 100%; position: fixed; top: 0; opacity: 0.7; animation: Sparkling 4s infinite;"></div>
     <div class="webgl-div">
     <canvas class="webgl"></canvas>
@@ -181,6 +183,7 @@ const sizes={
 //camera
 const camera = new THREE.PerspectiveCamera( 45, sizes.width/ sizes.height, 1, 1000)
 scene.add(camera)
+
 camera.position.z = 30
 
 const cameraGroup = new THREE.Group()
@@ -191,7 +194,7 @@ scene.add(cameraGroup)
 
 //增加滾輪時差效果
 
-const mouse = new THREE.Vector2()
+/*const mouse = new THREE.Vector2()
 
 window.addEventListener('mousemove', (event) =>{
     mouse.x = (event.clientX / sizes.width) * 2 - 1
@@ -202,7 +205,7 @@ window.addEventListener('touchmove', (event) => {
     const { clientX, clientY } = event.touches[0]
     mouse.x = (clientX / sizes.width) * 2 - 1
     mouse.y = -(clientY / sizes.height) * 2 + 1
-  })
+  })*/
 
 
 //renderer setting
@@ -343,18 +346,23 @@ planetJ_Mat = new THREE.MeshStandardMaterial({
     side : THREE.DoubleSide,
 })
 
+const SatelliteMap = new THREE.TextureLoader().load('./3Dmodels/index/Satellite_BaseColor.png')
+SatelliteMap.flipY = false;
+Satellite_Mat = new THREE.MeshStandardMaterial({
+        map : SatelliteMap,
+        roughness : 0.7,
+        })
+const BaseColorMap = new THREE.TextureLoader().load('./3Dmodels/index/color.png')
+BaseColorMap.flipY = false;
+        BaseColor_Mat = new THREE.MeshStandardMaterial({
+            map : BaseColorMap,
+            roughness : 0.7,
+            side : THREE.DoubleSide,
+        })
 
 
-
-
-
-
-
-
-
-
-
-
+const planetName = document.querySelector('.planet_name')
+const planetNames = document.querySelector('#Planet_names')
 //loading Models
 //Character
 
@@ -388,23 +396,29 @@ gltf1.scene.traverse(function (child) {
 
     mmi.addHandler('planet_A', 'mouseenter', function(){
 
-        gsap.to(gltf1.scene.rotation , {
-            duration: 1.5,
-            ease: 'power2.inOut',
-            x: '+=6',
-            y:'+=3',
-            z:'+=3'
-        })
-    
-        
-        console.log("on planet_A")
+        gsap.to( camera.position, {
+        duration: 2,
+        x: -5,
+        y: 5,
+        z: 20,
+        onUpdate: function () {
+            camera.updateProjectionMatrix();
+            }
+        });
     })
 
 
     mmi.addHandler('planet_A', 'mouseleave', function(){
-    
-        console.log("out of planet_A")
-      
+
+    gsap.to( camera.position, {
+    duration: 2,
+    x: 0,
+    y: 0,
+    z: 30,
+        onUpdate: function () {
+            camera.updateProjectionMatrix();
+            }
+        });
     })
 
 
@@ -417,9 +431,9 @@ function planetA_ReSize() {
         
     } else {
         gltf1.scene.scale.set(1,1,1)
-        gltf1.scene.position.z = 20
-        gltf1.scene.position.x = 4
-        gltf1.scene.position.y = -2
+        gltf1.scene.position.z = 10
+        gltf1.scene.position.x = -8
+        gltf1.scene.position.y = 0
     
        
     }
@@ -450,24 +464,33 @@ mmi.addHandler('planet_B', 'click', function(){
     
 })
 
+
 mmi.addHandler('planet_B', 'mouseenter', function(){
 
-    gsap.to(gltf2.scene.rotation , {
-        duration: 1.5,
-        ease: 'power2.inOut',
-        x: '+=6',
-        y:'+=3',
-        z:'+=3'
-       })
-        
-    console.log("on planet_B")
-    })
+gsap.to( camera.position, {
+duration: 2,
+x: -5,
+y: 5,
+z: 20,
+onUpdate: function () {
+    camera.updateProjectionMatrix();
+    }
+});
+})
 
 
 mmi.addHandler('planet_B', 'mouseleave', function(){
-    
-    console.log("out of planet_B")
-   })
+
+gsap.to( camera.position, {
+duration: 2,
+x: 0,
+y: 0,
+z: 30,
+onUpdate: function () {
+    camera.updateProjectionMatrix();
+    }
+});
+})
 
 
 
@@ -478,9 +501,9 @@ function planetB_ReSize() {
 
     } else {
         gltf2.scene.scale.set(1,1,1)
-        gltf2.scene.position.z = 15
-        gltf2.scene.position.x = -2
-        gltf2.scene.position.y = -2
+        gltf2.scene.position.z = 5
+        gltf2.scene.position.x = 12
+        gltf2.scene.position.y = 6
     
     }
 };
@@ -506,27 +529,40 @@ if (child.isMesh) {
 
 mmi.addHandler('planet_C', 'click', function(){
     window.location.href = "intro-yu-lian.html"
-    console.log("planet_C is Clicked")
 })
 
 mmi.addHandler('planet_C', 'mouseenter', function(){
 
-    gsap.to(gltf3.scene.rotation , {
-        duration: 1.5,
-        ease: 'power2.inOut',
-        x: '+=6',
-        y:'+=3',
-        z:'+=3'
-       })
-        
-    console.log("on planet_C")
-    })
+gsap.to( camera.position, {
+duration: 2,
+x: -5,
+y: 5,
+z: 20,
+onUpdate: function () {
+    camera.updateProjectionMatrix();
+    }
+});
+
+planetName.classList.remove('hide')
+planetNames.innerHTML="發糕星球"
+
+})
 
 
 mmi.addHandler('planet_C', 'mouseleave', function(){
-    
-    console.log("out of planet_C")
-   })
+
+gsap.to( camera.position, {
+duration: 2,
+x: 0,
+y: 0,
+z: 30,
+onUpdate: function () {
+    camera.updateProjectionMatrix();
+    }
+});
+
+planetName.classList.add('hide')
+})
 
 
 
@@ -537,9 +573,9 @@ function planetC_ReSize() {
 
     } else {
         gltf3.scene.scale.set(1,1,1)
-        gltf3.scene.position.z = 15
-        gltf3.scene.position.x = -4
-        gltf3.scene.position.y = 2
+        gltf3.scene.position.z = 8
+        gltf3.scene.position.x = -6
+        gltf3.scene.position.y = 5
     }
 };
 planetC_ReSize();
@@ -561,29 +597,38 @@ if (child.isMesh) {
 }
 });
 
+
 mmi.addHandler('planet_D', 'click', function(){
     window.location.href = "intro-yu-ying.html"
-    console.log("planet_D is Clicked")
+  
 })
 
 mmi.addHandler('planet_D', 'mouseenter', function(){
 
-    gsap.to(gltf4.scene.rotation , {
-        duration: 1.5,
-        ease: 'power2.inOut',
-        x: '+=6',
-        y:'+=3',
-        z:'+=3'
-       })
-        
-    console.log("on planet_D")
-    })
+gsap.to( camera.position, {
+duration: 2,
+x: -5,
+y: 5,
+z: 20,
+onUpdate: function () {
+    camera.updateProjectionMatrix();
+    }
+});
+})
 
 
 mmi.addHandler('planet_D', 'mouseleave', function(){
-    
-    console.log("out of planet_D")
-   })
+
+gsap.to( camera.position, {
+duration: 2,
+x: 0,
+y: 0,
+z: 30,
+onUpdate: function () {
+    camera.updateProjectionMatrix();
+    }
+});
+})
 
 
 function planetD_ReSize() {
@@ -593,9 +638,9 @@ function planetD_ReSize() {
         
     } else {
         gltf4.scene.scale.set(1,1,1)
-        gltf4.scene.position.z = 10
-        gltf4.scene.position.x = -9
-        gltf4.scene.position.y = -5
+        gltf4.scene.position.z = -1
+        gltf4.scene.position.x = 9
+        gltf4.scene.position.y = 2
     
     }
 };
@@ -625,23 +670,30 @@ mmi.addHandler('planet_E', 'click', function(){
 
 mmi.addHandler('planet_E', 'mouseenter', function(){
 
-    gsap.to(gltf5.scene.rotation , {
-        duration: 1.5,
-        ease: 'power2.inOut',
-        x: '+=6',
-        y:'+=3',
-        z:'+=3'
-       })
-        
-    console.log("on planet_E")
-    })
+gsap.to( camera.position, {
+duration: 2,
+x: -5,
+y: 5,
+z: 20,
+onUpdate: function () {
+    camera.updateProjectionMatrix();
+    }
+});
+})
 
 
 mmi.addHandler('planet_E', 'mouseleave', function(){
-    
-    console.log("out of planet_E")
-   })
 
+gsap.to( camera.position, {
+duration: 2,
+x: 0,
+y: 0,
+z: 30,
+onUpdate: function () {
+    camera.updateProjectionMatrix();
+    }
+});
+})
 
 
 function planetE_ReSize() {
@@ -651,8 +703,8 @@ function planetE_ReSize() {
     } else {
         gltf5.scene.scale.set(1,1,1)
         gltf5.scene.position.z = 12
-        gltf5.scene.position.x = 10
-        gltf5.scene.position.y = -2     
+        gltf5.scene.position.x = 12
+        gltf5.scene.position.y = -4     
     
     }
 };
@@ -681,23 +733,30 @@ mmi.addHandler('planet_F', 'click', function(){
 
 mmi.addHandler('planet_F', 'mouseenter', function(){
 
-    gsap.to(gltf6.scene.rotation , {
-        duration: 1.5,
-        ease: 'power2.inOut',
-        x: '+=6',
-        y:'+=3',
-        z:'+=3'
-       })
-        
-    console.log("on planet_F")
-    })
+gsap.to( camera.position, {
+duration: 2,
+x: -5,
+y: 5,
+z: 20,
+onUpdate: function () {
+    camera.updateProjectionMatrix();
+    }
+});
+})
 
 
 mmi.addHandler('planet_F', 'mouseleave', function(){
-    
-    console.log("out of planet_F")
-   })
 
+gsap.to( camera.position, {
+duration: 2,
+x: 0,
+y: 0,
+z: 30,
+onUpdate: function () {
+    camera.updateProjectionMatrix();
+    }
+});
+})
 
 
 function planetF_ReSize() {
@@ -706,10 +765,9 @@ function planetF_ReSize() {
         gltf6.scene.position.set(0,0,0)
     } else {
         gltf6.scene.scale.set(1,1,1)
-        gltf6.scene.position.z = 5
-        gltf6.scene.position.x = 0
-        gltf6.scene.position.y = 1    
-    
+        gltf6.scene.position.z = 8
+        gltf6.scene.position.x = -13
+        gltf6.scene.position.y = 4
     }
 };
 planetF_ReSize();
@@ -734,27 +792,34 @@ if (child.isMesh) {
 
 mmi.addHandler('planet_G', 'click', function(){
     window.location.href = "intro-shu-zhen.html"
-    console.log("planet_G is Clicked")
 })
 
 mmi.addHandler('planet_G', 'mouseenter', function(){
 
-    gsap.to(gltf7.scene.rotation , {
-        duration: 1.5,
-        ease: 'power2.inOut',
-        x: '+=6',
-        y:'+=3',
-        z:'+=3'
-       })
-        
-    console.log("on planet_G")
-    })
+gsap.to( camera.position, {
+duration: 2,
+x: -5,
+y: 5,
+z: 20,
+onUpdate: function () {
+    camera.updateProjectionMatrix();
+    }
+});
+})
 
 
 mmi.addHandler('planet_G', 'mouseleave', function(){
-    
-    console.log("out of planet_G")
-   })
+
+gsap.to( camera.position, {
+duration: 2,
+x: 0,
+y: 0,
+z: 30,
+onUpdate: function () {
+    camera.updateProjectionMatrix();
+    }
+});
+})
 
 gltf7.scene.position.z = 20
 gltf7.scene.position.x = 8
@@ -767,8 +832,8 @@ function planetG_ReSize() {
     } else {
         gltf7.scene.scale.set(1,1,1)
         gltf7.scene.position.z = 12
-        gltf7.scene.position.x = 10
-        gltf7.scene.position.y = 2      
+        gltf7.scene.position.x = 6
+        gltf7.scene.position.y = -3.5     
     
     }
 };
@@ -798,22 +863,35 @@ mmi.addHandler('planet_H', 'click', function(){
 
 mmi.addHandler('planet_H', 'mouseenter', function(){
 
-    gsap.to(gltf8.scene.rotation , {
-        duration: 1.5,
-        ease: 'power2.inOut',
-        x: '+=6',
-        y:'+=3',
-        z:'+=3'
-       })
-        
-    console.log("on planet_H")
-    })
+    gsap.to( camera.position, {
+	duration: 2,
+    x: -5,
+	y: 5,
+    z: 20,
+	onUpdate: function () {
+    
+	camera.updateProjectionMatrix();
+	}
+
+});
+
+
+})
 
 
 mmi.addHandler('planet_H', 'mouseleave', function(){
     
-    console.log("out of planet_H")
-   })
+    gsap.to( camera.position, {
+	duration: 2,
+    x: 0,
+	y: 0,
+    z: 30,
+	onUpdate: function () {
+    
+	camera.updateProjectionMatrix();
+	}
+    });
+})
 
 
 
@@ -823,9 +901,9 @@ function planetH_ReSize() {
         gltf8.scene.position.set(2,-6,3)
     } else {
         gltf8.scene.scale.set(1,1,1)
-        gltf8.scene.position.z = 4
-        gltf8.scene.position.x = -12
-        gltf8.scene.position.y = 6
+        gltf8.scene.position.z = 2
+        gltf8.scene.position.x = -8
+        gltf8.scene.position.y = -6
     }
 };
 planetH_ReSize();
@@ -855,22 +933,35 @@ mmi.addHandler('planet_I', 'click', function(){
 
 mmi.addHandler('planet_I', 'mouseenter', function(){
 
-    gsap.to(gltf9.scene.rotation , {
-        duration: 1.5,
-        ease: 'power2.inOut',
-        x: '+=6',
-        y:'+=3',
-        z:'+=3'
-       })
-        
-    console.log("on planet_I")
-    })
+    gsap.to( camera.position, {
+	duration: 2,
+    x: -5,
+	y: 5,
+    z: 20,
+	onUpdate: function () {
+    
+	camera.updateProjectionMatrix();
+	}
+
+});
+
+
+})
 
 
 mmi.addHandler('planet_I', 'mouseleave', function(){
     
-    console.log("out of planet_I")
-   })
+    gsap.to( camera.position, {
+	duration: 2,
+    x: 0,
+	y: 0,
+    z: 30,
+	onUpdate: function () {
+    
+	camera.updateProjectionMatrix();
+	}
+    });
+})
 
 
 
@@ -881,9 +972,9 @@ function planetI_ReSize() {
         
     } else {
         gltf9.scene.scale.set(1,1,1)
-        gltf9.scene.position.z = 25
-        gltf9.scene.position.x = -4
-        gltf9.scene.position.y = -0     
+        gltf9.scene.position.z = 12
+        gltf9.scene.position.x = 11
+        gltf9.scene.position.y = 0  
     
     }
 };
@@ -940,9 +1031,9 @@ function planetJ_ReSize() {
         
     } else {
         gltf10.scene.scale.set(1,1,1)
-        gltf10.scene.position.z = 17
-        gltf10.scene.position.x = 4
-        gltf10.scene.position.y = 3   
+        gltf10.scene.position.z = 7
+        gltf10.scene.position.x = -14
+        gltf10.scene.position.y = -4 
     
     }
 };
@@ -950,17 +1041,70 @@ planetJ_ReSize();
 
 });
 
+//satellite Import
+var loader11 = new THREE.GLTFLoader();
+loader11.load('./3Dmodels/satellite.gltf', function ( gltf11 ) {
+	scene.add(gltf11.scene);
+
+gltf11.scene.traverse(function (child) {
+    
+
+    if (child.name = 'Satellite') {
+        child.material = Satellite_Mat
+    }
+
+});
+
+
+/*mmi.addHandler('Satellite', 'mouseenter', function(){
+
+    gsap.to(gltf11.scene.rotation , {
+        duration: 1.5,
+        ease: 'power2.inOut',
+        x: '+=6',
+        y:'+=3',
+        z:'+=3'
+       })
+        
+    console.log("on Satellite")
+    })*/
+
+
+mmi.addHandler('Satellite', 'mouseleave', function(){
+    
+    console.log("out of planet_J")
+   })
+
+
+
+function Satellite_ReSize() {
+    if ($(window).width() < 768) {
+        gltf11.scene.scale.set(0.7,0.7,0.7)
+        gltf11.scene.position.set(0,0,0)
+        
+    } else {
+        gltf11.scene.scale.set(1,1,1)
+        gltf11.scene.position.z = 0 
+        gltf11.scene.position.x = 0 
+        gltf11.scene.position.y = 2 
+    
+    }
+};
+Satellite_ReSize();
+
+});
+
 
 //rendering progress
 function animate(){
 
-   const objectDistance = 8
+   /*const objectDistance = 8
     camera.position.setY((-scrollY / sizes.height) * objectDistance)
     if(mouse.x && mouse.y){
         cameraGroup.position.setX(mouse.x)
         cameraGroup.position.setY(mouse.y)
-    }
-   
+    }*/
+
    
 
     requestAnimationFrame(animate)

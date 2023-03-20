@@ -477,7 +477,13 @@ display:flex;
     user-select: none;
 }
 
-
+.planet_name{background-image: url('../img/planetName_speechBox.png'); position: absolute; background-size: contain; z-index: 20;    
+            width: 20%; height: 20%; background-repeat: no-repeat; top: 35vh; left: 50vw; animation: clip-fade 2s 1s ease-in-out forwards;opacity: 0; }
+#Planet_names{color:#ffffff; font-family:'Noto Sans TC', sans-serif; box-sizing: border-box; text-align: center;
+              font-size: 1.5rem;padding-top: 1.3vw; padding-left: 5.5vw; }
+@keyframes clip-fade {to{opacity: 100%;}}
+      
+    
 /* planet intro */
 
 
