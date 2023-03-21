@@ -397,13 +397,15 @@ gltf1.scene.traverse(function (child) {
 
         gsap.to( camera.position, {
         duration: 2,
-        x: -5,
+        x: -7,
         y: 0,
         z: 20,
         onUpdate: function () {
             camera.updateProjectionMatrix();
             }
         });
+    planetName.classList.remove('hide')
+    planetNames.innerHTML="卡緊星球"
     })
 
 
@@ -418,6 +420,8 @@ gltf1.scene.traverse(function (child) {
             camera.updateProjectionMatrix();
             }
         });
+    planetName.classList.add('hide')
+
     })
 
 
@@ -468,13 +472,15 @@ mmi.addHandler('planet_B', 'mouseenter', function(){
 
 gsap.to( camera.position, {
 duration: 2,
-x: 12,
+x: 13,
 y: 5,
 z: 20,
 onUpdate: function () {
     camera.updateProjectionMatrix();
     }
 });
+planetName.classList.remove('hide')
+planetNames.innerHTML="哈哈星球"
 })
 
 
@@ -489,6 +495,7 @@ onUpdate: function () {
     camera.updateProjectionMatrix();
     }
 });
+planetName.classList.add('hide')
 })
 
 
@@ -543,7 +550,7 @@ onUpdate: function () {
 });
 
 planetName.classList.remove('hide')
-planetNames.innerHTML="發糕星球"
+planetNames.innerHTML="發粿星球"
 
 })
 
@@ -606,13 +613,15 @@ mmi.addHandler('planet_D', 'mouseenter', function(){
 
 gsap.to( camera.position, {
 duration: 2,
-x: 9,
+x: 10,
 y: 2,
 z: 18,
 onUpdate: function () {
     camera.updateProjectionMatrix();
     }
 });
+planetName.classList.remove('hide')
+planetNames.innerHTML="正負五度星球"
 })
 
 
@@ -627,6 +636,7 @@ onUpdate: function () {
     camera.updateProjectionMatrix();
     }
 });
+planetName.classList.add('hide')
 })
 
 
@@ -671,13 +681,15 @@ mmi.addHandler('planet_E', 'mouseenter', function(){
 
 gsap.to( camera.position, {
 duration: 2,
-x: 12,
+x: 13,
 y: -4,
 z: 20,
 onUpdate: function () {
     camera.updateProjectionMatrix();
     }
 });
+planetName.classList.remove('hide')
+planetNames.innerHTML="董星球"
 })
 
 
@@ -692,6 +704,8 @@ onUpdate: function () {
     camera.updateProjectionMatrix();
     }
 });
+planetName.classList.add('hide')
+
 })
 
 
@@ -734,13 +748,15 @@ mmi.addHandler('planet_F', 'mouseenter', function(){
 
 gsap.to( camera.position, {
 duration: 2,
-x: -13,
+x: -12,
 y: 4,
 z: 20,
 onUpdate: function () {
     camera.updateProjectionMatrix();
     }
 });
+planetName.classList.remove('hide')
+planetNames.innerHTML="睡睡平安星球"
 })
 
 
@@ -755,6 +771,8 @@ onUpdate: function () {
     camera.updateProjectionMatrix();
     }
 });
+planetName.classList.add('hide')
+
 })
 
 
@@ -797,13 +815,15 @@ mmi.addHandler('planet_G', 'mouseenter', function(){
 
 gsap.to( camera.position, {
 duration: 2,
-x: 6,
+x: 6.5,
 y: -3.5,
 z: 20,
 onUpdate: function () {
     camera.updateProjectionMatrix();
     }
 });
+planetName.classList.remove('hide')
+planetNames.innerHTML="幽幽星球"
 })
 
 
@@ -818,6 +838,7 @@ onUpdate: function () {
     camera.updateProjectionMatrix();
     }
 });
+planetName.classList.add('hide')
 })
 
 gltf7.scene.position.z = 20
@@ -864,16 +885,17 @@ mmi.addHandler('planet_H', 'mouseenter', function(){
 
     gsap.to( camera.position, {
 	duration: 2,
-    x: -6,
+    x: -6.5,
 	y: -6,
-    z: 20,
+    z: 18,
 	onUpdate: function () {
     
 	camera.updateProjectionMatrix();
 	}
 
 });
-
+planetName.classList.remove('hide')
+planetNames.innerHTML="卡瓦卡瓦星球"
 
 })
 
@@ -890,6 +912,8 @@ mmi.addHandler('planet_H', 'mouseleave', function(){
 	camera.updateProjectionMatrix();
 	}
     });
+    planetName.classList.add('hide')
+
 })
 
 
@@ -934,16 +958,17 @@ mmi.addHandler('planet_I', 'mouseenter', function(){
 
     gsap.to( camera.position, {
 	duration: 2,
-    x: 11,
+    x: 11.5,
 	y: 0,
     z: 20,
 	onUpdate: function () {
     
 	camera.updateProjectionMatrix();
 	}
-
+   
 });
-
+    planetName.classList.remove('hide')
+    planetNames.innerHTML="星地球"
 
 })
 
@@ -960,6 +985,7 @@ mmi.addHandler('planet_I', 'mouseleave', function(){
 	camera.updateProjectionMatrix();
 	}
     });
+    planetName.classList.add('hide')
 })
 
 
@@ -1015,7 +1041,8 @@ camera.updateProjectionMatrix();
 }
 
 });
-
+planetName.classList.remove('hide')
+planetNames.innerHTML="玲玲玲星球"
 
 })
 
@@ -1032,6 +1059,7 @@ onUpdate: function () {
 camera.updateProjectionMatrix();
 }
 });
+planetName.classList.add('hide')
 })
 
 
