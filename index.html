@@ -15,13 +15,10 @@
     
     <title>最熟悉的陌生星球</title>
 </head>
-<body style="overflow: hidden;">
-     <div class="loader-wrapper ">
-        <img width="100%" src="./Video/LoadingMP4.gif"></img>
-     </div>
+<body class="entryAni">
     
     
-    <div class="startPage hide" 
+    <!--<div class="startPage hide" 
         style="width:100%;
             height:2000px; 
             overflow: hidden;">
@@ -59,7 +56,7 @@
                 padding: 20px 21px;">GO</a>
              </div>
              
-    </div>
+    </div>-->
        
 
     
@@ -67,19 +64,15 @@
 
     <script>
 
-         const Loader = document.querySelector('.loader-wrapper')
-         const StartPage = document.querySelector('.startPage')
-
-         function Loading(){
-            Loader.classList.add('hide')
-            StartPage.classList.remove('hide')
-         }
-
-         setTimeout(Loading, 3000)
+          /*const Loader = document.querySelector('.loader-wrapper')*/
+        const entryAni = document.querySelector('.entryAni')
+        
+        function Entry(){
+           window.location.href = 'main.html'
+        }
+       setTimeout(Entry, 15000)
 
     </script>
 
-
-    <script src="./JavaEvent/Entry.js"></script>
 </body>
 </html>
