@@ -136,7 +136,7 @@
                 camera.rotation.x= -0.4
             } else {
                 camera.position.z = 15
-                camera.position.y = 25
+                camera.position.y = 28
                 camera.rotation.x = -0.7
               
             }}
@@ -260,7 +260,9 @@
                 if(child.name == 'CaiYun'){
                     child.material = CaiYun_Mat 
                 }
-             
+                if(child.name == 'Star'){
+                    child.material = BaseColor_Mat 
+                }
                 if(child.name == 'PlanetScene'){
                     child.material = Scene_Mat 
                 }
@@ -305,7 +307,38 @@
 
                 scene.add(gltf2.scene)
 
+                mmi.addHandler('Star','click',function(){
+                    content.innerHTML = "第二天，衛星人再次來到星球上，"
+                    content2.innerHTML = "看到快樂女王畫出好看的圖案後，"
+                buttons.classList.add('hide')
+                dialogue.classList.remove('hide')
+                dialogueNext.style.display = 'block'
+                })
 
+              
+                const dialogueNext = document.querySelector('.dialogue___btns')
+                var clickCourt = 0
+                dialogueNext.addEventListener('click', (event)=>{
+                   clickCourt+= 1
+                   console.log(clickCourt)
+             
+                   if(clickCourt%2 == 0){
+                    content.innerHTML = "才恍然大悟！"
+                    content2.innerHTML = "後來衛星人都陪伴著快樂女王在泥土上畫圖"
+                    dialogueNext.style.display = 'none'
+                    buttons.classList.remove('hide')
+                   
+                   }
+                  
+                   else{
+                    content.innerHTML = "第二天，衛星人再次來到星球上，"
+                    content2.innerHTML = "看到快樂女王畫出好看的圖案後，"
+                    dialogueNext.style.display = 'block'
+                    }
+
+                  
+                    
+                  })
                 
             })
            

@@ -270,8 +270,9 @@
                 if(child.name == 'CaiYun2'){
                     child.material = CaiYun_Mat 
                 }
-        
-    
+                if(child.name == 'Star'){
+                    child.material = BaseColor_Mat 
+                }
                 if(child.name == 'PlanetScene'){
                     child.material = Scene_Mat 
                 }
@@ -292,20 +293,7 @@
                mixer = new THREE.AnimationMixer(gltf2.scene)
                 action = mixer.clipAction(gltf2.animations[0])
                 action2 = mixer.clipAction(gltf2.animations[1])
-                 /*action3 = mixer.clipAction(gltf2.animations[2])
-                action4 = mixer.clipAction(gltf2.animations[3])
-                action5 = mixer.clipAction(gltf2.animations[4])
-                action6 = mixer.clipAction(gltf2.animations[5])
-                action7 = mixer.clipAction(gltf2.animations[6])
-                action8 = mixer.clipAction(gltf2.animations[7])
-              
-                
-                action3.play()
-                action4.play()
-                action5.play()
-                action6.play()
-                action7.play()
-                action8.play()*/
+     
                 action.play()
                 action2.play()
                 
@@ -314,8 +302,8 @@
                 scene.add(gltf2.scene)
 
                 mmi.addHandler('Star','click',function(){
-                content.innerHTML = "快樂女王把手指插到泥土裡面的時候";
-                content2.innerHTML = "衛星人這時候生氣地拍掉她的手：「不要弄髒自己！」"
+                content.innerHTML = "當衛星人回到衛星時";
+                content2.innerHTML = "她再一次把手指插進泥土裡面動起來"
                 buttons.classList.add('hide')
                 dialogue.classList.remove('hide')
                 dialogueNext.style.display = 'block'
@@ -329,16 +317,16 @@
                    console.log(clickCourt)
              
                    if(clickCourt%2 == 0){
-                    content.innerHTML = "只能哈哈兩聲"
-                    content2.innerHTML = "她心想可能是衛星人不喜歡？"
+                    content.innerHTML = "大膽地畫了一個又一個的漂亮圖案，"
+                    content2.innerHTML = "快樂女王玩的不亦樂乎！"
                     dialogueNext.style.display = 'none'
                     buttons.classList.remove('hide')
                    
                    }
                   
                    else{
-                    content.innerHTML = "可是快樂女王聽得不是很清楚"
-                    content2.innerHTML = "也不知道怎樣回應"
+                    content.innerHTML = "大膽地畫了一個又一個的漂亮圖案，"
+                    content2.innerHTML = "快樂女王玩的不亦樂乎！"
                     dialogueNext.style.display = 'block'
                     }
 
