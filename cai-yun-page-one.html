@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500&family=Open+Sans:wght@500&display=swap" rel="stylesheet">
     <link href="./css/styles.css" rel="stylesheet"> 
     <link href="./css/rwd.css" rel="stylesheet"> 
-    <title>最熟悉的陌生星球</title>
+    <title>哈哈星球</title>
 </head>
 <body style="overflow: hidden;">
 
@@ -32,10 +32,6 @@
                     <li><a href="app.html">應用程式</a></li>
                 </ul>
                 <li id="galaxy"><a href="main.html">行星</a></li>
-                <ul class="galaxy__container">
-                    <li><a href="passional-rapper.html">熱情rapper系</a></li>
-                    <li><a href="coolest-cool.html">cool的酷系</a></li>
-                </ul>
                 <li><a href="tower.html">塔台</a></li>
                 <li><a href="explore.html">探索</a></li>
             </ul>
@@ -75,11 +71,6 @@
                         <li><a href="app.html">應用程式</a></li>
                     </ul>
                     <li id="galaxy_mobile"><a href="main.html">行星</a></li>
-                    <ul class="galaxy__container-mobile hide">
-                        <li><a href="main.html">ALL</a></li>
-                        <li><a href="passional-rapper.html">熱情rapper系</a></li>
-                        <li><a href="coolest-cool.html">cool的酷系</a></li>
-                    </ul>
                     <li><a href="tower.html">塔台</a></li>
                     <li><a href="explore.html">探索</a></li>
                 </ul>
@@ -95,9 +86,12 @@
         <a href="cai-yun-page-two.html" title="next" class="next"><img src="./img/next.png"></a>
     </div>
     <div class="dialogue hide">
-        <img src="./img/dialogue.png" class="dialogue__img">
+        <button class="dialogue___btns"><img id="dialogue___btns-next" src="./img/dialogue_next.png"></button>
+        <img src="./img/dialogue_cool.png" class="dialogue__img">
+        <div class="content-box">
         <p id="content">0</p>
         <p id="content-second">0</p>
+    </div>
     </div>
 
     <div class="SparkleStar"><img src="./img/SparkleStar.png"></div>
@@ -141,7 +135,7 @@
                 camera.position.x = -8
                 camera.rotation.x= -0.4
             } else {
-                camera.position.z = 20
+                camera.position.z = 25
                 camera.position.y = 25
                 camera.rotation.x = -0.5
             }}
@@ -188,7 +182,7 @@
         const buttons = document.querySelector('.buttons')
 
 
-        //LinChun material
+        //material
         const CaiYunMap = new THREE.TextureLoader().load('./3Dmodels/PlanetB_Ani/CaiYun_BaseColor.png')
         CaiYunMap.flipY = false;
         CaiYun_Mat = new THREE.MeshStandardMaterial({
@@ -305,96 +299,87 @@
                 action = mixer.clipAction(gltf2.animations[0])
                 action2 = mixer.clipAction(gltf2.animations[1])
                 action3 = mixer.clipAction(gltf2.animations[2])
-                 /*action4 = mixer.clipAction(gltf2.animations[3])
+                action4 = mixer.clipAction(gltf2.animations[3])
                 action5 = mixer.clipAction(gltf2.animations[4])
-                action6 = mixer.clipAction(gltf2.animations[5])
+                 /*action6 = mixer.clipAction(gltf2.animations[5])
                 action7 = mixer.clipAction(gltf2.animations[6])
                 action8 = mixer.clipAction(gltf2.animations[7])
               
                 
-                action4.play()
-                action5.play()
+              
                 action6.play()
                 action7.play()
                 action8.play()*/
                 action.play()
                 action2.play()
                 action3.play()
-                
+                action4.play()
+                action5.play()
+
                
 
                 scene.add(gltf2.scene)
 
                 mmi.addHandler('Star2','click',function(){
-                camera.position.z = 20
                 camera.position.x=-20
+                camera.position.y= -0.05
+                camera.position.z = 5
+                camera.rotation.x = 0
+                
                 dialogue.classList.remove('hide')
                 buttons.classList.add('hide')
-                content.innerHTML = "這個星球的掌管者，她是一名水槍狙擊手，個性有如老虎般兇狠，";
-                content2.innerHTML = "只不過大多時候她是懶惰的，唯有老公出現時，就會提起戒備心"
+                content.innerHTML = "星球裡的水果和食物都非常的甜，";
+                content2.innerHTML = "甚至連花朵的花蜜、花香都非常甜美。"
                 })
 
-                mmi.addHandler('Star2','dblclick',function(){
-                camera.position.z = 40
-                camera.position.x=-0
-                dialogue.classList.add('hide')
-                buttons.classList.add('hide')
-                buttons.classList.remove('hide')
-                })
+          
 
                 mmi.addHandler('Star','click',function(){
-                camera.position.z = 30
-                camera.position.x= 0
-                camera.position.y=-7
-                content.innerHTML = "大多數時，她會一邊稱讚我們做的很棒，一邊把事情推給我們做，";
-                content2.innerHTML = "真是懶洋洋"
+                camera.position.z = 20
+                camera.position.x= -7
+                camera.position.y=1
+                camera.rotation.x = -0.1
+                content.innerHTML = "快樂女王是一隻可愛的兔子，";
+                content2.innerHTML = "每天做最多的事情就是笑。"
                 buttons.classList.add('hide')
                 dialogue.classList.remove('hide')
                 })
 
-                mmi.addHandler('Star','dblclick',function(){
-                camera.position.z = 40
-                camera.position.x=-0
-                camera.position.y=0
-                dialogue.classList.add('hide')
-                buttons.classList.remove('hide')
-                })
+     
+                
 
                 mmi.addHandler('Star3','click',function(){
-                camera.position.z = 10
+                camera.position.z = 5
                 camera.position.x=-0
-                camera.position.y= 5
-                content.innerHTML = "星球上空有一顆衛星，上面住了一位耀眼的老公，";
-                content2.innerHTML = "這位星人每天都癡癡地看著他"
+                camera.position.y= 4
+                camera.rotation.x = 0
+                content.innerHTML = "這顆星球散發出像棉花糖般甜絲絲的氣味，";
+                content2.innerHTML = "風聲中似乎還有隱隱約約的嬉笑聲。"
                 dialogue.classList.remove('hide')
                 buttons.classList.add('hide')
                 })
 
-                mmi.addHandler('Star3','dblclick',function(){
-                camera.position.z = 40
-                camera.position.x=-0
-                camera.position.y=0
-                dialogue.classList.add('hide')
-                buttons.classList.remove('hide')
-                })
+                
 
                 mmi.addHandler('Star1','click',function(){
-                camera.position.z = 20
+                camera.position.z = 5
                 camera.position.x=13
-                camera.position.y= -5
-                content.innerHTML = "星球上長滿這種植物，可是我們無法得知他的名字";
-                content2.innerHTML = "因為連主人也忘記他的名字了，可是它使得這顆星球看起來生生不息"
+                camera.position.y= 3
+                camera.rotation.x = 0
+                content.innerHTML = "衛星人每天都降落到";
+                content2.innerHTML = "這顆星球來找快樂女王"
                 dialogue.classList.remove('hide')
                 buttons.classList.add('hide')
                 })
 
-                mmi.addHandler('Star1','dblclick',function(){
-                camera.position.z = 40
-                camera.position.x=-0
-                camera.position.y=0
+                /*mmi.addHandler('Star1','dblclick',function(){
+                camera.position.z = 25
+                camera.position.x= 0
+                camera.position.y = 25
+                camera.rotation.x = -0.5
                 dialogue.classList.add('hide')
                 buttons.classList.remove('hide')
-                })
+                })*/
 
 
                 
@@ -415,8 +400,18 @@
         }
         animate()
   
+        const dialogueNext = document.querySelector('.dialogue___btns')
+        dialogueNext.addEventListener('click', ()=>{
+            camera.position.z = 25
+            camera.position.x= 0
+            camera.position.y = 25
+            camera.rotation.x = -0.5
+            dialogue.classList.add('hide')
+            buttons.classList.add('hide')
+            buttons.classList.remove('hide')
 
-
+        })
+       
 
     
     </script>
