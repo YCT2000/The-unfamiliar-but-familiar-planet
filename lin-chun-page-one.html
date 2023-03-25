@@ -219,7 +219,11 @@
             roughness : 0.7,
         })
 
-      
+        const StarMaterial = new THREE.MeshStandardMaterial({
+            color: 0x3A8F96,
+            roughness : 0.7,
+            side : THREE.DoubleSide,
+        })
 
     
         // loading the scene //
@@ -266,16 +270,64 @@
                     child.material = LinChun_Mat 
                 }
                 if(child.name == 'Star'){
-                    child.material = BaseColor_Mat
+                    child.material = StarMaterial
+
+                    mmi.addHandler('Star','mouseenter',function(){
+                    if (child.name === 'Star') {
+						child.material = BaseColor_Mat;
+					}
+                    })
+
+                    mmi.addHandler('Star','mouseleave',function(){
+                    if (child.name === 'Star') {
+						child.material = StarMaterial;
+					}
+                    })
                 }
                 if(child.name == 'Star1'){
-                    child.material = BaseColor_Mat
+                    child.material = StarMaterial
+
+                    mmi.addHandler('Star1','mouseenter',function(){
+                    if (child.name === 'Star1') {
+						child.material = BaseColor_Mat;
+					}
+                    })
+
+                    mmi.addHandler('Star1','mouseleave',function(){
+                    if (child.name === 'Star1') {
+						child.material = StarMaterial;
+					}
+                    })
                 }
                 if(child.name == 'Star2'){
-                    child.material = BaseColor_Mat
+                    child.material = StarMaterial
+
+                    mmi.addHandler('Star2','mouseenter',function(){
+                    if (child.name === 'Star2') {
+						child.material = BaseColor_Mat;
+					}
+                    })
+
+                    mmi.addHandler('Star2','mouseleave',function(){
+                    if (child.name === 'Star2') {
+						child.material = StarMaterial;
+					}
+                    })
                 }
                 if(child.name == 'Star3'){
-                    child.material = BaseColor_Mat
+                    child.material = StarMaterial
+
+                    mmi.addHandler('Star3','mouseenter',function(){
+                    if (child.name === 'Star3') {
+						child.material = BaseColor_Mat;
+					}
+                    })
+
+                    mmi.addHandler('Star3','mouseleave',function(){
+                    if (child.name === 'Star3') {
+						child.material = StarMaterial;
+					}
+                    })
                 }
                 if(child.name == 'PlanetScene'){
                     child.material = Scene_Mat 
@@ -322,7 +374,7 @@
 
                 mmi.addHandler('Star2','click',function(){
                 camera.position.z = 20
-                camera.position.x=-20
+                camera.position.x=-25
                 dialogue.classList.remove('hide')
                 buttons.classList.add('hide')
                 content.innerHTML = "這個星球的掌管者，她是一名水槍狙擊手，";

@@ -212,6 +212,11 @@
             side : THREE.DoubleSide,
         })
 
+        const StarMaterial = new THREE.MeshStandardMaterial({
+            color: 0x3A8F96,
+            roughness : 0.7,
+            side : THREE.DoubleSide,
+        })
         
         // loading the scene //
         const loadingManager = new THREE.LoadingManager
@@ -257,16 +262,68 @@
                 }
       
                 if(child.name == 'Star'){
-                    child.material = BaseColor_Mat
+                    child.material = StarMaterial
+
+                    mmi.addHandler('Star','mouseenter',function(){
+                    if (child.name === 'Star') {
+						child.material = BaseColor_Mat;
+					}
+                    })
+
+                    mmi.addHandler('Star','mouseleave',function(){
+                    if (child.name === 'Star') {
+						child.material = StarMaterial;
+					}
+                    })
+
                 }
                 if(child.name == 'Star1'){
-                    child.material = BaseColor_Mat
+                    child.material = StarMaterial
+
+                    mmi.addHandler('Star1','mouseenter',function(){
+                    if (child.name === 'Star1') {
+						child.material = BaseColor_Mat;
+					}
+                    })
+
+                    mmi.addHandler('Star1','mouseleave',function(){
+                    if (child.name === 'Star1') {
+						child.material = StarMaterial;
+					}
+                    })
+
                 }
                 if(child.name == 'Star2'){
-                    child.material = BaseColor_Mat
+                    child.material = StarMaterial
+
+                    mmi.addHandler('Star2','mouseenter',function(){
+                    if (child.name === 'Star2') {
+						child.material = BaseColor_Mat;
+					}
+                    })
+
+                    mmi.addHandler('Star2','mouseleave',function(){
+                    if (child.name === 'Star2') {
+						child.material = StarMaterial;
+					}
+                    })
+
                 }
                 if(child.name == 'Star3'){
-                    child.material = BaseColor_Mat
+                    child.material = StarMaterial
+
+                    mmi.addHandler('Star3','mouseenter',function(){
+                    if (child.name === 'Star3') {
+						child.material = BaseColor_Mat;
+					}
+                    })
+
+                    mmi.addHandler('Star3','mouseleave',function(){
+                    if (child.name === 'Star3') {
+						child.material = StarMaterial;
+					}
+                    })
+
                 }
                 if(child.name == 'PlanetScene'){
                     child.material = Scene_Mat 
@@ -344,6 +401,8 @@
                 buttons.classList.add('hide')
                 dialogue.classList.remove('hide')
                 })
+
+             
 
      
                 

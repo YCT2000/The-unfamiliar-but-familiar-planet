@@ -93,11 +93,14 @@
         <a href="yu-lian-page-two.html" title="next" class="next"><img src="./img/next.png"></a>
     </div>
     <div class="dialogue hide">
-        <img src="./img/dialogue_rapper.png" class="dialogue__img">
-        <p id="content">0</p>
-        <p id="content-second">0</p>
+        <button class="dialogue___btns"><img id="dialogue___btns-next" src="./img/dialogue_next.png"></button>
+        <img src="./img/dialogue_cool.png" class="dialogue__img">
+        <div class="content-box">
+            <p id="content">0</p>
+            <p id="content-second">0</p>
+            <p id="content-third">0</p>
+        </div>
     </div>
-
     <div class="SparkleStar"><img src="./img/SparkleStar.png"></div>
     <div class="webgl-div">
     <canvas class="webgl"></canvas>
@@ -129,7 +132,7 @@
 
         //camera
         const camera = new THREE.PerspectiveCamera(45, sizes.width/ sizes.height, 0.1 ,2000)
-        camera.position.z = 40
+        camera.position.z = 45
         scene.add(camera)
 
         //renderer setting
@@ -170,6 +173,7 @@
         const dialogue = document.querySelector('.dialogue')
         const content = document.getElementById("content")
         const content2 = document.getElementById("content-second")
+        const content3 = document.getElementById("content-third")
         const buttons = document.querySelector('.buttons')
         //LinChun material
         const YuLianMap = new THREE.TextureLoader().load('./3Dmodels/PlanetC_Ani/YuLian_BaseColor.png')
@@ -319,77 +323,63 @@ loadingManager.onLoad = function () {
                 scene.add(gltf2.scene)
 
                 mmi.addHandler('Star2','click',function(){
-                camera.position.z = 20
+                camera.position.z = 45
                 camera.position.x=-20
                 dialogue.classList.remove('hide')
                 buttons.classList.add('hide')
-                content.innerHTML = "這個星球的掌管者，她是一名水槍狙擊手，個性有如老虎般兇狠，";
-                content2.innerHTML = "只不過大多時候她是懶惰的，唯有老公出現時，就會提起戒備心"
+                content.innerHTML = "這顆星球有眾多的山峰，";
+                content2.innerHTML = "每一座都很高很高！"
+                content3.innerHTML = ""
                 })
 
-                mmi.addHandler('Star2','dblclick',function(){
-                camera.position.z = 40
-                camera.position.x=-0
-                dialogue.classList.add('hide')
-                buttons.classList.add('hide')
-                buttons.classList.remove('hide')
-                })
 
                 mmi.addHandler('Star','click',function(){
-                camera.position.z = 30
+                camera.position.z = 5
                 camera.position.x= 0
-                camera.position.y=-7
-                content.innerHTML = "大多數時，她會一邊稱讚我們做的很棒，一邊把事情推給我們做，";
-                content2.innerHTML = "真是懶洋洋"
+                camera.position.y=17
+                content.innerHTML = "衛星一直散發著濃濃的發糕香味，";
+                content2.innerHTML = "上面是一個發糕工廠，"
+                content3.innerHTML = "做出來的發糕軟綿又甜絲絲的。"
                 buttons.classList.add('hide')
                 dialogue.classList.remove('hide')
                 })
 
-                mmi.addHandler('Star','dblclick',function(){
-                camera.position.z = 40
-                camera.position.x=-0
-                camera.position.y=0
-                dialogue.classList.add('hide')
-                buttons.classList.remove('hide')
-                })
-
+     
                 mmi.addHandler('Star3','click',function(){
-                camera.position.z = 10
+                camera.position.z = 30
                 camera.position.x=-0
-                camera.position.y= 5
-                content.innerHTML = "星球上空有一顆衛星，上面住了一位耀眼的老公，";
-                content2.innerHTML = "這位星人每天都癡癡地看著他"
+                camera.position.y= -8
+                content.innerHTML = "她對事情都很執著，";
+                content2.innerHTML = "一定要堅持做完"
+                content3.innerHTML = "她現在正在堅持的事情是回家"
                 dialogue.classList.remove('hide')
                 buttons.classList.add('hide')
                 })
 
-                mmi.addHandler('Star3','dblclick',function(){
-                camera.position.z = 40
-                camera.position.x=-0
-                camera.position.y=0
-                dialogue.classList.add('hide')
-                buttons.classList.remove('hide')
-                })
+                
 
                 mmi.addHandler('Star1','click',function(){
                 camera.position.z = 20
                 camera.position.x=13
-                camera.position.y= -5
-                content.innerHTML = "星球上長滿這種植物，可是我們無法得知他的名字";
-                content2.innerHTML = "因為連主人也忘記他的名字了，可是它使得這顆星球看起來生生不息"
+                camera.position.y= 4.5
+                content.innerHTML = "發糕發射女王的家在衛星上，";
+                content2.innerHTML = "所以她每天都拿著天文望遠鏡"
+                content3.innerHTML = ""
                 dialogue.classList.remove('hide')
                 buttons.classList.add('hide')
                 })
 
-                mmi.addHandler('Star1','dblclick',function(){
-                camera.position.z = 40
+     
+
+                const dialogueNext = document.querySelector('.dialogue___btns')
+                dialogueNext.addEventListener('click', ()=>{
+                camera.position.z = 45
                 camera.position.x=-0
                 camera.position.y=0
                 dialogue.classList.add('hide')
                 buttons.classList.remove('hide')
+
                 })
-
-
                 
             })
            

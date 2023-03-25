@@ -219,7 +219,11 @@
             map : BaseColorMap,
             roughness : 0.7,
         })
-
+        const StarMaterial = new THREE.MeshStandardMaterial({
+            color: 0x3A8F96,
+            roughness : 0.7,
+            side : THREE.DoubleSide,
+        })
       
 
              // loading the scene //
@@ -258,8 +262,21 @@
             
               
                 if(child.name == 'star'){
-                    child.material = BaseColor_Mat
+                    child.material = StarMaterial
+
+                    mmi.addHandler('star','mouseenter',function(){
+                    if (child.name === 'star') {
+						child.material = BaseColor_Mat;
+					}
+                    })
+
+                    mmi.addHandler('star','mouseleave',function(){
+                    if (child.name === 'star') {
+						child.material = StarMaterial;
+					}
+                    })
                 }
+          
        
                 if(child.name == 'PlanetScene'){
                     child.material = Scene_Mat 
