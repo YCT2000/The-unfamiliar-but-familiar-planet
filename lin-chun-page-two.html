@@ -33,10 +33,7 @@
                     <li><a href="app.html">應用程式</a></li>
                 </ul>
                 <li id="galaxy"><a href="main.html">行星</a></li>
-                <ul class="galaxy__container">
-                    <li><a href="passional-rapper.html">熱情rapper系</a></li>
-                    <li><a href="coolest-cool.html">cool的酷系</a></li>
-                </ul>
+
                 <li><a href="tower.html">塔台</a></li>
                 <li><a href="explore.html">探索</a></li>
             </ul>
@@ -76,11 +73,7 @@
                         <li><a href="app.html">應用程式</a></li>
                     </ul>
                     <li id="galaxy_mobile"><a href="main.html">行星</a></li>
-                    <ul class="galaxy__container-mobile hide">
-                        <li><a href="main.html">ALL</a></li>
-                        <li><a href="passional-rapper.html">熱情rapper系</a></li>
-                        <li><a href="coolest-cool.html">cool的酷系</a></li>
-                    </ul>
+
                     <li><a href="tower.html">塔台</a></li>
                     <li><a href="explore.html">探索</a></li>
                 </ul>
@@ -93,9 +86,12 @@
         <a href="lin-chun-page-three.html" title="next" class="next"><img src="./img/next.png"></a>
     </div>
     <div class="dialogue hide">
-        <img src="./img/dialogue_rapper.png" class="dialogue__img">
-        <p id="content">0</p>
-        <p id="content-second">0</p>
+        <button class="dialogue___btns"><img id="dialogue___btns-next" src="./img/dialogue_next.png"></button>
+        <img src="./img/dialogue_cool.png" class="dialogue__img">
+        <div class="content-box">
+            <p id="content">0</p>
+            <p id="content-second">0</p>
+        </div>
     </div>
 
     <div class="SparkleStar"><img src="./img/SparkleStar.png"></div>
@@ -352,13 +348,6 @@
                 dialogue.classList.remove('hide')
                 })
 
-                mmi.addHandler('Star','dblclick',function(){
-                camera.position.z = 40
-                camera.position.x=-0
-                camera.position.y=0
-                dialogue.classList.add('hide')
-                buttons.classList.remove('hide')
-                })
 
                 mmi.addHandler('Star2','click',function(){
                 camera.position.z = -20
@@ -370,16 +359,7 @@
                 content2.innerHTML = ""
                 })
 
-                mmi.addHandler('Star2','dblclick',function(){
-                camera.position.z = 40
-                camera.position.y = 0
-                camera.position.x=-0
-                dialogue.classList.add('hide')
-                buttons.classList.add('hide')
-                buttons.classList.remove('hide')
-                })
 
-                
 
                 mmi.addHandler('Star3','click',function(){
                 camera.position.z = -15
@@ -391,13 +371,7 @@
                 buttons.classList.add('hide')
                 })
 
-                mmi.addHandler('Star3','dblclick',function(){
-                camera.position.z = 40
-                camera.position.x=-0
-                camera.position.y=0
-                dialogue.classList.add('hide')
-                buttons.classList.remove('hide')
-                })
+        
 
                 mmi.addHandler('Star1','click',function(){
                 camera.position.z = 5
@@ -409,12 +383,16 @@
                 buttons.classList.add('hide')
                 })
 
-                mmi.addHandler('Star1','dblclick',function(){
+           
+                const dialogueNext = document.querySelector('.dialogue___btns')
+                dialogueNext.addEventListener('click', ()=>{
                 camera.position.z = 40
                 camera.position.x=-0
-                camera.position.y=0
+                camera.position.y=-0
                 dialogue.classList.add('hide')
+       
                 buttons.classList.remove('hide')
+
                 })
 
 

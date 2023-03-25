@@ -662,7 +662,7 @@ input[type="checkbox" i] {
     user-select: none;
 }
 .dialogue__img{width: 50%; position: relative;}
-.content-box{position: absolute; top:5vh; left: 5%; font-family: 'Noto Sans TC', sans-serif; font-size: 1.1vw; line-height: 10px;
+.content-box{position: absolute; top:4vh; left: 3%; font-family: 'Noto Sans TC', sans-serif; font-size: 1.1vw; line-height: 10px;
             font-weight: medium; color: #ffffff; text-align: left;}
 .dialogue___btns{ position: absolute; background-color: transparent; border: none; display: inline; width: 10%; right: 35vw;
                 bottom: 2.5vw; z-index: 99;}
