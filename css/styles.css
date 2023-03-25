@@ -667,7 +667,9 @@ input[type="checkbox" i] {
 .dialogue___btns{ position: absolute; background-color: transparent; border: none; display: inline; width: 10%; right: 35vw;
                 bottom: 2.5vw; z-index: 99;}
 .dialogue___btns:hover{cursor: pointer;}
-
+#dialogue_pageone{display: none;}
+#dialogue_pagetwo{display: none;}
+#dialogue_pagethree{display: none;}
 #dialogue___btns-next{width: 20%;}
 .buttons{ width: 70%; margin:25% 0% 0% 10%;} 
 .buttons img{

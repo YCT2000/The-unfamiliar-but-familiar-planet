@@ -32,10 +32,7 @@
                     <li><a href="app.html">應用程式</a></li>
                 </ul>
                 <li id="galaxy"><a href="main.html">行星</a></li>
-                <ul class="galaxy__container">
-                    <li><a href="passional-rapper.html">熱情rapper系</a></li>
-                    <li><a href="coolest-cool.html">cool的酷系</a></li>
-                </ul>
+    
                 <li><a href="tower.html">塔台</a></li>
                 <li><a href="explore.html">探索</a></li>
             </ul>
@@ -75,11 +72,7 @@
                         <li><a href="app.html">應用程式</a></li>
                     </ul>
                     <li id="galaxy_mobile"><a href="main.html">行星</a></li>
-                    <ul class="galaxy__container-mobile hide">
-                        <li><a href="main.html">ALL</a></li>
-                        <li><a href="passional-rapper.html">熱情rapper系</a></li>
-                        <li><a href="coolest-cool.html">cool的酷系</a></li>
-                    </ul>
+              
                     <li><a href="tower.html">塔台</a></li>
                     <li><a href="explore.html">探索</a></li>
                 </ul>
@@ -217,7 +210,11 @@
             roughness : 0.7,
             skinning: true,
         })
-
+        const StarMaterial = new THREE.MeshStandardMaterial({
+            color: 0x3A8F96,
+            roughness : 0.7,
+            side : THREE.DoubleSide,
+        })
       
         const loadingManager = new THREE.LoadingManager
 
@@ -263,16 +260,68 @@ loadingManager.onLoad = function () {
                     child.material = BaseColor_Mat
                 }
                 if(child.name == 'Star'){
-                    child.material = BaseColor_Mat
+                    child.material = StarMaterial
+
+                    mmi.addHandler('Star','mouseenter',function(){
+                    if (child.name === 'Star') {
+						child.material = BaseColor_Mat;
+					}
+                    })
+
+                    mmi.addHandler('Star','mouseleave',function(){
+                    if (child.name === 'Star') {
+						child.material = StarMaterial;
+					}
+                    })
+
                 }
                 if(child.name == 'Star1'){
-                    child.material = BaseColor_Mat
+                    child.material = StarMaterial
+
+                    mmi.addHandler('Star1','mouseenter',function(){
+                    if (child.name === 'Star1') {
+						child.material = BaseColor_Mat;
+					}
+                    })
+
+                    mmi.addHandler('Star1','mouseleave',function(){
+                    if (child.name === 'Star1') {
+						child.material = StarMaterial;
+					}
+                    })
+
                 }
                 if(child.name == 'Star2'){
-                    child.material = BaseColor_Mat
+                    child.material = StarMaterial
+
+                    mmi.addHandler('Star2','mouseenter',function(){
+                    if (child.name === 'Star2') {
+						child.material = BaseColor_Mat;
+					}
+                    })
+
+                    mmi.addHandler('Star2','mouseleave',function(){
+                    if (child.name === 'Star2') {
+						child.material = StarMaterial;
+					}
+                    })
+
                 }
                 if(child.name == 'Star3'){
-                    child.material = BaseColor_Mat
+                    child.material = StarMaterial
+
+                    mmi.addHandler('Star3','mouseenter',function(){
+                    if (child.name === 'Star3') {
+						child.material = BaseColor_Mat;
+					}
+                    })
+
+                    mmi.addHandler('Star3','mouseleave',function(){
+                    if (child.name === 'Star3') {
+						child.material = StarMaterial;
+					}
+                    })
+
                 }
                 if(child.name == 'cake_house'){
                     child.material = BaseColor_Mat
@@ -301,23 +350,23 @@ loadingManager.onLoad = function () {
                 action2 = mixer.clipAction(gltf2.animations[1])
                 action3 = mixer.clipAction(gltf2.animations[2])
                 action4 = mixer.clipAction(gltf2.animations[3])
-                 /*action5 = mixer.clipAction(gltf2.animations[4])
+                action5 = mixer.clipAction(gltf2.animations[4])
                 action6 = mixer.clipAction(gltf2.animations[5])
                 action7 = mixer.clipAction(gltf2.animations[6])
                 action8 = mixer.clipAction(gltf2.animations[7])
               
                 
-                
-                action5.play()
-                action6.play()
-                action7.play()
-                action8.play()*/
+              
              
                 action2.play()
                 action.play()
                 action3.play()
                 action4.play()
-               
+                 
+                action5.play()
+                action6.play()
+                action7.play()
+                action8.play()
    
 
                 scene.add(gltf2.scene)

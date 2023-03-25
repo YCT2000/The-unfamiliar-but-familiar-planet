@@ -94,12 +94,34 @@
         <a href="cai-yun-page-one.html" title="pervious" class="pervious"><img src="./img/previous.png"></a>
         <a href="cai-yun-page-three.html" title="next" class="next"><img src="./img/next.png"></a>
     </div>
-    <div class="dialogue hide">
-        <button class="dialogue___btns"><img id="dialogue___btns-next" src="./img/dialogue_next.png"></button>
+    <div class="dialogue hide" id="dialogue_pageone">
+        <button class="dialogue___btns" id="next1">
+            <img id="dialogue___btns-next" src="./img/dialogue_next.png">
+        </button>
         <img src="./img/dialogue_cool.png" class="dialogue__img">
         <div class="content-box">
-            <p id="content">0</p>
-            <p id="content-second">0</p>
+            <p id="content">快樂女王把手指插到泥土裡面的時候，</p>
+            <p id="content-second">衛星人這時候生氣地拍掉她的手！:「不要弄髒自己！」</p>
+        </div>
+    </div>
+    <div class="dialogue hide" id="dialogue_pagetwo">
+        <button class="dialogue___btns" id="next2">
+            <img id="dialogue___btns-next" src="./img/dialogue_next.png">
+        </button>
+        <img src="./img/dialogue_cool.png" class="dialogue__img">
+        <div class="content-box">
+            <p id="content-third">可是快樂女王聽得不是很清楚，</p>
+            <p id="content-fourth">也不知道怎樣回應，</p>
+        </div>
+    </div>
+    <div class="dialogue hide" id="dialogue_pagethree">
+        <button class="dialogue___btns" id="next3">
+            <img id="dialogue___btns-next" src="./img/dialogue_next.png">
+        </button>
+        <img src="./img/dialogue_cool.png" class="dialogue__img">
+        <div class="content-box">
+            <p id="content-fifth">只能哈哈兩聲，</p>
+            <p id="content-sixth">她心想可能是衛星人不喜歡？</p>
         </div>
     </div>
 
@@ -186,10 +208,15 @@
         let action5
         let action6
         let action7
+
         const dialogue = document.querySelector('.dialogue')
-        const content = document.getElementById("content")
-        const content2 = document.getElementById("content-second")
         const buttons = document.querySelector('.buttons')
+        const dialogueNext = document.getElementById('next1')
+        const dialogueNext2 = document.getElementById('next2')
+        const dialogueNext3 = document.getElementById('next3')
+        const dialogue_page1 = document.getElementById('dialogue_pageone')
+        const dialogue_page2 = document.getElementById('dialogue_pagetwo')
+        const dialogue_page3 = document.getElementById('dialogue_pagethree')
 
 
         //LinChun material
@@ -311,48 +338,38 @@
                 mixer = new THREE.AnimationMixer(gltf2.scene)
                 action = mixer.clipAction(gltf2.animations[0])
                 action2 = mixer.clipAction(gltf2.animations[1])
+                action3 = mixer.clipAction(gltf2.animations[2])
      
                 action.play()
                 action2.play()
+                action3.play()
                 
                
 
                 scene.add(gltf2.scene)
 
-              
                 mmi.addHandler('Star','click',function(){
-                content.innerHTML = "快樂女王把手指插到泥土裡面的時候";
-                content2.innerHTML = "衛星人這時候生氣地拍掉她的手：「不要弄髒自己！」"
                 buttons.classList.add('hide')
                 dialogue.classList.remove('hide')
-                dialogueNext.style.display = 'block'
+                dialogue_page1.style.display = 'block'
+                dialogue_page2.style.display = 'none'
+                dialogue_page3.style.display = 'none'
+                
                 })
 
-              
-                const dialogueNext = document.querySelector('.dialogue___btns')
-                var clickCourt = 0
                 dialogueNext.addEventListener('click', (event)=>{
-                   clickCourt+= 1
-                   console.log(clickCourt)
-             
-                   if(clickCourt%2 == 0){
-                    content.innerHTML = "只能哈哈兩聲"
-                    content2.innerHTML = "她心想可能是衛星人不喜歡？"
-                    dialogueNext.style.display = 'none'
-                    buttons.classList.remove('hide')
-                   
-                   }
-                  
-                   else{
-                    content.innerHTML = "可是快樂女王聽得不是很清楚"
-                    content2.innerHTML = "也不知道怎樣回應"
-                    dialogueNext.style.display = 'block'
-                    }
-
-                  
+                    dialogue_page1.style.display = 'none'
+                    dialogue_page2.style.display = 'block'
+                })
+                dialogueNext2.addEventListener('click', (event)=>{
+                    dialogue_page2.style.display = 'none'
+                    dialogue_page3.style.display = 'block'
                     
-                  })
-
+                })
+                dialogueNext3.addEventListener('click', (event)=>{
+                    dialogue_page3.style.display = 'none'
+                    buttons.classList.remove('hide')
+                })
                  
                
           

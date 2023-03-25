@@ -32,10 +32,7 @@
                     <li><a href="app.html">應用程式</a></li>
                 </ul>
                 <li id="galaxy"><a href="main.html">行星</a></li>
-                <ul class="galaxy__container">
-                    <li><a href="passional-rapper.html">熱情rapper系</a></li>
-                    <li><a href="coolest-cool.html">cool的酷系</a></li>
-                </ul>
+
                 <li><a href="tower.html">塔台</a></li>
                 <li><a href="explore.html">探索</a></li>
             </ul>
@@ -75,11 +72,7 @@
                         <li><a href="app.html">應用程式</a></li>
                     </ul>
                     <li id="galaxy_mobile"><a href="main.html">行星</a></li>
-                    <ul class="galaxy__container-mobile hide">
-                        <li><a href="main.html">ALL</a></li>
-                        <li><a href="passional-rapper.html">熱情rapper系</a></li>
-                        <li><a href="coolest-cool.html">cool的酷系</a></li>
-                    </ul>
+    
                     <li><a href="tower.html">塔台</a></li>
                     <li><a href="explore.html">探索</a></li>
                 </ul>
@@ -89,13 +82,17 @@
     </div>
     
     <div class="buttons">
-        <a href="yu-lian-page-three.html" title="pervious" class="pervious"><img src="./img/previous.png"></a>
+        <a href="yu-lian-page-two.html" title="pervious" class="pervious"><img src="./img/previous.png"></a>
         <a href="yu-lian-page-four.html" title="next" class="next"><img src="./img/next.png"></a>
     </div>
     <div class="dialogue hide">
-        <img src="./img/dialogue_rapper.png" class="dialogue__img">
-        <p id="content">0</p>
-        <p id="content-second">0</p>
+        <button class="dialogue___btns"><img id="dialogue___btns-next" src="./img/dialogue_next.png"></button>
+        <img src="./img/dialogue_cool.png" class="dialogue__img">
+        <div class="content-box">
+            <p id="content">0</p>
+            <p id="content-second">0</p>
+
+        </div>
     </div>
 
     <div class="SparkleStar"><img src="./img/SparkleStar.png"></div>
@@ -174,6 +171,7 @@
         let action5
         let action6
         let action7
+        let action8
 
 
 
@@ -219,7 +217,11 @@
             roughness : 0.7,
         })
         
-
+        const StarMaterial = new THREE.MeshStandardMaterial({
+            color: 0x3A8F96,
+            roughness : 0.7,
+            side : THREE.DoubleSide,
+        })
         const AstronantMap = new THREE.TextureLoader().load('./3Dmodels/PlanetC_Ani/astronantBaseColor.png')
         AstronantMap.flipY = false;
         Astounant_Mat = new THREE.MeshStandardMaterial({
@@ -266,17 +268,22 @@ loadingManager.onLoad = function () {
                     child.material = BaseColor_Mat
                 }
                 if(child.name == 'Star'){
-                    child.material = BaseColor_Mat
+                    child.material = StarMaterial
+
+                    mmi.addHandler('Star','mouseenter',function(){
+                    if (child.name === 'Star') {
+						child.material = BaseColor_Mat;
+					}
+                    })
+
+                    mmi.addHandler('Star','mouseleave',function(){
+                    if (child.name === 'Star') {
+						child.material = StarMaterial;
+					}
+                    })
+
                 }
-                if(child.name == 'Star1'){
-                    child.material = BaseColor_Mat
-                }
-                if(child.name == 'Star2'){
-                    child.material = BaseColor_Mat
-                }
-                if(child.name == 'Star3'){
-                    child.material = BaseColor_Mat
-                }
+    
                 if(child.name == 'cake'){
                     child.material = BaseColor_Mat
                 }
@@ -326,6 +333,7 @@ loadingManager.onLoad = function () {
                 action5= mixer.clipAction(gltf2.animations[4])
                 action6 = mixer.clipAction(gltf2.animations[5])
                 action7 = mixer.clipAction(gltf2.animations[6])
+                action8 = mixer.clipAction(gltf2.animations[7])
                 action.play()
                 action2.play()
                 action3.play()
@@ -333,81 +341,27 @@ loadingManager.onLoad = function () {
                 action5.play()
                 action6.play()
                 action7.play()
+                action8.play()
         
                 
                 scene.add(gltf2.scene)
 
-                mmi.addHandler('Star2','click',function(){
-                camera.position.z = 20
-                camera.position.x=-20
-                dialogue.classList.remove('hide')
-                buttons.classList.add('hide')
-                content.innerHTML = "這個星球的掌管者，她是一名水槍狙擊手，個性有如老虎般兇狠，";
-                content2.innerHTML = "只不過大多時候她是懶惰的，唯有老公出現時，就會提起戒備心"
-                })
-
-                mmi.addHandler('Star2','dblclick',function(){
-                camera.position.z = 40
-                camera.position.x=-0
-                dialogue.classList.add('hide')
-                buttons.classList.add('hide')
-                buttons.classList.remove('hide')
-                })
-
+              
                 mmi.addHandler('Star','click',function(){
-                camera.position.z = 30
-                camera.position.x= 0
-                camera.position.y=-7
-                content.innerHTML = "大多數時，她會一邊稱讚我們做的很棒，一邊把事情推給我們做，";
-                content2.innerHTML = "真是懶洋洋"
+                content.innerHTML = "大家一起開開心心地享用著香甜的發糕。";
+                content2.innerHTML = ""
                 buttons.classList.add('hide')
                 dialogue.classList.remove('hide')
+   
                 })
 
-                mmi.addHandler('Star','dblclick',function(){
-                camera.position.z = 40
-                camera.position.x=-0
-                camera.position.y=0
+                const dialogueNext = document.querySelector('.dialogue___btns')
+                dialogueNext.addEventListener('click', ()=>{
                 dialogue.classList.add('hide')
+     
                 buttons.classList.remove('hide')
-                })
 
-                mmi.addHandler('Star3','click',function(){
-                camera.position.z = 10
-                camera.position.x=-0
-                camera.position.y= 5
-                content.innerHTML = "星球上空有一顆衛星，上面住了一位耀眼的老公，";
-                content2.innerHTML = "這位星人每天都癡癡地看著他"
-                dialogue.classList.remove('hide')
-                buttons.classList.add('hide')
                 })
-
-                mmi.addHandler('Star3','dblclick',function(){
-                camera.position.z = 40
-                camera.position.x=-0
-                camera.position.y=0
-                dialogue.classList.add('hide')
-                buttons.classList.remove('hide')
-                })
-
-                mmi.addHandler('Star1','click',function(){
-                camera.position.z = 20
-                camera.position.x=13
-                camera.position.y= -5
-                content.innerHTML = "星球上長滿這種植物，可是我們無法得知他的名字";
-                content2.innerHTML = "因為連主人也忘記他的名字了，可是它使得這顆星球看起來生生不息"
-                dialogue.classList.remove('hide')
-                buttons.classList.add('hide')
-                })
-
-                mmi.addHandler('Star1','dblclick',function(){
-                camera.position.z = 40
-                camera.position.x=-0
-                camera.position.y=0
-                dialogue.classList.add('hide')
-                buttons.classList.remove('hide')
-                })
-
 
                 
             })

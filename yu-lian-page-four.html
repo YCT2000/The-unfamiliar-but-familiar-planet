@@ -32,10 +32,7 @@
                     <li><a href="app.html">應用程式</a></li>
                 </ul>
                 <li id="galaxy"><a href="main.html">行星</a></li>
-                <ul class="galaxy__container">
-                    <li><a href="passional-rapper.html">熱情rapper系</a></li>
-                    <li><a href="coolest-cool.html">cool的酷系</a></li>
-                </ul>
+    
                 <li><a href="tower.html">塔台</a></li>
                 <li><a href="explore.html">探索</a></li>
             </ul>
@@ -75,11 +72,7 @@
                         <li><a href="app.html">應用程式</a></li>
                     </ul>
                     <li id="galaxy_mobile"><a href="main.html">行星</a></li>
-                    <ul class="galaxy__container-mobile hide">
-                        <li><a href="main.html">ALL</a></li>
-                        <li><a href="passional-rapper.html">熱情rapper系</a></li>
-                        <li><a href="coolest-cool.html">cool的酷系</a></li>
-                    </ul>
+   
                     <li><a href="tower.html">塔台</a></li>
                     <li><a href="explore.html">探索</a></li>
                 </ul>
@@ -92,10 +85,26 @@
         <a href="yu-lian-page-three.html" title="pervious" class="pervious"><img src="./img/previous.png"></a>
         <a href="yulian-introduction" title="next" class="next"><img src="./img/next.png"></a>
     </div>
-    <div class="dialogue hide">
-        <img src="./img/dialogue_rapper.png" class="dialogue__img">
-        <p id="content">0</p>
-        <p id="content-second">0</p>
+    <div class="dialogue hide" id="dialogue_pageone">
+        <button class="dialogue___btns" id="next1">
+            <img id="dialogue___btns-next" src="./img/dialogue_next.png">
+        </button>
+        <img src="./img/dialogue_cool.png" class="dialogue__img">
+        <div class="content-box">
+            <p id="content">衛星人坐著火箭降落在這顆星球上，</p>
+            <p id="content-second">和太空探索員打了招呼，</p>
+            <p id="content-third">並謝謝他們陪伴發糕發射女王，</p>
+        </div>
+    </div>
+    <div class="dialogue hide" id="dialogue_pagetwo">
+        <button class="dialogue___btns" id="next2">
+            <img id="dialogue___btns-next" src="./img/dialogue_next.png">
+        </button>
+        <img src="./img/dialogue_cool.png" class="dialogue__img">
+        <div class="content-box">
+             <p id="content-fourth">然後牽著她的手，</p>
+             <p id="content-fourth">搭上火箭開開心心回衛星球！</p>
+        </div>
     </div>
 
     <div class="SparkleStar"><img src="./img/SparkleStar.png"></div>
@@ -129,7 +138,8 @@
 
         //camera
         const camera = new THREE.PerspectiveCamera(35, sizes.width/ sizes.height, 0.1 ,2000)
-        camera.position.z = 40
+        camera.position.z = 50
+        camera.position.y = -1
         scene.add(camera)
 
         //renderer setting
@@ -171,15 +181,14 @@
         let action5
         let action6
         let action7
-
-
-
-
+        let action8
 
         const dialogue = document.querySelector('.dialogue')
-        const content = document.getElementById("content")
-        const content2 = document.getElementById("content-second")
         const buttons = document.querySelector('.buttons')
+        const dialogueNext = document.getElementById('next1')
+        const dialogueNext2 = document.getElementById('next2')
+        const dialogue_page1 = document.getElementById('dialogue_pageone')
+        const dialogue_page2 = document.getElementById('dialogue_pagetwo')
         //LinChun material
         const YuLianMap = new THREE.TextureLoader().load('./3Dmodels/PlanetC_Ani/YuLian_BaseColor.png')
         YuLianMap.flipY = false;
@@ -223,6 +232,12 @@
             map : AstronantMap,
             skinning: true,
             roughness : 0.7,
+        })
+
+        const StarMaterial = new THREE.MeshStandardMaterial({
+            color: 0x3A8F96,
+            roughness : 0.7,
+            side : THREE.DoubleSide,
         })
       
         const loadingManager = new THREE.LoadingManager
@@ -277,99 +292,63 @@ loadingManager.onLoad = function () {
                 if(child.name == 'leader'){
                     child.material = Astounant_Mat
                 }
+                if(child.name == 'Star'){
+                    child.material = StarMaterial
+
+                    mmi.addHandler('Star','mouseenter',function(){
+                    if (child.name === 'Star') {
+						child.material = BaseColor_Mat;
+					}
+                    })
+
+                    mmi.addHandler('Star','mouseleave',function(){
+                    if (child.name === 'Star') {
+						child.material = StarMaterial;
+					}
+                    })
+
+                }
                 mixer = new THREE.AnimationMixer(gltf2.scene)
                 action = mixer.clipAction(gltf2.animations[0])
                 action2 = mixer.clipAction(gltf2.animations[1])
                 action3= mixer.clipAction(gltf2.animations[2])
                 action4 = mixer.clipAction(gltf2.animations[3])
-      
+                action5 = mixer.clipAction(gltf2.animations[4])
                 action.play()
                 action2.play()
                 action3.play()
                 action4.play()
+                action5.play()
           
         
                 
               
                 scene.add(gltf2.scene)
 
-                mmi.addHandler('Star2','click',function(){
-                camera.position.z = 20
-                camera.position.x=-20
-                dialogue.classList.remove('hide')
-                buttons.classList.add('hide')
-                content.innerHTML = "這個星球的掌管者，她是一名水槍狙擊手，個性有如老虎般兇狠，";
-                content2.innerHTML = "只不過大多時候她是懶惰的，唯有老公出現時，就會提起戒備心"
-                })
-
-                mmi.addHandler('Star2','dblclick',function(){
-                camera.position.z = 40
-                camera.position.x=-0
-                dialogue.classList.add('hide')
-                buttons.classList.add('hide')
-                buttons.classList.remove('hide')
-                })
-
                 mmi.addHandler('Star','click',function(){
-                camera.position.z = 30
-                camera.position.x= 0
-                camera.position.y=-7
-                content.innerHTML = "大多數時，她會一邊稱讚我們做的很棒，一邊把事情推給我們做，";
-                content2.innerHTML = "真是懶洋洋"
                 buttons.classList.add('hide')
                 dialogue.classList.remove('hide')
-                })
-
-                mmi.addHandler('Star','dblclick',function(){
-                camera.position.z = 40
-                camera.position.x=-0
-                camera.position.y=0
-                dialogue.classList.add('hide')
-                buttons.classList.remove('hide')
-                })
-
-                mmi.addHandler('Star3','click',function(){
-                camera.position.z = 10
-                camera.position.x=-0
-                camera.position.y= 5
-                content.innerHTML = "星球上空有一顆衛星，上面住了一位耀眼的老公，";
-                content2.innerHTML = "這位星人每天都癡癡地看著他"
-                dialogue.classList.remove('hide')
-                buttons.classList.add('hide')
-                })
-
-                mmi.addHandler('Star3','dblclick',function(){
-                camera.position.z = 40
-                camera.position.x=-0
-                camera.position.y=0
-                dialogue.classList.add('hide')
-                buttons.classList.remove('hide')
-                })
-
-                mmi.addHandler('Star1','click',function(){
-                camera.position.z = 20
-                camera.position.x=13
-                camera.position.y= -5
-                content.innerHTML = "星球上長滿這種植物，可是我們無法得知他的名字";
-                content2.innerHTML = "因為連主人也忘記他的名字了，可是它使得這顆星球看起來生生不息"
-                dialogue.classList.remove('hide')
-                buttons.classList.add('hide')
-                })
-
-                mmi.addHandler('Star1','dblclick',function(){
-                camera.position.z = 40
-                camera.position.x=-0
-                camera.position.y=0
-                dialogue.classList.add('hide')
-                buttons.classList.remove('hide')
-                })
-
-
+                dialogue_page1.style.display = 'block'
+                dialogue_page2.style.display = 'none'
+                dialogue_page3.style.display = 'none'
                 
-            })
+                })
+
+                dialogueNext.addEventListener('click', (event)=>{
+                    dialogue_page1.style.display = 'none'
+                    dialogue_page2.style.display = 'block'
+                })
+                dialogueNext2.addEventListener('click', (event)=>{
+                    dialogue_page2.style.display = 'none'
+                    buttons.classList.remove('hide')
+                    
+                })
+                 
+          
+       
            
             
-        })
+        }) })
        
         //rendering progress
         function animate(){
