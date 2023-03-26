@@ -19,42 +19,65 @@
 <body class="explore__body">
 
  
-    <div class="nav-div">
-        <img src="./img/logo.png" class="nav__logo">
-      
-     
-        <div class="navContainer hide" >
+         
+  <div class="nav-div">
+    <img src="./img/logo.png" class="nav__logo">
+  
+ 
+    <div class="navContainer hide" >
+    <nav> 
+        <ul class="navLinks ">
+            <li id="base"><a href="">基地</a></li>
+            <ul class="base__container">
+                <li><a href="branding.html">品牌介紹</a></li>
+                <li><a href="cooperative-association.html">合作協會</a></li>
+            </ul>
+            <li id="galaxy"><a href="main.html">行星</a></li>
+            <li><a href="tower.html">塔台</a></li>
+            <li><a href="explore.html">探索</a></li>
+        </ul>
+
+    </nav>
+    </div>
+    <button class="hamburger">
+        <div class="burger"></div>
+        <div class="burger"></div>
+        <div class="burger"></div>
+    </button>
+
+    <button class="closeNav hide" >
+        <div class="burger1"></div>
+        <div class="burger2"></div>
+        
+    </button>
+    
+</div>
+
+<div class="mobile__nav">
+    <button class="hamburger-mobile">
+        <div class="burger-mobile"></div>
+        <div class="burger-mobile"></div>
+        <div class="burger-mobile"></div>
+    </button>
+
+
+
+    <div class="navContainer_mobile" >
         <nav> 
-            <ul class="navLinks ">
-                <li><a href="">基地</a></li>
-                <li id="galaxy"><a href="main.html">行星</a></li>
+            <ul class="navLinks_mobile hide">
+                <li id="base_mobile"><a href="">基地</a></li>
+                <ul class="base__container-mobile hide">
+                    <li><a href="branding.html">品牌介紹</a></li>
+                    <li><a href="cooperative-association.html">合作協會</a></li>
+                </ul>
+                <li id="galaxy_mobile"><a href="main.html">行星</a></li>
                 <li><a href="tower.html">塔台</a></li>
                 <li><a href="explore.html">探索</a></li>
             </ul>
 
-            <ul class="galaxy__container">
-                <li><a href="">熱情rapper系</a></li>
-                <li><a href="">cool的酷系</a></li>
-            </ul>
-
-            <ul class="explore__container">
-                <li><a href="branding.html">品牌介紹</a></li>
-                <li><a href="cooperative-association.html">合作協會</a></li>
-            </ul>
         </nav>
         </div>
-        <button class="hamburger">
-            <div class="burger"></div>
-            <div class="burger"></div>
-            <div class="burger"></div>
-        </button>
-    
-        <button class="closeNav hide" >
-            <div class="burger1"></div>
-            <div class="burger2"></div>
-            
-        </button>
-    </div>
+</div>
     <section class="cooperative">
     <div class="cooperative__section clearfix">
       <div class="img-container"><img class="cooperative__logo" src="./img/cooperate/cooperative-logo.png"></div>

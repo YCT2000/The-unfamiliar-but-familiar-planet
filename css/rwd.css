@@ -1,18 +1,22 @@
 
 @media (min-width: 1280px) {
     .mobile__nav{display: none;}
-    
+    .branding-imglist{ display: flex;}
     
 }
 @media (max-width: 1280px) {
     .mobile__nav{display: none;}
-    /* nav */
-   
+    .entryAni{content:url('../Video/1280.gif'); width: 100vh;  background-size:100% auto; background-position-y: 5%;}
 
+    /* nav */
+    .nav__logo{  width: 12rem; margin-top: 5%; margin-left: 9vw; z-index: 5;}
+    .navContainer{left: 30%; margin: 50px 30px;} 
+    .base__container{left: 6%;}
     /*探索*/
     .survey{margin: 15% 10% 111px; width: 50%;}
     .planet{padding-top: 40px;}
-    .FirstHeading{font-size: 4rem;}
+    .FirstHeading{font-size: 3rem;}
+    .description{padding-right: 6vw;}
     /*app*/
     .app__section{margin: 15vh 0; overflow-x: hidden;}
     .app__section p{font-family: 'Noto Sans TC', sans-serif; font-size: 1vw; line-height: 5vh;
@@ -30,6 +34,8 @@
     .btn-casual{left: -1.5vw; top: 16vh;}
     .content-introduction img{margin-bottom: 3vh;}
     .content-introduction h1{margin-bottom: 4vh;}
+
+
     
 }
 
@@ -162,7 +168,7 @@
         margin-bottom: 99px;
         line-height: 2em;
     }
-
+    .branding-imglist{ display: block;}
     /* cooperative */
     .img-container{display: inline-block;  padding: 5vw;}
     .cooperative__imglist{margin: 0; width: 100%;}

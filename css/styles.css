@@ -13,7 +13,7 @@ div{box-sizing: border-box;}
 
 /* intro */
 .loader-wrapper img{z-index: 99;}
-.entryAni{overflow: hidden; background-image:url('../Video/entry_ani.gif'); width: 100vh;  background-size:100% auto; background-position-y: 5%;}
+.entryAni{overflow: hidden; background-image:url('../Video/1280.gif'); width: 100vh;  background-size:100% auto; background-position-y: 5%;}
 #introBackground{  display: flex; justify-content: center; align-items: center; opacity: 30%;}
 #sparkleStar-img{z-index: -2; width: 100%; position: fixed; top: 0; opacity: 0.7; animation: Sparkling 4s infinite;}
 .entry{position: absolute; display: flex; top: 30%; left: 15%;}
