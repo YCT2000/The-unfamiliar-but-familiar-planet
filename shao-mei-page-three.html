@@ -341,11 +341,12 @@ loadingManager.onLoad = function () {
                 })
                 dialogueNext2.addEventListener('click', (event)=>{
                     dialogue_page2.style.display = 'none'
-                    dialogue_page3.style.display = 'none'
-                    buttons.classList.remove('hide')
+                    dialogue_page3.style.display = 'block'
+                   
                 })
                 dialogueNext3.addEventListener('click', (event)=>{
                     dialogue_page3.style.display = 'none'
+                    buttons.classList.remove('hide')
                 })
                 
             })
