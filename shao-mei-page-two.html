@@ -11,14 +11,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500&family=Open+Sans:wght@500&display=swap" rel="stylesheet">
     <link href="./css/styles.css" rel="stylesheet"> 
     <link href="./css/rwd.css" rel="stylesheet"> 
-    <title>最熟悉的陌生星球</title>
+    <title>睡睡平安星球</title>
 </head>
 <body style="overflow: hidden;">
 
     <div class="loader-wrapper ">
         <img width="100%" src="./Video/LoadingMP4.gif"></img>
      </div>
-
      <div class="nav-div">
         <img src="./img/logo.png" class="nav__logo">
       
@@ -30,12 +29,10 @@
                 <ul class="base__container">
                     <li><a href="branding.html">品牌介紹</a></li>
                     <li><a href="cooperative-association.html">合作協會</a></li>
+                    <li><a href="app.html">應用程式</a></li>
                 </ul>
                 <li id="galaxy"><a href="main.html">行星</a></li>
-                <ul class="galaxy__container">
-                    <li><a href="passional-rapper.html">熱情rapper系</a></li>
-                    <li><a href="coolest-cool.html">cool的酷系</a></li>
-                </ul>
+                
                 <li><a href="tower.html">塔台</a></li>
                 <li><a href="explore.html">探索</a></li>
             </ul>
@@ -72,12 +69,10 @@
                     <ul class="base__container-mobile hide">
                         <li><a href="branding.html">品牌介紹</a></li>
                         <li><a href="cooperative-association.html">合作協會</a></li>
+                        <li><a href="app.html">應用程式</a></li>
                     </ul>
                     <li id="galaxy_mobile"><a href="main.html">行星</a></li>
-                    <ul class="galaxy__container-mobile hide">
-                        <li><a href="passional-rapper.html">熱情rapper系</a></li>
-                        <li><a href="coolest-cool.html">cool的酷系</a></li>
-                    </ul>
+                   
                     <li><a href="tower.html">塔台</a></li>
                     <li><a href="explore.html">探索</a></li>
                 </ul>
@@ -91,10 +86,37 @@
         <a href="shao-mei-page-one.html" title="pervious" class="pervious"><img src="./img/previous.png"></a>
         <a href="shao-mei-page-three.html" title="next" class="next"><img src="./img/next.png"></a>
     </div>
-    <div class="dialogue hide">
-        <img src="./img/dialogue.png" class="dialogue__img">
-        <p id="content">0</p>
-        <p id="content-second">0</p>
+
+    <div class="dialogue hide" id="dialogue_pageone">
+        <button class="dialogue___btns" id="next1">
+            <img id="dialogue___btns-next" src="./img/dialogue_next.png">
+        </button>
+        <img src="./img/dialogue_cool.png" class="dialogue__img">
+        <div class="content-box">
+            <p id="content">晚上是萬物進入甜蜜的夢境之</p>
+            <p id="content-second">閉目養神公主卻遲遲無法入睡。</p>
+        </div>
+    </div>
+    <div class="dialogue hide" id="dialogue_pagetwo">
+        <button class="dialogue___btns" id="next2">
+            <img id="dialogue___btns-next" src="./img/dialogue_next.png">
+        </button>
+        <img src="./img/dialogue_cool.png" class="dialogue__img">
+        <div class="content-box">
+            <p id="content-third">即使入睡了，嘈雜的風聲和蟬叫聲、</p>
+            <p id="content-fourth">過於耀眼的星光都會把她吵醒，或者有不安分的蟲子爬到她的腳，</p>
+            <p>即使不斷甩動她的腳也無法把這樣的痕癢感消失。</p>
+        </div>
+    </div>
+    <div class="dialogue hide" id="dialogue_pagethree">
+        <button class="dialogue___btns" id="next3">
+            <img id="dialogue___btns-next" src="./img/dialogue_next.png">
+        </button>
+        <img src="./img/dialogue_cool.png" class="dialogue__img">
+        <div class="content-box">
+            <p id="content-fifth">直到太陽升起照亮大地，</p>
+            <p id="content-sixth">她終於睡過去了。</p>
+        </div>
     </div>
 
     <div class="SparkleStar"><img src="./img/SparkleStar.png"></div>
@@ -169,9 +191,14 @@
         let action2
         let action3
         const dialogue = document.querySelector('.dialogue')
-        const content = document.getElementById("content")
-        const content2 = document.getElementById("content-second")
         const buttons = document.querySelector('.buttons')
+        const dialogueNext = document.getElementById('next1')
+        const dialogueNext2 = document.getElementById('next2')
+        const dialogueNext3 = document.getElementById('next3')
+        const dialogue_page1 = document.getElementById('dialogue_pageone')
+        const dialogue_page2 = document.getElementById('dialogue_pagetwo')
+        const dialogue_page3 = document.getElementById('dialogue_pagethree')
+
         //ShaoMei material
         const ShaoMeiMap = new THREE.TextureLoader().load('./3Dmodels/PlanetF_Ani/ShaoMei_BaseColor.png')
         ShaoMeiMap.flipY = false;
@@ -202,7 +229,12 @@
             skinning: true,
         })
 
-      
+        const StarMaterial = new THREE.MeshStandardMaterial({
+            color: 0x3A8F96,
+            roughness : 0.7,
+            side : THREE.DoubleSide,
+        })
+       
 
 
         const loadingManager = new THREE.LoadingManager
@@ -239,9 +271,21 @@ loadingManager.onLoad = function () {
                 }
          
                 if(child.name == 'Star'){
-                    child.material = BaseColor_Mat
-                }
+                    child.material = StarMaterial
 
+                    mmi.addHandler('Star','mouseenter',function(){
+                    if (child.name === 'Star') {
+						child.material = BaseColor_Mat;
+					}
+                    })
+
+                    mmi.addHandler('Star','mouseleave',function(){
+                    if (child.name === 'Star') {
+						child.material = StarMaterial;
+					}
+                    })
+
+                }
                 if(child.name == 'PlanetScene'){
                     child.material = Scene_Mat 
                 }             
@@ -256,9 +300,13 @@ loadingManager.onLoad = function () {
                 action = mixer.clipAction(gltf2.animations[0])
                 action2 = mixer.clipAction(gltf2.animations[1])
                 action3 = mixer.clipAction(gltf2.animations[2])
+                action4 = mixer.clipAction(gltf2.animations[3])
+
                 action.play()
                 action2.play()
                 action3.play()
+                action4.play()
+
                
    
 
@@ -266,6 +314,29 @@ loadingManager.onLoad = function () {
                 scene.add(gltf2.scene)
 
        
+                mmi.addHandler('Star','click',function(){
+                buttons.classList.add('hide')
+                dialogue.classList.remove('hide')
+                dialogue_page1.style.display = 'block'
+                dialogue_page2.style.display = 'none'
+                dialogue_page3.style.display = 'none'
+                
+                })
+
+                dialogueNext.addEventListener('click', (event)=>{
+                    dialogue_page1.style.display = 'none'
+                    dialogue_page2.style.display = 'block'
+                })
+                dialogueNext2.addEventListener('click', (event)=>{
+                    dialogue_page2.style.display = 'none'
+                    dialogue_page3.style.display = 'block'
+                    
+                })
+                dialogueNext3.addEventListener('click', (event)=>{
+                    dialogue_page3.style.display = 'none'
+                    buttons.classList.remove('hide')
+                })
+                 
 
                 
             })

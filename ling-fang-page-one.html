@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500&family=Open+Sans:wght@500&display=swap" rel="stylesheet">
     <link href="./css/styles.css" rel="stylesheet"> 
     <link href="./css/rwd.css" rel="stylesheet"> 
-    <title>最熟悉的陌生星球</title>
+    <title>玲玲玲星球</title>
 </head>
 <body style="overflow: hidden;">
 
@@ -32,10 +32,7 @@
                     <li><a href="app.html">應用程式</a></li>
                 </ul>
                 <li id="galaxy"><a href="main.html">行星</a></li>
-                <ul class="galaxy__container">
-                    <li><a href="passional-rapper.html">熱情rapper系</a></li>
-                    <li><a href="coolest-cool.html">cool的酷系</a></li>
-                </ul>
+           
                 <li><a href="tower.html">塔台</a></li>
                 <li><a href="explore.html">探索</a></li>
             </ul>
@@ -75,11 +72,7 @@
                         <li><a href="app.html">應用程式</a></li>
                     </ul>
                     <li id="galaxy_mobile"><a href="main.html">行星</a></li>
-                    <ul class="galaxy__container-mobile hide">
-                        <li><a href="main.html">ALL</a></li>
-                        <li><a href="passional-rapper.html">熱情rapper系</a></li>
-                        <li><a href="coolest-cool.html">cool的酷系</a></li>
-                    </ul>
+              
                     <li><a href="tower.html">塔台</a></li>
                     <li><a href="explore.html">探索</a></li>
                 </ul>
@@ -94,10 +87,35 @@
         <a href="intro-ling-fang.html" title="pervious" class="pervious"><img src="./img/previous.png"></a>
         <a href="ling-fang-page-two.html" title="next" class="next"><img src="./img/next.png"></a>
     </div>
-    <div class="dialogue hide">
-        <img src="./img/dialogue_rapper.png" class="dialogue__img">
-        <p id="content">0</p>
-        <p id="content-second">0</p>
+    <div class="dialogue hide" id="dialogue_pageone">
+        <button class="dialogue___btns" id="next1">
+            <img id="dialogue___btns-next" src="./img/dialogue_next.png">
+        </button>
+        <img src="./img/dialogue_cool.png" class="dialogue__img">
+        <div class="content-box">
+            <p id="content">0</p>
+            <p id="content-second">0</p>
+        </div>
+    </div>
+    <div class="dialogue hide" id="dialogue_pagetwo">
+        <button class="dialogue___btns" id="next2">
+            <img id="dialogue___btns-next" src="./img/dialogue_next.png">
+        </button>
+        <img src="./img/dialogue_cool.png" class="dialogue__img">
+        <div class="content-box">
+            <p id="content-third">0</p>
+            <p id="content-fourth">0</p>
+        </div>
+    </div>
+    <div class="dialogue hide" id="dialogue_pagethree">
+        <button class="dialogue___btns" id="next3">
+            <img id="dialogue___btns-next" src="./img/dialogue_next.png">
+        </button>
+        <img src="./img/dialogue_cool.png" class="dialogue__img">
+        <div class="content-box">
+            <p id="content-fifth">0</p>
+            <p id="content-sixth">0</p>
+        </div>
     </div>
 
     <div class="SparkleStar"><img src="./img/SparkleStar.png"></div>
@@ -183,9 +201,20 @@
         let action6
         let action7
         const dialogue = document.querySelector('.dialogue')
-        const content = document.getElementById("content")
-        const content2 = document.getElementById("content-second")
         const buttons = document.querySelector('.buttons')
+        const dialogueNext = document.getElementById('next1')
+        const dialogueNext2 = document.getElementById('next2')
+        const dialogueNext3 = document.getElementById('next3')
+        const dialogue_page1 = document.getElementById('dialogue_pageone')
+        const dialogue_page2 = document.getElementById('dialogue_pagetwo')
+        const dialogue_page3 = document.getElementById('dialogue_pagethree')
+        const content1 = document.getElementById('content')
+        const content2 = document.getElementById('content-second')
+        const content3 = document.getElementById('content-third')
+        const content4 = document.getElementById('content-fourth')
+        const content5 = document.getElementById('content-fifth')
+        const content6 = document.getElementById('content-sixth')
+
 
         var manager = new THREE.LoadingManager(); 
 manager.onStart = function ( url, itemsLoaded, itemsTotal ) { 
@@ -246,7 +275,12 @@ manager.onError = function ( url ) {
         })
 
       
-
+        const StarMaterial = new THREE.MeshStandardMaterial({
+            color: 0x3A8F96,
+            roughness : 0.7,
+            side : THREE.DoubleSide,
+        })
+        
     
         // loading the scene //
         const loadingManager = new THREE.LoadingManager
@@ -291,16 +325,68 @@ manager.onError = function ( url ) {
                     child.material = LingFang_Mat 
                 }
                 if(child.name == 'Star'){
-                    child.material = BaseColor_Mat
+                    child.material = StarMaterial
+
+                    mmi.addHandler('Star','mouseenter',function(){
+                    if (child.name === 'Star') {
+						child.material = BaseColor_Mat;
+					}
+                    })
+
+                    mmi.addHandler('Star','mouseleave',function(){
+                    if (child.name === 'Star') {
+						child.material = StarMaterial;
+					}
+                    })
+
                 }
                 if(child.name == 'Star1'){
-                    child.material = BaseColor_Mat
+                    child.material = StarMaterial
+
+                    mmi.addHandler('Star1','mouseenter',function(){
+                    if (child.name === 'Star1') {
+						child.material = BaseColor_Mat;
+					}
+                    })
+
+                    mmi.addHandler('Star1','mouseleave',function(){
+                    if (child.name === 'Star1') {
+						child.material = StarMaterial;
+					}
+                    })
+
                 }
                 if(child.name == 'Star2'){
-                    child.material = BaseColor_Mat
+                    child.material = StarMaterial
+
+                    mmi.addHandler('Star2','mouseenter',function(){
+                    if (child.name === 'Star2') {
+						child.material = BaseColor_Mat;
+					}
+                    })
+
+                    mmi.addHandler('Star2','mouseleave',function(){
+                    if (child.name === 'Star2') {
+						child.material = StarMaterial;
+					}
+                    })
+
                 }
                 if(child.name == 'Star3'){
-                    child.material = BaseColor_Mat
+                    child.material = StarMaterial
+
+                    mmi.addHandler('Star3','mouseenter',function(){
+                    if (child.name === 'Star3') {
+						child.material = BaseColor_Mat;
+					}
+                    })
+
+                    mmi.addHandler('Star3','mouseleave',function(){
+                    if (child.name === 'Star3') {
+						child.material = StarMaterial;
+					}
+                    })
+
                 }
                 if(child.name == 'PlanetScene'){
                     child.material = Scene_Mat 
@@ -360,81 +446,92 @@ manager.onError = function ( url ) {
                 scene.add(gltf2.scene)
 
                 mmi.addHandler('Star2','click',function(){
-                camera.position.z = 20
-                camera.position.x=-20
-                dialogue.classList.remove('hide')
+                camera.position.z = 15
+                camera.position.y = -3
+                camera.position.x=-22
                 buttons.classList.add('hide')
-                content.innerHTML = "這個星球的掌管者，她是一名水槍狙擊手，個性有如老虎般兇狠，";
-                content2.innerHTML = "只不過大多時候她是懶惰的，唯有老公出現時，就會提起戒備心"
+                dialogue.classList.remove('hide')
+                dialogue_page1.style.display = 'block'
+                dialogue_page2.style.display = 'none'
+                dialogue_page3.style.display = 'none'
+                content1.innerHTML =  '花朵的花瓣都是一隻手比心心的形狀，' 
+                content2.innerHTML = "看上去讓人心情很好，"
+                content3.innerHTML =  '這裡的蘋果都是紅黑相間，' 
+                content4.innerHTML = "而且有藍色的香菇。"
                 })
 
-                mmi.addHandler('Star2','dblclick',function(){
-                camera.position.z = 40
-                camera.position.x=-0
-                dialogue.classList.add('hide')
-                buttons.classList.add('hide')
-                buttons.classList.remove('hide')
-                })
+              
 
                 mmi.addHandler('Star','click',function(){
-                camera.position.z = 30
+                camera.position.z = 25
                 camera.position.x= 0
-                camera.position.y=-7
-                content.innerHTML = "大多數時，她會一邊稱讚我們做的很棒，一邊把事情推給我們做，";
-                content2.innerHTML = "真是懶洋洋"
+                camera.position.y=-4
                 buttons.classList.add('hide')
                 dialogue.classList.remove('hide')
+                dialogue_page1.style.display = 'block'
+                dialogue_page2.style.display = 'none'
+                dialogue_page3.style.display = 'none'
+                content1.innerHTML =  '這顆星球跟名字一樣，' 
+                content2.innerHTML = "當太空人踏上這片土地的時候，"
+                content3.innerHTML =  '每走一步都會發出微微的清脆鈴鐺聲音。' 
+                content4.innerHTML = ""
+
                 })
 
-                mmi.addHandler('Star','dblclick',function(){
-                camera.position.z = 40
-                camera.position.x=-0
-                camera.position.y=0
-                dialogue.classList.add('hide')
-                buttons.classList.remove('hide')
-                })
+     
 
                 mmi.addHandler('Star3','click',function(){
                 camera.position.z = 10
                 camera.position.x=-0
                 camera.position.y= 5
-                content.innerHTML = "星球上空有一顆衛星，上面住了一位耀眼的老公，";
-                content2.innerHTML = "這位星人每天都癡癡地看著他"
-                dialogue.classList.remove('hide')
                 buttons.classList.add('hide')
-                })
-
-                mmi.addHandler('Star3','dblclick',function(){
-                camera.position.z = 40
-                camera.position.x=-0
-                camera.position.y=0
-                dialogue.classList.add('hide')
-                buttons.classList.remove('hide')
-                })
-
-                mmi.addHandler('Star1','click',function(){
-                camera.position.z = 20
-                camera.position.x=13
-                camera.position.y= -5
-                content.innerHTML = "星球上長滿這種植物，可是我們無法得知他的名字";
-                content2.innerHTML = "因為連主人也忘記他的名字了，可是它使得這顆星球看起來生生不息"
                 dialogue.classList.remove('hide')
-                buttons.classList.add('hide')
-                })
-
-                mmi.addHandler('Star1','dblclick',function(){
-                camera.position.z = 40
-                camera.position.x=-0
-                camera.position.y=0
-                dialogue.classList.add('hide')
-                buttons.classList.remove('hide')
-                })
-
-
+                dialogue_page1.style.display = 'block'
+                dialogue_page2.style.display = 'none'
+                dialogue_page3.style.display = 'none'
+                content1.innerHTML =  '似乎這顆星球沒有衛星，只有她一個人，' 
+                content2.innerHTML = "所以她非常獨立，"
+                content3.innerHTML =  '餓了會爬到樹上摘果實給自己吃，' 
+                content4.innerHTML = "渴了會去井給自己打水喝。"
                 
+                })
+
+            
+                mmi.addHandler('Star1','click',function(){
+                camera.position.z = 23
+                camera.position.x= 16
+                camera.position.y= -5
+                buttons.classList.add('hide')
+                dialogue.classList.remove('hide')
+                dialogue_page1.style.display = 'block'
+                dialogue_page2.style.display = 'none'
+                dialogue_page3.style.display = 'none'
+                content1.innerHTML =  '玲玲玲星球公主是一隻很愛笑的綿羊，' 
+                content2.innerHTML = "她非常樂於助人和熱情。"
+                content3.innerHTML =  '平常最喜歡做的就是收集漂亮的晶石樹葉等等，送給其他人，' 
+                content4.innerHTML = "哪怕那個人不喜歡還是會塞給他。"
+                })
+
+           
             })
            
           
+
+   
+
+                dialogueNext.addEventListener('click', (event)=>{
+                    dialogue_page1.style.display = 'none'
+                    dialogue_page2.style.display = 'block'
+                })
+                dialogueNext2.addEventListener('click', (event)=>{
+                    dialogue_page2.style.display = 'none'
+                    dialogue_page3.style.display = 'none'
+                    buttons.classList.remove('hide')
+                    camera.position.z = 40
+                    camera.position.x = 0
+                    camera.position.y = 0
+                })
+              
 
         })
        

@@ -11,14 +11,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500&family=Open+Sans:wght@500&display=swap" rel="stylesheet">
     <link href="./css/styles.css" rel="stylesheet"> 
     <link href="./css/rwd.css" rel="stylesheet"> 
-    <title>最熟悉的陌生星球</title>
+    <title>睡睡平安星球</title>
 </head>
 <body style="overflow: hidden;">
 
     <div class="loader-wrapper ">
         <img width="100%" src="./Video/LoadingMP4.gif"></img>
      </div>
-
      <div class="nav-div">
         <img src="./img/logo.png" class="nav__logo">
       
@@ -30,12 +29,10 @@
                 <ul class="base__container">
                     <li><a href="branding.html">品牌介紹</a></li>
                     <li><a href="cooperative-association.html">合作協會</a></li>
+                    <li><a href="app.html">應用程式</a></li>
                 </ul>
                 <li id="galaxy"><a href="main.html">行星</a></li>
-                <ul class="galaxy__container">
-                    <li><a href="passional-rapper.html">熱情rapper系</a></li>
-                    <li><a href="coolest-cool.html">cool的酷系</a></li>
-                </ul>
+                
                 <li><a href="tower.html">塔台</a></li>
                 <li><a href="explore.html">探索</a></li>
             </ul>
@@ -72,12 +69,10 @@
                     <ul class="base__container-mobile hide">
                         <li><a href="branding.html">品牌介紹</a></li>
                         <li><a href="cooperative-association.html">合作協會</a></li>
+                        <li><a href="app.html">應用程式</a></li>
                     </ul>
                     <li id="galaxy_mobile"><a href="main.html">行星</a></li>
-                    <ul class="galaxy__container-mobile hide">
-                        <li><a href="passional-rapper.html">熱情rapper系</a></li>
-                        <li><a href="coolest-cool.html">cool的酷系</a></li>
-                    </ul>
+                   
                     <li><a href="tower.html">塔台</a></li>
                     <li><a href="explore.html">探索</a></li>
                 </ul>
@@ -88,14 +83,41 @@
 
     
     <div class="buttons">
-        <a href="intro-shao-mei.html" title="pervious" class="pervious"><img src="./img/previous.png"></a>
-        <a href="shao-mei-page-two.html" title="next" class="next"><img src="./img/next.png"></a>
+        <a href="shao-mei-page-two.html" title="pervious" class="pervious"><img src="./img/previous.png"></a>
+        <a href="shaomei-introduction.html" title="next" class="next"><img src="./img/next.png"></a>
     </div>
-    <div class="dialogue hide">
-        <img src="./img/dialogue.png" class="dialogue__img">
-        <p id="content">0</p>
-        <p id="content-second">0</p>
+    <div class="dialogue hide" id="dialogue_pageone">
+        <button class="dialogue___btns" id="next1">
+            <img id="dialogue___btns-next" src="./img/dialogue_next.png">
+        </button>
+        <img src="./img/dialogue_cool.png" class="dialogue__img">
+        <div class="content-box">
+            <p id="content">即使這位公主性格很燥和愛睡，</p>
+            <p id="content-second">可是她有一顆樂於助人的心。</p>
+        </div>
     </div>
+    <div class="dialogue hide" id="dialogue_pagetwo">
+        <button class="dialogue___btns" id="next2">
+            <img id="dialogue___btns-next" src="./img/dialogue_next.png">
+        </button>
+        <img src="./img/dialogue_cool.png" class="dialogue__img">
+        <div class="content-box">
+            <p id="content-third">看到太空探索員降落到她的星球，</p>
+            <p id="content-fourth">搜集花朵做花圈的時候，</p>
+        </div>
+    </div>
+    <div class="dialogue hide" id="dialogue_pagethree">
+        <button class="dialogue___btns" id="next3">
+            <img id="dialogue___btns-next" src="./img/dialogue_next.png">
+        </button>
+        <img src="./img/dialogue_cool.png" class="dialogue__img">
+        <div class="content-box">
+            <p id="content-fifth">她會走過來一起做，</p>
+            <p id="content-sixth">也會教太空人怎樣把花莖穿過去，</p>
+            <p id="content-seventh">因為她很喜歡花朵覺得很漂亮。</p>
+        </div>
+    </div>
+
 
     <div class="SparkleStar"><img src="./img/SparkleStar.png"></div>
     <div class="webgl-div">
@@ -168,10 +190,15 @@
         let action
         let action2
         let action3
+ 
         const dialogue = document.querySelector('.dialogue')
-        const content = document.getElementById("content")
-        const content2 = document.getElementById("content-second")
         const buttons = document.querySelector('.buttons')
+        const dialogueNext = document.getElementById('next1')
+        const dialogueNext2 = document.getElementById('next2')
+        const dialogueNext3 = document.getElementById('next3')
+        const dialogue_page1 = document.getElementById('dialogue_pageone')
+        const dialogue_page2 = document.getElementById('dialogue_pagetwo')
+        const dialogue_page3 = document.getElementById('dialogue_pagethree')
         //ShaoMei material
         const ShaoMeiMap = new THREE.TextureLoader().load('./3Dmodels/PlanetF_Ani/ShaoMei_BaseColor.png')
         ShaoMeiMap.flipY = false;
@@ -210,6 +237,12 @@
         })
 
       
+        const StarMaterial = new THREE.MeshStandardMaterial({
+            color: 0x3A8F96,
+            roughness : 0.7,
+            side : THREE.DoubleSide,
+        })
+        
 
         const loadingManager = new THREE.LoadingManager
 
@@ -230,7 +263,7 @@ loadingManager.onLoad = function () {
         const loader2 = new THREE.GLTFLoader(loadingManager)
         loader2.load('./3Dmodels/PlanetF_Ani/planetScene3.gltf', function(gltf2){
             gltf2.scene.position.x= -2
-            gltf2.scene.position.y= -10
+            gltf2.scene.position.y= -12
             gltf2.scene.position.z= -4
            
          
@@ -263,10 +296,29 @@ loadingManager.onLoad = function () {
                 if(child.name == 'bee'){
                     child.material = bee_Mat
                 }
+                if(child.name == 'flowerRing'){
+                    child.material = BaseColor_Mat 
+                }
                 if(child.name == 'leader'){
                     child.material = Astounant_Mat
                 }
-                
+
+                if(child.name == 'Star1'){
+                    child.material = StarMaterial
+
+                    mmi.addHandler('Star1','mouseenter',function(){
+                    if (child.name === 'Star1') {
+						child.material = BaseColor_Mat;
+					}
+                    })
+
+                    mmi.addHandler('Star1','mouseleave',function(){
+                    if (child.name === 'Star1') {
+						child.material = StarMaterial;
+					}
+                    })
+
+                }
           
 
 
@@ -274,6 +326,27 @@ loadingManager.onLoad = function () {
 
        
 
+                mmi.addHandler('Star1','click',function(){
+                buttons.classList.add('hide')
+                dialogue.classList.remove('hide')
+                dialogue_page1.style.display = 'block'
+                dialogue_page2.style.display = 'none'
+                dialogue_page3.style.display = 'none'
+                
+                })
+
+                dialogueNext.addEventListener('click', (event)=>{
+                    dialogue_page1.style.display = 'none'
+                    dialogue_page2.style.display = 'block'
+                })
+                dialogueNext2.addEventListener('click', (event)=>{
+                    dialogue_page2.style.display = 'none'
+                    dialogue_page3.style.display = 'none'
+                    buttons.classList.remove('hide')
+                })
+                dialogueNext3.addEventListener('click', (event)=>{
+                    dialogue_page3.style.display = 'none'
+                })
                 
             })
            
