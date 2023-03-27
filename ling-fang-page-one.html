@@ -241,18 +241,13 @@ manager.onError = function ( url ) {
             skinning: true,
             roughness : 0.7,
         })
-        const SceneMap = new THREE.TextureLoader().load('./3Dmodels/PlanetJ_Ani/PlanetJ_BaseColor.png')
+        const SceneMap = new THREE.TextureLoader().load('./3Dmodels/PlanetJ_Ani/planetJ_BaseColor.png')
         SceneMap.flipY = false;
         Scene_Mat = new THREE.MeshStandardMaterial({
             map : SceneMap,
             roughness : 0.7,
         })
-        const RoseMap = new THREE.TextureLoader().load('./3Dmodels/PlanetJ_Ani/Rose_BaseColor.png')
-        RoseMap.flipY = false;
-        Rose_Mat = new THREE.MeshStandardMaterial({
-            map : RoseMap,
-            roughness : 0.7,
-        })
+
         const AstronantMap = new THREE.TextureLoader().load('./3Dmodels/PlanetJ_Ani/astronant_BaseColor.png')
         AstronantMap.flipY = false;
         Astounant_Mat = new THREE.MeshStandardMaterial({
