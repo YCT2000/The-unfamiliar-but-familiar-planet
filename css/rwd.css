@@ -6,7 +6,7 @@
 }
 @media (max-width: 1280px) {
     .mobile__nav{display: none;}
-    .entryAni{content:url('../Video/1280.gif'); width: 100vh;  background-size:100% auto; background-position-y: 5%;}
+    .entryAni{background-image:url('../Video/1280.gif'); width: 100vh;  background-size:100% auto; background-position-y: 5%;}
 
     /* nav */
     .nav__logo{  width: 12rem; margin-top: 5%; margin-left: 9vw; z-index: 5;}

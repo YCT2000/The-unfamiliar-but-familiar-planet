@@ -92,7 +92,7 @@ nav li .galaxy__container>li {float: none}
     background-color: #FFF;
     position: absolute;
     left: 10%;
-    top: 120%;
+    top: 128%;
     padding-left: 0;
     display: block;
     z-index: 99;
@@ -203,7 +203,7 @@ nav li .galaxy__container>li {float: none}
     width:50px;
     height:50px;
     position:absolute;
-    top:10.5%;
+    top:9%;
     right:9%;
     cursor:pointer;
     z-index:9;
@@ -215,9 +215,9 @@ nav li .galaxy__container>li {float: none}
 .burger {
 background-color:#FFF;
 border-radius:5px;
-height: 5px;
+height: 3px;
 margin-bottom: 5px;
-width: 35px;
+width: 30px;
 display:flex;
 
 }
@@ -239,7 +239,7 @@ display:flex;
 .burger1{
     background-color:#FFF;
     border-radius:5px;
-    height: 5px;
+    height: 3px;
     margin-top: 0%;
     position: absolute;
     width: 40px;
@@ -249,7 +249,7 @@ display:flex;
 .burger2{
     background-color:#FFF;
     border-radius:5px;
-    height: 5px;
+    height: 3px;
     position: center;
     width: 40px;
     rotate: -45deg;
@@ -309,6 +309,7 @@ display:flex;
     opacity: 70%;
     z-index: 6;
     animation: fadeIn 5s;
+    padding-top: 3px;
    
 }
 .dialogueMain p{ padding-top: 1.5vh;}
@@ -665,9 +666,15 @@ input[type="checkbox" i] {
 .content-box{position: absolute; top:4vh; left: 3%; font-family: 'Noto Sans TC', sans-serif; font-size: 1.1vw; line-height: 10px;
             font-weight: medium; color: #ffffff; text-align: left;}
 .dialogue___btns{ position: absolute; background-color: transparent; border: none; display: inline; width: 10%; right: 35vw;
-                bottom: 2.5vw; z-index: 99;}
+                bottom: 2.5vw; z-index: 99; animation: shining 2s ease-in-out infinite;}
+@keyframes shining {
+    0%{filter: drop-shadow(0 1px 1px rgba(255, 255, 255, 0))}
+    50%{filter: drop-shadow(0 2px 2px rgb(255, 255, 255));}
+    100%{filter: drop-shadow(0 1px 1px rgba(255, 255, 255, 0))}
+    
+}
 .dialogue___btns:hover{cursor: pointer;}
-#dialogue_pageone{display: none;}
+#dialogue_pageone{display: none; }
 #dialogue_pagetwo{display: none;}
 #dialogue_pagethree{display: none;}
 #dialogue___btns-next{width: 20%;}
