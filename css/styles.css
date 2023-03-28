@@ -700,6 +700,7 @@ input[type="checkbox" i] {
 .cooperative__description{width: 45%; float: right; text-align: left; 
                           font-family: 'Noto Sans TC', sans-serif; color: white; padding-left: 3vw; padding-right: 7vw; line-height: 190%;}
 .cooperative__imglist{margin-bottom: 172px;}
+.branding-imglist{ display: block;}
 
 /*頁面介紹*/
 .single-item{margin: 123px; width: 50%; float: left;}

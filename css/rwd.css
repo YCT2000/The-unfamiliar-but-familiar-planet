@@ -1,13 +1,13 @@
 
 @media (min-width: 1280px) {
     .mobile__nav{display: none;}
-    .branding-imglist{ display: flex;}
+   
     
 }
 @media (max-width: 1280px) {
     .mobile__nav{display: none;}
     .entryAni{background-image:url('../Video/1280.gif'); width: 100vh;  background-size:100% auto; background-position-y: 5%;}
-
+    .branding-imglist{ display: flex;}
     /* nav */
     .nav__logo{  width: 12rem; margin-top: 5%; margin-left: 9vw; z-index: 5;}
     .navContainer{left: 30%; margin: 50px 30px;} 
