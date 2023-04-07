@@ -703,10 +703,24 @@ input[type="checkbox" i] {
 .branding-imglist{ display: block;}
 
 /*頁面介紹*/
-.single-item{margin: 123px; width: 50%; float: left;}
+.single-item{margin: 123px;  width: 45%; float: left;}
 .elderly-introduction{width: 30%;  float: left; margin-top: 123px; font-family: 'Noto Sans TC', sans-serif; color: white; }
-.elderly-tag{ margin: 60px 0; }
-.elderly-introduction p {margin-top: 47px;}
+.tabs{display: flex ;position: relative; }    
+.elderly-tabs{flex:1;}   
+.elderly-introduction p {margin-top: 47px; font-size: 0.9rem;}
+
+.tabs label{display: block; box-sizing: border-box; height: 40px;
+            padding: 10px; text-align: center;cursor: pointer;}
+.tabs-content{position: absolute;box-sizing: border-box; left: 0; bottom: 0; right: 0; top: 40px;
+              transition: opacity 0.8s ease,transform 0.8s ease ; opacity: 0; transform: scale(0.1);
+              transform-origin: top left; }
+.tabs-text-img{border: 1px solid rgba(255, 255, 255, 0.452);border-radius: 4px; padding: 20px 20px 0px;}
+.tabs-text-img img{width:100%;}
+.tabs [type=radio] { display: none; }
+[type=radio]:checked ~ label {border-bottom-style: solid; z-index: 2;}
+
+[type=radio]:checked ~ label ~ .tabs-content {z-index: 1;/* show/hide */opacity: 1;transform: scale(1);}
+.tabs-content img{ margin-top: 47px;}
 .character{position: absolute; left: -7%; width: 70%;}
 .speech-box-first{position: absolute; right: 8%; width: 60%;}
 .speech-line {position: absolute; right: 4vw; top: 6vh; font-size: 1.7vw;  font-family: 'Noto Sans TC', sans-serif; color: white; }
@@ -721,6 +735,9 @@ input[type="checkbox" i] {
 .speech-line-fourth{position: absolute; left: 4vw; top: 5vh; font-size: 1.7vw;  font-family: 'Noto Sans TC', sans-serif; color: white; }
 .speech-line-fourth p{margin-block-end: 2em; margin-block-start: 2em;}
 .youtube-link{margin: 123px; text-align: center;}
+
+
+
 
 /* lin chun doodles */
 .linchun-line-first{position: absolute; left: 30%; top: 20%; z-index: 2; }
@@ -768,5 +785,12 @@ input[type="checkbox" i] {
  .app-rightBottom p{padding-right: 2vw;}
  .QRplayStore{padding-right: 2vw;}
 
-
+ .clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+    }
 
