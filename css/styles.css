@@ -707,20 +707,20 @@ input[type="checkbox" i] {
 .elderly-introduction{width: 30%;  float: left; margin-top: 123px; font-family: 'Noto Sans TC', sans-serif; color: white; }
 .tabs{display: flex ;position: relative; }    
 .elderly-tabs{flex:1;}   
-.elderly-introduction p {margin-top: 47px; font-size: 0.9rem;}
-
+.elderly-introduction p {margin-top: 43px; font-size: 0.9rem;}
+.signature{width: 80%;}
 .tabs label{display: block; box-sizing: border-box; height: 40px;
             padding: 10px; text-align: center;cursor: pointer;}
 .tabs-content{position: absolute;box-sizing: border-box; left: 0; bottom: 0; right: 0; top: 40px;
               transition: opacity 0.8s ease,transform 0.8s ease ; opacity: 0; transform: scale(0.1);
               transform-origin: top left; }
 .tabs-text-img{border: 1px solid rgba(255, 255, 255, 0.452);border-radius: 4px; padding: 20px 20px 0px;}
-.tabs-text-img img{width:100%;}
+.tabs-mascot{width:100%; margin-top: 40px;}
 .tabs [type=radio] { display: none; }
 [type=radio]:checked ~ label {border-bottom-style: solid; z-index: 2;}
 
 [type=radio]:checked ~ label ~ .tabs-content {z-index: 1;/* show/hide */opacity: 1;transform: scale(1);}
-.tabs-content img{ margin-top: 47px;}
+#tabs-first-page{margin-top: 43px; }
 .character{position: absolute; left: -7%; width: 70%;}
 .speech-box-first{position: absolute; right: 8%; width: 60%;}
 .speech-line {position: absolute; right: 4vw; top: 6vh; font-size: 1.7vw;  font-family: 'Noto Sans TC', sans-serif; color: white; }
