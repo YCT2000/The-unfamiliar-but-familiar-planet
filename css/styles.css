@@ -705,8 +705,8 @@ input[type="checkbox" i] {
 /*頁面介紹*/
 .single-item{margin: 123px;  width: 45%; float: left;}
 .elderly-introduction{width: 30%;  float: left; margin-top: 123px; font-family: 'Noto Sans TC', sans-serif; color: white; }
-.tabs{display: flex ;position: relative; }    
-.elderly-tabs{flex:1;}   
+.tabs{display: flex ;position: relative; font-size: 0.8rem; }    
+ 
 .elderly-introduction p {margin-top: 43px; font-size: 0.9rem;}
 .signature{width: 80%;}
 .tabs label{display: block; box-sizing: border-box; height: 40px;
@@ -732,6 +732,8 @@ input[type="checkbox" i] {
 
 .speech-box-second{position: absolute; left: 15%; top:10%; width: 50%;}
 #rose{position: absolute; right: 5%; width: 30%; bottom: 0vh;}
+.one-page-mascot2{position: absolute; right: 6%; width: 30%; bottom: 0vh;}
+
 .speech-line-fourth{position: absolute; left: 4vw; top: 5vh; font-size: 1.7vw;  font-family: 'Noto Sans TC', sans-serif; color: white; }
 .speech-line-fourth p{margin-block-end: 2em; margin-block-start: 2em;}
 .youtube-link{margin: 123px; text-align: center;}
@@ -749,22 +751,124 @@ input[type="checkbox" i] {
 .linchunDoodle_1:hover{cursor: pointer;}
 
 /*ling fang doodles */
-.lingfangDoodle_1{position: absolute; width: 20%; right: 10%; top: 5%;}
-.lingfangDoodle_2{position: absolute; width: 35%; right: 20%; bottom: 5%;}
-.lingfangDoodle_3{position: absolute; width: 20%; left: 25%; bottom: 45%;}
-.lingfangDoodle_4{position: absolute; width: 100%; bottom: 0;}
+.lingfangDoodle_1{position: absolute; width: 15%; right: 0%; top: 10%;filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
+.lingfangDoodle_2{position: absolute; width: 35%; right: 30%; top:0%;filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
+.lingfangDoodle_3{position: absolute; width: 20%; left: 15%; bottom: 45%;filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
+.lingfangDoodle_4{position: absolute; width: 100%; bottom: -20%;left:-5%; filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
 
-.lingfangDoodle_5{position: absolute; width: 20%;}
-.lingfangDoodle_6{position: absolute; width: 20%;}
-.lingfangDoodle_7{position: absolute; width: 20%;}
-.lingfangDoodle_8{position: absolute; width: 20%;}
-.lingfangDoodle_9{position: absolute; width: 20%;}
-.lingfangDoodle_10{position: absolute; width: 20%;}
-.lingfangDoodle_11{position: absolute; width: 20%;}
+.lingfangDoodle_5{position: absolute; width: 20%; right: 45%; top: 15%;filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
+.lingfangDoodle_6{position: absolute; width: 15%; right: 35%; top: 50%;filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
+.lingfangDoodle_7{position: absolute; width: 20%; right: 0%; bottom: -20%;filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
+.lingfangDoodle_8{position: absolute; width: 80%; bottom: -14%;filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
+.lingfangDoodle_9{position: absolute; width: 13%; left: 23%; top: 40%;filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
+.lingfangDoodle_10{position: absolute; width: 10%; left: 65%; top: 30%;filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
+.lingfangDoodle_11{position: absolute; width: 20%; filter: drop-shadow(10px 10px 4px rgb(123, 123, 123)); top:-10%}
+
+
+/* CaiYun Doodles */
+
+.caiyunDoodle_1{width: 30%; position: absolute; left:0%; top: 5%;  filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
+.caiyunDoodle_2{width: 30%; position: absolute; right: 0;top: 5%;  filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
+.caiyunDoodle_3{width: 15%; position: absolute; left: 20%; bottom: -10%;  filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
+.caiyunDoodle_4{width: 15%; position: absolute;left: 40%; bottom: -10%;  filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
+.caiyunDoodle_5{width: 15%; position: absolute; right: 30%; bottom: -10%;  filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
+.caiyunDoodle_6{width: 15%; position: absolute; right: 15%; bottom: -10%;  filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
+.caiyunDoodle_7{width: 20%; position: absolute; left: 10%;bottom: -10%;  filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
+.caiyunDoodle_8{width: 20%; position: absolute; top: 35%;left: 25%;  filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
+
+.caiyunDoodle_9{width: 13%; position: absolute; left: 35%; top: 30%; filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
+.caiyunDoodle_10{width: 100%; position: absolute; bottom: -20%; filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
+.caiyunDoodle_11{width: 10%; position: absolute; right: 10%; bottom: 20%; filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
+.caiyunDoodle_12{width: 10%; position: absolute; right: 0%;  bottom: 15%; filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
+.caiyunDoodle_13{width: 15%; position: absolute; left: 5%; filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
+.caiyunDoodle_14{width: 15%; position: absolute; left: 15%; bottom: 20%; filter: drop-shadow(10px 10px 4px rgb(123, 123, 123)); }
+.caiyunDoodle_15{width: 30%; position: absolute; right: 20%; top: 20%; filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
+.caiyunDoodle_16{width: 15%; position: absolute; left: 25%; bottom: 10%; filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
+
+
+/* ManZu Doodles */
+.manzuDoodle_1{width: 20%; position: absolute; left:0%; top: 5%;  filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
+.manzuDoodle_2{width: 20%; position: absolute; right: 0;top: 5%;  filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
+.manzuDoodle_3{width: 10%; position: absolute; left: 20%; bottom: -10%;  filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
+.manzuDoodle_4{width: 20%; position: absolute;left: 40%; bottom: -10%;  filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
+.manzuDoodle_5{width: 20%; position: absolute; right: 30%; bottom: -10%;  filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
+.manzuDoodle_6{width: 20%; position: absolute; right: 15%; bottom: -10%;  filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
+
+.manzuDoodle_7{width: 15%; position: absolute; right: 0%; bottom: 0;  filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
+.manzuDoodle_8{width: 20%; position: absolute; left: 25%; top: -10%;  filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
+.manzuDoodle_9{width: 13%; position: absolute;  top: 0; right: 5%; filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
+.manzuDoodle_10{width: 25%; position: absolute; bottom: -20%; left: 5%; filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
+.manzuDoodle_11{width: 15%; position: absolute; left: 35%; bottom:-15%; filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
+.manzuDoodle_12{width: 20%; position: absolute; top: 0; left:0%; filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
+.manzuDoodle_13{width: 20%; position: absolute; right: 30%; filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
+.manzuDoodle_14{width: 20%; position: absolute; right: 25%; bottom: -20%; filter: drop-shadow(10px 10px 4px rgb(123, 123, 123)); }
+
+
+/* KaiZhou Doodles*/
+.kaizhouDoodle_1{width: 20%; position: absolute; left:0%; top: 5%;  filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
+.kaizhouDoodle_2{width: 20%; position: absolute; left:0%; top: 5%;  filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
+.kaizhouDoodle_3{width: 20%; position: absolute; left:0%; top: 5%;  filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
+.kaizhouDoodle_4{width: 20%; position: absolute; left:0%; top: 5%;  filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
+
+.kaizhouDoodle_5{width: 20%; position: absolute; left:0%; top: 5%;  filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
+.kaizhouDoodle_6{width: 20%; position: absolute; left:0%; top: 5%;  filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
+.kaizhouDoodle_7{width: 20%; position: absolute; left:0%; top: 5%;  filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
+.kaizhouDoodle_8{width: 20%; position: absolute; left:0%; top: 5%;  filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
+.kaizhouDoodle_9{width: 20%; position: absolute; left:0%; top: 5%;  filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
+
+
+
+/* ShaoMei Doodles*/
+.shaomeiDoodleDoodle_1{width: 20%; position: absolute; left:0%; top: 5%;  filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
+.shaomeiDoodleDoodle_2{width: 20%; position: absolute; left:0%; top: 5%;  filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
+.shaomeiDoodleDoodle_3{width: 20%; position: absolute; left:0%; top: 5%;  filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
+
+.shaomeiDoodleDoodle_4{width: 20%; position: absolute; left:0%; top: 5%;  filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
+.shaomeiDoodleDoodle_5{width: 20%; position: absolute; left:0%; top: 5%;  filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
+.shaomeiDoodleDoodle_6{width: 20%; position: absolute; left:0%; top: 5%;  filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
+.shaomeiDoodleDoodle_7{width: 20%; position: absolute; left:0%; top: 5%;  filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
+.shaomeiDoodleDoodle_8{width: 20%; position: absolute; left:0%; top: 5%;  filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
+.shaomeiDoodleDoodle_9{width: 20%; position: absolute; left:0%; top: 5%;  filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
+.shaomeiDoodleDoodle_10{width: 20%; position: absolute; left:0%; top: 5%;  filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
+
+
+/* YuYing Doodles*/
+.yuyingDoodleDoodle_1{width: 20%; position: absolute; left:0%; top: 5%;  filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
+.yuyingDoodleDoodle_2{width: 20%; position: absolute; left:0%; top: 5%;  filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
+.yuyingDoodleDoodle_3{width: 20%; position: absolute; left:0%; top: 5%;  filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
+.yuyingDoodleDoodle_4{width: 20%; position: absolute; left:0%; top: 5%;  filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
+.yuyingDoodleDoodle_5{width: 20%; position: absolute; left:0%; top: 5%;  filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
+.yuyingDoodleDoodle_6{width: 20%; position: absolute; left:0%; top: 5%;  filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
+.yuyingDoodleDoodle_7{width: 20%; position: absolute; left:0%; top: 5%;  filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
+.yuyingDoodleDoodle_8{width: 20%; position: absolute; left:0%; top: 5%;  filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
+.yuyingDoodleDoodle_9{width: 20%; position: absolute; left:0%; top: 5%;  filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
+.yuyingDoodleDoodle_10{width: 20%; position: absolute; left:0%; top: 5%;  filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
+.yuyingDoodleDoodle_11{width: 20%; position: absolute; left:0%; top: 5%;  filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
+.yuyingDoodleDoodle_12{width: 20%; position: absolute; left:0%; top: 5%;  filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
+.yuyingDoodleDoodle_13{width: 20%; position: absolute; left:0%; top: 5%;  filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
+
+/* YuLian Doodles*/
+.yuyingDoodleDoodle_1{width: 20%; position: absolute; left:0%; top: 5%;  filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
+.yuyingDoodleDoodle_2{width: 20%; position: absolute; left:0%; top: 5%;  filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
+.yuyingDoodleDoodle_3{width: 20%; position: absolute; left:0%; top: 5%;  filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
+.yuyingDoodleDoodle_4{width: 20%; position: absolute; left:0%; top: 5%;  filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
+.yuyingDoodleDoodle_5{width: 20%; position: absolute; left:0%; top: 5%;  filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
+.yuyingDoodleDoodle_6{width: 20%; position: absolute; left:0%; top: 5%;  filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
+.yuyingDoodleDoodle_7{width: 20%; position: absolute; left:0%; top: 5%;  filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
+.yuyingDoodleDoodle_8{width: 20%; position: absolute; left:0%; top: 5%;  filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
+.yuyingDoodleDoodle_9{width: 20%; position: absolute; left:0%; top: 5%;  filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
+.yuyingDoodleDoodle_10{width: 20%; position: absolute; left:0%; top: 5%;  filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
+.yuyingDoodleDoodle_11{width: 20%; position: absolute; left:0%; top: 5%;  filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
+.yuyingDoodleDoodle_12{width: 20%; position: absolute; left:0%; top: 5%;  filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
+.yuyingDoodleDoodle_13{width: 20%; position: absolute; left:0%; top: 5%;  filter: drop-shadow(10px 10px 4px rgb(123, 123, 123));}
+
+
 
 .doodle-left-ani{ transform: translateX(20%) ; opacity: 1; transition: 1s ease-in-out;}
 .doodle-right-ani{ transform: translateX(-30%); opacity: 1; transition: 1s ease-out;}
 .doodle-bottom-ani{ transform: translateY(-30%); opacity: 1; transition: 1s ease-out;}
+.doodle-top-ani{ transform: translateY(20%); opacity: 1; transition: 1s ease-out;}
+
  @keyframes idel {
     from{
         transfrom: translateY(-5%);
